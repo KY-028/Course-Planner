@@ -1,5 +1,4 @@
 # Queen's Computing Course Planner
-(You might have to move inside the project folder by entering `cd courseplanner` first)
 
 To start the development server: enter `npm run dev`
 
