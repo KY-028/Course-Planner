@@ -1,13 +1,60 @@
-import { useState } from 'react';
+import { Children, useState } from 'react';
+import "./styles.css"
+import SignUp from "./pages/signUp"
+import Login from "./pages/login"
+import Home from "./pages/home"
+import Footer from "./components/footer"
+
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Outlet,
+} from "react-router-dom";
+
+// layout for commen page
+function Layout() {
+  return (
+    <>
+      <Outlet/>
+      <Footer/>
+    </>
+  )
+}
+
+const router = createBrowserRouter([
+  // route for home page
+  {
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <Home />
+      },
+      {
+        path: "/home",
+        element: <Home />
+      }
+    ]
+  },
+
+  // route for signup and login page
+  {
+    path: "/signup",
+    element: <SignUp />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+]);
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <>
-      <h1>Vite + React</h1>
-      <p className='text-blue-500 text-2xl font-bold'>Note from Kevin: This is proof you can now code and use tailwind</p>
-    </>
+    <div>
+      <RouterProvider router={router}/>
+    </div>
   );
 }
 
