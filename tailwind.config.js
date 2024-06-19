@@ -6,7 +6,15 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      // Colors as shown in figma - Bill
+      colors: {
+        blue: '#3082ce',
+        darkBlue: '#356193',
+        darkdarkBlue: '#264569',
+        teal: '#61b1c3',
+      },
+    },
   },
   plugins: [],
 }
