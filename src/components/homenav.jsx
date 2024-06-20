@@ -1,23 +1,46 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
-import { motion } from 'framer-motion';
+import { useState, useEffect } from "react";
+import { motion, useAnimation } from 'framer-motion';
 
 export default function HomeNav() {
 
     const [open, setOpen] = useState(false);
-    const variants = {
+
+    const menuVariants = {
         hidden: { opacity: 0, y: -20 },
-        visible: { opacity: 1, y: 0 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                when: "beforeChildren",
+                staggerChildren: 0.2
+            }
+        },
     };
+    
+    const itemVariants = {
+        hidden: { opacity: 0, x: 20 },
+        visible: { opacity: 1, x: 0 },
+    };
+
+    const controls = useAnimation();
+
+    useEffect(() => {
+        if (open) {
+            controls.start("visible");
+        } else {
+            controls.start("hidden");
+        }
+    }, [open, controls]);
 
     return (
         <header className="w-full">
             {/* The Normal Screen Size */}
             <div className="sm:flex hidden w-full md:h-24 sm:h-16 justify-between bg-dark-blue">
-                <div className="flex items-center">
+                <Link to="/" className="flex items-center">
                     <img src={"/logo.png"} alt="Course Planner" className="p-3 max-h-full object-contain" />
                     <div className="text-white md:text-2xl text-lg font-bold">Course Planner</div>
-                </div>
+                </Link>
                 <div className="flex items-center text-white md:text-xl text-base mr-3">
                     <Link to="/about" className="md:mx-5 mx-3">
                         About
@@ -37,11 +60,11 @@ export default function HomeNav() {
             </div>
             {/* The Mobile Screen Size */}
 
-            <div className="sm:hidden flex w-full h-10 justify-between bg-dark-blue">
-                <div className="flex items-center">
-                    <img src={"/logo.png"} alt="Course Planner" className="p-1 pl-2 max-h-full object-contain" />
-                    <div className="text-white md:text-2xl text-lg font-bold">Course Planner</div>
-                </div>
+            <div className="sm:hidden flex w-full h-10 justify-between bg-dark-blue py-1">
+                <Link to="/" className="flex items-center">
+                    <img src={"/logo.png"} alt="Course Planner" className="p-1.5 pl-3 max-h-full object-contain" />
+                    <div className="text-white text-lg font-bold">Course Planner</div>
+                </Link>
             <div className="flex items-center p-4">
                 <button
                     className="relative w-8 h-8 rounded-lg md:hidden focus:outline-none focus:shadow-outline"
@@ -65,25 +88,33 @@ export default function HomeNav() {
                     </svg>
                 </button>
             </div>
-            <motion.nav
-                initial="hidden"
-                animate={open ? 'visible' : 'hidden'}
-                variants={variants}
-                className={`flex-col flex-grow pb-4 md:pb-0 md:flex md:justify-end md:flex-row absolute right-0 top-10 bg-dark-blue w-full md:w-auto ${open ? 'flex' : 'hidden'}`}
-            >
-                <Link className="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 text-white focus:text-gray-400 hover:bg-gray-700 focus:bg-gray-700 focus:outline-none focus:shadow-outline" to="/about">
+        <motion.nav
+            initial="hidden"
+            animate={controls}
+            variants={menuVariants}
+            className={`flex-col flex-grow pb-2 absolute right-0 top-10 bg-dark-blue bg-opacity-90 w-full text-right ${open ? 'flex' : 'hidden'}`}
+        >
+            <motion.div variants={itemVariants} className="px-4 py-2 w-full text-sm font-semibold bg-transparent rounded-lg text-white focus:text-gray-400 hover:bg-gray-700 focus:bg-gray-700 focus:outline-none focus:shadow-outline">
+                <Link to="/about">
                     About
                 </Link>
-                <Link className="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 text-white focus:text-gray-400 hover:bg-gray-700 focus:bg-gray-700  focus:outline-none focus:shadow-outline" to="/support">
+            </motion.div>
+            <motion.div variants={itemVariants} className="px-4 py-2 w-full text-sm font-semibold bg-transparent rounded-lg text-white focus:text-gray-400 hover:bg-gray-700 focus:bg-gray-700 focus:outline-none focus:shadow-outline">
+                <Link to="/support">
                     Support
                 </Link>
-                <Link className="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 text-white focus:text-gray-400 hover:bg-gray-700 focus:bg-gray-700  focus:outline-none focus:shadow-outline" to="/login">
+            </motion.div>
+            <motion.div variants={itemVariants} className="px-4 py-2 w-full text-sm font-semibold bg-transparent rounded-lg text-white focus:text-gray-400 hover:bg-gray-700 focus:bg-gray-700 focus:outline-none focus:shadow-outline">
+                <Link to="/login">
                     Log in
                 </Link>
-                <Link className="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 text-white focus:text-gray-400 hover:bg-gray-700 focus:bg-gray-700  focus:outline-none focus:shadow-outline" to="/signup">
+            </motion.div>
+            <motion.div variants={itemVariants} className="px-4 py-2 w-full text-sm font-semibold bg-transparent rounded-lg text-white focus:text-gray-400 hover:bg-gray-700 focus:bg-gray-700 focus:outline-none focus:shadow-outline">
+                <Link to="/signup">
                     Sign up
                 </Link>
-            </motion.nav>
+            </motion.div>
+        </motion.nav>
                 {/* <div className="flex items-center text-white md:text2xl mr-3">
                     <Link to="/about" className="text-xl mx-5">
                         About
