@@ -1,8 +1,10 @@
 import React from 'react'
+import HomeNav from '/src/components/homenav'
 
 function Home() {
     return (
-        <p>Home</p>
+        <HomeNav />
+        // The rest of the Home Components
     )
 }
 
