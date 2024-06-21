@@ -15,6 +15,7 @@ module.exports = {
         "custom-dark-blue": "356193",
         "custom-blue-1": "#65A8F6",
       }
+
     },
   },
   plugins: [],
