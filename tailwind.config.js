@@ -18,6 +18,7 @@ module.exports = {
       colors: {
         "dark-blue": "#264569",
         "custom-blue-1": "#65A8F6",
+        "teal": "#65a8f6",
       },
       gridTemplateColumns: {
         "sidebar": "20% 80%",
@@ -26,6 +27,7 @@ module.exports = {
       fontSize: {
         small: "12.5px",
       }
+
     },
   },
   plugins: [],

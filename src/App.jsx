@@ -1,5 +1,6 @@
 import { Children, useState } from 'react';
 import "./styles.css"
+import LeftMenu from "./components/leftMenu"
 import SignUp from "./pages/signUp"
 import Login from "./pages/login"
 import Home from "./pages/home"
