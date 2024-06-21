@@ -34,7 +34,7 @@ export default function HomeNav() {
     }, [open, controls]);
 
     return (
-        <header className="w-full">
+        <header className="w-full z-50">
             {/* The Normal Screen Size */}
             <div className="sm:flex hidden w-full md:h-24 sm:h-16 justify-between bg-dark-blue">
                 <Link to="/" className="flex items-center">
@@ -92,7 +92,7 @@ export default function HomeNav() {
             initial="hidden"
             animate={controls}
             variants={menuVariants}
-            className={`flex-col flex-grow pb-2 absolute right-0 top-10 bg-dark-blue bg-opacity-90 w-full text-right ${open ? 'flex' : 'hidden'}`}
+            className={`z-40 flex-col flex-grow pb-2 absolute right-0 top-10 bg-dark-blue bg-opacity-90 w-full text-right ${open ? 'flex' : 'hidden'}`}
         >
             <motion.div variants={itemVariants} className="px-4 py-2 w-full text-sm font-semibold bg-transparent rounded-lg text-white focus:text-gray-400 hover:bg-gray-700 focus:bg-gray-700 focus:outline-none focus:shadow-outline">
                 <Link to="/about">
