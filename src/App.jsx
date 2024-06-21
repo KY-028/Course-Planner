@@ -3,6 +3,7 @@ import "./styles.css"
 import LeftMenu from "./components/leftMenu"
 import SignUp from "./pages/signUp"
 import Login from "./pages/login"
+import Courses from "./pages/course-selection"
 import Home from "./pages/home"
 import Footer from "./components/footer"
 
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login />,
   },
+  {
+    path: "/course-selection",
+    element: <Courses />,
+  }
 ]);
 
 function App() {
