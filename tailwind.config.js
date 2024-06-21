@@ -7,13 +7,15 @@ module.exports = {
   ],
   theme: {
     extend: {
-      // Colors as shown in figma - Bill
       colors: {
-        blue: '#3082ce',
-        darkBlue: '#356193',
-        darkdarkBlue: '#264569',
-        teal: '#61b1c3',
-      },
+        "dark-blue": "#264569",
+        "bright-blue": "#3082CE",
+        "clear-blue": "#61B1C3",
+        "custom-blue": "#1467B4",
+        "custom-dark-blue": "356193",
+        "custom-blue-1": "#65A8F6",
+      }
+
     },
   },
   plugins: [],
