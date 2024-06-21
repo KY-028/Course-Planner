@@ -21,11 +21,15 @@ module.exports = {
         "teal": "#65a8f6",
       },
       gridTemplateColumns: {
-        "sidebar": "20% 80%",
+        'sidebar': '20% 1fr', // For smaller screens
+        'sidebar-lg': 'minmax(0, 16rem) 1fr', // For larger screens
         "table": "10% 18% 18% 18% 18% 18%",
       },
       fontSize: {
         small: "12.5px",
+      },
+      maxWidth: {
+        'wide': '16rem',
       }
 
     },
