@@ -150,16 +150,16 @@ const Slot = ({ time, name }) => {
     const [endHour, endMinute] = end.split(':').map(Number);
     const totalMinutes = (startHour-8) * 60 + startMinute;
     const endTotalMinutes = (endHour-8) * 60 + endMinute;
-    const topPosition = (totalMinutes / 60) * 3;
+    const topPosition = (totalMinutes / 60) * 3 + 0.1;
     const durationMinutes = endTotalMinutes - totalMinutes;
-    const height = (durationMinutes / 60) * 3;
+    const height = (durationMinutes / 60) * 3 + 0.1;
 
     return (
         <div
             className="z-10 absolute left-0 w-full"
             style={{ top: `${topPosition}rem`, height: `${height}rem` }}
         >
-            <div className="bg-blue-100 text-blue-500 lg:mx-4 md:mx-0 sm:mx-1 mx-0 sm:p-1 pt-0.5 rounded h-full box-border">
+            <div className="bg-blue-100 text-blue-500 lg:mx-0.25 md-custom:mx-0 sm:mx-0.5 mx-0 sm:p-1 pt-0.5 rounded h-full box-border">
                 <div className='flex flex-col'>
                     <p className='xl:text-sm lg:text-small md-custom:text-xs sm:text-sm hidden font-bold'>
                         {time}
