@@ -16,7 +16,6 @@ import {
 function Layout() {
   return (
     <>
-      <LeftMenu activeTab={'home'}/>
       <Outlet/>
       <Footer/>
     </>
