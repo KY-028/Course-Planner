@@ -6,15 +6,26 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    screens: {
+      'md-custom': '800px',
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+    },
     extend: {
       colors: {
         "dark-blue": "#264569",
-        "bright-blue": "#3082CE",
-        "clear-blue": "#61B1C3",
-        "custom-blue": "#1467B4",
-        "custom-dark-blue": "356193",
         "custom-blue-1": "#65A8F6",
         "teal": "#65a8f6",
+      },
+      gridTemplateColumns: {
+        "sidebar": "20% 80%",
+        "table": "10% 18% 18% 18% 18% 18%",
+      },
+      fontSize: {
+        small: "12.5px",
       }
 
     },
