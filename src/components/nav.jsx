@@ -37,14 +37,14 @@ export default function Nav({activeTab}) {
         <header className="w-full z-40">
             {/* The Normal Screen Size */}
             <div className="lg:flex hidden w-full h-16">
-                <div className="w-full text-center text-2xl font-bold text-black pt-4"> Course Selection Planner</div>
-                <div className="absolute right-4 text-black top-1">Name</div>
-                <div className="absolute right-4 text-black top-6">2024-2025</div>
+                <div className="w-full flex justify-center items-center text-2xl font-bold text-black"> Course Selection Planner</div>
+                <div className="absolute right-4 text-black top-2">Name</div>
+                <div className="absolute right-4 text-black top-7">2024-2025</div>
             </div>
 
             {/* The Smaller Screen Size */}
 
-            <div className="lg:hidden flex w-full h-10 bg-dark-blue">
+            <div className="lg:hidden flex w-full h-12 bg-dark-blue">
                 <div className="w-full h-full flex justify-center items-center md:text-2xl text-lg font-bold text-white"> Course Selection Planner</div>
             <div className="z-50 absolute top-0 right-0 items-center p-1">
                 <button

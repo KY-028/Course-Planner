@@ -7,14 +7,18 @@ module.exports = {
   ],
   theme: {
     screens: {
-      'md-custom': '800px',
       'sm': '640px',
       'md': '768px',
+      'md-custom': '900px',
       'lg': '1024px',
       'xl': '1280px',
       '2xl': '1536px',
     },
     extend: {
+      spacing: {
+        '0.25': '1px',
+        '20%': '20%',
+      },
       colors: {
         "dark-blue": "#264569",
         "custom-blue-1": "#65A8F6",
@@ -26,7 +30,9 @@ module.exports = {
         "table": "10% 18% 18% 18% 18% 18%",
       },
       fontSize: {
-        small: "12.5px",
+        small: "12px",
+        xxs: "10px",
+        xxxs: "9px",
       },
       maxWidth: {
         'wide': '16rem',

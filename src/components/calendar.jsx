@@ -1,28 +1,96 @@
 // src/components/Calendar.jsx
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 
-const times = [
-    { name: 'CISC 121', day: 'Tuesday', time: '9:30-10:30' },
-    { name: 'CISC 121', day: 'Wednesday', time: '8:30-9:30' },
-    { name: 'CISC 121', day: 'Friday', time: '10:30-11:30' },
-    { name: 'MATH 121', day: 'Tuesday', time: '12:30-13:30' },
-    { name: 'CISC 203', day: 'Tuesday', time: '18:30-21:30' },
-    { name: 'MUSC 156', day: 'Thursday', time: '10:00-11:30' },
-    
+const initialColors = [
+    "bg-blue-100 text-blue-500",
+    "bg-red-100 text-red-500",
+    "bg-yellow-100 text-yellow-700",
+    "bg-purple-100 text-purple-600",
+    "bg-green-100 text-green-600",
+    // Add more colors if needed
 ];
 
 const dayOfWeek = new Date().getDay();
 const startingHour = 8;
 
 
+
+
 const Calendar = (props) => {
+    const [colors, setColors] = useState(initialColors);
+    const [courseColors, setCourseColors] = useState({});
+    const [occupiedSlots, setOccupiedSlots] = useState([]);
+
+    const times = props.times;
+
+    useEffect(() => {
+        const newOccupiedSlots = props.times.map(event => {
+            const [startHour, startMinute] = event.time.split('-')[0].split(':').map(Number);
+            const [endHour, endMinute] = event.time.split('-')[1].split(':').map(Number);
+            const startTime = startHour * 60 + startMinute;
+            const endTime = endHour * 60 + endMinute;
+            return { ...event, startTime, endTime };  // include startTime and endTime
+        });
+        setOccupiedSlots(newOccupiedSlots);
+    }, [props.times]);
+
+    const isConflict = (event, slots) => {
+        const [startHour, startMinute] = event.time.split('-')[0].split(':').map(Number);
+        const [endHour, endMinute] = event.time.split('-')[1].split(':').map(Number);
+        const startTime = startHour * 60 + startMinute;
+        const endTime = endHour * 60 + endMinute;
+
+        return slots.some(slot => {
+            if (slot.name+slot.time !== event.name+event.time && slot.day === event.day) {
+                return ((startTime < slot.endTime && endTime > slot.startTime) ||
+                        (endTime > slot.startTime && startTime < slot.endTime)) &&
+                        !(startTime === slot.endTime || endTime === slot.startTime);
+            }
+            return false;
+        });
+    };
+
+    const renderSlots = (day) => {
+
+        return times.filter(event => event.day === day).map((event, index) => {
+    
+            console.log("checking " + event.name + " " + event.time)
+            const conflict = isConflict(event, occupiedSlots);
+    
+            const color = conflict ? 'bg-red-800 opacity-80 text-black' : getColor(event.name);
+            
+            return (
+                <div key={index}>
+                    <Slot time={event.time} name={event.name} color={color} />
+                </div>
+            );
+        });
+    };
+
+    const getColor = (courseName) => {
+        if (courseName in courseColors) {
+            return courseColors[courseName];
+        }
+    
+        if (colors.length === 0) {
+            return null; // No colors left
+        }
+    
+        const randomIndex = Math.floor(Math.random() * colors.length);
+        const selectedColor = colors[randomIndex];
+        setColors(colors.filter((_, index) => index !== randomIndex));
+        setCourseColors({ ...courseColors, [courseName]: selectedColor });
+        return selectedColor;
+    };
+
+
   return (
     <div className="lg:m-4 m-2 lg:text-base md-custom:text-sm sm:text-base text-sm">
         <div className="grid grid-cols-table text-center text-gray-700">
             <div className={`relative border-b-2 lg:pb-2 pb-1 border-dark-blue w-full text-right lg:pr-2 pr-0.5 font-bold`}>
-                <div className='absolute sm:right-2 right-0.5'>
+                <div className='absolute xl:right-2 lg:right-1 sm:right-2 right-0.5'>
                     {props.term}
                 </div>
             </div>
@@ -44,68 +112,34 @@ const Calendar = (props) => {
         </div>
 
         {/* The top row */}
-        <div className="grid grid-cols-table relative h-12">
-            <div className='relative h-12 border-r-2'>
-                <div className='absolute md:right-2 right-1 -top-3'>
+        <div className="grid grid-cols-table relative xl:h-14 h-12">
+            <div className='relative xl:h-14 h-12 border-r-2'>
+                <div className='absolute xl:right-2 lg:right-1 md:right-2 right-1 -top-3'>
                     {startingHour}:00
                 </div>
             </div>
             <div className="col-span-1 border-r-2 relative">
-                {times.map((event, index) => {
-                    if (event.day !== 'Monday') return null;
-                    return (
-                        <div key={index}>
-                            <Slot time={event.time} name={event.name} />
-                        </div>
-                    );
-                })}
+                {renderSlots('Monday')}
             </div>
             <div className="col-span-1 border-r-2 relative">
-                {times.map((event, index) => {
-                    if (event.day !== 'Tuesday') return null;
-                    return (
-                        <div key={index}>
-                            <Slot time={event.time} name={event.name} />
-                        </div>
-                    );
-                })}
+                {renderSlots('Tuesday')}
             </div>
             <div className="col-span-1 border-r-2 relative">
-                {times.map((event, index) => {
-                    if (event.day !== 'Wednesday') return null;
-                    return (
-                        <div key={index}>
-                            <Slot time={event.time} name={event.name} />
-                        </div>                    );
-                })}
+                {renderSlots('Wednesday')}
             </div>
             <div className="col-span-1 border-r-2 relative">
-                {times.map((event, index) => {
-                    if (event.day !== 'Thursday') return null;
-                    return (
-                        <div key={index}>
-                            <Slot time={event.time} name={event.name} />
-                        </div>
-                    );
-                })}
+                {renderSlots('Thursday')}
             </div>
             <div className="col-span-1 border-r-2 relative">
-                {times.map((event, index) => {
-                    if (event.day !== 'Friday') return null;
-                    return (
-                        <div key={index}>
-                            <Slot time={event.time} name={event.name} />
-                        </div>
-                    );
-                })}
+                {renderSlots('Friday')}
             </div>
         </div>
 
         {/* Every other row */}
         {[...Array(12)].map((_, i) => (
-            <div key={i+1} className="grid grid-cols-table relative h-12">
-                <div className='relative h-12 border-r-2'>
-                    <div className='absolute md:right-2 right-1 -top-2.5'>
+            <div key={i+1} className="grid grid-cols-table relative xl:h-14 h-12">
+                <div className='relative xl:h-14 h-12 border-r-2'>
+                    <div className='absolute xl:right-2 lg:right-1 md:right-2 right-1 -top-2.5'>
                         {startingHour+i+1}:00
                     </div>
                 </div>
@@ -122,9 +156,9 @@ const Calendar = (props) => {
             </div>
         ))}
 
-        <div className="grid grid-cols-table  relative h-12">
-            <div className='relative h-12 border-r-2'>
-                <div className='absolute md:right-2 right-1 -top-2.5'>
+        <div className="grid grid-cols-table  relative xl:h-14 h-12">
+            <div className='relative xl:h-14 h-12 border-r-2'>
+                <div className='absolute xl:right-2 lg:right-1 md:right-2 right-1 -top-2.5'>
                     {startingHour+13}:00
                 </div>
             </div>
@@ -144,30 +178,48 @@ const Calendar = (props) => {
   );
 };
 
-const Slot = ({ time, name }) => {
+const styles = {
+    container: (isWide, totalMinutes, durationMinutes) => ({
+        top: isWide? `${(totalMinutes / 60) * 3.5}rem` : `${(totalMinutes / 60) * 3}rem`,
+        height: isWide? `${(durationMinutes / 60) * 3.5}rem` : `${(durationMinutes / 60) * 3}rem`,
+    })
+};
+
+
+const Slot = ({ time, name, color}) => {
+    const mediaMatch = window.matchMedia('(min-width: 1280px)');
+    const [matches, setMatches] = useState(mediaMatch.matches);
+  
+    useEffect(() => {
+      const handler = e => setMatches(e.matches);
+      mediaMatch.addListener(handler);
+      return () => mediaMatch.removeListener(handler);
+    });
+
     const [start, end] = time.split('-');
     const [startHour, startMinute] = start.split(':').map(Number);
     const [endHour, endMinute] = end.split(':').map(Number);
     const totalMinutes = (startHour-8) * 60 + startMinute;
     const endTotalMinutes = (endHour-8) * 60 + endMinute;
+
     const topPosition = (totalMinutes / 60) * 3 + 0.1;
     const durationMinutes = endTotalMinutes - totalMinutes;
     const height = (durationMinutes / 60) * 3 + 0.1;
 
     return (
         <div
-            className="z-10 absolute left-0 w-full"
-            style={{ top: `${topPosition}rem`, height: `${height}rem` }}
+            className="z-10 absolute left-0 w-full py-0.5"
+            style={styles.container(matches, totalMinutes, durationMinutes)}
         >
-            <div className="bg-blue-100 text-blue-500 lg:mx-0.25 md-custom:mx-0 sm:mx-0.5 mx-0 sm:p-1 pt-0.5 rounded h-full box-border">
+            <div className={`${color} 2xl:px-1.5 xl:px-1 lg:px-0.5 md-custom:px-1 sm:px-1 px-0.5 sm:mx-0.5 rounded h-full box-border`}>
                 <div className='flex flex-col'>
-                    <p className='xl:text-sm lg:text-small md-custom:text-xs sm:text-sm hidden font-bold'>
+                    <p className='sm:block hidden 2xl:text-sm xl:text-small lg:text-xxxs lg-custom:text-xxs md-custom:text-xxxs text-xs 2xl:mt-0.5 xl:mt-0.5 lg:-mt-0 md-custom:-mt-0.5 font-bold'>
                         {time}
                     </p>
-                    <p className='text-xs font-bold'>
+                    <p className='sm:hidden relative text-xs font-bold'>
                         {start}
                     </p>
-                    <p className='xl:text-sm lg:text-small md-custom:text-xs sm:text-sm text-xs'>
+                    <p className='2xl:text-sm xl:text-small lg:text-xxs md-custom:text-xxxs text-xs xl:-mt-0.5 lg:-mt-1 md-custom:-mt-1.5 sm:-mt-0.5'>
                         {name}
                     </p>
                 </div>
