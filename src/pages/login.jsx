@@ -21,7 +21,7 @@ const Login = () => {
 
         try {
           await axios.post("http://localhost:8800/backend/auth/login", inputs);
-          navigate("/");
+          navigate("/course-selection");
         } catch (err) {
             const errorMessage = err.response?.data?.message || "An unexpected error occurred";
             setError(errorMessage);
