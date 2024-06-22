@@ -1,7 +1,7 @@
 import React from 'react'
 import HomeNav from '/src/components/homenav'
 
-function Home() {
+const Home = () => {
     return (
         <>
             <HomeNav />
