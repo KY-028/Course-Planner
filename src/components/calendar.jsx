@@ -2,31 +2,50 @@
 
 import React, { useState, useEffect } from 'react';
 
-
 const initialColors = [
     "bg-blue-100 text-blue-500",
     "bg-red-100 text-red-500",
     "bg-yellow-100 text-yellow-700",
     "bg-purple-100 text-purple-600",
     "bg-green-100 text-green-600",
-    // Add more colors if needed
+    "bg-indigo-100 text-indigo-600", 
+    "bg-pink-100 text-pink-600", 
+    "bg-orange-100 text-orange-600",
+    "bg-lime-100 text-lime-700",
+    // Add more colors as needed
 ];
 
 const dayOfWeek = new Date().getDay();
 const startingHour = 8;
 
 
-
-
 const Calendar = (props) => {
     const [colors, setColors] = useState(initialColors);
     const [courseColors, setCourseColors] = useState({});
     const [occupiedSlots, setOccupiedSlots] = useState([]);
+    const [times, setParsedTimes] = useState([]);  // State to hold parsed times
 
-    const times = props.times;
 
     useEffect(() => {
-        const newOccupiedSlots = props.times.map(event => {
+        if (props.times && Array.isArray(props.times)) {
+            console.log(props.times);
+            const times = props.times
+            .filter(timeString => timeString.trim().length !== 0 && timeString.trim().split(' ').length >= 3)
+            .map(timeString => {
+                const parts = timeString.trim().split(' ');
+                const name = parts[0];
+                const day = parts[1];
+                const time = parts[2];
+                return { name: name, day: day, time: time };
+            });
+            console.log(times);
+
+            setParsedTimes(times); // Update state with valid times
+        }
+    }, [props.times]); // Dependency array includes props.times
+
+    useEffect(() => {
+        const newOccupiedSlots = times.map(event => {
             const [startHour, startMinute] = event.time.split('-')[0].split(':').map(Number);
             const [endHour, endMinute] = event.time.split('-')[1].split(':').map(Number);
             const startTime = startHour * 60 + startMinute;
@@ -34,7 +53,7 @@ const Calendar = (props) => {
             return { ...event, startTime, endTime };  // include startTime and endTime
         });
         setOccupiedSlots(newOccupiedSlots);
-    }, [props.times]);
+    }, [times]); // Changed from props.times to times
 
     const isConflict = (event, slots) => {
         const [startHour, startMinute] = event.time.split('-')[0].split(':').map(Number);
@@ -55,15 +74,14 @@ const Calendar = (props) => {
     const renderSlots = (day) => {
 
         return times.filter(event => event.day === day).map((event, index) => {
-    
-            console.log("checking " + event.name + " " + event.time)
+
             const conflict = isConflict(event, occupiedSlots);
     
-            const color = conflict ? 'bg-red-800 opacity-80 text-black' : getColor(event.name);
+            const color = conflict ? 'border-black border-2 bg-red-800 bg-opacity-70 text-white' : getColor(event.name);
             
             return (
                 <div key={index}>
-                    <Slot time={event.time} name={event.name} color={color} />
+                    <Slot time={event.time} name={event.name} color={color} conflict={conflict} />
                 </div>
             );
         });
@@ -179,14 +197,15 @@ const Calendar = (props) => {
 };
 
 const styles = {
-    container: (isWide, totalMinutes, durationMinutes) => ({
-        top: isWide? `${(totalMinutes / 60) * 3.5}rem` : `${(totalMinutes / 60) * 3}rem`,
-        height: isWide? `${(durationMinutes / 60) * 3.5}rem` : `${(durationMinutes / 60) * 3}rem`,
+    container: (isWide, totalMinutes, durationMinutes, startMinutes) => ({
+        top: isWide ? `${(totalMinutes / 60) * 3.5}rem` : `${(totalMinutes / 60) * 3}rem`,
+        height: isWide ? `${(durationMinutes / 60) * 3.5}rem` : `${(durationMinutes / 60) * 3}rem`,
+        zIndex: 1000 + startMinutes - durationMinutes,
     })
 };
 
 
-const Slot = ({ time, name, color}) => {
+const Slot = ({ time, name, color, conflict}) => {
     const mediaMatch = window.matchMedia('(min-width: 1280px)');
     const [matches, setMatches] = useState(mediaMatch.matches);
   
@@ -202,14 +221,12 @@ const Slot = ({ time, name, color}) => {
     const totalMinutes = (startHour-8) * 60 + startMinute;
     const endTotalMinutes = (endHour-8) * 60 + endMinute;
 
-    const topPosition = (totalMinutes / 60) * 3 + 0.1;
     const durationMinutes = endTotalMinutes - totalMinutes;
-    const height = (durationMinutes / 60) * 3 + 0.1;
 
     return (
         <div
             className="z-10 absolute left-0 w-full py-0.5"
-            style={styles.container(matches, totalMinutes, durationMinutes)}
+            style={styles.container(matches, totalMinutes, durationMinutes, startHour * 60 + startMinute)}
         >
             <div className={`${color} 2xl:px-1.5 xl:px-1 lg:px-0.5 md-custom:px-1 sm:px-1 px-0.5 sm:mx-0.5 rounded h-full box-border`}>
                 <div className='flex flex-col'>
@@ -224,6 +241,13 @@ const Slot = ({ time, name, color}) => {
                     </p>
                 </div>
             </div>
+            {/* {conflict && (
+                <div className='absolute md-custom:bottom-1.5 md-custom:left-1.5 sm:bottom-1 sm:left-1
+                rounded-full bg-white bg-opacity-80 text-center
+                lg:w-4 lg:h-4 sm:w-2 sm:h-2' style={{ zIndex: 10000000}}>
+                    <img src={"./exclamation.svg"} alt="!" />
+                </div>
+            )} */}
         </div>
     )
 }

@@ -1,0 +1,283 @@
+{
+    "CISC101_1": [
+        "CISC101",
+        "Powley,Wendy L",
+        "CISC101 Thursday 11:30-12:30"
+    ],
+    "CISC101_2": [
+        "CISC101",
+        "Powley,Wendy L",
+        "CISC101 Tuesday 13:30-14:30"
+    ],
+    "CISC102_1": [
+        "CISC102",
+        "Meger,Erin",
+        "CISC102 Monday 16:30-17:30",
+        "CISC102 Wednesday 15:30-16:30",
+        "CISC102 Friday 14:30-15:30"
+    ],
+    "CISC102_2": [
+        "CISC102",
+        "Meger,Erin",
+        "CISC102 Tuesday 14:30-15:30",
+        "CISC102 Wednesday 16:30-17:30",
+        "CISC102 Friday 15:30-16:30"
+    ],
+    "CISC102_3": [
+        "CISC102",
+        "Staff",
+        "CISC102 Monday 15:30-16:30",
+        "CISC102 Wednesday 14:30-15:30",
+        "CISC102 Thursday 16:30-17:30"
+    ],
+    "CISC121_1": [
+        "CISC121",
+        "Powley,Wendy L",
+        "CISC121 Tuesday 8:30-9:30",
+        "CISC121 Wednesday 10:30-11:30",
+        "CISC121 Friday 9:30-10:30"
+    ],
+    "CISC121_2": [
+        "CISC121",
+        "Linley,Richard T",
+        "CISC121 Monday 11:30-12:30",
+        "CISC121 Tuesday 13:30-14:30",
+        "CISC121 Thursday 12:30-13:30"
+    ],
+    "CISC124_1": [
+        "CISC124",
+        "Ma,Burton",
+        "CISC124 Monday 10:30-11:30",
+        "CISC124 Wednesday 9:30-10:30",
+        "CISC124 Friday 8:30-9:30"
+    ],
+    "CISC203_1": [
+        "CISC203",
+        "Meger,Erin",
+        "CISC203 Tuesday 18:30-21:30"
+    ],
+    "CISC203_2": [
+        "CISC203",
+        "Meger,Erin",
+        "CISC203 Wednesday 18:30-21:30"
+    ],
+    "CISC204_1": [
+        "CISC204",
+        "Muise,Christian",
+        "CISC204 Tuesday 8:30-9:30",
+        "CISC204 Wednesday 10:30-11:30",
+        "CISC204 Friday 9:30-10:30"
+    ],
+    "CISC204_2": [
+        "CISC204",
+        "Staff",
+        "CISC204 Monday 8:30-9:30",
+        "CISC204 Tuesday 10:30-11:30",
+        "CISC204 Thursday 9:30-10:30"
+    ],
+    "CISC220_1": [
+        "CISC220",
+        "Ma,Burton",
+        "CISC220 Monday 8:30-9:30",
+        "CISC220 Tuesday 10:30-11:30",
+        "CISC220 Thursday 9:30-10:30"
+    ],
+    "CISC221_1": [
+        "CISC221",
+        "ElSawy,Hesham",
+        "CISC221 Tuesday 14:30-15:30",
+        "CISC221 Wednesday 16:30-17:30",
+        "CISC221 Friday 15:30-16:30"
+    ],
+    "CISC223_1": [
+        "CISC223",
+        "Salomaa,Kai T",
+        "CISC223 Monday 14:30-15:30",
+        "CISC223 Tuesday 16:30-17:30",
+        "CISC223 Thursday 15:30-16:30"
+    ],
+    "CISC235_1": [
+        "CISC235",
+        "Mohammad,Samir",
+        "CISC235 Tuesday 12:30-13:30",
+        "CISC235 Thursday 11:30-12:30",
+        "CISC235 Friday 13:30-14:30"
+    ],
+    "CISC251_1": [
+        "CISC251",
+        "Staff",
+        "CISC251 Tuesday 9:30-10:30",
+        "CISC251 Thursday 8:30-9:30",
+        "CISC251 Friday 10:30-11:30"
+    ],
+    "CISC320_1": [
+        "CISC320",
+        "Mohammad,Samir",
+        "CISC320 Monday 8:30-9:30",
+        "CISC320 Tuesday 10:30-11:30",
+        "CISC320 Thursday 9:30-10:30",
+        "CISC320 Tuesday 8:30-10:30"
+    ],
+    "CISC322_1": [
+        "CISC322",
+        "Adams,Bram Mark",
+        "CISC322 Tuesday 8:30-9:30",
+        "CISC322 Wednesday 10:30-11:30",
+        "CISC322 Friday 9:30-10:30",
+        "CISC322 Monday 14:30-16:30"
+    ],
+    "CISC322_2": [
+        "CISC322",
+        "Adams,Bram Mark",
+        "CISC322 Tuesday 8:30-9:30",
+        "CISC322 Wednesday 10:30-11:30",
+        "CISC322 Friday 9:30-10:30",
+        "CISC322 Wednesday 15:30-17:30"
+    ],
+    "CISC324_1": [
+        "CISC324",
+        "Hossain,Anwar",
+        "CISC324 Tuesday 9:30-10:30",
+        "CISC324 Thursday 8:30-9:30",
+        "CISC324 Friday 10:30-11:30"
+    ],
+    "CISC326_1": [
+        "CISC326",
+        "Adams,Bram Mark",
+        "CISC326 Tuesday 8:30-9:30",
+        "CISC326 Wednesday 10:30-11:30",
+        "CISC326 Friday 9:30-10:30",
+        "CISC326 Monday 14:30-16:30"
+    ],
+    "CISC326_2": [
+        "CISC326",
+        "Adams,Bram Mark",
+        "CISC326 Tuesday 8:30-9:30",
+        "CISC326 Wednesday 10:30-11:30",
+        "CISC326 Friday 9:30-10:30",
+        "CISC326 Wednesday 15:30-17:30"
+    ],
+    "CISC327_1": [
+        "CISC327",
+        "Hossain,Anwar",
+        "CISC327 Monday 9:30-10:30",
+        "CISC327 Wednesday 8:30-9:30",
+        "CISC327 Thursday 10:30-11:30"
+    ],
+    "CISC330_1": [
+        "CISC330",
+        "Fichtinger,Gabor",
+        "CISC330 Monday 12:30-13:30",
+        "CISC330 Wednesday 11:30-12:30",
+        "CISC330 Thursday 13:30-14:30"
+    ],
+    "CISC360_1": [
+        "CISC360",
+        "Dunfield,Jana",
+        "CISC360 Monday 11:30-12:30",
+        "CISC360 Tuesday 13:30-14:30",
+        "CISC360 Thursday 12:30-13:30"
+    ],
+    "CISC365_1": [
+        "CISC365",
+        "Stewart,James A",
+        "CISC365 Tuesday 15:30-16:30",
+        "CISC365 Thursday 14:30-15:30",
+        "CISC365 Friday 16:30-17:30"
+    ],
+    "CISC371_1": [
+        "CISC371",
+        "Ellis,Randy E",
+        "CISC371 Monday 13:30-14:30",
+        "CISC371 Wednesday 12:30-13:30",
+        "CISC371 Friday 11:30-12:30"
+    ],
+    "CISC422_1": [
+        "CISC422",
+        "Dingel,Juergen U",
+        "CISC422 Tuesday 9:30-10:30",
+        "CISC422 Thursday 8:30-9:30",
+        "CISC422 Friday 10:30-11:30"
+    ],
+    "CISC447_1": [
+        "CISC447",
+        "Alaca,Furkan",
+        "CISC447 Monday 16:30-17:30",
+        "CISC447 Wednesday 15:30-16:30",
+        "CISC447 Friday 14:30-15:30"
+    ],
+    "CISC451_1": [
+        "CISC451",
+        "Tian,Yuan",
+        "CISC451 Monday 18:30-21:30"
+    ],
+    "CISC452_1": [
+        "CISC452",
+        "Abbas,Hazem",
+        "CISC452 Monday 15:30-16:30",
+        "CISC452 Wednesday 14:30-15:30",
+        "CISC452 Thursday 16:30-17:30"
+    ],
+    "CISC457_1": [
+        "CISC457",
+        "Stewart,James A",
+        "CISC457 Monday 16:30-17:30",
+        "CISC457 Wednesday 15:30-16:30",
+        "CISC457 Friday 14:30-15:30"
+    ],
+    "CISC471_1": [
+        "CISC471",
+        "Simpson,Amber",
+        "CISC471 Monday 8:30-9:30",
+        "CISC471 Tuesday 10:30-11:30",
+        "CISC471 Thursday 9:30-10:30"
+    ],
+    "CISC486_1": [
+        "CISC486",
+        "Ma,Burton",
+        "CISC486 Monday 16:30-17:30",
+        "CISC486 Wednesday 15:30-16:30",
+        "CISC486 Friday 14:30-15:30"
+    ],
+    "CISC497_1": [
+        "CISC497",
+        "Stinson,Catherine",
+        "CISC497 Tuesday 11:30-13:0",
+        "CISC497 Wednesday 10:0-11:30"
+    ],
+    "CISC497_2": [
+        "CISC497",
+        "Stinson,Catherine",
+        "CISC497 Tuesday 11:30-13:0",
+        "CISC497 Wednesday 10:0-11:30"
+    ],
+    "CISC497_3": [
+        "CISC497",
+        "Stinson,Catherine",
+        "CISC497 Tuesday 11:30-13:0",
+        "CISC497 Wednesday 10:0-11:30"
+    ],
+    "CISC497_4": [
+        "CISC497",
+        "Stinson,Catherine",
+        "CISC497 Tuesday 11:30-13:0",
+        "CISC497 Wednesday 10:0-11:30"
+    ],
+    "CISC497_5": [
+        "CISC497",
+        "Stinson,Catherine",
+        "CISC497 Tuesday 11:30-13:0",
+        "CISC497 Wednesday 10:0-11:30"
+    ],
+    "CISC498_1": [
+        "CISC498",
+        "Hossain,Anwar",
+        "CISC498 Monday 11:30-14:30"
+    ],
+    "CISC500_1": [
+        "CISC500",
+        "Chen,Yuanzhu",
+        "CISC500 Wednesday 12:30-14:30"
+    ]
+
+}
