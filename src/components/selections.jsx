@@ -1,8 +1,94 @@
 import React, { useState } from 'react';
+import Modal from './modal';
+
+function Toggle({ message, isToggled, toggleSwitch }) {
+    return (
+        <label className="flex items-center cursor-pointer">
+            <div className="relative">
+                <input type="checkbox" id="toggle" className="sr-only" checked={isToggled} onChange={toggleSwitch} />
+                <div className={`block ${isToggled ? 'bg-blue-600' : 'bg-gray-600'} lg:w-14 w-11 lg:h-8 h-6 rounded-full`}></div>
+                <div className={`dot absolute left-1 top-1 bg-white lg:w-6 lg:h-6 w-4 h-4 rounded-full transition-transform ${isToggled ? 'translate-x-full' : ''}`}></div>
+            </div>
+            <span className="ml-3 text-gray-900 font-medium">{message}</span>
+        </label>
+    );
+}
+
+function Course({ name, options, onRemove }) {
+    return (
+        <div className="relative border border-dark-blue rounded xl:h-16 lg:h-14 md-custom:h-12 sm:h-14 h-12 xl:pt-1 lg:pt-1.5 mx-0.5 px-1">
+            <button
+                className="absolute top-0 right-0 p-1 lg:pt-1 md-custom:pt-0.5 lg:text-xs text-xxs font-bold text-gray-700 hover:text-red-500"
+                onClick={onRemove}
+            >
+                &#x2715;
+            </button>
+            <div className="w-full font-semibold xl:text-base lg:text-xs md-custom:text-xs sm:text-sm text-xs xl:mb-0.5 lg:m-0 md-custom:mt-1 md-custom:-mb-0.5 mt-1">{name}</div>
+            <select className="w-full border-gray-300 rounded xl:text-xs md-custom:text-xxs sm:text-sm text-xs">
+                {options.map(option => (
+                    <option key={option} value={option}>{option}</option>
+                ))}
+            </select>
+        </div>
+    );
+}
+
+
+
+function CourseGrid({ courseData }) {
+    const initialCourses = [
+        { id: 'CISC121_1', name: 'CISC 121', options: ['Section 1: MWTh'] },
+        { id: 'MATH111_1', name: 'MATH 111', options: ['Section 1: MWTh'] },
+        { id: 'CISC102_1', name: 'CISC 102', options: ['Section 2: MWF'] }
+    ];
+
+    const [courses, setCourses] = useState(initialCourses);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+
+    const addCourse = (id) => {
+        const courseDetail = courseData[id];
+        const newCourse = {
+            id: id,
+            name: courseDetail[0],
+            options: [],
+        };
+        setCourses([...courses, newCourse]);
+        setIsModalOpen(false);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    }
+
+    const removeCourse = id => {
+        setCourses(courses.filter(course => course.id !== id));
+    };
+
+
+    return (
+        <div className="bg-gray-200 rounded-2xl mb-3 grid grid-cols-4 gap-1 p-2">
+            {courses.map((course, index) => (
+                <Course key={index} name={course.name} options={course.options} onRemove={() => removeCourse(course.id)} />
+            ))}
+            <button className="flex justify-center items-center  xl:h-16 lg:h-14 md-custom:h-12 sm:h-14 h-12 border-2 border-dashed border-gray-400 rounded bg-white hover:bg-gray-100 mx-0.5"
+                onClick={() => setIsModalOpen(true)}>
+                <span className="text-xl">+</span>
+            </button>
+            <Modal isOpen={isModalOpen} onClose={closeModal} courseData={courseData} />
+        </div>
+    );
+}
+
 
 function Selection({ onUpdate, courseData }) {
     const [inputValue, setInputValue] = useState('');
     const [notFound, setNotFound] = useState([]);  // State to track IDs not found
+    const [isToggled, setIsToggled] = useState(false); // Manage toggle state here
+
+    const toggleSwitch = () => {
+        setIsToggled(!isToggled);
+    };
 
 
     const handleInputChange = (e) => {
@@ -25,11 +111,6 @@ function Selection({ onUpdate, courseData }) {
             } catch (TypeError) {
                 notFoundIds.push(id);  // Collect IDs not found
             }
-            // if (courseDetails) {
-                
-            // } else {
-                
-            // }
         });
 
         onUpdate(allCourseDetails);
@@ -37,22 +118,36 @@ function Selection({ onUpdate, courseData }) {
     };
 
     return (
-        <div>
-        <textarea
-            value={inputValue}
-            onChange={handleInputChange}
-            placeholder={`Enter courses as 'CISC121_1 separated by new lines'\nThe number after the underscore is the order they appear in on SOLUS\nIt is recommended you double check SOLUS for accuracy`}
-            className="m-2 p-1 w-full h-32 border-gray-600 border-2 bg-gray-100 resize-none"
-        />
-        <button onClick={handleSubmit} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 mx-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Update Schedule</button>
-        {notFound.length > 0 && (
-            <div className="m-2 p-2 bg-red-100 border border-red-400 text-red-700">
-                <p>Course ID(s) not found:</p>
-                <ul>
-                    {notFound.map(id => <li key={id}>{id}</li>)}
-                </ul>
-            </div>
-        )}
+        <div className='my-4 mx-4'>
+            {!isToggled && <> <CourseGrid courseData={courseData} />
+                <div className='w-full h-full flex items-center justify-between'>
+                    <button onClick={handleSubmit} className="ml-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Update Schedule</button>
+                    <Toggle message="Entry Mode" isToggled={isToggled} toggleSwitch={toggleSwitch} />
+                </div>
+            </>}
+
+
+            {/* Entry Mode */}
+            {isToggled && (<div>
+                <textarea
+                    value={inputValue}
+                    onChange={handleInputChange}
+                    placeholder={`Enter courses as 'CISC121_1 separated by new lines'\nThe number after the underscore is the order they appear in on SOLUS\nIt is recommended you double check SOLUS for accuracy`}
+                    className="m-2 p-1 w-full h-32 border-gray-600 border-2 bg-gray-100 resize-none"
+                />
+                <div className='w-full h-full flex items-center justify-between'>
+                    <button onClick={handleSubmit} className="ml-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Update Schedule</button>
+                    <Toggle message="Entry Mode" isToggled={isToggled} toggleSwitch={toggleSwitch} />
+                </div>
+                {notFound.length > 0 && (
+                    <div className="p-2 mx-2 bg-red-100 border border-red-400 text-red-700">
+                        <p>Course ID(s) not found:</p>
+                        <ul>
+                            {notFound.map(id => <li key={id}>{id}</li>)}
+                        </ul>
+                    </div>
+                )}
+            </div>)}
         </div>
     );
 }
