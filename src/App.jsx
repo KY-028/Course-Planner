@@ -1,9 +1,9 @@
 import { Children, useState } from 'react';
 import "./styles.css"
-import LeftMenu from "./components/leftMenu"
 import SignUp from "./pages/signUp"
 import Login from "./pages/login"
 import Courses from "./pages/course-selection"
+import Planner from "./pages/planner"
 import Home from "./pages/home"
 import Footer from "./components/footer"
 
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
       {
         path: "/home",
         element: <Home />
-      }
+      },
     ]
   },
 
@@ -51,6 +51,10 @@ const router = createBrowserRouter([
   {
     path: "/course-selection",
     element: <Courses />,
+  },
+  {
+    path: "/planner",
+    element: <Planner />,
   }
 ]);
 

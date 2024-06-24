@@ -38,11 +38,12 @@ const Calendar = (props) => {
                 const time = parts[2];
                 return { name: name, day: day, time: time };
             });
-            console.log(times);
 
             setParsedTimes(times); // Update state with valid times
         }
     }, [props.times]); // Dependency array includes props.times
+    console.log("Length:"+ times.length);
+    console.log(times);
 
     useEffect(() => {
         const newOccupiedSlots = times.map(event => {
@@ -76,8 +77,8 @@ const Calendar = (props) => {
         return times.filter(event => event.day === day).map((event, index) => {
 
             const conflict = isConflict(event, occupiedSlots);
-    
             const color = conflict ? 'border-black border-2 bg-red-800 bg-opacity-70 text-white' : getColor(event.name);
+
             
             return (
                 <div key={index}>

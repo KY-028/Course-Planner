@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import mainIcon from '../assets/icon1.png';
 
 const LeftMenu = ({ activeTab }) => {
-    return(
+    return (
         <div className="xl:w-64 lg:w-1/5 lg:flex hidden h-screen bg-dark-blue text-white flex-col p-5 drop-shadow-lg m-0 fixed">
             <Link to="/">
                 <div className='flex items-center mb-8'>

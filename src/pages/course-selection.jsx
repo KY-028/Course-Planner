@@ -66,18 +66,18 @@ export default function Courses() {
         <div className='grid xl:grid-cols-sidebar-lg lg:grid-cols-sidebar min-h-screen overflow-y-auto'>
             <div className='relative lg:block hidden'>
                 <div className='absolute top-0 left-0'>
-                    <LeftMenu activeTab="courses"/>
+                    <LeftMenu activeTab="courses" />
                 </div>
             </div>
 
             <div className='flex flex-col w-full'>
-                <Nav activeTab="courses"/>
+                <Nav activeTab="courses" />
                 <div className='w-full grid md-custom:grid-cols-2 grid-cols md-custom:mx-0 m-0 p-0 gap-3'>
-                    <div className='m-0 p-0'>
+                    <div className='sm:m-0 m-1.5 p-0'>
                         <Calendar term="Fall" times={fallCourses} />
-                        <Selection onUpdate={updateFallCourses} courseData={fallData}/>
+                        <Selection onUpdate={updateFallCourses} courseData={fallData} />
                     </div>
-                    <div className='m-0 p-0'>
+                    <div className='sm:m-0 m-1.5 p-0'>
                         <Calendar term="Winter" times={winterCourses} />
                         <Selection onUpdate={updateWinterCourses} courseData={winterData} />
                     </div>
