@@ -204,7 +204,7 @@ function Selection({ onUpdate, courseData, changeCourseData }) {
                 <textarea
                     value={inputValue}
                     onChange={handleInputChange}
-                    placeholder={`Enter courses as 'CISC121_1 separated by new lines'\nThe number after the underscore is the order they appear in on SOLUS\nIt is recommended you double check SOLUS for accuracy`}
+                    placeholder={`Enter courses as 'CISC121_1 separated by new lines\nThe number after the underscore is the order they appear in on SOLUS\nIt is recommended you double check SOLUS for accuracy`}
                     className="m-2 p-1 w-full h-32 border-gray-600 border-2 bg-gray-100 resize-none"
                 />
                 <div className='w-full h-full flex items-center justify-between'>

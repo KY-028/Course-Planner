@@ -40,7 +40,7 @@ export default function Nav({ activeTab }) {
                 <div className="flex-1"></div> {/* This div is just to center the title with flex */}
                 <div className="flex-1 flex justify-center items-center text-2xl font-bold text-black  whitespace-nowrap">Course Selection Planner</div>
                 <div className="flex-1 flex flex-col items-end text-black">
-                    <div>Name</div>
+                    <div>Planning For</div>
                     <div>2024-2025</div>
                 </div>
             </div>
