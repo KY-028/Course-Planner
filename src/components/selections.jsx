@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from './modal';
 
 function Toggle({ message, isToggled, toggleSwitch }) {
@@ -14,19 +14,23 @@ function Toggle({ message, isToggled, toggleSwitch }) {
     );
 }
 
-function Course({ name, options, onRemove }) {
+function Course({ id, name, options, selectedOption, onSelectChange, onRemove }) {
     return (
         <div className="relative border border-dark-blue rounded xl:h-16 lg:h-14 md-custom:h-12 sm:h-14 h-12 xl:pt-1 lg:pt-1.5 mx-0.5 px-1">
             <button
                 className="absolute top-0 right-0 p-1 lg:pt-1 md-custom:pt-0.5 lg:text-xs text-xxs font-bold text-gray-700 hover:text-red-500"
-                onClick={onRemove}
+                onClick={() => onRemove(id)}
             >
                 &#x2715;
             </button>
             <div className="w-full font-semibold xl:text-base lg:text-xs md-custom:text-xs sm:text-sm text-xs xl:mb-0.5 lg:m-0 md-custom:mt-1 md-custom:-mb-0.5 mt-1">{name}</div>
-            <select className="w-full border-gray-300 rounded xl:text-xs md-custom:text-xxs sm:text-sm text-xs">
-                {options.map(option => (
-                    <option key={option} value={option}>{option}</option>
+            <select
+                className="w-full border-gray-300 rounded xl:text-xs md-custom:text-xxs sm:text-sm text-xs"
+                value={selectedOption}
+                onChange={(e) => onSelectChange(id, e.target.value)}
+            >
+                {options.map((option, index) => (
+                    <option key={index} value={option}>{option}</option>
                 ))}
             </select>
         </div>
@@ -35,26 +39,50 @@ function Course({ name, options, onRemove }) {
 
 
 
-function CourseGrid({ courseData }) {
-    const initialCourses = [
-        { id: 'CISC121_1', name: 'CISC 121', options: ['Section 1: MWTh'] },
-        { id: 'MATH111_1', name: 'MATH 111', options: ['Section 1: MWTh'] },
-        { id: 'CISC102_1', name: 'CISC 102', options: ['Section 2: MWF'] }
-    ];
 
-    const [courses, setCourses] = useState(initialCourses);
+function CourseGrid({ courseData, courses, setCourses, setChangeCounter }) {
+
     const [isModalOpen, setIsModalOpen] = useState(false);
 
+
+    const generateOptions = (courseBaseId) => {
+        const sectionKeys = Object.keys(courseData).filter(key => key.startsWith(courseBaseId));
+        return sectionKeys.map(key => {
+            return `Section ${key.split('_')[1]}: ${formatDays(courseData[key].slice(2))}`;
+        });
+    };
 
     const addCourse = (id) => {
         const courseDetail = courseData[id];
         const newCourse = {
             id: id,
             name: courseDetail[0],
-            options: [],
+            options: generateOptions(courseDetail[0]),
+            selectedOption: `Section ${id.split('_')[1]}: ${formatDays(courseData[id].slice(2))}`,
         };
         setCourses([...courses, newCourse]);
         setIsModalOpen(false);
+    };
+
+    const formatDays = (sessions) => {
+        const daysSet = new Set();
+        sessions.forEach(session => {
+            session.match(/\b(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\b/g).forEach(day => {
+                daysSet.add(day.startsWith('Th') ? 'Th' : day.charAt(0));
+            });
+        });
+        return Array.from(daysSet).sort().join('');
+    };
+
+    const handleSelectChange = (courseId, newSelection) => {
+        setCourses(courses.map(course => {
+            if (course.id === courseId) {
+                const newId = `${course.name}_${newSelection.split(' ')[1].replace(':', '')}`;
+                setChangeCounter(prev => prev + 1);  // Increment change counter to indicate a change
+                return { ...course, id: newId, selectedOption: newSelection };
+            }
+            return course;
+        }));
     };
 
     const closeModal = () => {
@@ -68,14 +96,22 @@ function CourseGrid({ courseData }) {
 
     return (
         <div className="bg-gray-200 rounded-2xl mb-3 grid grid-cols-4 gap-1 p-2">
-            {courses.map((course, index) => (
-                <Course key={index} name={course.name} options={course.options} onRemove={() => removeCourse(course.id)} />
+            {courses.map((course) => (
+                <Course
+                    key={course.id}
+                    id={course.id}
+                    name={course.name}
+                    options={course.options}
+                    selectedOption={course.selectedOption}
+                    onSelectChange={handleSelectChange}
+                    onRemove={removeCourse}
+                />
             ))}
             <button className="flex justify-center items-center  xl:h-16 lg:h-14 md-custom:h-12 sm:h-14 h-12 border-2 border-dashed border-gray-400 rounded bg-white hover:bg-gray-100 mx-0.5"
                 onClick={() => setIsModalOpen(true)}>
                 <span className="text-xl">+</span>
             </button>
-            <Modal isOpen={isModalOpen} onClose={closeModal} courseData={courseData} />
+            <Modal isOpen={isModalOpen} onClose={closeModal} courseData={courseData} onAddCourse={addCourse} />
         </div>
     );
 }
@@ -85,6 +121,25 @@ function Selection({ onUpdate, courseData }) {
     const [inputValue, setInputValue] = useState('');
     const [notFound, setNotFound] = useState([]);  // State to track IDs not found
     const [isToggled, setIsToggled] = useState(false); // Manage toggle state here
+    const [courses, setCourses] = useState([]);
+    const [changeCounter, setChangeCounter] = useState(0);
+    const [courseCount, setCourseCount] = useState(courses.length);
+
+    // Update course count whenever courses change
+    useEffect(() => {
+        setCourseCount(courses.length);
+    }, [courses.length]);
+
+    useEffect(() => {
+        const allCourseDetails = courses.flatMap(course => courseData[course.id].slice(2));
+        onUpdate(allCourseDetails);
+    }, [changeCounter]);  // Depend directly on changeCounter
+
+    // Effect to run onUpdate when courseCount changes
+    useEffect(() => {
+        const allCourseDetails = courses.flatMap(course => courseData[course.id].slice(2));
+        onUpdate(allCourseDetails);
+    }, [courseCount]);  // Dependency on courseCount only
 
     const toggleSwitch = () => {
         setIsToggled(!isToggled);
@@ -107,7 +162,6 @@ function Selection({ onUpdate, courseData }) {
             try {
                 const courseDetails = courseData[id];
                 allCourseDetails.push(...courseDetails.slice(2));  // Collect all times, assuming times start from index 2
-                console.log("Found! " + courseDetails)
             } catch (TypeError) {
                 notFoundIds.push(id);  // Collect IDs not found
             }
@@ -119,13 +173,12 @@ function Selection({ onUpdate, courseData }) {
 
     return (
         <div className='my-4 mx-4'>
-            {!isToggled && <> <CourseGrid courseData={courseData} />
+            {!isToggled && <> <CourseGrid courseData={courseData} courses={courses} setCourses={setCourses} setChangeCounter={setChangeCounter} />
                 <div className='w-full h-full flex items-center justify-between'>
                     <button onClick={handleSubmit} className="ml-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Update Schedule</button>
                     <Toggle message="Entry Mode" isToggled={isToggled} toggleSwitch={toggleSwitch} />
                 </div>
             </>}
-
 
             {/* Entry Mode */}
             {isToggled && (<div>

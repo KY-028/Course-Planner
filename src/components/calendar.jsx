@@ -8,8 +8,8 @@ const initialColors = [
     "bg-yellow-100 text-yellow-700",
     "bg-purple-100 text-purple-600",
     "bg-green-100 text-green-600",
-    "bg-indigo-100 text-indigo-600", 
-    "bg-pink-100 text-pink-600", 
+    "bg-indigo-100 text-indigo-600",
+    "bg-pink-100 text-pink-600",
     "bg-orange-100 text-orange-600",
     "bg-lime-100 text-lime-700",
     // Add more colors as needed
@@ -28,22 +28,19 @@ const Calendar = (props) => {
 
     useEffect(() => {
         if (props.times && Array.isArray(props.times)) {
-            console.log(props.times);
             const times = props.times
-            .filter(timeString => timeString.trim().length !== 0 && timeString.trim().split(' ').length >= 3)
-            .map(timeString => {
-                const parts = timeString.trim().split(' ');
-                const name = parts[0];
-                const day = parts[1];
-                const time = parts[2];
-                return { name: name, day: day, time: time };
-            });
+                .filter(timeString => timeString.trim().length !== 0 && timeString.trim().split(' ').length >= 3)
+                .map(timeString => {
+                    const parts = timeString.trim().split(' ');
+                    const name = parts[0];
+                    const day = parts[1];
+                    const time = parts[2];
+                    return { name: name, day: day, time: time };
+                });
 
             setParsedTimes(times); // Update state with valid times
         }
     }, [props.times]); // Dependency array includes props.times
-    console.log("Length:"+ times.length);
-    console.log(times);
 
     useEffect(() => {
         const newOccupiedSlots = times.map(event => {
@@ -63,10 +60,10 @@ const Calendar = (props) => {
         const endTime = endHour * 60 + endMinute;
 
         return slots.some(slot => {
-            if (slot.name+slot.time !== event.name+event.time && slot.day === event.day) {
+            if (slot.name + slot.time !== event.name + event.time && slot.day === event.day) {
                 return ((startTime < slot.endTime && endTime > slot.startTime) ||
-                        (endTime > slot.startTime && startTime < slot.endTime)) &&
-                        !(startTime === slot.endTime || endTime === slot.startTime);
+                    (endTime > slot.startTime && startTime < slot.endTime)) &&
+                    !(startTime === slot.endTime || endTime === slot.startTime);
             }
             return false;
         });
@@ -79,7 +76,7 @@ const Calendar = (props) => {
             const conflict = isConflict(event, occupiedSlots);
             const color = conflict ? 'border-black border-2 bg-red-800 bg-opacity-70 text-white' : getColor(event.name);
 
-            
+
             return (
                 <div key={index}>
                     <Slot time={event.time} name={event.name} color={color} conflict={conflict} />
@@ -92,11 +89,11 @@ const Calendar = (props) => {
         if (courseName in courseColors) {
             return courseColors[courseName];
         }
-    
+
         if (colors.length === 0) {
             return null; // No colors left
         }
-    
+
         const randomIndex = Math.floor(Math.random() * colors.length);
         const selectedColor = colors[randomIndex];
         setColors(colors.filter((_, index) => index !== randomIndex));
@@ -105,96 +102,96 @@ const Calendar = (props) => {
     };
 
 
-  return (
-    <div className="lg:m-4 m-2 lg:text-base md-custom:text-sm sm:text-base text-sm">
-        <div className="grid grid-cols-table text-center text-gray-700">
-            <div className={`relative border-b-2 lg:pb-2 pb-1 border-dark-blue w-full text-right lg:pr-2 pr-0.5 font-bold`}>
-                <div className='absolute xl:right-2 lg:right-1 sm:right-2 right-0.5'>
-                    {props.term}
-                </div>
-            </div>
-            <div className={`border-b-2 pb-2 border-dark-blue ${dayOfWeek === 1 ? "font-bold text-bright-blue" : ""}`}>MON</div>
-            <div className={`border-b-2 pb-2 border-dark-blue ${dayOfWeek === 2 ? "font-bold text-bright-blue" : ""}`}>TUE</div>
-            <div className={`border-b-2 pb-2 border-dark-blue ${dayOfWeek === 3 ? "font-bold text-bright-blue" : ""}`}>WED</div>
-            <div className={`border-b-2 pb-2 border-dark-blue ${dayOfWeek === 4 ? "font-bold text-bright-blue" : ""}`}>THU</div>
-            <div className={`border-b-2 pb-2 border-dark-blue ${dayOfWeek === 5 ? "font-bold text-bright-blue" : ""}`}>FRI</div>
-        </div>
-
-        {/* For the extra space */}
-        <div className="grid grid-cols-table relative h-4">
-            <div className='border-r-2 '></div>
-            <div className='border-r-2 border-b-2'></div>
-            <div className='border-r-2 border-b-2'></div>
-            <div className='border-r-2 border-b-2'></div>
-            <div className='border-r-2 border-b-2'></div>
-            <div className='border-r-2 border-b-2'></div>
-        </div>
-
-        {/* The top row */}
-        <div className="grid grid-cols-table relative xl:h-14 h-12">
-            <div className='relative xl:h-14 h-12 border-r-2'>
-                <div className='absolute xl:right-2 lg:right-1 md:right-2 right-1 -top-3'>
-                    {startingHour}:00
-                </div>
-            </div>
-            <div className="col-span-1 border-r-2 relative">
-                {renderSlots('Monday')}
-            </div>
-            <div className="col-span-1 border-r-2 relative">
-                {renderSlots('Tuesday')}
-            </div>
-            <div className="col-span-1 border-r-2 relative">
-                {renderSlots('Wednesday')}
-            </div>
-            <div className="col-span-1 border-r-2 relative">
-                {renderSlots('Thursday')}
-            </div>
-            <div className="col-span-1 border-r-2 relative">
-                {renderSlots('Friday')}
-            </div>
-        </div>
-
-        {/* Every other row */}
-        {[...Array(12)].map((_, i) => (
-            <div key={i+1} className="grid grid-cols-table relative xl:h-14 h-12">
-                <div className='relative xl:h-14 h-12 border-r-2'>
-                    <div className='absolute xl:right-2 lg:right-1 md:right-2 right-1 -top-2.5'>
-                        {startingHour+i+1}:00
+    return (
+        <div className="lg:m-4 m-2 lg:text-base md-custom:text-sm sm:text-base text-sm">
+            <div className="grid grid-cols-table text-center text-gray-700">
+                <div className={`relative border-b-2 lg:pb-2 pb-1 border-dark-blue w-full text-right lg:pr-2 pr-0.5 font-bold`}>
+                    <div className='absolute xl:right-2 lg:right-1 sm:right-2 right-0.5'>
+                        {props.term}
                     </div>
                 </div>
-                <div className="col-span-1 border-t-2 border-r-2 relative">
-                </div>
-                <div className="col-span-1 border-t-2 border-r-2 relative">
-                </div>
-                <div className="col-span-1 border-t-2 border-r-2 relative">
-                </div>
-                <div className="col-span-1 border-t-2 border-r-2 relative">
-                </div>
-                <div className="col-span-1 border-r-2 border-t-2 relative">
-                </div>
+                <div className={`border-b-2 pb-2 border-dark-blue ${dayOfWeek === 1 ? "font-bold text-bright-blue" : ""}`}>MON</div>
+                <div className={`border-b-2 pb-2 border-dark-blue ${dayOfWeek === 2 ? "font-bold text-bright-blue" : ""}`}>TUE</div>
+                <div className={`border-b-2 pb-2 border-dark-blue ${dayOfWeek === 3 ? "font-bold text-bright-blue" : ""}`}>WED</div>
+                <div className={`border-b-2 pb-2 border-dark-blue ${dayOfWeek === 4 ? "font-bold text-bright-blue" : ""}`}>THU</div>
+                <div className={`border-b-2 pb-2 border-dark-blue ${dayOfWeek === 5 ? "font-bold text-bright-blue" : ""}`}>FRI</div>
             </div>
-        ))}
 
-        <div className="grid grid-cols-table  relative xl:h-14 h-12">
-            <div className='relative xl:h-14 h-12 border-r-2'>
-                <div className='absolute xl:right-2 lg:right-1 md:right-2 right-1 -top-2.5'>
-                    {startingHour+13}:00
+            {/* For the extra space */}
+            <div className="grid grid-cols-table relative h-4">
+                <div className='border-r-2 '></div>
+                <div className='border-r-2 border-b-2'></div>
+                <div className='border-r-2 border-b-2'></div>
+                <div className='border-r-2 border-b-2'></div>
+                <div className='border-r-2 border-b-2'></div>
+                <div className='border-r-2 border-b-2'></div>
+            </div>
+
+            {/* The top row */}
+            <div className="grid grid-cols-table relative xl:h-14 h-12">
+                <div className='relative xl:h-14 h-12 border-r-2'>
+                    <div className='absolute xl:right-2 lg:right-1 md:right-2 right-1 -top-3'>
+                        {startingHour}:00
+                    </div>
+                </div>
+                <div className="col-span-1 border-r-2 relative">
+                    {renderSlots('Monday')}
+                </div>
+                <div className="col-span-1 border-r-2 relative">
+                    {renderSlots('Tuesday')}
+                </div>
+                <div className="col-span-1 border-r-2 relative">
+                    {renderSlots('Wednesday')}
+                </div>
+                <div className="col-span-1 border-r-2 relative">
+                    {renderSlots('Thursday')}
+                </div>
+                <div className="col-span-1 border-r-2 relative">
+                    {renderSlots('Friday')}
                 </div>
             </div>
-            <div className="col-span-1 border-t-2 border-r-2 border-b-2 relative">
+
+            {/* Every other row */}
+            {[...Array(12)].map((_, i) => (
+                <div key={i + 1} className="grid grid-cols-table relative xl:h-14 h-12">
+                    <div className='relative xl:h-14 h-12 border-r-2'>
+                        <div className='absolute xl:right-2 lg:right-1 md:right-2 right-1 -top-2.5'>
+                            {startingHour + i + 1}:00
+                        </div>
+                    </div>
+                    <div className="col-span-1 border-t-2 border-r-2 relative">
+                    </div>
+                    <div className="col-span-1 border-t-2 border-r-2 relative">
+                    </div>
+                    <div className="col-span-1 border-t-2 border-r-2 relative">
+                    </div>
+                    <div className="col-span-1 border-t-2 border-r-2 relative">
+                    </div>
+                    <div className="col-span-1 border-r-2 border-t-2 relative">
+                    </div>
+                </div>
+            ))}
+
+            <div className="grid grid-cols-table  relative xl:h-14 h-12">
+                <div className='relative xl:h-14 h-12 border-r-2'>
+                    <div className='absolute xl:right-2 lg:right-1 md:right-2 right-1 -top-2.5'>
+                        {startingHour + 13}:00
+                    </div>
+                </div>
+                <div className="col-span-1 border-t-2 border-r-2 border-b-2 relative">
+                </div>
+                <div className="col-span-1 border-t-2 border-r-2 border-b-2 relative">
+                </div>
+                <div className="col-span-1 border-t-2 border-r-2 border-b-2 relative">
+                </div>
+                <div className="col-span-1 border-t-2 border-r-2 border-b-2 relative">
+                </div>
+                <div className="col-span-1 border-t-2 border-r-2 border-b-2 relative">
+                </div>
             </div>
-            <div className="col-span-1 border-t-2 border-r-2 border-b-2 relative">
-            </div>
-            <div className="col-span-1 border-t-2 border-r-2 border-b-2 relative">
-            </div>
-            <div className="col-span-1 border-t-2 border-r-2 border-b-2 relative">
-            </div>
-            <div className="col-span-1 border-t-2 border-r-2 border-b-2 relative">
-            </div>
+
         </div>
-
-    </div>
-  );
+    );
 };
 
 const styles = {
@@ -206,21 +203,21 @@ const styles = {
 };
 
 
-const Slot = ({ time, name, color, conflict}) => {
+const Slot = ({ time, name, color, conflict }) => {
     const mediaMatch = window.matchMedia('(min-width: 1280px)');
     const [matches, setMatches] = useState(mediaMatch.matches);
-  
+
     useEffect(() => {
-      const handler = e => setMatches(e.matches);
-      mediaMatch.addListener(handler);
-      return () => mediaMatch.removeListener(handler);
+        const handler = e => setMatches(e.matches);
+        mediaMatch.addListener(handler);
+        return () => mediaMatch.removeListener(handler);
     });
 
     const [start, end] = time.split('-');
     const [startHour, startMinute] = start.split(':').map(Number);
     const [endHour, endMinute] = end.split(':').map(Number);
-    const totalMinutes = (startHour-8) * 60 + startMinute;
-    const endTotalMinutes = (endHour-8) * 60 + endMinute;
+    const totalMinutes = (startHour - 8) * 60 + startMinute;
+    const endTotalMinutes = (endHour - 8) * 60 + endMinute;
 
     const durationMinutes = endTotalMinutes - totalMinutes;
 
