@@ -8,7 +8,7 @@ export default function Planner() {
                     <div>
                         <span class="text-2xl font-semibold text-gray-800 md:text-4xl">⏰ Coming<span class="ml-2 text-blue-600">Soon</span> ⏰</span>
                         <h1 class="py-5 text-5xl font-semibold text-gray-800 md:text-6xl">Plan Req<span class="text-blue-600"> Planner</span></h1>
-                        <p class="mt-2 text-sm text-gray-500 md:text-lg"><Link to="/" className="text-blue-600">CoursePlanner</Link> is the best free online website to generate cool and stylish <strong>fancy fonts</strong> without any third party app. The website is under construction meanwhile you can follow on below social network.</p>
+                        <p class="mt-2 text-sm text-gray-500 md:text-lg"><Link to="/" className="text-blue-600">CoursePlanner</Link> is the best free online website to generate cool and stylish timetable. This Plan Req Planner Feature is currently under construction. But please come back to see its deployment in July!</p>
                         <div class="flex space-x-3 justify-center lg:justify-start mt-6">
                             <Link to="/course-selection" class="flex bg-blue-500 lg:h-12 h-8 w-fit px-0.5  py-2 font-semibold text-white items-center rounded whitespace-nowrap">
                                 <svg fill="#FFFFFF" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
