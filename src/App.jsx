@@ -7,6 +7,7 @@ import Planner from "./pages/planner"
 import Home from "./pages/home"
 import Footer from "./components/footer"
 import Contact from "./pages/contact"
+import About from './pages/about';
 
 import {
   createBrowserRouter,
@@ -18,8 +19,8 @@ import {
 function Layout() {
   return (
     <>
-      <Outlet/>
-      <Footer/>
+      <Outlet />
+      <Footer />
     </>
   )
 }
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
   {
     path: "/support",
     element: <Contact />,
+  },
+  {
+    path: "/about",
+    element: <About />,
   }
 ]);
 
@@ -68,7 +73,7 @@ function App() {
 
   return (
     <div>
-      <RouterProvider router={router}/>
+      <RouterProvider router={router} />
     </div>
   );
 }

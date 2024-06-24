@@ -191,7 +191,7 @@ function Selection({ onUpdate, courseData, changeCourseData }) {
     };
 
     return (
-        <div className='my-4 mx-4'>
+        <div className='my-4 mx-4 mb-12'>
             {!isToggled && <>
                 <CourseGrid courseData={courseData} courses={courses} setCourses={setCourses} setChangeCounter={setChangeCounter} changeCourseData={changeCourseData} />
                 <div className='w-full h-full flex items-center justify-end'>
