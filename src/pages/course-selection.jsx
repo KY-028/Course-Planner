@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import LeftMenu from '/src/components/leftMenu';
 import Calendar from '/src/components/calendar';
 import Nav from '/src/components/nav';
@@ -65,6 +65,22 @@ export default function Courses() {
     const updateWinterCourses = (courses) => {
         setWinterCourses(courses);
     };
+
+
+    useEffect(() => {
+        const handleBeforeUnload = (e) => {
+            e.preventDefault();
+            e.returnValue = ''; // Standard for most browsers
+        };
+
+        window.addEventListener('beforeunload', handleBeforeUnload);
+
+        // Cleanup the event listener when the component unmounts
+        return () => {
+            window.removeEventListener('beforeunload', handleBeforeUnload);
+        };
+    }, []);
+
     return (
 
         <div className='grid xl:grid-cols-sidebar-lg lg:grid-cols-sidebar min-h-screen overflow-y-auto'>
