@@ -43,7 +43,8 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
 
         return Array.from(daysSet).join(''); // Sort and convert to string
     };
-    const handleSubmit = () => {
+    const handleSubmit = (event) => {
+        event.preventDefault()
         const formattedDays = formatDays(times); ''
 
         const formattedArray = [courseName, staffName];
@@ -174,7 +175,7 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
                                 Add Time
                             </button>
                         )}
-                        <button className="mt-4 p-2 w-full bg-green-500 text-white rounded">
+                        <button type="submit" className="mt-4 p-2 w-full bg-green-500 text-white rounded">
                             Submit
                         </button>
                     </form>
