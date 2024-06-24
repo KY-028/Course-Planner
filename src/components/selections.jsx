@@ -64,6 +64,14 @@ function CourseGrid({ courseData, courses, setCourses, setChangeCounter }) {
         setIsModalOpen(false);
     };
 
+    const addCustomCourse = (newCourse) => {
+        courseData[newCourse.id] = newCourse.correctformat
+        delete newCourse.array;
+
+        setCourses([...courses, newCourse]);
+        setIsModalOpen(false);
+    }
+
     const formatDays = (sessions) => {
         const daysSet = new Set();
         sessions.forEach(session => {
@@ -71,7 +79,7 @@ function CourseGrid({ courseData, courses, setCourses, setChangeCounter }) {
                 daysSet.add(day.startsWith('Th') ? 'Th' : day.charAt(0));
             });
         });
-        return Array.from(daysSet).sort().join('');
+        return Array.from(daysSet).join('');
     };
 
     const handleSelectChange = (courseId, newSelection) => {
@@ -111,7 +119,7 @@ function CourseGrid({ courseData, courses, setCourses, setChangeCounter }) {
                 onClick={() => setIsModalOpen(true)}>
                 <span className="text-xl">+</span>
             </button>
-            <Modal isOpen={isModalOpen} onClose={closeModal} courseData={courseData} onAddCourse={addCourse} />
+            <Modal isOpen={isModalOpen} onClose={closeModal} courseData={courseData} onAddCourse={addCourse} onAddCustomCourse={addCustomCourse} />
         </div>
     );
 }
@@ -174,8 +182,7 @@ function Selection({ onUpdate, courseData }) {
     return (
         <div className='my-4 mx-4'>
             {!isToggled && <> <CourseGrid courseData={courseData} courses={courses} setCourses={setCourses} setChangeCounter={setChangeCounter} />
-                <div className='w-full h-full flex items-center justify-between'>
-                    <button onClick={handleSubmit} className="ml-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Update Schedule</button>
+                <div className='w-full h-full flex items-center justify-end'>
                     <Toggle message="Entry Mode" isToggled={isToggled} toggleSwitch={toggleSwitch} />
                 </div>
             </>}
