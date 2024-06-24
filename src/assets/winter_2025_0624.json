@@ -273,6 +273,24 @@
         "CISC497 Thursday 13:00-14:30",
         "CISC497 Thursday 16:00-17:30"
     ],
+    "CISC497_2": [
+        "CISC497",
+        "Staff",
+        "CISC497 Thursday 13:00-14:30",
+        "CISC497 Thursday 16:00-17:30"
+    ],
+    "CISC497_3": [
+        "CISC497",
+        "Staff",
+        "CISC497 Thursday 13:00-14:30",
+        "CISC497 Thursday 16:00-17:30"
+    ],
+    "CISC497_4": [
+        "CISC497",
+        "Staff",
+        "CISC497 Thursday 13:00-14:30",
+        "CISC497 Thursday 16:00-17:30"
+    ],
     "CISC498_1": [
         "CISC498",
         "Hossain,Anwar",
@@ -289,5 +307,139 @@
         "CISC500",
         "Chen,Yuanzhu",
         "CISC500 Wednesday 12:30-14:30"
+    ],
+    "COGS100_1": [
+        "COGS100",
+        "Zulkernine,Farhana",
+        "COGS100 Tuesday 14:30-15:30",
+        "COGS100 Wednesday 16:30-17:30",
+        "COGS100 Friday 15:30-16:30"
+    ],
+    "COGS201_1": [
+        "COGS201",
+        "Lamb,Carolyn",
+        "COGS201 Monday 16:30-17:30",
+        "COGS201 Wednesday 15:30-16:30",
+        "COGS201 Friday 14:30-15:30"
+    ],
+    "MATH110_1": [
+        "MATH110",
+        "Yui,Noriko",
+        "MATH110 Monday 9:30-10:30",
+        "MATH110 Wednesday 8:30-9:30",
+        "MATH110 Thursday 10:30-11:30",
+        "MATH110 Wednesday 17:30-18:30"
+    ],
+    "MATH110_2": [
+        "MATH110",
+        "Yui,Noriko",
+        "MATH110 Monday 9:30-10:30",
+        "MATH110 Wednesday 8:30-9:30",
+        "MATH110 Thursday 10:30-11:30",
+        "MATH110 Tuesday 15:30-16:30"
+    ],
+    "MATH110_3": [
+        "MATH110",
+        "Barthelme,Thomas",
+        "MATH110 Monday 9:30-10:30",
+        "MATH110 Wednesday 8:30-9:30",
+        "MATH110 Thursday 10:30-11:30",
+        "MATH110 Wednesday 17:30-18:30"
+    ],
+    "MATH110_4": [
+        "MATH110",
+        "Barthelme,Thomas",
+        "MATH110 Monday 9:30-10:30",
+        "MATH110 Wednesday 8:30-9:30",
+        "MATH110 Thursday 10:30-11:30",
+        "MATH110 Tuesday 15:30-16:30"
+    ],
+    "MATH112_1": [
+        "MATH112",
+        "Staff",
+        "MATH112 Tuesday 14:30-15:30",
+        "MATH112 Wednesday 16:30-17:30",
+        "MATH112 Friday 15:30-16:30"
+    ],
+    "MATH112_2": [
+        "MATH112",
+        "Staff",
+        "MATH112 Monday 15:30-16:30",
+        "MATH112 Wednesday 14:30-15:30",
+        "MATH112 Thursday 16:30-17:30"
+    ],
+    "MATH120_1": [
+        "MATH120",
+        "chiri,Maria Teresa",
+        "MATH120 Monday 12:30-13:30",
+        "MATH120 Wednesday 11:30-12:30",
+        "MATH120 Thursday 13:30-14:30",
+        "MATH120 Monday 17:30-18:30"
+    ],
+    "MATH120_2": [
+        "MATH120",
+        "chiri,Maria Teresa",
+        "MATH120 Monday 12:30-13:30",
+        "MATH120 Wednesday 11:30-12:30",
+        "MATH120 Thursday 13:30-14:30",
+        "MATH120 Tuesday 17:30-18:30"
+    ],
+    "MATH120_3": [
+        "MATH120",
+        "Nguyen,Khoa",
+        "MATH120 Monday 12:30-13:30",
+        "MATH120 Wednesday 11:30-12:30",
+        "MATH120 Thursday 13:30-14:30",
+        "MATH120 Monday 17:30-18:30"
+    ],
+    "MATH120_4": [
+        "MATH120",
+        "Nguyen,Khoa",
+        "MATH120 Monday 12:30-13:30",
+        "MATH120 Wednesday 11:30-12:30",
+        "MATH120 Thursday 13:30-14:30",
+        "MATH120 Tuesday 17:30-18:30"
+    ],
+    "MATH121_1": [
+        "MATH121",
+        "Staff",
+        "MATH121 Monday 9:30-10:30",
+        "MATH121 Wednesday 8:30-9:30",
+        "MATH121 Thursday 10:30-11:30"
+    ],
+    "MATH121_2": [
+        "MATH121",
+        "Li,Ping",
+        "MATH121 Monday 12:30-13:30",
+        "MATH121 Wednesday 11:30-12:30",
+        "MATH121 Thursday 13:30-14:30"
+    ],
+    "MATH121_3": [
+        "MATH121",
+        "Kennedy,Christopher",
+        "MATH121 Tuesday 14:30-15:30",
+        "MATH121 Wednesday 16:30-17:30",
+        "MATH121 Friday 15:30-16:30"
+    ],
+    "MATH124_1": [
+        "MATH124",
+        "Staff",
+        "MATH124 Monday 9:30-10:30",
+        "MATH124 Wednesday 8:30-9:30",
+        "MATH124 Thursday 10:30-11:30"
+    ],
+    "MATH124_2": [
+        "MATH124",
+        "Li,Ping",
+        "MATH124 Monday 12:30-13:30",
+        "MATH124 Wednesday 11:30-12:30",
+        "MATH124 Thursday 13:30-14:30"
+    ],
+    "MATH124_3": [
+        "MATH124",
+        "Kennedy,Christopher",
+        "MATH124 Tuesday 14:30-15:30",
+        "MATH124 Wednesday 16:30-17:30",
+        "MATH124 Friday 15:30-16:30"
     ]
 }
