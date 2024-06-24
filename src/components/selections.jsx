@@ -40,7 +40,7 @@ function Course({ id, name, options, selectedOption, onSelectChange, onRemove })
 
 
 
-function CourseGrid({ courseData, courses, setCourses, setChangeCounter }) {
+function CourseGrid({ courseData, courses, setCourses, setChangeCounter, changeCourseData }) {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -65,8 +65,8 @@ function CourseGrid({ courseData, courses, setCourses, setChangeCounter }) {
     };
 
     const addCustomCourse = (newCourse) => {
-        courseData[newCourse.id] = newCourse.correctformat
-        delete newCourse.array;
+        const newData = { ...courseData, [newCourse.id]: newCourse.correctformat };
+        changeCourseData(newData);
 
         setCourses([...courses, newCourse]);
         setIsModalOpen(false);
@@ -99,6 +99,17 @@ function CourseGrid({ courseData, courses, setCourses, setChangeCounter }) {
 
     const removeCourse = id => {
         setCourses(courses.filter(course => course.id !== id));
+
+        // Check if the ID does not start with "CISC"
+        if (!id.startsWith("CISC")) {
+            // Assuming courseData is an object with IDs as keys and course details as values
+            // Create a new object excluding the ID
+            const newCourseData = { ...courseData };
+            delete newCourseData[id];  // Remove the entry from the object
+
+            // Update the courseData state
+            changeCourseData(newCourseData);
+        }
     };
 
 
@@ -125,7 +136,7 @@ function CourseGrid({ courseData, courses, setCourses, setChangeCounter }) {
 }
 
 
-function Selection({ onUpdate, courseData }) {
+function Selection({ onUpdate, courseData, changeCourseData }) {
     const [inputValue, setInputValue] = useState('');
     const [notFound, setNotFound] = useState([]);  // State to track IDs not found
     const [isToggled, setIsToggled] = useState(false); // Manage toggle state here
@@ -181,7 +192,8 @@ function Selection({ onUpdate, courseData }) {
 
     return (
         <div className='my-4 mx-4'>
-            {!isToggled && <> <CourseGrid courseData={courseData} courses={courses} setCourses={setCourses} setChangeCounter={setChangeCounter} />
+            {!isToggled && <>
+                <CourseGrid courseData={courseData} courses={courses} setCourses={setCourses} setChangeCounter={setChangeCounter} changeCourseData={changeCourseData} />
                 <div className='w-full h-full flex items-center justify-end'>
                     <Toggle message="Entry Mode" isToggled={isToggled} toggleSwitch={toggleSwitch} />
                 </div>

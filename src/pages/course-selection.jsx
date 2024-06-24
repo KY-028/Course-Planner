@@ -3,8 +3,8 @@ import LeftMenu from '/src/components/leftMenu';
 import Calendar from '/src/components/calendar';
 import Nav from '/src/components/nav';
 import Selection from '/src/components/selections';
-import fallData from '/src/assets/fall_2024.json';
-import winterData from '/src/assets/winter_2025.json';
+import fallJSON from '/src/assets/fall_2024.json';
+import winterJSON from '/src/assets/winter_2025.json';
 
 const falltimes = [
     "CISC 322 Tuesday 8:30-9:30",
@@ -53,6 +53,10 @@ export default function Courses() {
 
     const [fallCourses, setFallCourses] = useState([]);
     const [winterCourses, setWinterCourses] = useState([]);
+    const [fallData, setFallData] = useState(fallJSON);
+    const [winterData, setWinterData] = useState(winterJSON);
+
+
 
     const updateFallCourses = (courses) => {
         setFallCourses(courses);
@@ -75,11 +79,11 @@ export default function Courses() {
                 <div className='w-full grid md-custom:grid-cols-2 grid-cols md-custom:mx-0 m-0 p-0 gap-3'>
                     <div className='sm:m-0 m-1.5 p-0'>
                         <Calendar term="Fall" times={fallCourses} />
-                        <Selection onUpdate={updateFallCourses} courseData={fallData} />
+                        <Selection onUpdate={updateFallCourses} courseData={fallData} changeCourseData={setFallData} />
                     </div>
                     <div className='sm:m-0 m-1.5 p-0'>
                         <Calendar term="Winter" times={winterCourses} />
-                        <Selection onUpdate={updateWinterCourses} courseData={winterData} />
+                        <Selection onUpdate={updateWinterCourses} courseData={winterData} changeCourseData={setWinterData} />
                     </div>
 
                 </div>
