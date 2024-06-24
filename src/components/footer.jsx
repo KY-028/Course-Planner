@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 
-const Footer = ()  => {
+const Footer = () => {
     return (
 
-        <footer className="w-full border-t-2 border-gray-300 mt-4 px-4 dark:bg-gray-800">
+        <footer className="w-full border-gray-300 px-4 dark:bg-gray-800">
             <div className="w-full md:text-left text-center p-4 md:flex md:flex-row flex-col md:items-center md:justify-between justify-center">
                 <span className="text-base text-gray-500 sm:text-center dark:text-gray-400">© {new Date().getFullYear}
                     <a href="https://courseplanner.com/" className="hover:underline">Course Planner</a>. All Rights Reserved.
@@ -22,7 +22,7 @@ const Footer = ()  => {
                 </div>
             </div>
         </footer>
-        
+
     )
 }
 
