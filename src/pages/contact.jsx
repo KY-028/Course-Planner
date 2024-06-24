@@ -12,10 +12,10 @@ const Contact = () => {
         emailjs.sendForm('service_cfmmnlp', 'template_fmvts7a', form.current, '2qeaMXLo7xFUpCTe0')
             .then(
                 (result) => {
-                    console.log('SUCCESS!');
+                    alert("We've received your message!");
                 },
                 (error) => {
-                    console.log('FAILED...', error.text);
+                    alert(`There was an error: ${error.text}`);
                 },
             )
     }
