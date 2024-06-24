@@ -6,6 +6,7 @@ import Courses from "./pages/course-selection"
 import Planner from "./pages/planner"
 import Home from "./pages/home"
 import Footer from "./components/footer"
+import Contact from "./pages/contact"
 
 import {
   createBrowserRouter,
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
   {
     path: "/planner",
     element: <Planner />,
+  },
+  {
+    path: "/support",
+    element: <Contact />,
   }
 ]);
 
