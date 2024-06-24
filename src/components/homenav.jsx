@@ -34,11 +34,11 @@ export default function HomeNav() {
     }, [open, controls]);
 
     return (
-        <header className="w-full z-50">
+        <header className="w-full z-50 fixed top-0">
             {/* The Normal Screen Size */}
             <div className="sm:flex hidden w-full md:h-24 sm:h-16 justify-between bg-dark-blue">
                 <Link to="/" className="flex items-center">
-                    <img src={"/logo.png"} alt="Course Planner" className="p-3 max-h-full object-contain" />
+                    <img src={"/logo.png"} alt="Course Planner" className="p-4 max-h-full object-contain" />
                     <div className="text-white md:text-2xl text-lg font-bold">Course Planner</div>
                 </Link>
                 <div className="flex items-center text-white md:text-xl text-base mr-3">
