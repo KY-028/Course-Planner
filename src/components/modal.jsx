@@ -42,14 +42,11 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
         });
 
         return Array.from(daysSet).join(''); // Sort and convert to string
-    };
-    const handleSubmit = (event) => {
-        event.preventDefault()
-        const formattedDays = formatDays(times); ''
+    }; const handleSubmit = (event) => {
+        event.preventDefault();
+        const formattedDays = formatDays(times);
 
         const formattedArray = [courseName, staffName];
-
-        // Append each time formatted as "courseName day time"
         times.forEach(time => {
             formattedArray.push(`${courseName} ${time.day} ${time.time}`);
         });
@@ -60,9 +57,16 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
             options: [`Section ${sectionNumber}: ${formattedDays}`],
             correctformat: formattedArray,
         };
-        console.log(courseDetails);
+
         onAddCustomCourse(courseDetails);
         onClose();
+
+        // Reset all form fields and close custom form
+        setCourseName('');
+        setSectionNumber('');
+        setStaffName('Staff');
+        setTimes([{ day: 'Monday', time: '' }]);
+        setShowCustomForm(false);
     };
 
     const searchResults = Object.keys(courseData)
