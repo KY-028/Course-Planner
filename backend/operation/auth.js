@@ -55,5 +55,8 @@ export const login = (req,res)=>{
 }
 
 export const logout = (req,res)=>{
-    
+    res.clearCookie("assessToken",{
+        secure:true,
+        sameSite:"None"
+    }).status(200).json("User already logout")
 }
