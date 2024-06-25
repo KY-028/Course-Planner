@@ -14,6 +14,7 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
 
     const handleCourseSelect = (id) => {
         onAddCourse(id);  // Call the passed function with the selected course ID
+        setSearchTerm('');  // Reset the search term to an empty string
         onClose();        // Optionally close the modal on selection
     };
 
