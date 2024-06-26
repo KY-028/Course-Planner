@@ -22,36 +22,28 @@ const startingHour = 8;
 const Calendar = (props) => {
     const [colors, setColors] = useState(initialColors);
     const [courseColors, setCourseColors] = useState({});
-    const [occupiedSlots, setOccupiedSlots] = useState([]);
-    const [times, setParsedTimes] = useState([]);  // State to hold parsed times
+    const [times, setTimes] = useState([]);  // State to hold parsed times
 
 
     useEffect(() => {
         if (props.times && Array.isArray(props.times)) {
-            const times = props.times
+            const processedTimes = props.times
                 .filter(timeString => timeString.trim().length !== 0 && timeString.trim().split(' ').length >= 3)
                 .map(timeString => {
                     const parts = timeString.trim().split(' ');
                     const name = parts[0];
                     const day = parts[1];
                     const time = parts[2];
-                    return { name: name, day: day, time: time };
+                    const [startHour, startMinute] = time.split('-')[0].split(':').map(Number);
+                    const [endHour, endMinute] = time.split('-')[1].split(':').map(Number);
+                    const startTime = startHour * 60 + startMinute;
+                    const endTime = endHour * 60 + endMinute;
+                    return { name, day, time, startTime, endTime };
                 });
 
-            setParsedTimes(times); // Update state with valid times
+            setTimes(processedTimes); // Update state with processed times
         }
     }, [props.times]); // Dependency array includes props.times
-
-    useEffect(() => {
-        const newOccupiedSlots = times.map(event => {
-            const [startHour, startMinute] = event.time.split('-')[0].split(':').map(Number);
-            const [endHour, endMinute] = event.time.split('-')[1].split(':').map(Number);
-            const startTime = startHour * 60 + startMinute;
-            const endTime = endHour * 60 + endMinute;
-            return { ...event, startTime, endTime };  // include startTime and endTime
-        });
-        setOccupiedSlots(newOccupiedSlots);
-    }, [times]); // Changed from props.times to times
 
     const isConflict = (event, slots) => {
         const [startHour, startMinute] = event.time.split('-')[0].split(':').map(Number);
@@ -60,7 +52,7 @@ const Calendar = (props) => {
         const endTime = endHour * 60 + endMinute;
 
         return slots.some(slot => {
-            if (slot.name + slot.time !== event.name + event.time && slot.day === event.day) {
+            if (slot !== event && slot.day === event.day) {
                 return ((startTime < slot.endTime && endTime > slot.startTime) ||
                     (endTime > slot.startTime && startTime < slot.endTime)) &&
                     !(startTime === slot.endTime || endTime === slot.startTime);
@@ -73,7 +65,7 @@ const Calendar = (props) => {
 
         return times.filter(event => event.day === day).map((event, index) => {
 
-            const conflict = isConflict(event, occupiedSlots);
+            const conflict = isConflict(event, times);
             const color = conflict ? 'border-black border-2 bg-red-800 bg-opacity-70 text-white' : getColor(event.name);
 
 

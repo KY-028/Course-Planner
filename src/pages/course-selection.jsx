@@ -4,7 +4,7 @@ import Calendar from '/src/components/calendar';
 import Nav from '/src/components/nav';
 import Selection from '/src/components/selections';
 import fallJSON from '/src/assets/fall_2024_0624.json';
-import winterJSON from '/src/assets/winter_2025_0624.json';
+import winterJSON from '/src/assets/winter_2025_0626.json';
 
 const falltimes = [
     "CISC 322 Tuesday 8:30-9:30",
@@ -58,12 +58,25 @@ export default function Courses() {
 
 
 
-    const updateFallCourses = (courses) => {
+    const updateFallCourses = (courses_ids) => {
+        // Write your DB lines here
+
+
+        // Prepare for Calendar Rendering
+        const courses = courses_ids.flatMap(course => fallData[course].slice(2));
+
         setFallCourses(courses);
     };
 
-    const updateWinterCourses = (courses) => {
+    const updateWinterCourses = (courses_ids) => {
+        // Write your DB lines here
+
+
+        // Prepare for Calendar Rendering
+        console.log(courses_ids)
+        const courses = courses_ids.flatMap(course => winterData[course].slice(2));
         setWinterCourses(courses);
+
     };
 
 
