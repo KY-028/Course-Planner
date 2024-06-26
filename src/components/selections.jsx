@@ -6,7 +6,7 @@ function Toggle({ message, isToggled, toggleSwitch }) {
         <label className="flex items-center cursor-pointer">
             <div className="relative">
                 <input type="checkbox" id="toggle" className="sr-only" checked={isToggled} onChange={toggleSwitch} />
-                <div className={`block ${isToggled ? 'bg-blue-600' : 'bg-gray-600'} lg:w-14 w-11 lg:h-8 h-6 rounded-full`}></div>
+                <div className={`block ${isToggled ? 'bg-blue-600' : 'bg-gray-600'} lg:w-14 w-10 lg:h-8 h-6 rounded-full`}></div>
                 <div className={`dot absolute left-1 top-1 bg-white lg:w-6 lg:h-6 w-4 h-4 rounded-full transition-transform ${isToggled ? 'translate-x-full' : ''}`}></div>
             </div>
             <span className="ml-3 text-gray-900 font-medium">{message}</span>
@@ -45,14 +45,24 @@ function CourseGrid({ courseData, courses, setCourses, setChangeCounter, changeC
     const [isModalOpen, setIsModalOpen] = useState(false);
 
 
-    const generateOptions = (courseBaseId) => {
-        const sectionKeys = Object.keys(courseData).filter(key => key.startsWith(courseBaseId));
+    const generateOptions = (courseBaseId, coursemaster = courseData) => {
+        const sectionKeys = Object.keys(coursemaster).filter(key => key.startsWith(courseBaseId));
+        console.log(sectionKeys);
         return sectionKeys.map(key => {
-            return `Section ${key.split('_')[1]}: ${formatDays(courseData[key].slice(2))}`;
-        });
+            return `Section ${key.split('_')[1]}: ${formatDays(coursemaster[key].slice(2))}`;
+        }).sort();
     };
 
     const addCourse = (id) => {
+        // Check if the course with the given id is already in the courses list
+        const isAlreadyAdded = courses.some(course => course.id === id);
+
+        if (isAlreadyAdded) {
+            alert("This course is already in the list!");
+            setIsModalOpen(true);
+            return;
+        }
+
         const courseDetail = courseData[id];
         const newCourse = {
             id: id,
@@ -66,9 +76,21 @@ function CourseGrid({ courseData, courses, setCourses, setChangeCounter, changeC
 
     const addCustomCourse = (newCourse) => {
         const newData = { ...courseData, [newCourse.id]: newCourse.correctformat };
-        changeCourseData(newData);
+        changeCourseData(newData); // This might needs change once database is set up
 
+        // console.log(newCourse);
         setCourses([...courses, newCourse]);
+
+        // Update the options for all related courses
+        const baseCourseName = newCourse.id.split('_')[0];
+        setCourses(prevCourses => prevCourses.map(course => {
+            if (course.id.startsWith(baseCourseName)) {
+                const updatedOptions = generateOptions(baseCourseName, newData);
+                return { ...course, options: updatedOptions };
+            }
+            return course;
+        }));
+
         setIsModalOpen(false);
     }
 
@@ -83,6 +105,21 @@ function CourseGrid({ courseData, courses, setCourses, setChangeCounter, changeC
     };
 
     const handleSelectChange = (courseId, newSelection) => {
+        console.log(courseId, newSelection);
+        const isAlreadySelected = courses.some(course => course.selectedOption === newSelection);
+
+        if (isAlreadySelected) {
+            alert("The new section you selected is already in the list!");
+            // Revert the selection back to the previous value
+            setCourses(courses.map(course => {
+                if (course.id === courseId) {
+                    return { ...course, selectedOption: course.selectedOption };
+                }
+                return course;
+            }));
+            return;
+        }
+
         setCourses(courses.map(course => {
             if (course.id === courseId) {
                 const newId = `${course.name}_${newSelection.split(' ')[1].replace(':', '')}`;
@@ -98,18 +135,41 @@ function CourseGrid({ courseData, courses, setCourses, setChangeCounter, changeC
     }
 
     const removeCourse = id => {
-        setCourses(courses.filter(course => course.id !== id));
+        // Check if the course ID does not start with any of the specified prefixes
 
-        // Check if the ID does not start with "CISC"
-        if (!id.startsWith("CISC")) {
-            // Assuming courseData is an object with IDs as keys and course details as values
-            // Create a new object excluding the ID
-            const newCourseData = { ...courseData };
-            delete newCourseData[id];  // Remove the entry from the object
+        const newCourseData = { ...courseData };
+        if (!id.startsWith("CISC") && !id.startsWith("MATH") && !id.startsWith("STAT") && !id.startsWith("COGS")) {
+            // Prompt the user to confirm the removal of a custom course
+            const confirmRemoval = confirm("Removing a custom course will require you to reenter it. Do you want to proceed?");
 
-            // Update the courseData state
-            changeCourseData(newCourseData);
+            if (!confirmRemoval) {
+                // If the user cancels, do not proceed with removal
+                return;
+
+            } else {
+                // Because it's a custom course it must be removed from the library
+                delete newCourseData[id];
+                changeCourseData(newCourseData);
+
+            }
         }
+
+        const filteredCourses = courses.filter(course => course.id !== id);
+        console.log(filteredCourses);
+        console.log(newCourseData);
+
+
+        setCourses(
+            filteredCourses.map(course => {
+                if (course.id.startsWith(id.split("_")[0])) {
+                    const updatedOptions = generateOptions(id.split("_")[0], newCourseData);
+                    console.log(updatedOptions);
+                    return { ...course, options: updatedOptions };
+                }
+                return course;
+            })
+        );
+
     };
 
 
@@ -146,18 +206,20 @@ function Selection({ onUpdate, courseData, changeCourseData }) {
 
     // Update course count whenever courses change
     useEffect(() => {
+        console.log("Length changed: " + courses.length)
+        console.log(courses);
         setCourseCount(courses.length);
     }, [courses.length]);
 
     useEffect(() => {
-        const allCourseDetails = courses.flatMap(course => courseData[course.id].slice(2));
-        onUpdate(allCourseDetails);
+        const course_ids = courses.flatMap(course => course.id);
+        onUpdate(course_ids);
     }, [changeCounter]);  // Depend directly on changeCounter
 
     // Effect to run onUpdate when courseCount changes
     useEffect(() => {
-        const allCourseDetails = courses.flatMap(course => courseData[course.id].slice(2));
-        onUpdate(allCourseDetails);
+        const course_ids = courses.flatMap(course => course.id);
+        onUpdate(course_ids);
     }, [courseCount]);  // Dependency on courseCount only
 
     const toggleSwitch = () => {
@@ -178,10 +240,9 @@ function Selection({ onUpdate, courseData, changeCourseData }) {
         const notFoundIds = [];
 
         ids.forEach(id => {
-            try {
-                const courseDetails = courseData[id];
-                allCourseDetails.push(...courseDetails.slice(2));  // Collect all times, assuming times start from index 2
-            } catch (TypeError) {
+            if (id in courseData) {
+                allCourseDetails.push(id);  // Collect all times, assuming times start from index 2
+            } else {
                 notFoundIds.push(id);  // Collect IDs not found
             }
         });
@@ -191,7 +252,7 @@ function Selection({ onUpdate, courseData, changeCourseData }) {
     };
 
     return (
-        <div className='my-4 mx-4 mb-12'>
+        <div className='m-4 mb-12'>
             {!isToggled && <>
                 <CourseGrid courseData={courseData} courses={courses} setCourses={setCourses} setChangeCounter={setChangeCounter} changeCourseData={changeCourseData} />
                 <div className='w-full h-full flex items-center justify-end'>
@@ -205,15 +266,15 @@ function Selection({ onUpdate, courseData, changeCourseData }) {
                     value={inputValue}
                     onChange={handleInputChange}
                     placeholder={`Enter courses as 'CISC121_1 separated by new lines\nThe number after the underscore is the order they appear in on SOLUS\nIt is recommended you double check SOLUS for accuracy`}
-                    className="m-2 p-1 w-full h-32 border-gray-600 border-2 bg-gray-100 resize-none"
+                    className="sm:text-base text-sm w-full p-1 h-32 border-gray-600 border-2 bg-gray-100 resize-none"
                 />
                 <div className='w-full h-full flex items-center justify-between'>
-                    <button onClick={handleSubmit} className="ml-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Update Schedule</button>
+                    <button onClick={handleSubmit} className=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Update Schedule</button>
                     <Toggle message="Entry Mode" isToggled={isToggled} toggleSwitch={toggleSwitch} />
                 </div>
                 {notFound.length > 0 && (
                     <div className="p-2 mx-2 bg-red-100 border border-red-400 text-red-700">
-                        <p>Course ID(s) not found:</p>
+                        <p>Course ID(s) not found (check your format!):</p>
                         <ul>
                             {notFound.map(id => <li key={id}>{id}</li>)}
                         </ul>

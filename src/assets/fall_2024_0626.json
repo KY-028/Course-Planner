@@ -383,5 +383,297 @@
         "MATH121 Tuesday 14:30-15:30",
         "MATH121 Wednesday 16:30-17:30",
         "MATH121 Friday 15:30-16:30"
+    ],
+    "MATH126_1": [
+        "MATH126",
+        "Taylor,Peter D",
+        "MATH126 Tuesday 14:30-15:30",
+        "MATH126 Wednesday 16:30-17:30",
+        "MATH126 Friday 15:30-16:30",
+        "MATH126 Thursday 12:30-13:30"
+    ],
+    "MATH126_2": [
+        "MATH126",
+        "Taylor,Peter D",
+        "MATH126 Tuesday 14:30-15:30",
+        "MATH126 Wednesday 16:30-17:30",
+        "MATH126 Friday 15:30-16:30",
+        "MATH126 Friday 12:30-13:30"
+    ],
+    "MATH126_3": [
+        "MATH126",
+        "Taylor,Peter D",
+        "MATH126 Tuesday 14:30-15:30",
+        "MATH126 Wednesday 16:30-17:30",
+        "MATH126 Friday 15:30-16:30",
+        "MATH126 Thursday 11:30-12:30"
+    ],
+    "MATH126_4": [
+        "MATH126",
+        "Staff",
+        "MATH126 Tuesday 14:30-15:30",
+        "MATH126 Wednesday 16:30-17:30",
+        "MATH126 Friday 15:30-16:30",
+        "MATH126 Thursday 12:30-13:30"
+    ],
+    "MATH126_5": [
+        "MATH126",
+        "Staff",
+        "MATH126 Tuesday 14:30-15:30",
+        "MATH126 Wednesday 16:30-17:30",
+        "MATH126 Friday 15:30-16:30",
+        "MATH126 Friday 12:30-13:30"
+    ],
+    "MATH126_6": [
+        "MATH126",
+        "Staff",
+        "MATH126 Tuesday 14:30-15:30",
+        "MATH126 Wednesday 16:30-17:30",
+        "MATH126 Friday 15:30-16:30",
+        "MATH126 Thursday 11:30-12:30"
+    ],
+    "MATH130_1": [
+        "MATH130",
+        "Day,Troy",
+        "MATH130 Monday 10:30-11:30",
+        "MATH130 Tuesday 9:30-10:30",
+        "MATH130 Friday 10:30-11:30",
+        "MATH130 Wednesday 17:30-18:30"
+    ],
+    "MATH130_2": [
+        "MATH130",
+        "Day,Troy",
+        "MATH130 Monday 10:30-11:30",
+        "MATH130 Tuesday 9:30-10:30",
+        "MATH130 Friday 10:30-11:30",
+        "MATH130 Wednesday 17:30-18:30"
+    ],
+    "MATH130_3": [
+        "MATH130",
+        "Day,Troy",
+        "MATH130 Monday 10:30-11:30",
+        "MATH130 Tuesday 9:30-10:30",
+        "MATH130 Friday 10:30-11:30",
+        "MATH130 Wednesday 17:30-18:30"
+    ],
+    "MATH130_4": [
+        "MATH130",
+        "Day,Troy",
+        "MATH130 Monday 10:30-11:30",
+        "MATH130 Tuesday 9:30-10:30",
+        "MATH130 Friday 10:30-11:30",
+        "MATH130 Wednesday 17:30-18:30"
+    ],
+    "MATH221_1": [
+        "MATH221",
+        "Levit,Boris",
+        "MATH221 Monday 14:30-15:30",
+        "MATH221 Tuesday 16:30-17:30",
+        "MATH221 Thursday 15:30-16:30"
+    ],
+    "MATH225_1": [
+        "MATH225",
+        "Staff",
+        "MATH225 Tuesday 11:30-12:30",
+        "MATH225 Wednesday 13:30-14:30",
+        "MATH225 Friday 12:30-13:30",
+        "MATH225 Friday 8:30-9:30"
+    ],
+    "MATH225_2": [
+        "MATH225",
+        "Staff",
+        "MATH225 Tuesday 11:30-12:30",
+        "MATH225 Wednesday 13:30-14:30",
+        "MATH225 Friday 12:30-13:30",
+        "MATH225 Friday 8:30-9:30"
+    ],
+    "MATH225_3": [
+        "MATH225",
+        "Staff",
+        "MATH225 Tuesday 11:30-12:30",
+        "MATH225 Wednesday 13:30-14:30",
+        "MATH225 Friday 12:30-13:30",
+        "MATH225 Friday 8:30-9:30"
+    ],
+    "MATH225_4": [
+        "MATH225",
+        "Staff",
+        "MATH225 Tuesday 11:30-12:30",
+        "MATH225 Wednesday 13:30-14:30",
+        "MATH225 Friday 12:30-13:30",
+        "MATH225 Friday 8:30-9:30"
+    ],
+    "MATH280_1": [
+        "MATH280",
+        "chiri,Maria Teresa",
+        "MATH280 Monday 9:30-10:30",
+        "MATH280 Wednesday 8:30-9:30",
+        "MATH280 Thursday 10:30-11:30",
+        "MATH280 Tuesday 8:30-9:30"
+    ],
+    "MATH280_2": [
+        "MATH280",
+        "chiri,Maria Teresa",
+        "MATH280 Monday 9:30-10:30",
+        "MATH280 Wednesday 8:30-9:30",
+        "MATH280 Thursday 10:30-11:30",
+        "MATH280 Tuesday 14:30-15:30"
+    ],
+    "MATH280_3": [
+        "MATH280",
+        "Naik,Sunil Lakshman",
+        "MATH280 Monday 9:30-10:30",
+        "MATH280 Wednesday 8:30-9:30",
+        "MATH280 Thursday 10:30-11:30",
+        "MATH280 Tuesday 8:30-9:30"
+    ],
+    "MATH280_4": [
+        "MATH280",
+        "Naik,Sunil Lakshman",
+        "MATH280 Monday 9:30-10:30",
+        "MATH280 Wednesday 8:30-9:30",
+        "MATH280 Thursday 10:30-11:30",
+        "MATH280 Tuesday 14:30-15:30"
+    ],
+    "MATH310_1": [
+        "MATH310",
+        "Nguyen,Khoa",
+        "MATH310 Monday 15:30-16:30",
+        "MATH310 Wednesday 14:30-15:30",
+        "MATH310 Thursday 16:30-17:30"
+    ],
+    "MATH326_1": [
+        "MATH326",
+        "Dimitrov,Ivan K",
+        "MATH326 Tuesday 11:30-12:30",
+        "MATH326 Wednesday 13:30-14:30",
+        "MATH326 Friday 12:30-13:30",
+        "MATH326 Thursday 12:30-13:30"
+    ],
+    "MATH331_1": [
+        "MATH331",
+        "Magpantay,Felicia",
+        "MATH331 Monday 11:30-12:30",
+        "MATH331 Tuesday 13:30-14:30",
+        "MATH331 Thursday 12:30-13:30",
+        "MATH331 Monday 8:30-9:30"
+    ],
+    "MATH347_1": [
+        "MATH347",
+        "Roth,Mike A",
+        "MATH347 Tuesday 9:30-10:30",
+        "MATH347 Thursday 8:30-9:30",
+        "MATH347 Friday 10:30-11:30"
+    ],
+    "MATH381_1": [
+        "MATH381",
+        "Murty,Ram P M",
+        "MATH381 Monday 8:30-9:30",
+        "MATH381 Tuesday 10:30-11:30",
+        "MATH381 Thursday 9:30-10:30"
+    ],
+    "MATH421_1": [
+        "MATH421",
+        "Lewis,Andrew",
+        "MATH421 Monday 12:30-13:30",
+        "MATH421 Wednesday 11:30-12:30",
+        "MATH421 Thursday 13:30-14:30"
+    ],
+    "MATH429_1": [
+        "MATH429",
+        "Cellarosi,Francesco",
+        "MATH429 Wednesday 17:30-19:00",
+        "MATH429 Thursday 17:30-19:00"
+    ],
+    "MATH433_1": [
+        "MATH433",
+        "Mazzone,Giusy",
+        "MATH433 Monday 9:30-10:30",
+        "MATH433 Wednesday 8:30-9:30",
+        "MATH433 Thursday 10:30-11:30"
+    ],
+    "MATH474_1": [
+        "MATH474",
+        "Alajaji,Fady",
+        "MATH474 Monday 8:30-9:30",
+        "MATH474 Tuesday 10:30-11:30",
+        "MATH474 Thursday 9:30-10:30"
+    ],
+    "STAT161_1": [
+        "STAT161",
+        "Lin,Devon",
+        "STAT161 Monday 11:30-12:30",
+        "STAT161 Tuesday 13:30-14:30",
+        "STAT161 Thursday 12:30-13:30"
+    ],
+    "STAT252_1": [
+        "STAT252",
+        "Rodgers,Brad",
+        "STAT252 Monday 11:30-12:30",
+        "STAT252 Tuesday 13:30-14:30",
+        "STAT252 Thursday 12:30-13:30"
+    ],
+    "STAT263_1": [
+        "STAT263",
+        "Molson,Charles Arthur",
+        "STAT263 Monday 15:30-16:30",
+        "STAT263 Wednesday 14:30-15:30",
+        "STAT263 Thursday 16:30-17:30"
+    ],
+    "STAT263_2": [
+        "STAT263",
+        "Molson,Charles Arthur",
+        "STAT263 Tuesday 8:30-9:30",
+        "STAT263 Wednesday 10:30-11:30",
+        "STAT263 Friday 9:30-10:30"
+    ],
+    "STAT268_1": [
+        "STAT268",
+        "Jiang,Wenyu",
+        "STAT268 Monday 12:30-13:30",
+        "STAT268 Wednesday 11:30-12:30",
+        "STAT268 Thursday 13:30-14:30"
+    ],
+    "STAT361_1": [
+        "STAT361",
+        "Lin,Devon",
+        "STAT361 Monday 12:30-13:30",
+        "STAT361 Wednesday 11:30-12:30",
+        "STAT361 Thursday 13:30-14:30"
+    ],
+    "STAT455_1": [
+        "STAT455",
+        "Song,Yanglei",
+        "STAT455 Tuesday 15:30-16:30",
+        "STAT455 Thursday 14:30-15:30",
+        "STAT455 Friday 16:30-17:30",
+        "STAT455 Tuesday 11:30-12:30"
+    ],
+    "STAT462_1": [
+        "STAT462",
+        "Jiang,Wenyu",
+        "STAT462 Wednesday 13:00-14:30",
+        "STAT462 Friday 11:30-13:00"
+    ],
+    "STAT463_1": [
+        "STAT463",
+        "Song,Yanglei",
+        "STAT463 Monday 8:30-9:30",
+        "STAT463 Tuesday 10:30-11:30",
+        "STAT463 Thursday 9:30-10:30"
+    ],
+    "STAT464_1": [
+        "STAT464",
+        "Takahara,Glen",
+        "STAT464 Monday 10:30-11:30",
+        "STAT464 Wednesday 9:30-10:30",
+        "STAT464 Friday 8:30-9:30"
+    ],
+    "STAT473_1": [
+        "STAT473",
+        "Levit,Boris",
+        "STAT473 Monday 9:30-10:30",
+        "STAT473 Wednesday 8:30-9:30",
+        "STAT473 Thursday 10:30-11:30"
     ]
 }

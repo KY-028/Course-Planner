@@ -441,5 +441,212 @@
         "MATH124 Tuesday 14:30-15:30",
         "MATH124 Wednesday 16:30-17:30",
         "MATH124 Friday 15:30-16:30"
+    ],
+    "MATH181_1": [
+        "MATH181",
+        "Taylor,Peter D",
+        "MATH181 Wednesday 17:30-7:30"
+    ],
+    "MATH210_1": [
+        "MATH210",
+        "Smith,Gregory G",
+        "MATH210 Monday 9:30-10:30",
+        "MATH210 Wednesday 8:30-9:30",
+        "MATH210 Thursday 10:30-11:30",
+        "MATH210 Wednesday 16:30-17:30"
+    ],
+    "MATH212_1": [
+        "MATH212",
+        "Meadows,Tyler Allan",
+        "MATH212 Tuesday 11:30-12:30",
+        "MATH212 Wednesday 13:30-14:30",
+        "MATH212 Friday 12:30-13:30",
+        "MATH212 Monday 10:30-11:30"
+    ],
+    "MATH212_2": [
+        "MATH212",
+        "Meadows,Tyler Allan",
+        "MATH212 Tuesday 11:30-12:30",
+        "MATH212 Wednesday 13:30-14:30",
+        "MATH212 Friday 12:30-13:30",
+        "MATH212 Wednesday 11:30-12:30"
+    ],
+    "MATH225_1": [
+        "MATH225",
+        "Mansouri,Abdol-Reza",
+        "MATH225 Tuesday 8:30-9:30",
+        "MATH225 Wednesday 10:30-11:30",
+        "MATH225 Friday 9:30-10:30",
+        "MATH225 Monday 13:30-14:30"
+    ],
+    "MATH228_1": [
+        "MATH228",
+        "Nguyen,David Tuan",
+        "MATH228 Monday 14:30-15:30",
+        "MATH228 Tuesday 16:30-17:30",
+        "MATH228 Thursday 15:30-16:30",
+        "MATH228 Tuesday 13:30-14:30"
+    ],
+    "MATH281_1": [
+        "MATH281",
+        "Barthelme,Thomas",
+        "MATH281 Monday 15:30-16:30",
+        "MATH281 Wednesday 14:30-15:30",
+        "MATH281 Thursday 16:30-17:30",
+        "MATH281 Tuesday 15:30-16:30"
+    ],
+    "MATH281_2": [
+        "MATH281",
+        "Barthelme,Thomas",
+        "MATH281 Monday 15:30-16:30",
+        "MATH281 Wednesday 14:30-15:30",
+        "MATH281 Thursday 16:30-17:30",
+        "MATH281 Monday 16:30-17:30"
+    ],
+    "MATH281_3": [
+        "MATH281",
+        "Salmoiraghi,Federico",
+        "MATH281 Monday 15:30-16:30",
+        "MATH281 Wednesday 14:30-15:30",
+        "MATH281 Thursday 16:30-17:30",
+        "MATH281 Tuesday 15:30-16:30"
+    ],
+    "MATH281_4": [
+        "MATH281",
+        "Salmoiraghi,Federico",
+        "MATH281 Monday 15:30-16:30",
+        "MATH281 Wednesday 14:30-15:30",
+        "MATH281 Thursday 16:30-17:30",
+        "MATH281 Monday 16:30-17:30"
+    ],
+    "MATH300_1": [
+        "MATH300",
+        "Magpantay,Felicia",
+        "MATH300 Monday 9:30-10:30",
+        "MATH300 Wednesday 8:30-9:30",
+        "MATH300 Thursday 10:30-11:30"
+    ],
+    "MATH311_1": [
+        "MATH311",
+        "Naik,Sunil Lakshmana",
+        "MATH311 Monday 10:30-11:30",
+        "MATH311 Wednesday 9:30-10:30",
+        "MATH311 Friday 8:30-9:30"
+    ],
+    "MATH328_1": [
+        "MATH328",
+        "Cellarosi,Francesco",
+        "MATH328 Monday 13:30-14:30",
+        "MATH328 Wednesday 12:30-13:30",
+        "MATH328 Friday 11:30-12:30"
+    ],
+    "MATH335_1": [
+        "MATH335",
+        "Yuksel,Serdar",
+        "MATH335 Monday 11:30-12:30",
+        "MATH335 Tuesday 13:30-14:30",
+        "MATH335 Thursday 12:30-13:30",
+        "MATH335 Tuesday 14:30-15:30"
+    ],
+    "MATH337_1": [
+        "MATH337",
+        "Staff",
+        "MATH337 Tuesday 11:30-12:30",
+        "MATH337 Wednesday 13:30-14:30",
+        "MATH337 Friday 12:30-13:30"
+    ],
+    "MATH385_1": [
+        "MATH385",
+        "Staff",
+        "MATH385 Monday 16:00-17:30",
+        "MATH385 Wednesday 14:30-16:00"
+    ],
+    "MATH401_1": [
+        "MATH401",
+        "Rodgers,Brad",
+        "MATH401 Monday 18:30-20:00",
+        "MATH401 Wednesday 18:30-20:00"
+    ],
+    "MATH413_1": [
+        "MATH413",
+        "Smith,Gregory G",
+        "MATH413 Monday 11:30-12:30",
+        "MATH413 Tuesday 13:30-14:30",
+        "MATH413 Thursday 12:30-13:30"
+    ],
+    "MATH472_1": [
+        "MATH472",
+        "Yuksel,Serdar",
+        "MATH472 Monday 12:30-13:30",
+        "MATH472 Wednesday 11:30-12:30",
+        "MATH472 Thursday 13:30-14:30"
+    ],
+    "MATH477_1": [
+        "MATH477",
+        "Alajaji,Fady",
+        "MATH477 Tuesday 8:30-10:00",
+        "MATH477 Friday 10:00-11:30"
+    ],
+    "MATH487_1": [
+        "MATH487",
+        "Mansouri,Abdol-Reza",
+        "MATH487 Tuesday 10:00-11:30",
+        "MATH487 Thursday 8:30-10:00"
+    ],
+    "STAT263_1": [
+        "STAT263",
+        "Molson,Charles Arthur",
+        "STAT263 Monday 9:30-10:30",
+        "STAT263 Wednesday 8:30-9:30",
+        "STAT263 Thursday 10:30-11:30"
+    ],
+    "STAT263_2": [
+        "STAT263",
+        "Molson,Charles Arthur",
+        "STAT263 Monday 13:30-14:30",
+        "STAT263 Wednesday 12:30-13:30",
+        "STAT263 Friday 11:30-12:30"
+    ],
+    "STAT269_1": [
+        "STAT269",
+        "Takahara,Glen",
+        "STAT269 Tuesday 9:30-10:30",
+        "STAT269 Thursday 8:30-9:30",
+        "STAT269 Friday 10:30-11:30"
+    ],
+    "STAT353_1": [
+        "STAT353",
+        "Mingo,James A",
+        "STAT353 Monday 10:30-11:30",
+        "STAT353 Wednesday 9:30-10:30",
+        "STAT353 Friday 8:30-9:30"
+    ],
+    "STAT362_1": [
+        "STAT362",
+        "Ling,Brian",
+        "STAT362 Monday 13:30-14:30",
+        "STAT362 Wednesday 12:30-13:30",
+        "STAT362 Friday 11:30-12:30"
+    ],
+    "STAT456_1": [
+        "STAT456",
+        "Takahara,Glen",
+        "STAT456 Monday 9:30-10:30",
+        "STAT456 Wednesday 8:30-9:30",
+        "STAT456 Thursday 10:30-11:30"
+    ],
+    "STAT457_1": [
+        "STAT457",
+        "Ling,Brian",
+        "STAT457 Monday 15:30-16:30",
+        "STAT457 Wednesday 14:30-15:30",
+        "STAT457 Thursday 16:30-17:30"
+    ],
+    "STAT486_1": [
+        "STAT486",
+        "Jiang,Wenyu",
+        "STAT486 Monday 8:30-9:30",
+        "STAT486 Tuesday 10:30-11:30",
+        "STAT486 Thursday 9:30-10:30"
     ]
 }

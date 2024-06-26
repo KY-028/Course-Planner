@@ -15,7 +15,6 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
     const handleCourseSelect = (id) => {
         onAddCourse(id);  // Call the passed function with the selected course ID
         setSearchTerm('');  // Reset the search term to an empty string
-        onClose();        // Optionally close the modal on selection
     };
 
     const addTime = () => {
@@ -43,8 +42,20 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
         });
 
         return Array.from(daysSet).join(''); // Sort and convert to string
-    }; const handleSubmit = (event) => {
+    };
+
+    const handleSubmit = (event) => {
         event.preventDefault();
+
+        const id = `${courseName}_${sectionNumber}`;
+
+        // Check if the course ID is already in courseData
+        if (id in courseData) {
+            alert("This class was found in our system!");
+            onAddCourse(id);
+            return;
+        }
+
         const formattedDays = formatDays(times);
 
         const formattedArray = [courseName, staffName];
@@ -53,9 +64,10 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
         });
 
         const courseDetails = {
-            id: `${courseName}_${sectionNumber}`,
+            id: id,
             name: courseName,
             options: [`Section ${sectionNumber}: ${formattedDays}`],
+            selectedOption: `Section ${sectionNumber}: ${formattedDays}`,
             correctformat: formattedArray,
         };
 
