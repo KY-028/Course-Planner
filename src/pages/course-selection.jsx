@@ -3,7 +3,7 @@ import LeftMenu from '/src/components/leftMenu';
 import Calendar from '/src/components/calendar';
 import Nav from '/src/components/nav';
 import Selection from '/src/components/selections';
-import fallJSON from '/src/assets/fall_2024_0624.json';
+import fallJSON from '/src/assets/fall_2024_0626.json';
 import winterJSON from '/src/assets/winter_2025_0626.json';
 
 const falltimes = [
