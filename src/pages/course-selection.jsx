@@ -5,6 +5,7 @@ import Nav from '/src/components/nav';
 import Selection from '/src/components/selections';
 import fallJSON from '/src/assets/fall_2024_0626.json';
 import winterJSON from '/src/assets/winter_2025_0626.json';
+import axios from 'axios'
 
 const falltimes = [
     "CISC 322 Tuesday 8:30-9:30",
@@ -55,27 +56,49 @@ export default function Courses() {
     const [winterCourses, setWinterCourses] = useState([]);
     const [fallData, setFallData] = useState(fallJSON);
     const [winterData, setWinterData] = useState(winterJSON);
+    const [err, setError] = useState(null);
 
-
-
-    const updateFallCourses = (courses_ids) => {
-        // Write your DB lines here
-
-
+    const updateFallCourses = async (courses_ids) => {
         // Prepare for Calendar Rendering
         const courses = courses_ids.flatMap(course => fallData[course].slice(2));
-
         setFallCourses(courses);
+        // Send data to backend
+        const user = JSON.parse(localStorage.getItem('user'));
+        const userId = user ? user.id : null;
+        const term = "fall"
+        try {
+            await axios.post('http://localhost:8800/backend/courseChange/', {
+                userId,
+                courses_ids,
+                term,
+            });
+            console.log('Courses updated successfully');
+        } catch (err) {
+            const errorMessage = err.response?.data?.message || "An unexpected error occurred";
+            setError(errorMessage);
+        }
+
     };
 
-    const updateWinterCourses = (courses_ids) => {
-        // Write your DB lines here
-
-
+    const updateWinterCourses = async (courses_ids) => {
         // Prepare for Calendar Rendering
-        console.log(courses_ids)
         const courses = courses_ids.flatMap(course => winterData[course].slice(2));
         setWinterCourses(courses);
+        // Send data to backend
+        const user = JSON.parse(localStorage.getItem('user'));
+        const userId = user ? user.id : null;
+        const term = "winter"
+        try {
+            await axios.post('http://localhost:8800/backend/courseChange/', {
+                userId,
+                courses_ids,
+                term,
+            });
+            console.log('Courses updated successfully');
+        } catch (err) {
+            const errorMessage = err.response?.data?.message || "An unexpected error occurred";
+            setError(errorMessage);
+        }
 
     };
 

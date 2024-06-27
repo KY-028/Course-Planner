@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { motion, useAnimation } from 'framer-motion';
+import { AuthContext } from "../context/authContext";
 
 export default function Nav({ activeTab }) {
 
+    const {currentUser} = useContext(AuthContext)
     const [open, setOpen] = useState(false);
 
     const menuVariants = {
@@ -40,7 +42,15 @@ export default function Nav({ activeTab }) {
                 <div className="flex-1"></div> {/* This div is just to center the title with flex */}
                 <div className="flex-1 flex justify-center items-center text-2xl font-bold text-black  whitespace-nowrap">Course Selection Planner</div>
                 <div className="flex-1 flex flex-col items-end text-black">
-                    <div>Planning For</div>
+                    {currentUser && currentUser.username ? (
+                        <span>{currentUser.username}</span>
+                        ) : (
+                        <Link to="/login">
+                            <button className="md:text-lg mt-2 text-base p-3 py-1.5 rounded border-2 text-custom-blue-1 border-custom-blue-1">
+                                Log In
+                            </button>
+                        </Link>
+                    )}
                     <div>2024-2025</div>
                 </div>
             </div>
