@@ -47,7 +47,6 @@ function CourseGrid({ courseData, courses, setCourses, setChangeCounter, changeC
 
     const generateOptions = (courseBaseId, coursemaster = courseData) => {
         const sectionKeys = Object.keys(coursemaster).filter(key => key.startsWith(courseBaseId));
-        console.log(sectionKeys);
         return sectionKeys.map(key => {
             return `Section ${key.split('_')[1]}: ${formatDays(coursemaster[key].slice(2))}`;
         }).sort();
@@ -78,7 +77,6 @@ function CourseGrid({ courseData, courses, setCourses, setChangeCounter, changeC
         const newData = { ...courseData, [newCourse.id]: newCourse.correctformat };
         changeCourseData(newData); // This might needs change once database is set up
 
-        // console.log(newCourse);
         setCourses([...courses, newCourse]);
 
         // Update the options for all related courses
@@ -155,15 +153,12 @@ function CourseGrid({ courseData, courses, setCourses, setChangeCounter, changeC
         }
 
         const filteredCourses = courses.filter(course => course.id !== id);
-        console.log(filteredCourses);
-        console.log(newCourseData);
 
 
         setCourses(
             filteredCourses.map(course => {
                 if (course.id.startsWith(id.split("_")[0])) {
                     const updatedOptions = generateOptions(id.split("_")[0], newCourseData);
-                    console.log(updatedOptions);
                     return { ...course, options: updatedOptions };
                 }
                 return course;
@@ -206,8 +201,6 @@ function Selection({ onUpdate, courseData, changeCourseData }) {
 
     // Update course count whenever courses change
     useEffect(() => {
-        console.log("Length changed: " + courses.length)
-        console.log(courses);
         setCourseCount(courses.length);
     }, [courses.length]);
 
