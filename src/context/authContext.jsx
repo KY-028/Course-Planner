@@ -9,7 +9,7 @@ export const AuthContextProvider = ({ children }) => {
   );
 
   const login = async (inputs) => {
-    const res = await axios.post("http://localhost:8800/backend/auth/login", inputs, {
+    const res = await axios.post("https://cp-backend-psi.vercel.app/backend/auth/login", inputs, {
       withCredentials: true,
     });
 
@@ -17,7 +17,7 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   const logout = async () => {
-    await axios.post("http://localhost:8800/backend/auth/logout", {}, {
+    await axios.post("https://cp-backend-psi.vercel.app/backend/auth/logout", {}, {
       withCredentials: true
     });
     setCurrentUser(null);

@@ -67,7 +67,7 @@ export default function Courses() {
         const userId = user ? user.id : null;
         const term = "fall"
         try {
-            await axios.post('http://localhost:8800/backend/courseChange/', {
+            await axios.post('https://cp-backend-psi.vercel.app/backend/courseChange/', {
                 userId,
                 courses_ids,
                 term,
@@ -89,7 +89,7 @@ export default function Courses() {
         const userId = user ? user.id : null;
         const term = "winter"
         try {
-            await axios.post('http://localhost:8800/backend/courseChange/', {
+            await axios.post('https://cp-backend-psi.vercel.app/backend/courseChange/', {
                 userId,
                 courses_ids,
                 term,
