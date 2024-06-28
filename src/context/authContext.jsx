@@ -12,7 +12,6 @@ export const AuthContextProvider = ({ children }) => {
     const res = await axios.post("https://cp-backend-psi.vercel.app/backend/auth/login", inputs, {
       withCredentials: true,
     });
-
     setCurrentUser(res.data)
   };
 

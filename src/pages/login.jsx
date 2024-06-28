@@ -28,8 +28,6 @@ const Login = () => {
             setError(errorMessage);
         }
       };
-    
-    console.log(inputs)
 
     return (
         <div className='login'>
