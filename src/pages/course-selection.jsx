@@ -56,6 +56,9 @@ export default function Courses() {
     const [winterCourses, setWinterCourses] = useState([]);
     const [fallData, setFallData] = useState(fallJSON);
     const [winterData, setWinterData] = useState(winterJSON);
+
+    const [fc, setFc] = useState([]);
+    const [wc, setWc] = useState([]);
     const [err, setError] = useState(null);
 
     useEffect(() => {
@@ -72,9 +75,56 @@ export default function Courses() {
                 const { fallCourses, winterCourses } = response.data;
 
                 const fall = fallCourses.flatMap(id => fallData[id].slice(2));
+                console.log("Fall: " + fall);
                 setFallCourses(fall);
-                const winter = fallCourses.flatMap(id => fallData[id].slice(2));
+                const winter = winterCourses.flatMap(id => fallData[id].slice(2));
+                console.log("Winter: " + winter)
                 setWinterCourses(winter);
+
+
+                const generateOptions = (courseBaseId, coursemaster = courseData) => {
+                    const sectionKeys = Object.keys(coursemaster).filter(key => key.startsWith(courseBaseId));
+                    return sectionKeys.map(key => {
+                        return `Section ${key.split('_')[1]}: ${formatDays(coursemaster[key].slice(2))}`;
+                    }).sort();
+                };
+
+                const formatDays = (sessions) => {
+                    const daysSet = new Set();
+                    sessions.forEach(session => {
+                        session.match(/\b(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\b/g).forEach(day => {
+                            daysSet.add(day.startsWith('Th') ? 'Th' : day.charAt(0));
+                        });
+                    });
+                    return Array.from(daysSet).join('');
+                };
+
+
+                const processedFallCourses = fallCourses.map(courseId => {
+                    const courseDetail = fallData[courseId];
+                    return {
+                        id: courseId,
+                        name: courseDetail[0],
+                        options: generateOptions(courseId, fallData),
+                        selectedOption: `Section ${courseId.split('_')[1]}: ${formatDays(fallData[courseId].slice(2))}`,
+                    };
+                });
+
+                console.log(processedFallCourses);
+                setFc(processedFallCourses);
+
+                const processedWinterCourses = winterCourses.map(courseId => {
+                    const courseDetail = winterData[courseId]; // Assuming winterData is your course data object
+                    return {
+                        id: courseId,
+                        name: courseDetail[0],
+                        options: generateOptions(courseId, winterData),
+                        selectedOption: `Section ${courseId.split('_')[1]}: ${formatDays(winterData[courseId].slice(2))}`,
+                    };
+                });
+
+                console.log(processedWinterCourses);
+                setWc(processedWinterCourses);
             } catch (err) {
                 const errorMessage = err.response?.data?.message || "An unexpected error occurred while fetching user courses";
                 setError(errorMessage);
@@ -155,11 +205,11 @@ export default function Courses() {
                 <div className='w-full grid md-custom:grid-cols-2 grid-cols md-custom:mx-0 m-0 p-0 gap-3'>
                     <div className='sm:m-0 m-1.5 p-0'>
                         <Calendar term="Fall" times={fallCourses} />
-                        <Selection onUpdate={updateFallCourses} courseData={fallData} changeCourseData={setFallData} />
+                        <Selection onUpdate={updateFallCourses} courseData={fallData} changeCourseData={setFallData} courses={fc} setCourses={setFc} />
                     </div>
                     <div className='sm:m-0 m-1.5 p-0'>
                         <Calendar term="Winter" times={winterCourses} />
-                        <Selection onUpdate={updateWinterCourses} courseData={winterData} changeCourseData={setWinterData} />
+                        <Selection onUpdate={updateWinterCourses} courseData={winterData} changeCourseData={setWinterData} courses={wc} setCourses={setWc} />
                     </div>
 
                 </div>

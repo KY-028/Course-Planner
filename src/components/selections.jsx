@@ -191,11 +191,10 @@ function CourseGrid({ courseData, courses, setCourses, setChangeCounter, changeC
 }
 
 
-function Selection({ onUpdate, courseData, changeCourseData }) {
+function Selection({ onUpdate, courseData, changeCourseData, courses, setCourses }) {
     const [inputValue, setInputValue] = useState('');
     const [notFound, setNotFound] = useState([]);  // State to track IDs not found
     const [isToggled, setIsToggled] = useState(false); // Manage toggle state here
-    const [courses, setCourses] = useState([]);
     const [changeCounter, setChangeCounter] = useState(0);
     const [courseCount, setCourseCount] = useState(courses.length);
 
