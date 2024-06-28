@@ -97,16 +97,16 @@ const Calendar = (props) => {
     return (
         <div className="lg:m-4 m-2 lg:text-base md-custom:text-sm sm:text-base text-sm">
             <div className="grid grid-cols-table text-center text-gray-700">
-                <div className={`relative border-b-2 lg:pb-2 pb-1 border-dark-blue w-full text-right lg:pr-2 pr-0.5 font-bold`}>
-                    <div className='absolute xl:right-2 lg:right-1 sm:right-2 right-0.5'>
+                <div className={`relative lg:pb-2 pb-1 border-dark-blue w-full text-right lg:pr-2 pr-0.5 font-bold`}>
+                    <div className=' text-dark-blue font-extrabold absolute xl:right-2 lg:right-1 sm:right-2 right-0.5'>
                         {props.term}
                     </div>
                 </div>
-                <div className={`border-b-2 pb-2 border-dark-blue ${dayOfWeek === 1 ? "font-bold text-bright-blue" : ""}`}>MON</div>
-                <div className={`border-b-2 pb-2 border-dark-blue ${dayOfWeek === 2 ? "font-bold text-bright-blue" : ""}`}>TUE</div>
-                <div className={`border-b-2 pb-2 border-dark-blue ${dayOfWeek === 3 ? "font-bold text-bright-blue" : ""}`}>WED</div>
-                <div className={`border-b-2 pb-2 border-dark-blue ${dayOfWeek === 4 ? "font-bold text-bright-blue" : ""}`}>THU</div>
-                <div className={`border-b-2 pb-2 border-dark-blue ${dayOfWeek === 5 ? "font-bold text-bright-blue" : ""}`}>FRI</div>
+                <div className={` pb-2 border-dark-blue ${dayOfWeek === 1 ? "font-bold text-dark-blue border-b-2" : ""}`}>MON</div>
+                <div className={` pb-2 border-dark-blue ${dayOfWeek === 2 ? "font-bold text-dark-blue border-b-2" : ""}`}>TUE</div>
+                <div className={` pb-2 border-dark-blue ${dayOfWeek === 3 ? "font-bold text-dark-blue border-b-2" : ""}`}>WED</div>
+                <div className={` pb-2 border-dark-blue ${dayOfWeek === 4 ? "font-bold text-dark-blue border-b-2" : ""}`}>THU</div>
+                <div className={` pb-2 border-gray-400 border-b-2 ${dayOfWeek === 5 ? "font-bold text-dark-blue border-dark-blue border-b-4" : ""}`}>FRI</div>
             </div>
 
             {/* For the extra space */}
@@ -122,7 +122,7 @@ const Calendar = (props) => {
             {/* The top row */}
             <div className="grid grid-cols-table relative xl:h-14 h-12">
                 <div className='relative xl:h-14 h-12 border-r-2'>
-                    <div className='absolute xl:right-2 lg:right-1 md:right-2 right-1 -top-3'>
+                    <div className='text-gray-500 absolute xl:right-2 lg:right-1 md:right-2 right-1 -top-3'>
                         {startingHour}:00
                     </div>
                 </div>
@@ -147,7 +147,7 @@ const Calendar = (props) => {
             {[...Array(12)].map((_, i) => (
                 <div key={i + 1} className="grid grid-cols-table relative xl:h-14 h-12">
                     <div className='relative xl:h-14 h-12 border-r-2'>
-                        <div className='absolute xl:right-2 lg:right-1 md:right-2 right-1 -top-2.5'>
+                        <div className=' text-gray-500 absolute xl:right-2 lg:right-1 md:right-2 right-1 -top-2.5'>
                             {startingHour + i + 1}:00
                         </div>
                     </div>
@@ -166,7 +166,7 @@ const Calendar = (props) => {
 
             <div className="grid grid-cols-table  relative xl:h-14 h-12">
                 <div className='relative xl:h-14 h-12 border-r-2'>
-                    <div className='absolute xl:right-2 lg:right-1 md:right-2 right-1 -top-2.5'>
+                    <div className='text-gray-500 absolute xl:right-2 lg:right-1 md:right-2 right-1 -top-2.5'>
                         {startingHour + 13}:00
                     </div>
                 </div>
@@ -215,7 +215,7 @@ const Slot = ({ time, name, color, conflict }) => {
 
     return (
         <div
-            className="z-10 absolute left-0 w-full py-0.5"
+            className="z-10 absolute left-0 w-full py-0.5 drop-shadow-md"
             style={styles.container(matches, totalMinutes, durationMinutes, startHour * 60 + startMinute)}
         >
             <div className={`${color} 2xl:px-1.5 xl:px-1 lg:px-0.5 md-custom:px-1 sm:px-1 px-0.5 sm:mx-0.5 rounded h-full box-border`}>
