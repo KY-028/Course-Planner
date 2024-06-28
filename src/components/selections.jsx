@@ -191,7 +191,7 @@ function CourseGrid({ courseData, courses, setCourses, setChangeCounter, changeC
 }
 
 
-function Selection({ onUpdate, courseData, changeCourseData, courses, setCourses }) {
+function Selection({ isLoading, onUpdate, courseData, changeCourseData, courses, setCourses }) {
     const [inputValue, setInputValue] = useState('');
     const [notFound, setNotFound] = useState([]);  // State to track IDs not found
     const [isToggled, setIsToggled] = useState(false); // Manage toggle state here
@@ -204,15 +204,19 @@ function Selection({ onUpdate, courseData, changeCourseData, courses, setCourses
     }, [courses.length]);
 
     useEffect(() => {
-        const course_ids = courses.flatMap(course => course.id);
-        onUpdate(course_ids);
-    }, [changeCounter]);  // Depend directly on changeCounter
+        if (!isLoading) {
+            const course_ids = courses.flatMap(course => course.id);
+            onUpdate(course_ids);
+        }
+    }, [changeCounter, isLoading]);  // Depend directly on changeCounter
 
     // Effect to run onUpdate when courseCount changes
     useEffect(() => {
-        const course_ids = courses.flatMap(course => course.id);
-        onUpdate(course_ids);
-    }, [courseCount]);  // Dependency on courseCount only
+        if (!isLoading) {
+            const course_ids = courses.flatMap(course => course.id);
+            onUpdate(course_ids);
+        }
+    }, [courseCount, isLoading]);  // Dependency on courseCount only
 
     const toggleSwitch = () => {
         setIsToggled(!isToggled);
