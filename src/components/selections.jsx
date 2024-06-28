@@ -5,8 +5,8 @@ function Toggle({ message, isToggled, toggleSwitch }) {
     return (
         <label className="flex items-center cursor-pointer">
             <div className="relative">
-                <input name="toggle" id="toggle" type="checkbox" className="sr-only" checked={isToggled} onChange={toggleSwitch} />
-                <div className={`block ${isToggled ? 'bg-blue-600' : 'bg-gray-600'} lg:w-14 w-10 lg:h-8 h-6 rounded-full`}></div>
+                <input type="checkbox" id="toggle" className="sr-only" checked={isToggled} onChange={toggleSwitch} />
+                <div className={`block ${isToggled ? 'bg-blue-600' : 'bg-gray-600'} lg:w-14 w-10 lg:h-8 h-6 rounded-full hover:bg-blue-600 transition duration-300`}></div>
                 <div className={`dot absolute left-1 top-1 bg-white lg:w-6 lg:h-6 w-4 h-4 rounded-full transition-transform ${isToggled ? 'translate-x-full' : ''}`}></div>
             </div>
             <span className="ml-3 text-gray-900 font-medium">{message}</span>
@@ -16,9 +16,9 @@ function Toggle({ message, isToggled, toggleSwitch }) {
 
 function Course({ id, name, options, selectedOption, onSelectChange, onRemove }) {
     return (
-        <div className="relative border border-dark-blue rounded xl:h-16 lg:h-14 md-custom:h-12 sm:h-14 h-12 xl:pt-1 lg:pt-1.5 mx-0.5 px-1">
+        <div className="relative bg-white rounded-lg xl:h-16 lg:h-14 md-custom:h-12 sm:h-14 h-12 xl:pt-1 lg:pt-1.5 mx-0.5 px-2">
             <button
-                className="absolute top-0 right-0 p-1 lg:pt-1 md-custom:pt-0.5 lg:text-xs text-xxs font-bold text-gray-700 hover:text-red-500"
+                className=" rounded-xl  absolute top-0 right-0 p-1 px-2 lg:pt-1 md-custom:pt-0.5 lg:text-xxs text-xxxs font-extrabold text-black hover:text-red-500"
                 onClick={() => onRemove(id)}
             >
                 &#x2715;
@@ -168,7 +168,7 @@ function CourseGrid({ courseData, courses, setCourses, setChangeCounter, changeC
 
 
     return (
-        <div className="bg-gray-200 rounded-2xl mb-3 grid grid-cols-4 gap-1 p-2">
+        <div className=" bg-slate-200 rounded-2xl mb-3 grid grid-cols-4 gap-1 p-4">
             {courses.map((course) => (
                 <Course
                     key={course.id}
@@ -180,7 +180,7 @@ function CourseGrid({ courseData, courses, setCourses, setChangeCounter, changeC
                     onRemove={removeCourse}
                 />
             ))}
-            <button className="flex justify-center items-center  xl:h-16 lg:h-14 md-custom:h-12 sm:h-14 h-12 border-2 border-dashed border-gray-400 rounded bg-white hover:bg-gray-100 mx-0.5"
+            <button className="flex justify-center items-center  xl:h-16 lg:h-14 md-custom:h-12 sm:h-14 h-12 border-2 border-dashed border-gray-400 rounded-lg transition duration-300 bg-white hover:bg-white mx-0.5"
                 onClick={() => setIsModalOpen(true)}>
                 <span className="text-xl">+</span>
             </button>
@@ -261,7 +261,7 @@ function Selection({ isLoading, onUpdate, courseData, changeCourseData, courses,
                     value={inputValue}
                     onChange={handleInputChange}
                     placeholder={`Enter courses as 'CISC121_1 separated by new lines\nThe number after the underscore is the order they appear in on SOLUS\nIt is recommended you double check SOLUS for accuracy`}
-                    className="sm:text-base text-sm w-full p-1 h-32 border-gray-600 border-2 bg-gray-100 resize-none"
+                    className="sm:text-base text-sm w-full p-1 h-32 border-gray-400 border-2 rounded-lg p-3 mb-5 bg-gray-200 resize-none"
                 />
                 <div className='w-full h-full flex items-center justify-between'>
                     <button onClick={handleSubmit} className=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Update Schedule</button>
