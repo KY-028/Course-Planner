@@ -72,7 +72,6 @@ export default function Courses() {
                 courses_ids,
                 term,
             });
-            console.log('Courses updated successfully');
         } catch (err) {
             const errorMessage = err.response?.data?.message || "An unexpected error occurred";
             setError(errorMessage);
@@ -94,7 +93,6 @@ export default function Courses() {
                 courses_ids,
                 term,
             });
-            console.log('Courses updated successfully');
         } catch (err) {
             const errorMessage = err.response?.data?.message || "An unexpected error occurred";
             setError(errorMessage);
