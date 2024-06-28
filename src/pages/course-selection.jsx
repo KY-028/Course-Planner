@@ -70,8 +70,11 @@ export default function Courses() {
 
                 const response = await axios.get(`https://cp-backend-psi.vercel.app/backend/users/courses/${userId}`);
                 const { fallCourses, winterCourses } = response.data;
-                setFallCourses(fallCourses);
-                setWinterCourses(winterCourses);
+
+                const fall = fallCourses.flatMap(id => fallData[id].slice(2));
+                setFallCourses(fall);
+                const winter = fallCourses.flatMap(id => fallData[id].slice(2));
+                setWinterCourses(winter);
             } catch (err) {
                 const errorMessage = err.response?.data?.message || "An unexpected error occurred while fetching user courses";
                 setError(errorMessage);
