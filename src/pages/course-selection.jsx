@@ -62,12 +62,12 @@ export default function Courses() {
     const [wc, setWc] = useState([]);
     const [err, setError] = useState(null);
 
-    const user = JSON.parse(localStorage.getItem('user'));
 
     useEffect(() => {
         const fetchUserCourses = async () => {
             setIsLoading(true);  // Set loading true when starting fetch
             try {
+                const user = JSON.parse(localStorage.getItem('user'));
                 const userId = user ? user.id : null;
                 if (!userId) {
                     console.log("User has not logged in");
@@ -136,7 +136,7 @@ export default function Courses() {
         };
 
         fetchUserCourses();
-    }, [user]);
+    }, []);
 
     const updateFallCourses = async (courses_ids) => {
         // Prepare for Calendar Rendering
