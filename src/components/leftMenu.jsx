@@ -25,13 +25,13 @@ const LeftMenu = ({ activeTab }) => {
                     <h1 className="text-xl font-bold ml-1.5">Course Planner</h1>
                 </div>
             </Link>
-            <Link to="/course-selection" className={`py-1.5 px-4 rounded-lg text-xl ${activeTab === 'courses' ? 'text-teal' : ''}`}>Courses</Link>
-            <Link to="/planner" className={`py-1.5 px-4 rounded-lg text-xl ${activeTab === 'planner' ? 'text-teal' : ''}`}>Planner</Link>
-            <Link to="/about" className={`py-1.5 px-4 rounded-lg text-xl ${activeTab === 'about' ? 'text-teal ' : ''}`}>About</Link>
-            <Link to="/support" className={`py-1.5 px-4 rounded-lg text-xl ${activeTab === 'support' ? 'text-teal' : ''}`}>Support</Link>
+            <Link to="/course-selection" className={`transition duration-300 hover:text-custom-blue-1 py-1.5 px-4 rounded-lg text-xl ${activeTab === 'courses' ? 'text-teal' : ''}`}>Courses</Link>
+            <Link to="/planner" className={`transition duration-300 hover:text-custom-blue-1 py-1.5 px-4 rounded-lg text-xl ${activeTab === 'planner' ? 'text-teal' : ''}`}>Planner</Link>
+            <Link to="/about" className={`transition duration-300 hover:text-custom-blue-1 py-1.5 px-4 rounded-lg text-xl ${activeTab === 'about' ? 'text-teal ' : ''}`}>About</Link>
+            <Link to="/support" className={`transition duration-300 hover:text-custom-blue-1 py-1.5 px-4 rounded-lg text-xl ${activeTab === 'support' ? 'text-teal' : ''}`}>Support</Link>
             <button
                 onClick={openModal}
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full absolute bottom-5 left-3 w-56 h-12"
+                className="transition duration-300 bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full absolute bottom-5 left-3 w-56 h-12"
             >
                 Logout
             </button>
