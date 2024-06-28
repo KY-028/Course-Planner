@@ -5,7 +5,7 @@ function Toggle({ message, isToggled, toggleSwitch }) {
     return (
         <label className="flex items-center cursor-pointer">
             <div className="relative">
-                <input type="checkbox" id="toggle" className="sr-only" checked={isToggled} onChange={toggleSwitch} />
+                <input name="toggle" id="toggle" type="checkbox" className="sr-only" checked={isToggled} onChange={toggleSwitch} />
                 <div className={`block ${isToggled ? 'bg-blue-600' : 'bg-gray-600'} lg:w-14 w-10 lg:h-8 h-6 rounded-full`}></div>
                 <div className={`dot absolute left-1 top-1 bg-white lg:w-6 lg:h-6 w-4 h-4 rounded-full transition-transform ${isToggled ? 'translate-x-full' : ''}`}></div>
             </div>
@@ -30,7 +30,7 @@ function Course({ id, name, options, selectedOption, onSelectChange, onRemove })
                 onChange={(e) => onSelectChange(id, e.target.value)}
             >
                 {options.map((option, index) => (
-                    <option key={index} value={option}>{option}</option>
+                    <option key={index} id={`${name}_${option}`} value={option}>{option}</option>
                 ))}
             </select>
         </div>

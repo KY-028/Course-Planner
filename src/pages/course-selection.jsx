@@ -65,7 +65,7 @@ export default function Courses() {
         // Send data to backend
         const user = JSON.parse(localStorage.getItem('user'));
         const userId = user ? user.id : null;
-        const term = "fall"
+        const term = "fall";
         try {
             await axios.post('https://cp-backend-psi.vercel.app/backend/courseChange/', {
                 userId,
