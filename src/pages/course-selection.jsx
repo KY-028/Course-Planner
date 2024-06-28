@@ -58,6 +58,29 @@ export default function Courses() {
     const [winterData, setWinterData] = useState(winterJSON);
     const [err, setError] = useState(null);
 
+    useEffect(() => {
+        const fetchUserCourses = async () => {
+            try {
+                const user = JSON.parse(localStorage.getItem('user'));
+                const userId = user ? user.id : null;
+                if (!userId) {
+                    console.log("User has not logged in");
+                    return;
+                }
+
+                const response = await axios.get(`https://cp-backend-psi.vercel.app/backend/users/courses/${userId}`);
+                const { fallCourses, winterCourses } = response.data;
+                setFallCourses(fallCourses);
+                setWinterCourses(winterCourses);
+            } catch (err) {
+                const errorMessage = err.response?.data?.message || "An unexpected error occurred while fetching user courses";
+                setError(errorMessage);
+            }
+        };
+
+        fetchUserCourses();
+    }, []);
+
     const updateFallCourses = async (courses_ids) => {
         // Prepare for Calendar Rendering
         const courses = courses_ids.flatMap(course => fallData[course].slice(2));
