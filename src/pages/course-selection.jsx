@@ -62,11 +62,12 @@ export default function Courses() {
     const [wc, setWc] = useState([]);
     const [err, setError] = useState(null);
 
+    const user = JSON.parse(localStorage.getItem('user'));
+
     useEffect(() => {
         const fetchUserCourses = async () => {
             setIsLoading(true);  // Set loading true when starting fetch
             try {
-                const user = JSON.parse(localStorage.getItem('user'));
                 const userId = user ? user.id : null;
                 if (!userId) {
                     console.log("User has not logged in");
@@ -84,7 +85,7 @@ export default function Courses() {
                 setWinterCourses(winter);
 
 
-                const generateOptions = (courseBaseId, coursemaster = courseData) => {
+                const generateOptions = (courseBaseId, coursemaster) => {
                     const sectionKeys = Object.keys(coursemaster).filter(key => key.startsWith(courseBaseId));
                     return sectionKeys.map(key => {
                         return `Section ${key.split('_')[1]}: ${formatDays(coursemaster[key].slice(2))}`;
@@ -107,7 +108,7 @@ export default function Courses() {
                     return {
                         id: courseId,
                         name: courseDetail[0],
-                        options: generateOptions(courseId, fallData),
+                        options: generateOptions(courseDetail[0], fallData),
                         selectedOption: `Section ${courseId.split('_')[1]}: ${formatDays(fallData[courseId].slice(2))}`,
                     };
                 });
@@ -120,7 +121,7 @@ export default function Courses() {
                     return {
                         id: courseId,
                         name: courseDetail[0],
-                        options: generateOptions(courseId, winterData),
+                        options: generateOptions(courseDetail[0], winterData),
                         selectedOption: `Section ${courseId.split('_')[1]}: ${formatDays(winterData[courseId].slice(2))}`,
                     };
                 });
@@ -135,7 +136,7 @@ export default function Courses() {
         };
 
         fetchUserCourses();
-    }, []);
+    }, [user]);
 
     const updateFallCourses = async (courses_ids) => {
         // Prepare for Calendar Rendering
