@@ -180,7 +180,7 @@ export default function Courses() {
 
             <div className='flex flex-col w-full'>
                 <Nav activeTab="courses" />
-                <div className='w-full grid md-custom:grid-cols-2 grid-cols md-custom:mx-0 m-0 p-0 gap-3'>
+                <div className='w-full grid md-custom:grid-cols-2 grid-cols md-custom:mx-0 m-0 p-0 gap-3' >
                     <div className='sm:m-0 m-1.5 p-0'>
                         <Calendar term="Fall" times={fallCourses} />
                         <Selection isLoading={isLoading} onUpdate={updateFallCourses} courseData={fallData} changeCourseData={setFallData} courses={fc} setCourses={setFc} />
