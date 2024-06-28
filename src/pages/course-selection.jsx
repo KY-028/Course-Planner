@@ -56,6 +56,7 @@ export default function Courses() {
     const [winterCourses, setWinterCourses] = useState([]);
     const [fallData, setFallData] = useState(fallJSON);
     const [winterData, setWinterData] = useState(winterJSON);
+    const [isLoading, setIsLoading] = useState(true);  // New state to manage loading
 
     const [fc, setFc] = useState([]);
     const [wc, setWc] = useState([]);
@@ -63,6 +64,7 @@ export default function Courses() {
 
     useEffect(() => {
         const fetchUserCourses = async () => {
+            setIsLoading(true);  // Set loading true when starting fetch
             try {
                 const user = JSON.parse(localStorage.getItem('user'));
                 const userId = user ? user.id : null;
@@ -129,6 +131,7 @@ export default function Courses() {
                 const errorMessage = err.response?.data?.message || "An unexpected error occurred while fetching user courses";
                 setError(errorMessage);
             }
+            setIsLoading(false);  // Set loading false after fetching data
         };
 
         fetchUserCourses();
@@ -205,11 +208,11 @@ export default function Courses() {
                 <div className='w-full grid md-custom:grid-cols-2 grid-cols md-custom:mx-0 m-0 p-0 gap-3'>
                     <div className='sm:m-0 m-1.5 p-0'>
                         <Calendar term="Fall" times={fallCourses} />
-                        <Selection onUpdate={updateFallCourses} courseData={fallData} changeCourseData={setFallData} courses={fc} setCourses={setFc} />
+                        <Selection isLoading={isLoading} onUpdate={updateFallCourses} courseData={fallData} changeCourseData={setFallData} courses={fc} setCourses={setFc} />
                     </div>
                     <div className='sm:m-0 m-1.5 p-0'>
                         <Calendar term="Winter" times={winterCourses} />
-                        <Selection onUpdate={updateWinterCourses} courseData={winterData} changeCourseData={setWinterData} courses={wc} setCourses={setWc} />
+                        <Selection isLoading={isLoading} onUpdate={updateWinterCourses} courseData={winterData} changeCourseData={setWinterData} courses={wc} setCourses={setWc} />
                     </div>
 
                 </div>
