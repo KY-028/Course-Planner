@@ -170,7 +170,7 @@ function CourseGrid({ courseData, courses, setCourses, setChangeCounter, changeC
 
 
     return (
-        <div className=" bg-slate-200 rounded-2xl mb-3 grid grid-cols-4 gap-1 p-4">
+        <div className=" bg-slate-200 rounded-2xl mt-3 grid grid-cols-4 gap-1 p-4">
             {courses.map((course) => (
                 <Course
                     key={course.id}
@@ -249,26 +249,29 @@ function Selection({ isLoading, onUpdate, courseData, changeCourseData, courses,
     };
 
     return (
-        <div className='m-4 mb-12'>
+        <div className='ml-7 m-4 mt-10 mb-12'>
             {!isToggled && <>
-                <CourseGrid courseData={courseData} courses={courses} setCourses={setCourses} setChangeCounter={setChangeCounter} changeCourseData={changeCourseData} />
-                <div className='w-full h-full flex items-center justify-end'>
+                <div className='w-full h-full flex items-center justify-begin'>
                     <Toggle message="Entry Mode" isToggled={isToggled} toggleSwitch={toggleSwitch} />
                 </div>
+                <CourseGrid courseData={courseData} courses={courses} setCourses={setCourses} setChangeCounter={setChangeCounter} changeCourseData={changeCourseData} />
             </>}
 
             {/* Entry Mode */}
             {isToggled && (<div>
+                
+                <div className='w-full h-full flex items-center justify-between'>
+                    <Toggle message="Entry Mode" isToggled={isToggled} toggleSwitch={toggleSwitch} />
+                    <button onClick={handleSubmit} className=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Update Schedule</button>
+                </div>
+
                 <textarea
                     value={inputValue}
                     onChange={handleInputChange}
                     placeholder={`Enter courses as 'CISC121_1 separated by new lines\nThe number after the underscore is the order they appear in on SOLUS\nIt is recommended you double check SOLUS for accuracy`}
-                    className="sm:text-base text-sm w-full p-1 h-32 border-gray-400 border-2 rounded-lg p-3 mb-5 bg-gray-200 resize-none"
+                    className="sm:text-base text-sm w-full p-1 h-32 border-gray-400 border-2 rounded-lg p-3 mt-5 bg-gray-200 resize-none"
                 />
-                <div className='w-full h-full flex items-center justify-between'>
-                    <button onClick={handleSubmit} className=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Update Schedule</button>
-                    <Toggle message="Entry Mode" isToggled={isToggled} toggleSwitch={toggleSwitch} />
-                </div>
+
                 {notFound.length > 0 && (
                     <div className="p-2 mx-2 bg-red-100 border border-red-400 text-red-700">
                         <p>Course ID(s) not found (check your format!):</p>
