@@ -35,7 +35,7 @@ const LeftMenu = ({ activeTab }) => {
                     Logout
                 </button> :
                 <Link to="/login" className={`w-fit ub my-1.5 mx-4 absolute bottom-8 text-xl text-start`}>
-                    Logout
+                    Log In
                 </Link>
             }
 
