@@ -9,7 +9,7 @@ const LeftMenu = ({ activeTab }) => {
 
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);
-    const { logout } = useContext(AuthContext);
+    const { currentUser, logout } = useContext(AuthContext);
 
     const handleLogout = async () => {
         await logout()
@@ -25,16 +25,19 @@ const LeftMenu = ({ activeTab }) => {
                     <h1 className="text-xl font-bold ml-1.5">Course Planner</h1>
                 </div>
             </Link>
-            <Link to="/course-selection" className={`py-1.5 px-4 rounded-lg text-xl ${activeTab === 'courses' ? 'text-teal' : ''}`}>Courses</Link>
-            <Link to="/planner" className={`py-1.5 px-4 rounded-lg text-xl ${activeTab === 'planner' ? 'text-teal' : ''}`}>Planner</Link>
-            <Link to="/about" className={`py-1.5 px-4 rounded-lg text-xl ${activeTab === 'about' ? 'text-teal ' : ''}`}>About</Link>
-            <Link to="/support" className={`py-1.5 px-4 rounded-lg text-xl ${activeTab === 'support' ? 'text-teal' : ''}`}>Support</Link>
-            <button
-                onClick={openModal}
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full absolute bottom-5 left-3 w-56 h-12"
-            >
-                Logout
-            </button>
+            <Link to="/course-selection" className={`w-fit my-1.5 mx-4 text-xl ${activeTab === 'courses' ? 'text-teal' : ''}`}>Courses</Link>
+            <Link to="/planner" className={`w-fit ub my-1.5 mx-4 text-xl ${activeTab === 'planner' ? 'text-teal' : ''}`}>Planner</Link>
+            <Link to="/about" className={`w-fit ub my-1.5 mx-4 text-xl ${activeTab === 'about' ? 'text-teal ' : ''}`}>About</Link>
+            <Link to="/support" className={`w-fit ub my-1.5 mx-4 text-xl ${activeTab === 'support' ? 'text-teal' : ''}`}>Support</Link>
+
+            {currentUser ?
+                <button onClick={openModal} className={`w-fit ub my-1.5 mx-4 absolute bottom-8 text-xl text-start`}>
+                    Logout
+                </button> :
+                <Link to="/login" className={`w-fit ub my-1.5 mx-4 absolute bottom-8 text-xl text-start`}>
+                    Logout
+                </Link>
+            }
 
             {isModalOpen && (
                 <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity z-50" aria-labelledby="modal-title" role="dialog" aria-modal="true">
