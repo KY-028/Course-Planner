@@ -42,20 +42,20 @@ export default function HomeNav() {
                     <div className="text-white md:text-2xl text-lg font-bold">Course Planner</div>
                 </Link>
                 <div className="flex items-center text-white md:text-xl text-base mr-3">
-                    <Link to="/about" className="md:mx-5 mx-3">
+                    <Link to="/about" className="ub md:mx-5 mx-3">
                         About
                     </Link>
-                    <Link to="/support" className="md:mx-5 mx-3">
+                    <Link to="/support" className="ub md:mx-5 mx-3">
                         Support
                     </Link>
                 </div>
-                <div className="flex items-center w-36">
-                    {/* <Link to="/login">
-                        <button className="md:text-lg text-base p-3 py-1.5 rounded border-2 text-custom-blue-1 border-custom-blue-1">Log In</button>
+                <div className="flex items-center">
+                    <Link to="/login">
+                        <button className="md:text-lg text-base p-3 py-1.5 rounded border-2 text-custom-blue-1 border-custom-blue-1 hover:bg-white hover:text-dark-blue hover:border-none">Log In</button>
                     </Link>
                     <Link to="/signup">
-                        <button className="md:text-lg text-base mx-4 p-3 py-1.5 rounded bg-custom-blue-1 text-white">Sign Up</button>
-                    </Link> */}
+                        <button className="md:text-lg text-base mx-4 p-3 py-1.5 rounded bg-custom-blue-1 text-white hover:bg-white hover:text-dark-blue">Sign Up</button>
+                    </Link>
                 </div>
             </div>
             {/* The Mobile Screen Size */}
