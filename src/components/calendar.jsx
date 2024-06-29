@@ -106,7 +106,7 @@ const Calendar = (props) => {
                 <div className={` pb-2 border-dark-blue ${dayOfWeek === 2 ? "font-bold text-dark-blue border-b-2" : ""}`}>TUE</div>
                 <div className={` pb-2 border-dark-blue ${dayOfWeek === 3 ? "font-bold text-dark-blue border-b-2" : ""}`}>WED</div>
                 <div className={` pb-2 border-dark-blue ${dayOfWeek === 4 ? "font-bold text-dark-blue border-b-2" : ""}`}>THU</div>
-                <div className={` pb-2 border-gray-400 border-b-2 ${dayOfWeek === 5 ? "font-bold text-dark-blue border-dark-blue border-b-4" : ""}`}>FRI</div>
+                <div className={` pb-2 border-dark-blue ${dayOfWeek === 5 ? "font-bold text-dark-blue border-dark-blue border-b-4" : ""}`}>FRI</div>
             </div>
 
             {/* For the extra space */}
