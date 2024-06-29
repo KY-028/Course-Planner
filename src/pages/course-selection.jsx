@@ -35,8 +35,7 @@ export default function Courses() {
 
     const fetchUserCourses = async () => {
         try {
-            const user = JSON.parse(localStorage.getItem('user'));
-            const userId = user ? user.id : null;
+            const userId = currentUser ? currentUser.id : null;
             if (!userId) {
                 console.log("User has not logged in");
                 return;
