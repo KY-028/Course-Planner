@@ -9,10 +9,16 @@ export const AuthContextProvider = ({ children }) => {
   );
 
   const login = async (inputs) => {
-    const res = await axios.post("https://cp-backend-psi.vercel.app/backend/auth/login", inputs, {
-      withCredentials: true,
-    });
-    setCurrentUser(res.data)
+    try {
+      const res = await axios.post("https://cp-backend-psi.vercel.app/backend/auth/login", inputs, {
+        withCredentials: true,
+      });
+      setCurrentUser(res.data);
+      return res;  // Ensure this returns a response indicating success or failure
+    } catch (error) {
+      console.error("Login failed:", error);
+      throw error;  // Rethrow to handle it in the calling component
+    }
   };
 
   const logout = async () => {

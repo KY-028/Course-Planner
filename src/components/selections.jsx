@@ -103,7 +103,6 @@ function CourseGrid({ courseData, courses, setCourses, setChangeCounter, changeC
     };
 
     const handleSelectChange = (courseId, newSelection) => {
-        console.log(courseId, newSelection);
         const isAlreadySelected = courses.some(course => course.selectedOption === newSelection);
 
         if (isAlreadySelected) {
