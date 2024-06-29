@@ -130,12 +130,13 @@ export default function Courses() {
                 <Nav activeTab="courses" />
                 <div className='w-full grid md-custom:grid-cols-2 grid-cols md-custom:mx-0 m-0 p-0 gap-3' >
                     <div className='sm:m-0 m-1.5 p-0'>
-                        <Calendar term="Fall" times={fallCourses} />
                         <Selection onUpdate={updateFallCourses} courseData={fallData} changeCourseData={setFallData} />
+                        <Calendar term="Fall" times={fallCourses} />
+
                     </div>
                     <div className='sm:m-0 m-1.5 p-0'>
-                        <Calendar term="Winter" times={winterCourses} />
                         <Selection onUpdate={updateWinterCourses} courseData={winterData} changeCourseData={setWinterData} />
+                        <Calendar term="Winter" times={winterCourses} />
                     </div>
 
                 </div>
