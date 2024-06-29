@@ -106,12 +106,13 @@ export default function Courses() {
         setFallCourses(courses);  // Update local state regardless of login
 
         // Check if user is logged in
-        const user = JSON.parse(localStorage.getItem('user'));
-        const userId = user ? user.id : null;
-        if (!userId) {
+        console.log(courses_ids)
+        console.log(currentUser)
+        if (!currentUser) {
             return;  // Early return if no user is logged in
         }
         // User is logged in, send data to backend
+        const userId = currentUser.id;
         const term = "fall";
         try {
             await axios.post('https://cp-backend-psi.vercel.app/backend/courseChange/', {
@@ -131,11 +132,12 @@ export default function Courses() {
         setWinterCourses(courses);
 
         // Check if user is logged in
-        const user = JSON.parse(localStorage.getItem('user'));
-        const userId = user ? user.id : null;
-        if (!userId) {
+        console.log(courses_ids)
+        console.log(currentUser)
+        if (!currentUser) {
             return;  // Early return if no user is logged in
         }
+        const userId = currentUser.id;
         const term = "winter"
         try {
             await axios.post('https://cp-backend-psi.vercel.app/backend/courseChange/', {
