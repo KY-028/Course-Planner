@@ -6,145 +6,112 @@ import Selection from '/src/components/selections';
 import fallJSON from '/src/assets/fall_2024_0626.json';
 import winterJSON from '/src/assets/winter_2025_0626.json';
 import axios from 'axios'
-
-const falltimes = [
-    "CISC 322 Tuesday 8:30-9:30",
-    "CISC 322 Wednesday 10:30-11:30",
-    "CISC 322 Friday 9:30-10:30",
-    "CISC 322 Monday 14:30-16:30",
-    "CISC 324 Tuesday 9:30-10:30",
-    "CISC 324 Thursday 8:30-9:30",
-    "CISC 324 Friday 10:30-11:30",
-    "CISC 327 Monday 9:30-10:30",
-    "CISC 327 Wednesday 8:30-9:30",
-    "CISC 327 Thursday 10:30-11:30",
-    "CISC 360 Monday 11:30-12:30",
-    "CISC 360 Tuesday 13:30-14:30",
-    "CISC 360 Thursday 12:30-13:30",
-    "CISC 371 Monday 13:30-14:30",
-    "CISC 371 Wednesday 12:30-13:30",
-    "CISC 371 Friday 11:30-12:30",
-    "FREN 219 Monday 16:00-17:30",
-    "FREN 219 Wednesday 12:30-14:30",
-];
-
-const wintertimes = [
-    "CISC 332 Tuesday 8:30-9:30",
-    "CISC 332 Wednesday 10:30-11:30",
-    "CISC 332 Friday 9:30-10:30",
-    "CISC 335 Monday 11:30-12:30",
-    "CISC 335 Tuesday 13:30-14:30",
-    "CISC 335 Thursday 12:30-13:30",
-    "CISC 352 Tuesday 9:30-10:30",
-    "CISC 352 Thursday 8:30-9:30",
-    "CISC 352 Friday 10:30-11:30",
-    "CISC 365 Tuesday 12:30-13:30",
-    "CISC 365 Thursday 11:30-12:30",
-
-    "CISC 365 Friday 13:30-14:30",
-    "STAT 362 Monday 13:30-14:30",
-    "STAT 362 Wednesday 12:30-13:30",
-    "STAT 362 Friday 11:30-12:30",
-    "FREN 219 Friday 10:30-12:00",
-    "guess Friday 12:00-13:00",
-
-]
+import { useContext } from 'react';
+import { AuthContext } from '../context/authContext';
+import { useNavigate } from 'react-router-dom'
 
 export default function Courses() {
-
+    const { currentUser } = useContext(AuthContext);
     const [fallCourses, setFallCourses] = useState([]);
     const [winterCourses, setWinterCourses] = useState([]);
     const [fallData, setFallData] = useState(fallJSON);
     const [winterData, setWinterData] = useState(winterJSON);
     const [isLoading, setIsLoading] = useState(true);  // New state to manage loading
-
     const [fc, setFc] = useState([]);
     const [wc, setWc] = useState([]);
     const [err, setError] = useState(null);
 
-
+    // const navigate = useNavigate();
     useEffect(() => {
-        const fetchUserCourses = async () => {
-            setIsLoading(true);  // Set loading true when starting fetch
-            try {
-                const user = JSON.parse(localStorage.getItem('user'));
-                const userId = user ? user.id : null;
-                if (!userId) {
-                    console.log("User has not logged in");
-                    return;
-                }
+        if (!currentUser) {
+            setIsLoading(false);  // Immediately allow interaction if not logged in
+            return;  // Exit if no user is logged in
+        }
 
-                const response = await axios.get(`https://cp-backend-psi.vercel.app/backend/users/courses/${userId}`);
-                const { fallCourses, winterCourses } = response.data;
+        // If a user exists, proceed to fetch data
+        setIsLoading(true);
+        fetchUserCourses()
+    }, [currentUser]);
 
-                const fall = fallCourses.flatMap(id => fallData[id].slice(2));
-                console.log("Fall: " + fall);
-                setFallCourses(fall);
-                const winter = winterCourses.flatMap(id => fallData[id].slice(2));
-                console.log("Winter: " + winter)
-                setWinterCourses(winter);
-
-
-                const generateOptions = (courseBaseId, coursemaster) => {
-                    const sectionKeys = Object.keys(coursemaster).filter(key => key.startsWith(courseBaseId));
-                    return sectionKeys.map(key => {
-                        return `Section ${key.split('_')[1]}: ${formatDays(coursemaster[key].slice(2))}`;
-                    }).sort();
-                };
-
-                const formatDays = (sessions) => {
-                    const daysSet = new Set();
-                    sessions.forEach(session => {
-                        session.match(/\b(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\b/g).forEach(day => {
-                            daysSet.add(day.startsWith('Th') ? 'Th' : day.charAt(0));
-                        });
-                    });
-                    return Array.from(daysSet).join('');
-                };
-
-
-                const processedFallCourses = fallCourses.map(courseId => {
-                    const courseDetail = fallData[courseId];
-                    return {
-                        id: courseId,
-                        name: courseDetail[0],
-                        options: generateOptions(courseDetail[0], fallData),
-                        selectedOption: `Section ${courseId.split('_')[1]}: ${formatDays(fallData[courseId].slice(2))}`,
-                    };
-                });
-
-                console.log(processedFallCourses);
-                setFc(processedFallCourses);
-
-                const processedWinterCourses = winterCourses.map(courseId => {
-                    const courseDetail = winterData[courseId]; // Assuming winterData is your course data object
-                    return {
-                        id: courseId,
-                        name: courseDetail[0],
-                        options: generateOptions(courseDetail[0], winterData),
-                        selectedOption: `Section ${courseId.split('_')[1]}: ${formatDays(winterData[courseId].slice(2))}`,
-                    };
-                });
-
-                console.log(processedWinterCourses);
-                setWc(processedWinterCourses);
-            } catch (err) {
-                const errorMessage = err.response?.data?.message || "An unexpected error occurred while fetching user courses";
-                setError(errorMessage);
+    const fetchUserCourses = async () => {
+        try {
+            const user = JSON.parse(localStorage.getItem('user'));
+            const userId = user ? user.id : null;
+            if (!userId) {
+                console.log("User has not logged in");
+                return;
             }
-            setIsLoading(false);  // Set loading false after fetching data
-        };
 
-        fetchUserCourses();
-    }, []);
+            const response = await axios.get(`https://cp-backend-psi.vercel.app/backend/users/courses/${userId}`);
+            const { fallCourses, winterCourses } = response.data;
+
+            const fall = fallCourses.flatMap(id => fallData[id].slice(2));
+            setFallCourses(fall);
+            const winter = winterCourses.flatMap(id => winterData[id].slice(2));
+            setWinterCourses(winter);
+
+
+            const generateOptions = (courseBaseId, coursemaster) => {
+                const sectionKeys = Object.keys(coursemaster).filter(key => key.startsWith(courseBaseId));
+                return sectionKeys.map(key => {
+                    return `Section ${key.split('_')[1]}: ${formatDays(coursemaster[key].slice(2))}`;
+                }).sort();
+            };
+
+            const formatDays = (sessions) => {
+                const daysSet = new Set();
+                sessions.forEach(session => {
+                    session.match(/\b(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\b/g).forEach(day => {
+                        daysSet.add(day.startsWith('Th') ? 'Th' : day.charAt(0));
+                    });
+                });
+                return Array.from(daysSet).join('');
+            };
+
+
+            const processedFallCourses = fallCourses.map(courseId => {
+                const courseDetail = fallData[courseId];
+                return {
+                    id: courseId,
+                    name: courseDetail[0],
+                    options: generateOptions(courseDetail[0], fallData),
+                    selectedOption: `Section ${courseId.split('_')[1]}: ${formatDays(fallData[courseId].slice(2))}`,
+                };
+            });
+
+            setFc(processedFallCourses);
+
+            const processedWinterCourses = winterCourses.map(courseId => {
+                const courseDetail = winterData[courseId]; // Assuming winterData is your course data object
+                return {
+                    id: courseId,
+                    name: courseDetail[0],
+                    options: generateOptions(courseDetail[0], winterData),
+                    selectedOption: `Section ${courseId.split('_')[1]}: ${formatDays(winterData[courseId].slice(2))}`,
+                };
+            });
+
+            setWc(processedWinterCourses);
+        } catch (err) {
+            const errorMessage = err.response?.data?.message || "An unexpected error occurred while fetching user courses";
+            setError(errorMessage);
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
     const updateFallCourses = async (courses_ids) => {
         // Prepare for Calendar Rendering
         const courses = courses_ids.flatMap(course => fallData[course].slice(2));
-        setFallCourses(courses);
-        // Send data to backend
+        setFallCourses(courses);  // Update local state regardless of login
+
+        // Check if user is logged in
         const user = JSON.parse(localStorage.getItem('user'));
         const userId = user ? user.id : null;
+        if (!userId) {
+            return;  // Early return if no user is logged in
+        }
+        // User is logged in, send data to backend
         const term = "fall";
         try {
             await axios.post('https://cp-backend-psi.vercel.app/backend/courseChange/', {
@@ -156,16 +123,19 @@ export default function Courses() {
             const errorMessage = err.response?.data?.message || "An unexpected error occurred";
             setError(errorMessage);
         }
-
     };
 
     const updateWinterCourses = async (courses_ids) => {
         // Prepare for Calendar Rendering
         const courses = courses_ids.flatMap(course => winterData[course].slice(2));
         setWinterCourses(courses);
-        // Send data to backend
+
+        // Check if user is logged in
         const user = JSON.parse(localStorage.getItem('user'));
         const userId = user ? user.id : null;
+        if (!userId) {
+            return;  // Early return if no user is logged in
+        }
         const term = "winter"
         try {
             await axios.post('https://cp-backend-psi.vercel.app/backend/courseChange/', {
@@ -182,23 +152,26 @@ export default function Courses() {
 
 
     useEffect(() => {
-        const handleBeforeUnload = (e) => {
-            e.preventDefault();
-            e.returnValue = ''; // Standard for most browsers
-        };
+        if (!currentUser) {
+            const handleBeforeUnload = (e) => {
+                e.preventDefault();
+                e.returnValue = ''; // Standard for most browsers
+            };
 
-        window.addEventListener('beforeunload', handleBeforeUnload);
+            window.addEventListener('beforeunload', handleBeforeUnload);
 
-        // Cleanup the event listener when the component unmounts
-        return () => {
-            window.removeEventListener('beforeunload', handleBeforeUnload);
-        };
-    }, []);
+            // Cleanup the event listener when the component unmounts or the user signs in
+            return () => {
+                window.removeEventListener('beforeunload', handleBeforeUnload);
+            };
+        }
+    }, [currentUser]);
+
 
     return (
 
         <div className='grid xl:grid-cols-sidebar-lg lg:grid-cols-sidebar min-h-screen overflow-y-auto'>
-            <div className='relative lg:block hidden'>
+            <div className='relative lg:block hidden '>
                 <div className='absolute top-0 left-0'>
                     <LeftMenu activeTab="courses" />
                 </div>
