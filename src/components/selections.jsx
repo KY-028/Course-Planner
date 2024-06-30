@@ -77,8 +77,9 @@ function CourseGrid({ courseData, courses, setCourses, setChangeCounter, changeC
 
     const addCustomCourse = (newCourse) => {
         const newData = { ...courseData, [newCourse.id]: newCourse.correctformat };
+        console.log(newCourse.id);
         changeCourseData(newData); // This might needs change once database is set up
-
+        // 发出一个请求加这个course到database
         setCourses([...courses, newCourse]);
 
         // Update the options for all related courses
@@ -149,6 +150,7 @@ function CourseGrid({ courseData, courses, setCourses, setChangeCounter, changeC
                 // Because it's a custom course it must be removed from the library
                 delete newCourseData[id];
                 changeCourseData(newCourseData);
+                // 发出一个请求删掉这个custom course
 
             }
         }
