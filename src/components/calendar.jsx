@@ -34,11 +34,24 @@ const Calendar = (props) => {
                     const name = parts[0];
                     const day = parts[1];
                     const time = parts[2];
+                    // length = 4: one prof name
+                    // length = 5: with space in name
+                    let profName = ""
+                    if (parts.length > 5) {
+                        console.log('Very weird solus prof name');
+                    }
+                    else
+                    if (parts.length == 5) {
+                        profName = parts[3] + ' ' + parts[4];
+                    }
+                    else {
+                        profName = parts[3];
+                    }
                     const [startHour, startMinute] = time.split('-')[0].split(':').map(Number);
                     const [endHour, endMinute] = time.split('-')[1].split(':').map(Number);
                     const startTime = startHour * 60 + startMinute;
                     const endTime = endHour * 60 + endMinute;
-                    return { name, day, time, startTime, endTime };
+                    return { name, day, time, startTime, endTime, profName };
                 });
 
             setTimes(processedTimes); // Update state with processed times
@@ -71,7 +84,7 @@ const Calendar = (props) => {
 
             return (
                 <div key={index}>
-                    <Slot time={event.time} name={event.name} color={color} conflict={conflict} />
+                    <Slot time={event.time} name={event.name} color={color} conflict={conflict} profName={event.profName}  />
                 </div>
             );
         });
@@ -195,9 +208,11 @@ const styles = {
 };
 
 
-const Slot = ({ time, name, color, conflict }) => {
+const Slot = ({ time, name, color, conflict, profName }) => {
     const mediaMatch = window.matchMedia('(min-width: 1280px)');
     const [matches, setMatches] = useState(mediaMatch.matches);
+
+    //console.log(profName);
 
     useEffect(() => {
         const handler = e => setMatches(e.matches);
@@ -229,6 +244,16 @@ const Slot = ({ time, name, color, conflict }) => {
                     <p className='2xl:text-sm xl:text-small lg:text-xxs md-custom:text-xxxs text-xs xl:-mt-0.5 lg:-mt-1 md-custom:-mt-1.5 sm:-mt-0.5'>
                         {name}
                     </p>
+
+                    <div className="absolute left-0 w-full h-full flex items-center justify-center transition-opacity duration-300 opacity-0 hover:opacity-100">
+                        <div className=' absolute bottom-full bg-dark-blue text-white rounded px-3 py-1 text-sm' 
+                        style={{
+                            bottom: '108%'
+                        }}>
+                            {profName}
+                        </div>
+                    </div>
+
                 </div>
             </div>
             {/* {conflict && (
