@@ -8,31 +8,60 @@ import winterJSON from '/src/assets/winter_2025_0629.json';
 import axios from 'axios'
 import { useContext } from 'react';
 import { AuthContext } from '../context/authContext';
-import { useNavigate } from 'react-router-dom'
+import { generateNewCourse, generateOptions } from '../components/courseFunctions';
+import UpdateManager from '../components/updatemanager';
 
 export default function Courses() {
     const { currentUser } = useContext(AuthContext);
-    const [fallCourses, setFallCourses] = useState([]);
-    const [winterCourses, setWinterCourses] = useState([]);
+    // Imported JSON
     const [fallData, setFallData] = useState(fallJSON);
     const [winterData, setWinterData] = useState(winterJSON);
-    const [isLoading, setIsLoading] = useState(true);  // New state to manage loading
+
+    /**
+     * Courses to be displayed in <Calendar />
+     * Desired format: one single list of 
+     * ["CISC101 Day Time Prof", "CISC101 Day Time Prof", "CISC102 Day Time Prof", ...]
+     */
+
+    const [fallCourses, setFallCourses] = useState([]);
+    const [winterCourses, setWinterCourses] = useState([]);
+
+    const [isLoading, setIsLoading] = useState(true);
+    /**
+     * Courses to be displayed in <Selection />
+     * Desired format: an array of object like
+     * [{id: CISC101_1, name: "CISC101", options: ["Section 1: MWF", "Section 2: TThF"], selectedOption: "Section 1: MWF"}, {...}]
+     */
     const [fc, setFc] = useState([]);
     const [wc, setWc] = useState([]);
     const [err, setError] = useState(null);
 
-    // const navigate = useNavigate();
+    const [fallConflicts, setFallConflicts] = useState([]);
+    const [winterConflicts, setWinterConflicts] = useState([]);
+
+    /**
+    * Upon arriving on /course-selection
+    * - Check if user is logged in
+    * - If logged in, fetch the courses and render
+    * - If not, the user will use the functions without saving their results
+    */
     useEffect(() => {
         if (!currentUser) {
             setIsLoading(false);  // Immediately allow interaction if not logged in
-            return;  // Exit if no user is logged in
+            return;
         }
-
-        // If a user exists, proceed to fetch data
         setIsLoading(true);
         fetchUserCourses()
     }, [currentUser]);
 
+
+    /**
+     * try to obtain the user ID, if not found, stop the function
+     * the fetching consists of these steps:
+     * 1. GET the current list of courses from backend
+     * 2. 
+     * @returns 
+     */
     const fetchUserCourses = async () => {
         try {
             const userId = currentUser ? currentUser.id : null;
@@ -53,47 +82,12 @@ export default function Courses() {
             const winter = winterCourses.flatMap(id => winterData[id].slice(2));
             setWinterCourses(winter);
 
-            const generateOptions = (courseBaseId, coursemaster) => {
-                const sectionKeys = Object.keys(coursemaster).filter(key => key.startsWith(courseBaseId));
-                return sectionKeys.map(key => {
-                    return `Section ${key.split('_')[1]}: ${formatDays(coursemaster[key].slice(2))}`;
-                }).sort();
-            };
-
-            const formatDays = (sessions) => {
-                const daysSet = new Set();
-                sessions.forEach(session => {
-                    session.match(/\b(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\b/g).forEach(day => {
-                        daysSet.add(day.startsWith('Th') ? 'Th' : day.charAt(0));
-                    });
-                });
-                return Array.from(daysSet).join('');
-            };
-
-
-            const processedFallCourses = fallCourses.map(courseId => {
-                const courseDetail = fallData[courseId];
-                return {
-                    id: courseId,
-                    name: courseDetail[0],
-                    options: generateOptions(courseDetail[0], fallData),
-                    selectedOption: `Section ${courseId.split('_')[1]}: ${formatDays(fallData[courseId].slice(2))}`,
-                };
-            });
-
+            const processedFallCourses = fallCourses.map(courseId => generateNewCourse(courseId, fallData));
             setFc(processedFallCourses);
 
-            const processedWinterCourses = winterCourses.map(courseId => {
-                const courseDetail = winterData[courseId];
-                return {
-                    id: courseId,
-                    name: courseDetail[0],
-                    options: generateOptions(courseDetail[0], winterData),
-                    selectedOption: `Section ${courseId.split('_')[1]}: ${formatDays(winterData[courseId].slice(2))}`,
-                };
-            });
-
+            const processedWinterCourses = winterCourses.map(courseId => generateNewCourse(courseId, winterData));
             setWc(processedWinterCourses);
+
         } catch (err) {
             const errorMessage = err.response?.data?.message || "An unexpected error occurred while fetching user courses";
             setError(errorMessage);
@@ -105,7 +99,7 @@ export default function Courses() {
     const updateFallCourses = async (courses_ids) => {
         // Prepare for Calendar Rendering
         const courses = courses_ids.flatMap(course => fallData[course].slice(2));
-        setFallCourses(courses); // Update local state regardless of login
+        setFallCourses(courses);
 
         // Check if user is logged in
         console.log(courses_ids)
@@ -113,19 +107,17 @@ export default function Courses() {
         if (!currentUser) {
             return;  // Early return if no user is logged in
         }
-        // User is logged in, send data to backend
-        const userId = currentUser.id;
-        const term = "fall";
-        try {
-            await axios.post('https://cp-backend-psi.vercel.app/backend/courseChange/', {
-                userId,
-                courses_ids,
-                term,
-            });
-        } catch (err) {
-            const errorMessage = err.response?.data?.message || "An unexpected error occurred";
-            setError(errorMessage);
-        }
+
+        const data = {
+            userId: currentUser.id,
+            courses_ids: courses_ids,
+            term: "fall",
+        };
+
+        UpdateManager.addUpdate({
+            endpoint: 'https://cp-backend-psi.vercel.app/backend/courseChange/',
+            data: data
+        });
     };
 
     const updateWinterCourses = async (courses_ids) => {
@@ -139,37 +131,37 @@ export default function Courses() {
         if (!currentUser) {
             return;  // Early return if no user is logged in
         }
-        const userId = currentUser.id;
-        const term = "winter"
-        try {
-            await axios.post('https://cp-backend-psi.vercel.app/backend/courseChange/', {
-                userId,
-                courses_ids,
-                term,
-            });
-        } catch (err) {
-            const errorMessage = err.response?.data?.message || "An unexpected error occurred";
-            setError(errorMessage);
-        }
 
+        const data = {
+            userId: currentUser.id,
+            courses_ids,
+            term: "winter",
+        };
+
+        UpdateManager.addUpdate({
+            endpoint: 'https://cp-backend-psi.vercel.app/backend/courseChange/',
+            data: data
+        });
     };
 
-
+    // useEffect for handling beforeunload event based on user login status and unsaved changes
     useEffect(() => {
-        if (!currentUser) {
-            const handleBeforeUnload = (e) => {
-                e.preventDefault();
-                e.returnValue = ''; // Standard for most browsers
-            };
+        const handleBeforeUnload = (event) => {
+            if (!currentUser && (fallCourses.length > 1 || winterCourses.length > 1)) {
+                event.preventDefault();
+                event.returnValue = "You have unsaved changes that may not be saved. Are you sure you want to leave?";
+            } else if (UpdateManager.queue.length > 0) {
+                event.preventDefault();
+                event.returnValue = "You have unsaved changes. Are you sure you want to leave?";
+            }
+        };
 
-            window.addEventListener('beforeunload', handleBeforeUnload);
+        window.addEventListener('beforeunload', handleBeforeUnload);
 
-            // Cleanup the event listener when the component unmounts or the user signs in
-            return () => {
-                window.removeEventListener('beforeunload', handleBeforeUnload);
-            };
-        }
-    }, [currentUser]);
+        return () => {
+            window.removeEventListener('beforeunload', handleBeforeUnload);
+        };
+    }, [currentUser, fallCourses, winterCourses]);
 
 
     return (
@@ -185,13 +177,13 @@ export default function Courses() {
                 <Nav activeTab="courses" />
                 <div className='w-full grid md-custom:grid-cols-2 grid-cols md-custom:mx-0 m-0 p-0 gap-3' >
                     <div className='sm:m-0 m-1.5 p-0'>
-                        <Selection isLoading={isLoading} onUpdate={updateFallCourses} courseData={fallData} changeCourseData={setFallData} courses={fc} setCourses={setFc} term={"Fall"} />
-                        <Calendar term="Fall" times={fallCourses} />
+                        <Selection isLoading={isLoading} onUpdate={updateFallCourses} courseData={fallData} changeCourseData={setFallData} courses={fc} setCourses={setFc} term={"Fall"} conflicts={fallConflicts} />
+                        <Calendar term="Fall" times={fallCourses} setConflicts={setFallConflicts} />
 
                     </div>
                     <div className='sm:m-0 m-1.5 p-0'>
-                        <Selection isLoading={isLoading} onUpdate={updateWinterCourses} courseData={winterData} changeCourseData={setWinterData} courses={wc} setCourses={setWc} term={"Winter"} />
-                        <Calendar term="Winter" times={winterCourses} />
+                        <Selection isLoading={isLoading} onUpdate={updateWinterCourses} courseData={winterData} changeCourseData={setWinterData} courses={wc} setCourses={setWc} term={"Winter"} conflicts={winterConflicts} />
+                        <Calendar term="Winter" times={winterCourses} setConflicts={setWinterConflicts} />
                     </div>
 
                 </div>

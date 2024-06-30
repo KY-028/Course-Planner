@@ -55,8 +55,31 @@ const Calendar = (props) => {
                 });
 
             setTimes(processedTimes); // Update state with processed times
+            checkForConflicts(processedTimes);  // Check and update conflicts
         }
     }, [props.times]); // Dependency array includes props.times
+
+
+    const checkForConflicts = (processedTimes) => {
+        const newConflicts = new Set();  // Use a set to automatically handle duplicates
+        processedTimes.forEach((current, index, array) => {
+            for (let i = 0; i < array.length; i++) {
+                if (i !== index && current.day === array[i].day) {  // Check only against other classes on the same day
+                    const slot = array[i];
+                    if (((current.startTime < slot.endTime && current.endTime > slot.startTime) ||
+                        (current.endTime > slot.startTime && current.startTime < slot.endTime)) &&
+                        !(current.startTime === slot.endTime || current.endTime === slot.startTime)) {
+                        // Ensure consistent ordering of course names in the string
+                        const sortedNames = [current.name, slot.name].sort();
+                        const conflictString = `${sortedNames[0]} and ${sortedNames[1]}`;
+                        newConflicts.add(conflictString);  // Add to set, duplicates are automatically ignored
+                    }
+                }
+            }
+        });
+        props.setConflicts([...newConflicts]);  // Directly set the new conflicts
+    };
+
 
     const isConflict = (event, slots) => {
         const [startHour, startMinute] = event.time.split('-')[0].split(':').map(Number);
