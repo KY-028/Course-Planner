@@ -60,7 +60,7 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
 
         const formattedArray = [courseName, staffName];
         times.forEach(time => {
-            formattedArray.push(`${courseName} ${time.day} ${time.time}`);
+            formattedArray.push(`${courseName} ${time.day} ${time.time} ${staffName}`);
         });
 
         const courseDetails = {

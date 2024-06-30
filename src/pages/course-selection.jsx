@@ -44,6 +44,10 @@ export default function Courses() {
             const response = await axios.get(`https://cp-backend-psi.vercel.app/backend/users/courses/${userId}`);
             const { fallCourses, winterCourses } = response.data;
 
+            // 如果这个CourseID，不在我们的JSON里面(fallData),发出一个GET请求，去找database里的custom课（写好GET了）
+            // localhost:8800/backend/customCourses/FREN219_1?userId=6
+            // 把这个得到的数据，加到JSON里面，记住这个JSON要检查是否已经有个custom课，有的话就替换/不动
+
             const fall = fallCourses.flatMap(id => fallData[id].slice(2));
             setFallCourses(fall);
             const winter = winterCourses.flatMap(id => winterData[id].slice(2));
@@ -101,7 +105,7 @@ export default function Courses() {
     const updateFallCourses = async (courses_ids) => {
         // Prepare for Calendar Rendering
         const courses = courses_ids.flatMap(course => fallData[course].slice(2));
-        setFallCourses(courses);  // Update local state regardless of login
+        setFallCourses(courses); // Update local state regardless of login
 
         // Check if user is logged in
         console.log(courses_ids)
