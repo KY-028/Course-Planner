@@ -148,7 +148,7 @@ function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChan
                 }
 
                 UpdateManager.addUpdate({
-                    endpoint: 'http://cp-backend-psi.vercel.app/backend/customCourses/delete',
+                    endpoint: 'https://cp-backend-psi.vercel.app/backend/customCourses/delete',
                     data: data
                 });
 
