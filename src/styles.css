@@ -663,7 +663,177 @@ video {
   }
 }
 
+.accountbackground {
 
+  background: -webkit-linear-gradient(to bottom, #264569, #356193);
+  background: linear-gradient(to bottom, #264569, #356193);
+}
+
+.account {
+  
+  h1 {
+    font-weight: bold;
+    font-size: 18px; 
+    margin-bottom: 5px;
+  }
+  
+  input {
+    
+    background-color: #eee;
+    border: none;
+    padding: 5px 15px;
+    margin: 8px 0;
+    width: 100%;
+  }
+
+  button {
+    border-radius: 20px;
+    border: 1px solid #65A8F6;
+    background-color: #65A8F6;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 8px;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+    &:active {
+      transform: scale(0.95);
+    }
+    &:focus {
+      outline: none;
+    }
+
+    @media (max-width: 768px) {
+      padding: 12px 5px;
+      width: 100%;
+    }
+  }
+
+  a {
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 15px 0;
+  }
+
+  p {
+  font-size: 14px;
+  font-weight: 100;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  margin: 20px 0 30px;
+  }
+
+
+  .error {
+    text-align: center;
+    font-weight: normal;
+    color: red;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+}
+
+.account-small {
+  background: -webkit-linear-gradient(to bottom, #264569, #356193);
+  background: linear-gradient(to bottom, #264569, #356193);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0 0;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    margin-top: 40px;
+    font-size: 32px;
+    color: white;
+    margin-bottom: 10px;
+    font-weight: bold;
+
+    @media (max-width: 500px) {
+      font-size: 28px;
+    }
+  }
+
+  
+  input {
+    background-color: transparent;
+    border-bottom: solid rgb(205, 205, 205);
+    color: white;
+    padding: 5px 2px;
+    margin: 8px 10px;
+    width: 60%;
+
+    &:focus {
+      outline: none;
+      border-bottom: solid white;
+    }
+
+    @media (max-width: 500px) {
+      font-size: 16px;
+      width: 75%;
+    }
+
+  }
+
+  button {
+    border: 3px solid #79b7ff;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 6px;
+    width: 60%;
+    letter-spacing: 1px;
+    margin: 14px 0;
+    transition: transform 80ms ease-in;
+
+    &:active {
+      transform: scale(0.95);
+    }
+    
+    &:focus {
+      outline: none;
+    }
+
+
+    @media (max-width: 500px) {
+      font-size: 14px;
+      padding: 4px;
+      width: 75%;
+    }
+  }
+
+  a {
+    color: rgb(176, 230, 255);
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+
+  p {
+    font-size: 15px;
+    text-align: center;
+    color: yellow;
+    margin-bottom: 10px;
+  }
+
+  span{
+    font-size: 15px;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+}
+
+.account-small input::placeholder {
+  color: #c0bebe;
+}
 .ub {
 
   display: inline-block;
