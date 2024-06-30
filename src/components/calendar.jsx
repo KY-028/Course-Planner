@@ -41,12 +41,12 @@ const Calendar = (props) => {
                         console.log('Very weird solus prof name');
                     }
                     else
-                    if (parts.length == 5) {
-                        profName = parts[3] + ' ' + parts[4];
-                    }
-                    else {
-                        profName = parts[3];
-                    }
+                        if (parts.length == 5) {
+                            profName = parts[3] + ' ' + parts[4];
+                        }
+                        else {
+                            profName = parts[3];
+                        }
                     const [startHour, startMinute] = time.split('-')[0].split(':').map(Number);
                     const [endHour, endMinute] = time.split('-')[1].split(':').map(Number);
                     const startTime = startHour * 60 + startMinute;
@@ -84,7 +84,7 @@ const Calendar = (props) => {
 
             return (
                 <div key={index}>
-                    <Slot time={event.time} name={event.name} color={color} conflict={conflict} profName={event.profName}  />
+                    <Slot time={event.time} name={event.name} color={color} conflict={conflict} profName={event.profName} />
                 </div>
             );
         });
@@ -246,11 +246,11 @@ const Slot = ({ time, name, color, conflict, profName }) => {
                     </p>
 
                     <div className="absolute left-0 w-full h-full flex items-center justify-center transition-opacity duration-300 opacity-0 hover:opacity-100">
-                        <div className=' absolute bottom-full bg-dark-blue text-white rounded px-3 py-1 text-sm' 
-                        style={{
-                            bottom: '108%'
-                        }}>
-                            {profName}
+                        <div className='absolute bottom-full bg-dark-blue text-white rounded px-3 py-1 text-sm text-nowrap'
+                            style={{
+                                bottom: '108%'
+                            }}>
+                            {profName.split(",").reverse().join(" ")}
                         </div>
                     </div>
 

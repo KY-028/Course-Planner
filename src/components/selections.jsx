@@ -23,11 +23,11 @@ function Course({ id, name, options, selectedOption, onSelectChange, onRemove })
             >
                 &#x2715;
             </button>
-            <div className="w-full font-semibold xl:text-base lg:text-xs md-custom:text-xs sm:text-sm text-xs xl:mb-0.5 lg:m-0 md-custom:mt-1 md-custom:-mb-0.5 mt-1">{name}</div>
+            <div className="w-full font-semibold xl:text-base lg:text-xs md-custom:text-xs sm:text-sm text-xs xl:mb-0.5 lg:mt-0.5 md-custom:mt-1 md-custom:-mb-0.5 mt-1">{name}</div>
             <select
                 name={`${id}`}
                 id={`${id}`}
-                className="w-full border-gray-300 rounded xl:text-xs md-custom:text-xxs sm:text-sm text-xs"
+                className="w-full bg-gray-100 border-gray-300 rounded xl:text-xs md-custom:text-xxs sm:text-sm text-xs"
                 value={selectedOption}
                 onChange={(e) => onSelectChange(id, e.target.value)}
             >
@@ -182,7 +182,7 @@ function CourseGrid({ courseData, courses, setCourses, setChangeCounter, changeC
                     onRemove={removeCourse}
                 />
             ))}
-            <button className="flex justify-center items-center  xl:h-16 lg:h-14 md-custom:h-12 sm:h-14 h-12 border-2 border-dashed border-gray-400 rounded-lg transition duration-300 bg-white hover:bg-white mx-0.5"
+            <button className="flex justify-center items-center xl:h-16 lg:h-14 md-custom:h-12 sm:h-14 h-12 border-2 border-dashed border-gray-400 rounded-lg transition duration-200 bg-white hover:bg-sky-100 mx-0.5"
                 onClick={() => setIsModalOpen(true)}>
                 <span className="text-xl">+</span>
             </button>
@@ -192,7 +192,7 @@ function CourseGrid({ courseData, courses, setCourses, setChangeCounter, changeC
 }
 
 
-function Selection({ isLoading, onUpdate, courseData, changeCourseData, courses, setCourses }) {
+function Selection({ isLoading, onUpdate, courseData, changeCourseData, courses, setCourses, term }) {
     const [inputValue, setInputValue] = useState('');
     const [notFound, setNotFound] = useState([]);  // State to track IDs not found
     const [isToggled, setIsToggled] = useState(false); // Manage toggle state here
@@ -249,7 +249,8 @@ function Selection({ isLoading, onUpdate, courseData, changeCourseData, courses,
     };
 
     return (
-        <div className='ml-7 m-4 mt-10 mb-12'>
+        <div className='ml-6 m-4 mt-0 mb-8'>
+            <div className='text-center text-2xl font-bold mb-2 lg:mt-0 mt-2'>{term} Term</div>
             {!isToggled && <>
                 <div className='w-full h-full flex items-center justify-begin'>
                     <Toggle message="Entry Mode" isToggled={isToggled} toggleSwitch={toggleSwitch} />
@@ -259,7 +260,7 @@ function Selection({ isLoading, onUpdate, courseData, changeCourseData, courses,
 
             {/* Entry Mode */}
             {isToggled && (<div>
-                
+
                 <div className='w-full h-full flex items-center justify-between'>
                     <Toggle message="Entry Mode" isToggled={isToggled} toggleSwitch={toggleSwitch} />
                     <button onClick={handleSubmit} className=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Update Schedule</button>
