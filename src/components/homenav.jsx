@@ -34,8 +34,6 @@ export default function HomeNav({ accountpage }) {
     }, [open, controls]);
 
 
-    console.log(accountpage)
-
     return (
         <header className="w-full z-50 sm:relative fixed top-0 drop-shadow-sm">
             {/* The Normal Screen Size */}

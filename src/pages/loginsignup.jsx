@@ -4,6 +4,7 @@ import { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from "../context/authContext";
 import Homenav from "/src/components/homenav"
+import axios from 'axios'
 
 export default function LoginSignup({ signinintent }) {
 
@@ -50,13 +51,14 @@ export default function LoginSignup({ signinintent }) {
         e.preventDefault();
 
         try {
-            await axios.post("https://cp-backend-psi.vercel.app/backend/auth/signUp", signupInputs);
-            setError("Success! Redirecting...");
+            const response = await axios.post("https://cp-backend-psi.vercel.app/backend/auth/signUp", signupInputs);
+            setError("Success!");
             setTimeout(() => {
-                navigate("/course-selection");
+                toggle(true);
+                setError(null);
             }, 2000);
         } catch (err) {
-            const errorMessage = err.response?.data?.message || "Error: your username is registered";
+            const errorMessage = err.response?.data?.message || "An Unexpected Error Has Occurred";
             setError(errorMessage);
         }
     };
@@ -86,7 +88,7 @@ export default function LoginSignup({ signinintent }) {
                             <input required onChange={handleSignupChange} value={signupInputs.password} name="password" type="password" placeholder="Password" />
                             <input required onChange={handleSignupChange} value={signupInputs.grade} name="grade" type="number" min={1} placeholder="Year of Study" />
                             <p className="error">{err ? err : ''}</p>
-                            <button>Sign Up</button>
+                            <button type="submit">Sign Up</button>
                         </form>
                     </Components.SignUpContainer>
                     <Components.SignInContainer signingin={signIn}>
@@ -95,7 +97,7 @@ export default function LoginSignup({ signinintent }) {
                             <input required onChange={handleLoginChange} value={logininputs.email} name="email" type="email" placeholder="Email" />
                             <input required onChange={handleLoginChange} value={logininputs.password} name="password" type="password" placeholder="Password" />
                             <p className="error" style={{ minHeight: '25px' }}>{err ? err : ''}</p>
-                            <button>Sign In</button>
+                            <button type="submit">Sign In</button>
                         </form>
                     </Components.SignInContainer>
                     <Components.OverlayContainer signingin={signIn}>
