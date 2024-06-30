@@ -182,12 +182,12 @@ export default function Courses() {
                 <Nav activeTab="courses" />
                 <div className='w-full grid md-custom:grid-cols-2 grid-cols md-custom:mx-0 m-0 p-0 gap-3' >
                     <div className='sm:m-0 m-1.5 p-0'>
-                        <Selection isLoading={isLoading} onUpdate={updateFallCourses} courseData={fallData} changeCourseData={setFallData} courses={fc} setCourses={setFc} />
+                        <Selection isLoading={isLoading} onUpdate={updateFallCourses} courseData={fallData} changeCourseData={setFallData} courses={fc} setCourses={setFc} term={"Fall"} />
                         <Calendar term="Fall" times={fallCourses} />
 
                     </div>
                     <div className='sm:m-0 m-1.5 p-0'>
-                        <Selection isLoading={isLoading} onUpdate={updateWinterCourses} courseData={winterData} changeCourseData={setWinterData} courses={wc} setCourses={setWc} />
+                        <Selection isLoading={isLoading} onUpdate={updateWinterCourses} courseData={winterData} changeCourseData={setWinterData} courses={wc} setCourses={setWc} term={"Winter"} />
                         <Calendar term="Winter" times={winterCourses} />
                     </div>
 
