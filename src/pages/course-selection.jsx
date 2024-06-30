@@ -49,7 +49,6 @@ export default function Courses() {
             const winter = winterCourses.flatMap(id => winterData[id].slice(2));
             setWinterCourses(winter);
 
-
             const generateOptions = (courseBaseId, coursemaster) => {
                 const sectionKeys = Object.keys(coursemaster).filter(key => key.startsWith(courseBaseId));
                 return sectionKeys.map(key => {
@@ -81,7 +80,7 @@ export default function Courses() {
             setFc(processedFallCourses);
 
             const processedWinterCourses = winterCourses.map(courseId => {
-                const courseDetail = winterData[courseId]; // Assuming winterData is your course data object
+                const courseDetail = winterData[courseId];
                 return {
                     id: courseId,
                     name: courseDetail[0],
@@ -101,7 +100,7 @@ export default function Courses() {
 
     const updateFallCourses = async (courses_ids) => {
         // Prepare for Calendar Rendering
-        const courses = courses_ids.flatMap(course => fallData[course].slice(1));
+        const courses = courses_ids.flatMap(course => fallData[course].slice(2));
         setFallCourses(courses);  // Update local state regardless of login
 
         // Check if user is logged in
