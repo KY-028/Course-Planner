@@ -8,6 +8,7 @@ import Home from "./pages/home"
 import Footer from "./components/footer"
 import Contact from "./pages/contact"
 import About from './pages/about';
+import LoginSignup from "./pages/loginsignup";
 
 import {
   createBrowserRouter,
@@ -44,11 +45,15 @@ const router = createBrowserRouter([
   // route for signup and login page
   {
     path: "/signup",
-    element: <SignUp />,
+    element: <LoginSignup signinintent={false} />,
   },
   {
     path: "/login",
-    element: <Login />,
+    element: <LoginSignup signinintent={true} />,
+  },
+  {
+    path: "/account",
+    element: <LoginSignup signinintent={false} />,
   },
   {
     path: "/course-selection",
