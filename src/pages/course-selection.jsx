@@ -3,8 +3,8 @@ import LeftMenu from '/src/components/leftMenu';
 import Calendar from '/src/components/calendar';
 import Nav from '/src/components/nav';
 import Selection from '/src/components/selections';
-import fallJSON from '/src/assets/fall_2024_0626.json';
-import winterJSON from '/src/assets/winter_2025_0626.json';
+import fallJSON from '/src/assets/fall_2024_0629.json';
+import winterJSON from '/src/assets/winter_2025_0629.json';
 import axios from 'axios'
 
 const falltimes = [
@@ -60,7 +60,7 @@ export default function Courses() {
 
     const updateFallCourses = async (courses_ids) => {
         // Prepare for Calendar Rendering
-        const courses = courses_ids.flatMap(course => fallData[course].slice(2));
+        const courses = courses_ids.flatMap(course => fallData[course].slice(1));
         setFallCourses(courses);
         // Send data to backend
         const user = JSON.parse(localStorage.getItem('user'));
