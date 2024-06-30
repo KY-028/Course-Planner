@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 const Home = () => {
     return (
         <>
-            <HomeNav />
+            <HomeNav accountpage={false} />
 
             <div className="flex flex-col lg:flex-row justify-center items-center h-screen text-white"
                 style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
@@ -21,27 +21,27 @@ const Home = () => {
                     <p className="text-base lg:text-xl mt-5 text-gray-400 font-light fade-in"
                         style={{
                             opacity: 0,
-                            animation: `fadeIn 1s ease-out forwards`, 
-                            animationDelay: '1.5s'  
+                            animation: `fadeIn 1s ease-out forwards`,
+                            animationDelay: '1.5s'
                         }}>
-                        Streamline Your Course Selection and Graduation Path at Queen's<br/>Made with ❤️ by Queen's students.
+                        Streamline Your Course Selection and Graduation Path at Queen's<br />Made with ❤️ by Queen's students.
                     </p>
-                    <Link to="/course-selection" className="mt-10 text-sm lg:text-xl px-8 py-3 bg-blue-500 text-white rounded-xl inline-block transition duration-300 hover:bg-blue-600 hover:scale-105" 
+                    <Link to="/course-selection" className="mt-10 text-sm lg:text-xl px-8 py-3 bg-blue-500 text-white rounded-xl inline-block transition duration-300 hover:bg-blue-600 hover:scale-105"
                         style={{
                             opacity: 0,
-                            animation: `fadeIn 1s ease-out forwards`, 
-                            animationDelay: '2.2s',  
+                            animation: `fadeIn 1s ease-out forwards`,
+                            animationDelay: '2.2s',
                         }}>
                         Try the Course Selection Planner
                     </Link>
                 </div>
                 <div className="lg:w-1/2 sm:w-full flex justify-center items-center text-2xl text-gray-400 rounded-full mt-0 lg:mt-0 lg:h-auto">
                     <img src={"./demo.png"} alt="icon" className="lg:w-auto lg:h-auto w-[80%] sm:h-full mr-2"
-                    style={{
-                        opacity: 0,
-                        animation: `flyInFromRight 1s ease-out forwards`,
-                        animationDelay: '2.2s'
-                    }} />
+                        style={{
+                            opacity: 0,
+                            animation: `flyInFromRight 1s ease-out forwards`,
+                            animationDelay: '2.2s'
+                        }} />
                 </div>
             </div>
 
