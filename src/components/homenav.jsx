@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { motion, useAnimation } from 'framer-motion';
 
-export default function HomeNav() {
+export default function HomeNav({ accountpage }) {
 
     const [open, setOpen] = useState(false);
 
@@ -33,6 +33,9 @@ export default function HomeNav() {
         }
     }, [open, controls]);
 
+
+    console.log(accountpage)
+
     return (
         <header className="w-full z-50 sm:relative fixed top-0 drop-shadow-sm">
             {/* The Normal Screen Size */}
@@ -49,13 +52,13 @@ export default function HomeNav() {
                         Support
                     </Link>
                 </div>
-                <div className="flex items-center w-36">
-                    {/* <Link to="/login">
-                        <button className="md:text-lg text-base p-3 py-1.5 rounded border-2 text-custom-blue-1 border-custom-blue-1">Log In</button>
+                <div className="flex items-center">
+                    <Link to="/login">
+                        <button className="md:text-lg text-base p-3 py-1.5 rounded border-2 text-custom-blue-1 border-custom-blue-1 hover:bg-white hover:text-dark-blue hover:border-none">Log In</button>
                     </Link>
                     <Link to="/signup">
-                        <button className="md:text-lg text-base mx-4 p-3 py-1.5 rounded bg-custom-blue-1 text-white">Sign Up</button>
-                    </Link> */}
+                        <button className="md:text-lg text-base mx-4 p-3 py-1.5 rounded bg-custom-blue-1 text-white hover:bg-white hover:text-dark-blue">Sign Up</button>
+                    </Link>
                 </div>
             </div>
             {/* The Mobile Screen Size */}
@@ -104,16 +107,18 @@ export default function HomeNav() {
                             Support
                         </Link>
                     </motion.div>
-                    {/* <motion.div variants={itemVariants} className="px-4 py-2 w-full text-sm font-semibold bg-transparent rounded-lg text-white focus:text-gray-400 hover:bg-gray-700 focus:bg-gray-700 focus:outline-none focus:shadow-outline">
-                        <Link to="/login">
-                            Log in
-                        </Link>
-                    </motion.div>
-                    <motion.div variants={itemVariants} className="px-4 py-2 w-full text-sm font-semibold bg-transparent rounded-lg text-white focus:text-gray-400 hover:bg-gray-700 focus:bg-gray-700 focus:outline-none focus:shadow-outline">
-                        <Link to="/signup">
-                            Sign up
-                        </Link>
-                    </motion.div> */}
+                    {!accountpage && (<>
+                        <motion.div variants={itemVariants} className="px-4 py-2 w-full text-sm font-semibold bg-transparent rounded-lg text-white focus:text-gray-400 hover:bg-gray-700 focus:bg-gray-700 focus:outline-none focus:shadow-outline">
+                            <Link to="/login">
+                                Log in
+                            </Link>
+                        </motion.div>
+                        <motion.div variants={itemVariants} className="px-4 py-2 w-full text-sm font-semibold bg-transparent rounded-lg text-white focus:text-gray-400 hover:bg-gray-700 focus:bg-gray-700 focus:outline-none focus:shadow-outline">
+                            <Link to="/signup">
+                                Sign up
+                            </Link>
+                        </motion.div>
+                    </>)}
                 </motion.nav>
                 {/* <div className="flex items-center text-white md:text2xl mr-3">
                     <Link to="/about" className="text-xl mx-5">
@@ -131,9 +136,9 @@ export default function HomeNav() {
                         <button className="md:text-xl text-lg mx-3 p-2 rounded bg-custom-blue-1 text-white">Sign Up</button>
                     </Link>
                 </div> */}
-            </div>
+            </div >
 
-        </header>
+        </header >
     );
 
 }
