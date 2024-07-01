@@ -60,7 +60,7 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
 
         const formattedArray = [courseName, staffName];
         times.forEach(time => {
-            formattedArray.push(`${courseName} ${time.day} ${time.time}`);
+            formattedArray.push(`${courseName} ${time.day} ${time.time} ${staffName}`);
         });
 
         const courseDetails = {
@@ -108,8 +108,8 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
                 <div className="flex justify-between items-center">
                     <div className="flex flex-row flex-start mb-2">
                         <h2 className="md-custom:text-xl sm:text-lg text-base font-bold text-nowrap flex items-center">{showCustomForm ? "Add Custom Course" : "Add a Course"}</h2>
-                        <button onClick={() => setShowCustomForm(!showCustomForm)} className="ml-2 p-2 w-full sm:text-base text-sm bg-blue-500 text-white rounded">
-                            {showCustomForm ? "Add a Course" : "Custom Course"}
+                        <button onClick={() => setShowCustomForm(!showCustomForm)} className="ml-5 p-2 w-full sm:text-base text-sm bg-blue-500 text-white rounded">
+                            {showCustomForm ? "Regular Course" : "Custom Course"}
                         </button>
                     </div>
                     <button onClick={onClose} className="text-gray-500 hover:text-gray-800">&#x2715;</button>

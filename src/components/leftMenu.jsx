@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import mainIcon from '../assets/icon1.png';
 import { AuthContext } from "../context/authContext";
+import UpdateManager from "./updatemanager"
 
 const LeftMenu = ({ activeTab }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -12,9 +13,16 @@ const LeftMenu = ({ activeTab }) => {
     const { currentUser, logout } = useContext(AuthContext);
 
     const handleLogout = async () => {
-        await logout()
-        closeModal();
-        nav('/login');
+        try {
+            await UpdateManager.waitForAllUpdates(); // Wait for all pending updates to complete
+            // Proceed with logout
+            console.log("All updates completed, proceeding with logout.");
+            await logout()
+            closeModal();
+            nav('/login');
+        } catch (error) {
+            alert("Please give us a few seconds to store your changes before loggin out.")
+        }
     };
 
     return (
