@@ -7,16 +7,10 @@ export const SignUpContainer = styled.div`
   transition: all 0.6s ease-in-out;
   left: 0;
   width: 50%;
-  opacity: 0;
-  z-index: 1;
-  ${props =>
-    props.signingin !== true
-      ? `
-  transform: translateX(100%);
-	opacity: 1;
-	z-index: 5;
-	`
-      : null}
+  ${props => (props.signingin !== true ? `transform: translateX(100%);` : null)}
+  ${props => (props.signingin !== true ? `opacity: 1;` : `opacity: 0;`)}
+  ${props => (props.signingin !== true ? `z-index: 5;` : `z-index: 1;`)}
+	
 `;
 
 export const SignInContainer = styled.div`
@@ -85,7 +79,7 @@ export const RightOverlayPanel = styled(OverlayPanel)`
   right: 0;
   transform: translateX(0);
   ${props => (props.signingin !== true ? `transform: translateX(20%);` : null)}
-  ${props => (props.signingin !== true ? `z-index: -1;` : null)}
+  ${props => (props.signingin !== true ? `z-index: -1;` : "z-index: 10")}
 `;
 
 
