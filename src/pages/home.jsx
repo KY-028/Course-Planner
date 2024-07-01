@@ -10,12 +10,15 @@ const Home = () => {
 
             <div className="flex flex-col lg:flex-row justify-center items-center h-screen text-white"
                 style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-                <div className="text-center lg:text-left lg:flex-1 p-5 lg:ml-20">
-                    <h1 className=" lg:max-w-screen-sm-custom text-xl lg:text-4xl font-bold overflow-hidden border-r-2 border-white whitespace-nowrap"
+                <div className="text-center lg:text-left lg:flex-1 p-3 lg:ml-20">
+                    <h1 className=" invisible lg:visible lg:max-w-screen-sm-custom text-xl lg:text-4xl font-bold overflow-hidden border-r-2 border-white lg:whitespace-nowrap"
                         style={{
                             animation: `typing 1.5s steps(60, end), blink-caret .75s step-end infinite`,
                             // maxWidth: '700px' 
                         }}>
+                        Committed to Your Academic Journey
+                    </h1>
+                    <h1 className=" visible lg:invisible lg:size-0 text-xl lg:text-4xl font-bold whitespace-normal overflow-hidden">
                         Committed to Your Academic Journey
                     </h1>
                     <p className="text-base lg:text-xl mt-5 text-gray-400 font-light fade-in"
@@ -35,8 +38,8 @@ const Home = () => {
                         Try the Course Selection Planner
                     </Link>
                 </div>
-                <div className="lg:w-1/2 sm:w-full flex justify-center items-center text-2xl text-gray-400 rounded-full mt-0 lg:mt-0 lg:h-auto">
-                    <img src={"./demo.png"} alt="icon" className="lg:w-auto lg:h-auto w-[80%] sm:h-full mr-2"
+                <div className="lg:w-1/2 sm:w-full flex justify-center items-center text-2xl text-gray-400 rounded-full mt-0 lg:mt-0 lg:h-auto pb-0">
+                    <img src={"./demo.png"} alt="icon" className="lg:w-auto lg:h-auto md: w-[30%] sm:h-full mr-2"
                         style={{
                             opacity: 0,
                             animation: `flyInFromRight 1s ease-out forwards`,
