@@ -82,7 +82,7 @@ export default function LoginSignup({ signinintent }) {
             <div className="md:flex hidden w-full h-screen items-center justify-center accountbackground">
                 <div className="account bg-white rounded-lg shadow-lg relative overflow-hidden lg:w-[800px] lg:h-[50%] md:w-[678px] sm:w-[80%] min-w-[400px] min-h-[400px]">
                     <Components.SignUpContainer signingin={signIn}>
-                        <form onSubmit={handleSignupSubmit} className="bg-white flex items-center justify-center flex-col px-16 h-full text-center">
+                        <form onSubmit={handleSignupSubmit} className={`${!signIn && "z-50"} bg-white flex items-center justify-center flex-col px-16 h-full text-center`}>
                             <h1>Create Account</h1>
                             <input required onChange={handleSignupChange} value={signupInputs.email} name="email" type="email" placeholder="Email" />
                             <input required onChange={handleSignupChange} value={signupInputs.username} name="username" type="text" placeholder="Username" />
