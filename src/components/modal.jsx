@@ -44,6 +44,26 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
         return Array.from(daysSet).join(''); // Sort and convert to string
     };
 
+    function convertTo24Hour(timeStr) {
+        let [begin, end] = timeStr.split('-');
+        let [bhr, bmin] = begin.split(":");
+        let starthour = parseInt(bhr);
+        let [ehr, emin] = end.split(":");
+        let endhour = parseInt(ehr);
+
+        if (1 <= starthour && starthour <= 6) { // if the hour is 1, 2, 3, 4, 5, or 6
+            starthour += 12;
+        }
+        if ((1 <= endhour && endhour <= 6) || endhour == 8) {
+            endhour += 12;
+        }
+        if (starthour === 18 && endhour === 9) {
+            endhour += 12;
+        }
+
+        return `${starthour}:${bmin}-${endhour}:${emin}`;
+    }
+
     const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -60,7 +80,8 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
 
         const formattedArray = [courseName, staffName];
         times.forEach(time => {
-            formattedArray.push(`${courseName} ${time.day} ${time.time} ${staffName}`);
+            const time_str = convertTo24Hour(time.time)
+            formattedArray.push(`${courseName} ${time.day} ${time_str} ${staffName}`);
         });
 
         const courseDetails = {
