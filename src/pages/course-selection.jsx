@@ -73,14 +73,37 @@ export default function Courses() {
             const response = await axios.get(`https://cp-backend-psi.vercel.app/backend/users/courses/${userId}`);
             const { fallCourses, winterCourses } = response.data;
 
-            // 如果这个CourseID，不在我们的JSON里面(fallData),发出一个GET请求，去找database里的custom课（写好GET了）
-            // localhost:8800/backend/customCourses/FREN219_1?userId=6
-            // 把这个得到的数据，加到JSON里面，记住这个JSON要检查是否已经有个custom课，有的话就替换/不动
+            // Helper function to fetch custom course if not in JSON data
+            const fetchAndMergeCustomCourse = async (courseId, term) => {
+                if (!(courseId in (term === 'fall' ? fallData : winterData))) {
+                    const url = `https://cp-backend-psi.vercel.app/backend/customCourses/${courseId}?userId=${userId}&term=${term}`;
+                    const res = await axios.get(url);
+                    // Update the local data structure with the course info from the response
+                    const newCourseInfo = res.data.courseInfo[courseId]; // Accessing the array directly from courseInfo
+                    if (term === 'fall') {
+                        fallData[courseId] = newCourseInfo;
+                    } else {
+                        winterData[courseId] = newCourseInfo;
+                    }
+                }
+            };
 
-            const fall = fallCourses.flatMap(id => fallData[id].slice(2));
-            setFallCourses(fall);
-            const winter = winterCourses.flatMap(id => winterData[id].slice(2));
-            setWinterCourses(winter);
+            // Process fall courses
+            const fallPromises = fallCourses.map(async (id) => {
+                await fetchAndMergeCustomCourse(id, 'fall');
+                return fallData[id].slice(2); // Assuming slice(2) removes unwanted elements
+            });
+            const fall = await Promise.all(fallPromises);
+            setFallCourses(fall.flat());
+
+            // Process winter courses
+            const winterPromises = winterCourses.map(async (id) => {
+                await fetchAndMergeCustomCourse(id, 'winter');
+                return winterData[id].slice(2); // Assuming slice(2) removes unwanted elements
+            });
+            const winter = await Promise.all(winterPromises);
+            setWinterCourses(winter.flat());
+
 
             const processedFallCourses = fallCourses.map(courseId => generateNewCourse(courseId, fallData));
             setFc(processedFallCourses);
