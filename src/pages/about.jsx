@@ -28,7 +28,7 @@ export default function About() {
                 <div className="flex flex-col md:mt-0 mt-8  items-center px-10 w-full h-full text-center">
                     <div className='md:mt-0 mt-4'>
                         <img
-                            src="/public/default.jpg"
+                            src="/default.jpg"
                             alt="Profile"
                             className="object-cover rounded-full bg-gray-300 md:mb-4 w-32 h-32 md:w-64 md:h-64"
                         />
@@ -45,7 +45,7 @@ export default function About() {
                 <div className="flex flex-col md:my-0 my-8  items-center px-10 w-full h-full text-center">
                     <div className='md:mt-0 mt-4'>
                         <img
-                            src="/public/default.jpg"
+                            src="/default.jpg"
                             alt="Profile"
                             className="object-cover rounded-full bg-gray-300 md:mb-4 w-32 h-32 md:w-64 md:h-64"
                         />
