@@ -81,7 +81,7 @@ export default function LoginSignup({ signinintent }) {
             <Homenav accountpage={true} />
             <div className="md:flex hidden w-full h-screen items-center justify-center accountbackground">
                 <div className="account bg-white rounded-lg shadow-lg relative overflow-hidden lg:w-[800px] lg:h-[50%] md:w-[678px] sm:w-[80%] min-w-[400px] min-h-[400px]">
-                    <Components.SignUpContainer signingin={String(signIn)}>
+                    <Components.SignUpContainer signingin={signIn}>
                         <form onSubmit={handleSignupSubmit} className="bg-white flex items-center justify-center flex-col px-16 h-full text-center">
                             <h1>Create Account</h1>
                             <input required onChange={handleSignupChange} value={signupInputs.email} name="email" type="email" placeholder="Email" />
@@ -92,7 +92,7 @@ export default function LoginSignup({ signinintent }) {
                             <button type="submit">Sign Up</button>
                         </form>
                     </Components.SignUpContainer>
-                    <Components.SignInContainer signingin={String(signIn)}>
+                    <Components.SignInContainer signingin={signIn}>
                         <form onSubmit={handleLoginSubmit} className="bg-white flex items-center justify-center flex-col px-16 h-full text-center">
                             <h1>Sign in</h1>
                             <input required onChange={handleLoginChange} value={logininputs.email} name="email" type="email" placeholder="Email" />
@@ -101,9 +101,9 @@ export default function LoginSignup({ signinintent }) {
                             <button type="submit">Sign In</button>
                         </form>
                     </Components.SignInContainer>
-                    <Components.OverlayContainer signingin={String(signIn)}>
-                        <Components.Overlay signingin={String(signIn)}>
-                            <Components.LeftOverlayPanel signingin={String(signIn)}>
+                    <Components.OverlayContainer signingin={signIn}>
+                        <Components.Overlay signingin={signIn}>
+                            <Components.LeftOverlayPanel signingin={signIn}>
                                 <h1>Welcome Back!</h1>
                                 <p>
                                     If you already have an account, please login with your personal info!
@@ -112,7 +112,7 @@ export default function LoginSignup({ signinintent }) {
                                     Sign In
                                 </Components.GhostButton>
                             </Components.LeftOverlayPanel>
-                            <Components.RightOverlayPanel signingin={String(signIn)}>
+                            <Components.RightOverlayPanel signingin={signIn}>
                                 <h1>Don't have an account yet?</h1>
                                 <p>
                                     Create an account with us now in just a few seconds!
