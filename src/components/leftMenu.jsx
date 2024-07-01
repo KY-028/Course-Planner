@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import mainIcon from '../assets/icon1.png';
+import mainIcon from '/src/assets/icon1.png';
 import { AuthContext } from "../context/authContext";
 import UpdateManager from "./updatemanager"
 
