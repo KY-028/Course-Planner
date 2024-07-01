@@ -22,7 +22,7 @@ const Contact = () => {
 
     return (
         <>
-            <HomeNav />
+            <HomeNav accountpage={false} />
 
             <div style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center', paddingTop: '20vh', paddingBottom: '40vh' }}>
                 <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">

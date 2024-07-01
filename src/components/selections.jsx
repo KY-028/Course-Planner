@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { AuthContext } from '../context/authContext';
+import { generateNewCourse, generateOptions } from './courseFunctions';
 import Modal from './modal';
+import UpdateManager from './updatemanager'
 
 function Toggle({ message, isToggled, toggleSwitch }) {
     return (
         <label className="flex items-center cursor-pointer">
             <div className="relative">
-                <input name="toggle" id="toggle" type="checkbox" className="sr-only" checked={isToggled} onChange={toggleSwitch} />
-                <div className={`block ${isToggled ? 'bg-blue-600' : 'bg-gray-600'} lg:w-14 w-10 lg:h-8 h-6 rounded-full`}></div>
+                <input type="checkbox" className="sr-only" checked={isToggled} onChange={toggleSwitch} />
+                <div className={`block ${isToggled ? 'bg-blue-600' : 'bg-gray-600'} lg:w-14 w-10 lg:h-8 h-6 rounded-full hover:bg-blue-600 transition duration-300`}></div>
                 <div className={`dot absolute left-1 top-1 bg-white lg:w-6 lg:h-6 w-4 h-4 rounded-full transition-transform ${isToggled ? 'translate-x-full' : ''}`}></div>
             </div>
             <span className="ml-3 text-gray-900 font-medium">{message}</span>
@@ -14,18 +17,19 @@ function Toggle({ message, isToggled, toggleSwitch }) {
     );
 }
 
-function Course({ id, name, options, selectedOption, onSelectChange, onRemove }) {
+function Course({ id, name, options, selectedOption, onSelectChange, onRemove, term }) {
     return (
-        <div className="relative border border-dark-blue rounded xl:h-16 lg:h-14 md-custom:h-12 sm:h-14 h-12 xl:pt-1 lg:pt-1.5 mx-0.5 px-1">
+        <div className="relative bg-white rounded-lg xl:h-16 lg:h-14 md-custom:h-12 sm:h-14 h-12 xl:pt-1 lg:pt-1.5 mx-0.5 px-2">
             <button
-                className="absolute top-0 right-0 p-1 lg:pt-1 md-custom:pt-0.5 lg:text-xs text-xxs font-bold text-gray-700 hover:text-red-500"
+                className=" rounded-xl  absolute top-0 right-0 p-1 px-2 lg:pt-1 md-custom:pt-0.5 lg:text-xxs text-xxxs font-extrabold text-black hover:text-red-500"
                 onClick={() => onRemove(id)}
             >
                 &#x2715;
             </button>
-            <div className="w-full font-semibold xl:text-base lg:text-xs md-custom:text-xs sm:text-sm text-xs xl:mb-0.5 lg:m-0 md-custom:mt-1 md-custom:-mb-0.5 mt-1">{name}</div>
+            <div className="w-full font-semibold xl:text-base lg:text-xs md-custom:text-xs sm:text-sm text-xs xl:mb-0.5 lg:mt-0.5 md-custom:mt-1 md-custom:-mb-0.5 mt-1">{name}</div>
             <select
-                className="w-full border-gray-300 rounded xl:text-xs md-custom:text-xxs sm:text-sm text-xs"
+                id={`${term}-${id}`}
+                className="w-full bg-gray-100 border-gray-300 rounded xl:text-xs md-custom:text-xxs sm:text-sm text-xs"
                 value={selectedOption}
                 onChange={(e) => onSelectChange(id, e.target.value)}
             >
@@ -37,46 +41,29 @@ function Course({ id, name, options, selectedOption, onSelectChange, onRemove })
     );
 }
 
+function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChangeCounter, term }) {
 
-
-
-function CourseGrid({ courseData, courses, setCourses, setChangeCounter, changeCourseData }) {
+    const { currentUser } = useContext(AuthContext);
 
     const [isModalOpen, setIsModalOpen] = useState(false);
-
-
-    const generateOptions = (courseBaseId, coursemaster = courseData) => {
-        const sectionKeys = Object.keys(coursemaster).filter(key => key.startsWith(courseBaseId));
-        return sectionKeys.map(key => {
-            return `Section ${key.split('_')[1]}: ${formatDays(coursemaster[key].slice(2))}`;
-        }).sort();
-    };
 
     const addCourse = (id) => {
         // Check if the course with the given id is already in the courses list
         const isAlreadyAdded = courses.some(course => course.id === id);
-
         if (isAlreadyAdded) {
             alert("This course is already in the list!");
             setIsModalOpen(true);
             return;
         }
-
-        const courseDetail = courseData[id];
-        const newCourse = {
-            id: id,
-            name: courseDetail[0],
-            options: generateOptions(courseDetail[0]),
-            selectedOption: `Section ${id.split('_')[1]}: ${formatDays(courseData[id].slice(2))}`,
-        };
+        // Generate the appropriate format to add to our list of courses for <Selection />
+        const newCourse = generateNewCourse(id, courseData);
         setCourses([...courses, newCourse]);
         setIsModalOpen(false);
     };
 
-    const addCustomCourse = (newCourse) => {
+    const addCustomCourse = async (newCourse) => {
         const newData = { ...courseData, [newCourse.id]: newCourse.correctformat };
-        changeCourseData(newData); // This might needs change once database is set up
-
+        changeCourseData(newData);
         setCourses([...courses, newCourse]);
 
         // Update the options for all related courses
@@ -90,17 +77,22 @@ function CourseGrid({ courseData, courses, setCourses, setChangeCounter, changeC
         }));
 
         setIsModalOpen(false);
-    }
 
-    const formatDays = (sessions) => {
-        const daysSet = new Set();
-        sessions.forEach(session => {
-            session.match(/\b(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\b/g).forEach(day => {
-                daysSet.add(day.startsWith('Th') ? 'Th' : day.charAt(0));
-            });
+        // Send a POST request to add a custom course into the database
+
+        const data = {
+            "user_id": currentUser.id,
+            "term": term,
+            "course_id": newCourse.id,
+            "course_info": { [newCourse.id]: newCourse.correctformat }
+        }
+
+        UpdateManager.addUpdate({
+            endpoint: 'https://cp-backend-psi.vercel.app/backend/customCourses/',
+            data: data
         });
-        return Array.from(daysSet).join('');
-    };
+
+    }
 
     const handleSelectChange = (courseId, newSelection) => {
         const isAlreadySelected = courses.some(course => course.selectedOption === newSelection);
@@ -131,7 +123,7 @@ function CourseGrid({ courseData, courses, setCourses, setChangeCounter, changeC
         setIsModalOpen(false);
     }
 
-    const removeCourse = id => {
+    const removeCourse = async id => {
         // Check if the course ID does not start with any of the specified prefixes
 
         const newCourseData = { ...courseData };
@@ -148,11 +140,23 @@ function CourseGrid({ courseData, courses, setCourses, setChangeCounter, changeC
                 delete newCourseData[id];
                 changeCourseData(newCourseData);
 
+
+                const data = {
+                    user_id: currentUser.id,
+                    term: term,
+                    course_id: id
+                }
+
+                UpdateManager.addUpdate({
+                    endpoint: 'https://cp-backend-psi.vercel.app/backend/customCourses/delete',
+                    data: data
+                });
+
             }
         }
 
+        // Remove options from related courses
         const filteredCourses = courses.filter(course => course.id !== id);
-
 
         setCourses(
             filteredCourses.map(course => {
@@ -168,7 +172,7 @@ function CourseGrid({ courseData, courses, setCourses, setChangeCounter, changeC
 
 
     return (
-        <div className="bg-gray-200 rounded-2xl mb-3 grid grid-cols-4 gap-1 p-2">
+        <div className=" bg-slate-200 rounded-2xl mt-3 grid grid-cols-4 gap-1 p-4">
             {courses.map((course) => (
                 <Course
                     key={course.id}
@@ -178,19 +182,22 @@ function CourseGrid({ courseData, courses, setCourses, setChangeCounter, changeC
                     selectedOption={course.selectedOption}
                     onSelectChange={handleSelectChange}
                     onRemove={removeCourse}
+                    term={term}
                 />
             ))}
-            <button className="flex justify-center items-center  xl:h-16 lg:h-14 md-custom:h-12 sm:h-14 h-12 border-2 border-dashed border-gray-400 rounded bg-white hover:bg-gray-100 mx-0.5"
-                onClick={() => setIsModalOpen(true)}>
-                <span className="text-xl">+</span>
-            </button>
+            {courses.length < 15 &&
+                <button className="flex justify-center items-center xl:h-16 lg:h-14 md-custom:h-12 sm:h-14 h-12 border-2 border-dashed border-gray-400 rounded-lg transition duration-200 bg-white hover:bg-sky-100 mx-0.5"
+                    onClick={() => setIsModalOpen(true)}>
+                    <span className="text-xl">+</span>
+                </button>
+            }
             <Modal isOpen={isModalOpen} onClose={closeModal} courseData={courseData} onAddCourse={addCourse} onAddCustomCourse={addCustomCourse} />
         </div>
     );
 }
 
 
-function Selection({ isLoading, onUpdate, courseData, changeCourseData, courses, setCourses }) {
+function Selection({ isLoading, onUpdate, courseData, changeCourseData, courses, setCourses, term, conflicts }) {
     const [inputValue, setInputValue] = useState('');
     const [notFound, setNotFound] = useState([]);  // State to track IDs not found
     const [isToggled, setIsToggled] = useState(false); // Manage toggle state here
@@ -247,28 +254,39 @@ function Selection({ isLoading, onUpdate, courseData, changeCourseData, courses,
     };
 
     return (
-        <div className='m-4 mb-12'>
+        <div className='ml-6 m-4 mt-0 mb-8'>
+            <div className='text-center text-2xl font-bold mb-2 lg:mt-0 mt-2'>{term} Term</div>
             {!isToggled && <>
-                <CourseGrid courseData={courseData} courses={courses} setCourses={setCourses} setChangeCounter={setChangeCounter} changeCourseData={changeCourseData} />
-                <div className='w-full h-full flex items-center justify-end'>
+                <div className='w-full h-full flex items-center justify-begin'>
                     <Toggle message="Entry Mode" isToggled={isToggled} toggleSwitch={toggleSwitch} />
                 </div>
+                <CourseGrid courseData={courseData} courses={courses} setCourses={setCourses} setChangeCounter={setChangeCounter} changeCourseData={changeCourseData} term={term} />
+                {conflicts.length > 0 && (
+                    <div className="p-2 mx-1 bg-red-100 border border-red-400 text-red-700">
+                        <p>The following Courses have Conflicts:</p>
+                        <ul>
+                            {conflicts.map(id => <li key={id}>{id}</li>)}
+                        </ul>
+                    </div>
+                )}
             </>}
 
             {/* Entry Mode */}
             {isToggled && (<div>
+                <div className='w-full h-full flex items-center justify-between'>
+                    <Toggle message="Entry Mode" isToggled={isToggled} toggleSwitch={toggleSwitch} />
+                    <button onClick={handleSubmit} className=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Update Schedule</button>
+                </div>
+
                 <textarea
                     value={inputValue}
                     onChange={handleInputChange}
                     placeholder={`Enter courses as 'CISC121_1 separated by new lines\nThe number after the underscore is the order they appear in on SOLUS\nIt is recommended you double check SOLUS for accuracy`}
-                    className="sm:text-base text-sm w-full p-1 h-32 border-gray-600 border-2 bg-gray-100 resize-none"
+                    className="sm:text-base text-sm w-full p-1 h-32 border-gray-400 border-2 rounded-lg p-3 mt-5 bg-gray-200 resize-none"
                 />
-                <div className='w-full h-full flex items-center justify-between'>
-                    <button onClick={handleSubmit} className=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Update Schedule</button>
-                    <Toggle message="Entry Mode" isToggled={isToggled} toggleSwitch={toggleSwitch} />
-                </div>
+
                 {notFound.length > 0 && (
-                    <div className="p-2 mx-2 bg-red-100 border border-red-400 text-red-700">
+                    <div className="p-2 mx-1 bg-red-100 border border-red-400 text-red-700">
                         <p>Course ID(s) not found (check your format!):</p>
                         <ul>
                             {notFound.map(id => <li key={id}>{id}</li>)}

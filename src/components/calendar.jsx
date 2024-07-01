@@ -34,16 +34,52 @@ const Calendar = (props) => {
                     const name = parts[0];
                     const day = parts[1];
                     const time = parts[2];
+                    // length = 4: one prof name
+                    // length = 5: with space in name
+                    let profName = ""
+                    if (parts.length > 5) {
+                        console.log('Very weird solus prof name');
+                    }
+                    else
+                        if (parts.length == 5) {
+                            profName = parts[3] + ' ' + parts[4];
+                        }
+                        else {
+                            profName = parts[3];
+                        }
                     const [startHour, startMinute] = time.split('-')[0].split(':').map(Number);
                     const [endHour, endMinute] = time.split('-')[1].split(':').map(Number);
                     const startTime = startHour * 60 + startMinute;
                     const endTime = endHour * 60 + endMinute;
-                    return { name, day, time, startTime, endTime };
+                    return { name, day, time, startTime, endTime, profName };
                 });
 
             setTimes(processedTimes); // Update state with processed times
+            checkForConflicts(processedTimes);  // Check and update conflicts
         }
     }, [props.times]); // Dependency array includes props.times
+
+
+    const checkForConflicts = (processedTimes) => {
+        const newConflicts = new Set();  // Use a set to automatically handle duplicates
+        processedTimes.forEach((current, index, array) => {
+            for (let i = 0; i < array.length; i++) {
+                if (i !== index && current.day === array[i].day) {  // Check only against other classes on the same day
+                    const slot = array[i];
+                    if (((current.startTime < slot.endTime && current.endTime > slot.startTime) ||
+                        (current.endTime > slot.startTime && current.startTime < slot.endTime)) &&
+                        !(current.startTime === slot.endTime || current.endTime === slot.startTime)) {
+                        // Ensure consistent ordering of course names in the string
+                        const sortedNames = [current.name, slot.name].sort();
+                        const conflictString = `${sortedNames[0]} and ${sortedNames[1]}`;
+                        newConflicts.add(conflictString);  // Add to set, duplicates are automatically ignored
+                    }
+                }
+            }
+        });
+        props.setConflicts([...newConflicts]);  // Directly set the new conflicts
+    };
+
 
     const isConflict = (event, slots) => {
         const [startHour, startMinute] = event.time.split('-')[0].split(':').map(Number);
@@ -71,7 +107,7 @@ const Calendar = (props) => {
 
             return (
                 <div key={index}>
-                    <Slot time={event.time} name={event.name} color={color} conflict={conflict} />
+                    <Slot time={event.time} name={event.name} color={color} conflict={conflict} profName={event.profName} />
                 </div>
             );
         });
@@ -97,16 +133,16 @@ const Calendar = (props) => {
     return (
         <div className="lg:m-4 m-2 lg:text-base md-custom:text-sm sm:text-base text-sm">
             <div className="grid grid-cols-table text-center text-gray-700">
-                <div className={`relative border-b-2 lg:pb-2 pb-1 border-dark-blue w-full text-right lg:pr-2 pr-0.5 font-bold`}>
-                    <div className='absolute xl:right-2 lg:right-1 sm:right-2 right-0.5'>
+                <div className={`relative lg:pb-2 pb-1 border-dark-blue w-full text-right lg:pr-2 pr-0.5 font-bold`}>
+                    <div className=' text-dark-blue font-extrabold absolute xl:right-2 lg:right-1 sm:right-2 right-0.5'>
                         {props.term}
                     </div>
                 </div>
-                <div className={`border-b-2 pb-2 border-dark-blue ${dayOfWeek === 1 ? "font-bold text-bright-blue" : ""}`}>MON</div>
-                <div className={`border-b-2 pb-2 border-dark-blue ${dayOfWeek === 2 ? "font-bold text-bright-blue" : ""}`}>TUE</div>
-                <div className={`border-b-2 pb-2 border-dark-blue ${dayOfWeek === 3 ? "font-bold text-bright-blue" : ""}`}>WED</div>
-                <div className={`border-b-2 pb-2 border-dark-blue ${dayOfWeek === 4 ? "font-bold text-bright-blue" : ""}`}>THU</div>
-                <div className={`border-b-2 pb-2 border-dark-blue ${dayOfWeek === 5 ? "font-bold text-bright-blue" : ""}`}>FRI</div>
+                <div className={` pb-2 border-dark-blue ${dayOfWeek === 1 ? "font-bold text-dark-blue border-b-2" : ""}`}>MON</div>
+                <div className={` pb-2 border-dark-blue ${dayOfWeek === 2 ? "font-bold text-dark-blue border-b-2" : ""}`}>TUE</div>
+                <div className={` pb-2 border-dark-blue ${dayOfWeek === 3 ? "font-bold text-dark-blue border-b-2" : ""}`}>WED</div>
+                <div className={` pb-2 border-dark-blue ${dayOfWeek === 4 ? "font-bold text-dark-blue border-b-2" : ""}`}>THU</div>
+                <div className={` pb-2 border-dark-blue ${dayOfWeek === 5 ? "font-bold text-dark-blue border-dark-blue border-b-4" : ""}`}>FRI</div>
             </div>
 
             {/* For the extra space */}
@@ -122,7 +158,7 @@ const Calendar = (props) => {
             {/* The top row */}
             <div className="grid grid-cols-table relative xl:h-14 h-12">
                 <div className='relative xl:h-14 h-12 border-r-2'>
-                    <div className='absolute xl:right-2 lg:right-1 md:right-2 right-1 -top-3'>
+                    <div className='text-gray-500 absolute xl:right-2 lg:right-1 md:right-2 right-1 -top-3'>
                         {startingHour}:00
                     </div>
                 </div>
@@ -147,7 +183,7 @@ const Calendar = (props) => {
             {[...Array(12)].map((_, i) => (
                 <div key={i + 1} className="grid grid-cols-table relative xl:h-14 h-12">
                     <div className='relative xl:h-14 h-12 border-r-2'>
-                        <div className='absolute xl:right-2 lg:right-1 md:right-2 right-1 -top-2.5'>
+                        <div className=' text-gray-500 absolute xl:right-2 lg:right-1 md:right-2 right-1 -top-2.5'>
                             {startingHour + i + 1}:00
                         </div>
                     </div>
@@ -166,7 +202,7 @@ const Calendar = (props) => {
 
             <div className="grid grid-cols-table  relative xl:h-14 h-12">
                 <div className='relative xl:h-14 h-12 border-r-2'>
-                    <div className='absolute xl:right-2 lg:right-1 md:right-2 right-1 -top-2.5'>
+                    <div className='text-gray-500 absolute xl:right-2 lg:right-1 md:right-2 right-1 -top-2.5'>
                         {startingHour + 13}:00
                     </div>
                 </div>
@@ -195,9 +231,11 @@ const styles = {
 };
 
 
-const Slot = ({ time, name, color, conflict }) => {
+const Slot = ({ time, name, color, conflict, profName }) => {
     const mediaMatch = window.matchMedia('(min-width: 1280px)');
     const [matches, setMatches] = useState(mediaMatch.matches);
+
+    //console.log(profName);
 
     useEffect(() => {
         const handler = e => setMatches(e.matches);
@@ -215,7 +253,7 @@ const Slot = ({ time, name, color, conflict }) => {
 
     return (
         <div
-            className="z-10 absolute left-0 w-full py-0.5"
+            className="z-10 absolute left-0 w-full py-0.5 drop-shadow-md"
             style={styles.container(matches, totalMinutes, durationMinutes, startHour * 60 + startMinute)}
         >
             <div className={`${color} 2xl:px-1.5 xl:px-1 lg:px-0.5 md-custom:px-1 sm:px-1 px-0.5 sm:mx-0.5 rounded h-full box-border`}>
@@ -229,6 +267,16 @@ const Slot = ({ time, name, color, conflict }) => {
                     <p className='2xl:text-sm xl:text-small lg:text-xxs md-custom:text-xxxs text-xs xl:-mt-0.5 lg:-mt-1 md-custom:-mt-1.5 sm:-mt-0.5'>
                         {name}
                     </p>
+
+                    <div className="absolute left-0 w-full h-full flex items-center justify-center transition-opacity duration-300 opacity-0 hover:opacity-100">
+                        <div className='absolute bottom-full bg-dark-blue text-white rounded px-3 py-1 text-sm text-nowrap'
+                            style={{
+                                bottom: '108%'
+                            }}>
+                            {profName.split(",").reverse().join(" ")}
+                        </div>
+                    </div>
+
                 </div>
             </div>
             {/* {conflict && (

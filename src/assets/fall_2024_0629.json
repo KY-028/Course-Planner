@@ -1,0 +1,679 @@
+{
+    "CISC101_1": [
+        "CISC101",
+        "Powley,Wendy L",
+        "CISC101 Thursday 11:30-12:30 Powley,Wendy L"
+    ],
+    "CISC101_2": [
+        "CISC101",
+        "Powley,Wendy L",
+        "CISC101 Tuesday 13:30-14:30 Powley,Wendy L"
+    ],
+    "CISC102_1": [
+        "CISC102",
+        "Meger,Erin",
+        "CISC102 Monday 16:30-17:30 Meger,Erin",
+        "CISC102 Wednesday 15:30-16:30 Meger,Erin",
+        "CISC102 Friday 14:30-15:30 Meger,Erin"
+    ],
+    "CISC102_2": [
+        "CISC102",
+        "Meger,Erin",
+        "CISC102 Tuesday 14:30-15:30 Meger,Erin",
+        "CISC102 Wednesday 16:30-17:30 Meger,Erin",
+        "CISC102 Friday 15:30-16:30 Meger,Erin"
+    ],
+    "CISC102_3": [
+        "CISC102",
+        "Staff",
+        "CISC102 Monday 15:30-16:30 Staff",
+        "CISC102 Wednesday 14:30-15:30 Staff",
+        "CISC102 Thursday 16:30-17:30 Staff"
+    ],
+    "CISC121_1": [
+        "CISC121",
+        "Powley,Wendy L",
+        "CISC121 Tuesday 8:30-9:30 Powley,Wendy L",
+        "CISC121 Wednesday 10:30-11:30 Powley,Wendy L",
+        "CISC121 Friday 9:30-10:30 Powley,Wendy L"
+    ],
+    "CISC121_2": [
+        "CISC121",
+        "Linley,Richard T",
+        "CISC121 Monday 11:30-12:30 Linley,Richard T",
+        "CISC121 Tuesday 13:30-14:30 Linley,Richard T",
+        "CISC121 Thursday 12:30-13:30 Linley,Richard T"
+    ],
+    "CISC124_1": [
+        "CISC124",
+        "Ma,Burton",
+        "CISC124 Monday 10:30-11:30 Ma,Burton",
+        "CISC124 Wednesday 9:30-10:30 Ma,Burton",
+        "CISC124 Friday 8:30-9:30 Ma,Burton"
+    ],
+    "CISC203_1": [
+        "CISC203",
+        "Meger,Erin",
+        "CISC203 Tuesday 18:30-21:30 Meger,Erin"
+    ],
+    "CISC203_2": [
+        "CISC203",
+        "Meger,Erin",
+        "CISC203 Wednesday 18:30-21:30 Meger,Erin"
+    ],
+    "CISC204_1": [
+        "CISC204",
+        "Muise,Christian",
+        "CISC204 Tuesday 8:30-9:30 Muise,Christian",
+        "CISC204 Wednesday 10:30-11:30 Muise,Christian",
+        "CISC204 Friday 9:30-10:30 Muise,Christian"
+    ],
+    "CISC204_2": [
+        "CISC204",
+        "Staff",
+        "CISC204 Monday 8:30-9:30 Staff",
+        "CISC204 Tuesday 10:30-11:30 Staff",
+        "CISC204 Thursday 9:30-10:30 Staff"
+    ],
+    "CISC220_1": [
+        "CISC220",
+        "Ma,Burton",
+        "CISC220 Monday 8:30-9:30 Ma,Burton",
+        "CISC220 Tuesday 10:30-11:30 Ma,Burton",
+        "CISC220 Thursday 9:30-10:30 Ma,Burton"
+    ],
+    "CISC221_1": [
+        "CISC221",
+        "ElSawy,Hesham",
+        "CISC221 Tuesday 14:30-15:30 ElSawy,Hesham",
+        "CISC221 Wednesday 16:30-17:30 ElSawy,Hesham",
+        "CISC221 Friday 15:30-16:30 ElSawy,Hesham"
+    ],
+    "CISC223_1": [
+        "CISC223",
+        "Salomaa,Kai T",
+        "CISC223 Monday 14:30-15:30 Salomaa,Kai T",
+        "CISC223 Tuesday 16:30-17:30 Salomaa,Kai T",
+        "CISC223 Thursday 15:30-16:30 Salomaa,Kai T"
+    ],
+    "CISC235_1": [
+        "CISC235",
+        "Mohammad,Samir",
+        "CISC235 Tuesday 12:30-13:30 Mohammad,Samir",
+        "CISC235 Thursday 11:30-12:30 Mohammad,Samir",
+        "CISC235 Friday 13:30-14:30 Mohammad,Samir"
+    ],
+    "CISC251_1": [
+        "CISC251",
+        "Staff",
+        "CISC251 Tuesday 9:30-10:30 Staff",
+        "CISC251 Thursday 8:30-9:30 Staff",
+        "CISC251 Friday 10:30-11:30 Staff"
+    ],
+    "CISC320_1": [
+        "CISC320",
+        "Mohammad,Samir",
+        "CISC320 Monday 8:30-9:30 Mohammad,Samir",
+        "CISC320 Tuesday 10:30-11:30 Mohammad,Samir",
+        "CISC320 Thursday 9:30-10:30 Mohammad,Samir"
+    ],
+    "CISC322_1": [
+        "CISC322",
+        "Adams,Bram Mark",
+        "CISC322 Tuesday 8:30-9:30 Adams,Bram Mark",
+        "CISC322 Wednesday 10:30-11:30 Adams,Bram Mark",
+        "CISC322 Friday 9:30-10:30 Adams,Bram Mark",
+        "CISC322 Wednesday 15:30-17:30 Adams,Bram Mark"
+    ],
+    "CISC322_2": [
+        "CISC322",
+        "Adams,Bram Mark",
+        "CISC322 Tuesday 8:30-9:30 Adams,Bram Mark",
+        "CISC322 Wednesday 10:30-11:30 Adams,Bram Mark",
+        "CISC322 Friday 9:30-10:30 Adams,Bram Mark",
+        "CISC322 Monday 14:30-16:30 Adams,Bram Mark"
+    ],
+    "CISC324_1": [
+        "CISC324",
+        "Hossain,Anwar",
+        "CISC324 Tuesday 9:30-10:30 Hossain,Anwar",
+        "CISC324 Thursday 8:30-9:30 Hossain,Anwar",
+        "CISC324 Friday 10:30-11:30 Hossain,Anwar"
+    ],
+    "CISC326_1": [
+        "CISC326",
+        "Adams,Bram Mark",
+        "CISC326 Tuesday 8:30-9:30 Adams,Bram Mark",
+        "CISC326 Wednesday 10:30-11:30 Adams,Bram Mark",
+        "CISC326 Friday 9:30-10:30 Adams,Bram Mark",
+        "CISC326 Wednesday 15:30-17:30 Adams,Bram Mark"
+    ],
+    "CISC326_2": [
+        "CISC326",
+        "Adams,Bram Mark",
+        "CISC326 Tuesday 8:30-9:30 Adams,Bram Mark",
+        "CISC326 Wednesday 10:30-11:30 Adams,Bram Mark",
+        "CISC326 Friday 9:30-10:30 Adams,Bram Mark",
+        "CISC326 Monday 14:30-16:30 Adams,Bram Mark"
+    ],
+    "CISC327_1": [
+        "CISC327",
+        "Hossain,Anwar",
+        "CISC327 Monday 9:30-10:30 Hossain,Anwar",
+        "CISC327 Wednesday 8:30-9:30 Hossain,Anwar",
+        "CISC327 Thursday 10:30-11:30 Hossain,Anwar"
+    ],
+    "CISC330_1": [
+        "CISC330",
+        "Fichtinger,Gabor",
+        "CISC330 Monday 12:30-13:30 Fichtinger,Gabor",
+        "CISC330 Wednesday 11:30-12:30 Fichtinger,Gabor",
+        "CISC330 Thursday 13:30-14:30 Fichtinger,Gabor"
+    ],
+    "CISC360_1": [
+        "CISC360",
+        "Dunfield,Jana",
+        "CISC360 Monday 11:30-12:30 Dunfield,Jana",
+        "CISC360 Tuesday 13:30-14:30 Dunfield,Jana",
+        "CISC360 Thursday 12:30-13:30 Dunfield,Jana"
+    ],
+    "CISC365_1": [
+        "CISC365",
+        "Stewart,James A",
+        "CISC365 Tuesday 15:30-16:30 Stewart,James A",
+        "CISC365 Thursday 14:30-15:30 Stewart,James A",
+        "CISC365 Friday 16:30-17:30 Stewart,James A"
+    ],
+    "CISC371_1": [
+        "CISC371",
+        "Ellis,Randy E",
+        "CISC371 Monday 13:30-14:30 Ellis,Randy E",
+        "CISC371 Wednesday 12:30-13:30 Ellis,Randy E",
+        "CISC371 Friday 11:30-12:30 Ellis,Randy E"
+    ],
+    "CISC422_1": [
+        "CISC422",
+        "Dingel,Juergen U",
+        "CISC422 Tuesday 9:30-10:30 Dingel,Juergen U",
+        "CISC422 Thursday 8:30-9:30 Dingel,Juergen U",
+        "CISC422 Friday 10:30-11:30 Dingel,Juergen U"
+    ],
+    "CISC447_1": [
+        "CISC447",
+        "Alaca,Furkan",
+        "CISC447 Monday 16:30-17:30 Alaca,Furkan",
+        "CISC447 Wednesday 15:30-16:30 Alaca,Furkan",
+        "CISC447 Friday 14:30-15:30 Alaca,Furkan"
+    ],
+    "CISC451_1": [
+        "CISC451",
+        "Tian,Yuan",
+        "CISC451 Monday 18:30-21:30 Tian,Yuan"
+    ],
+    "CISC452_1": [
+        "CISC452",
+        "Abbas,Hazem",
+        "CISC452 Monday 15:30-16:30 Abbas,Hazem",
+        "CISC452 Wednesday 14:30-15:30 Abbas,Hazem",
+        "CISC452 Thursday 16:30-17:30 Abbas,Hazem"
+    ],
+    "CISC457_1": [
+        "CISC457",
+        "Stewart,James A",
+        "CISC457 Monday 16:30-17:30 Stewart,James A",
+        "CISC457 Wednesday 15:30-16:30 Stewart,James A",
+        "CISC457 Friday 14:30-15:30 Stewart,James A"
+    ],
+    "CISC471_1": [
+        "CISC471",
+        "Simpson,Amber",
+        "CISC471 Monday 8:30-9:30 Simpson,Amber",
+        "CISC471 Tuesday 10:30-11:30 Simpson,Amber",
+        "CISC471 Thursday 9:30-10:30 Simpson,Amber"
+    ],
+    "CISC486_1": [
+        "CISC486",
+        "Ma,Burton",
+        "CISC486 Monday 16:30-17:30 Ma,Burton",
+        "CISC486 Wednesday 15:30-16:30 Ma,Burton",
+        "CISC486 Friday 14:30-15:30 Ma,Burton"
+    ],
+    "CISC497_1": [
+        "CISC497",
+        "Stinson,Catherine",
+        "CISC497 Tuesday 11:30-13:00 Stinson,Catherine",
+        "CISC497 Wednesday 10:00-11:30 Stinson,Catherine"
+    ],
+    "CISC497_2": [
+        "CISC497",
+        "Stinson,Catherine",
+        "CISC497 Tuesday 11:30-13:00 Stinson,Catherine",
+        "CISC497 Wednesday 10:00-11:30 Stinson,Catherine"
+    ],
+    "CISC497_3": [
+        "CISC497",
+        "Stinson,Catherine",
+        "CISC497 Tuesday 11:30-13:00 Stinson,Catherine",
+        "CISC497 Wednesday 10:00-11:30 Stinson,Catherine"
+    ],
+    "CISC497_4": [
+        "CISC497",
+        "Stinson,Catherine",
+        "CISC497 Tuesday 11:30-13:00 Stinson,Catherine",
+        "CISC497 Wednesday 10:00-11:30 Stinson,Catherine"
+    ],
+    "CISC497_5": [
+        "CISC497",
+        "Stinson,Catherine",
+        "CISC497 Tuesday 11:30-13:00 Stinson,Catherine",
+        "CISC497 Wednesday 10:00-11:30 Stinson,Catherine"
+    ],
+    "CISC498_1": [
+        "CISC498",
+        "Hossain,Anwar",
+        "CISC498 Monday 11:30-14:30 Hossain,Anwar"
+    ],
+    "CISC500_1": [
+        "CISC500",
+        "Chen,Yuanzhu",
+        "CISC500 Wednesday 12:30-14:30 Chen,Yuanzhu"
+    ],
+    "COGS100_1": [
+        "COGS100",
+        "Lamb,Carolyn",
+        "COGS100 Monday 12:30-13:30 Lamb,Carolyn",
+        "COGS100 Wednesday 11:30-12:30 Lamb,Carolyn",
+        "COGS100 Thursday 13:30-14:30 Lamb,Carolyn"
+    ],
+    "MATH110_1": [
+        "MATH110",
+        "Yui,Noriko",
+        "MATH110 Monday 9:30-10:30 Yui,Noriko",
+        "MATH110 Wednesday 8:30-9:30 Yui,Noriko",
+        "MATH110 Thursday 10:30-11:30 Yui,Noriko",
+        "MATH110 Wednesday 17:30-18:30 Yui,Noriko"
+    ],
+    "MATH110_2": [
+        "MATH110",
+        "Yui,Noriko",
+        "MATH110 Monday 9:30-10:30 Yui,Noriko",
+        "MATH110 Wednesday 8:30-9:30 Yui,Noriko",
+        "MATH110 Thursday 10:30-11:30 Yui,Noriko",
+        "MATH110 Tuesday 15:30-16:30 Yui,Noriko"
+    ],
+    "MATH110_3": [
+        "MATH110",
+        "Salmoiraghi,Federico",
+        "MATH110 Monday 9:30-10:30 Salmoiraghi,Federico",
+        "MATH110 Wednesday 8:30-9:30 Salmoiraghi,Federico",
+        "MATH110 Thursday 10:30-11:30 Salmoiraghi,Federico",
+        "MATH110 Wednesday 17:30-18:30 Salmoiraghi,Federico"
+    ],
+    "MATH110_4": [
+        "MATH110",
+        "Salmoiraghi,Federico",
+        "MATH110 Monday 9:30-10:30 Salmoiraghi,Federico",
+        "MATH110 Wednesday 8:30-9:30 Salmoiraghi,Federico",
+        "MATH110 Thursday 10:30-11:30 Salmoiraghi,Federico",
+        "MATH110 Tuesday 15:30-16:30 Salmoiraghi,Federico"
+    ],
+    "MATH112_1": [
+        "MATH112",
+        "Staff",
+        "MATH112 Monday 15:30-16:30 Staff",
+        "MATH112 Wednesday 14:30-15:30 Staff",
+        "MATH112 Thursday 16:30-17:30 Staff"
+    ],
+    "MATH112_2": [
+        "MATH112",
+        "Staff",
+        "MATH112 Tuesday 14:30-15:30 Staff",
+        "MATH112 Wednesday 16:30-17:30 Staff",
+        "MATH112 Friday 15:30-16:30 Staff"
+    ],
+    "MATH120_1": [
+        "MATH120",
+        "Mingo,James A",
+        "MATH120 Monday 12:30-13:30 Mingo,James A",
+        "MATH120 Wednesday 11:30-12:30 Mingo,James A",
+        "MATH120 Thursday 13:30-14:30 Mingo,James A",
+        "MATH120 Monday 17:30-18:30 Mingo,James A"
+    ],
+    "MATH120_2": [
+        "MATH120",
+        "Mingo,James A",
+        "MATH120 Monday 12:30-13:30 Mingo,James A",
+        "MATH120 Wednesday 11:30-12:30 Mingo,James A",
+        "MATH120 Thursday 13:30-14:30 Mingo,James A",
+        "MATH120 Tuesday 17:30-18:30 Mingo,James A"
+    ],
+    "MATH120_3": [
+        "MATH120",
+        "Staff",
+        "MATH120 Monday 12:30-13:30 Staff",
+        "MATH120 Wednesday 11:30-12:30 Staff",
+        "MATH120 Thursday 13:30-14:30 Staff",
+        "MATH120 Monday 17:30-18:30 Staff"
+    ],
+    "MATH120_4": [
+        "MATH120",
+        "Staff",
+        "MATH120 Monday 12:30-13:30 Staff",
+        "MATH120 Wednesday 11:30-12:30 Staff",
+        "MATH120 Thursday 13:30-14:30 Staff",
+        "MATH120 Tuesday 17:30-18:30 Staff"
+    ],
+    "MATH121_1": [
+        "MATH121",
+        "Staff",
+        "MATH121 Monday 9:30-10:30 Staff",
+        "MATH121 Wednesday 8:30-9:30 Staff",
+        "MATH121 Thursday 10:30-11:30 Staff"
+    ],
+    "MATH121_2": [
+        "MATH121",
+        "Li,Ping",
+        "MATH121 Monday 12:30-13:30 Li,Ping",
+        "MATH121 Wednesday 11:30-12:30 Li,Ping",
+        "MATH121 Thursday 13:30-14:30 Li,Ping"
+    ],
+    "MATH121_3": [
+        "MATH121",
+        "Staff",
+        "MATH121 Tuesday 14:30-15:30 Staff",
+        "MATH121 Wednesday 16:30-17:30 Staff",
+        "MATH121 Friday 15:30-16:30 Staff"
+    ],
+    "MATH126_1": [
+        "MATH126",
+        "Taylor,Peter D",
+        "MATH126 Tuesday 14:30-15:30 Taylor,Peter D",
+        "MATH126 Wednesday 16:30-17:30 Taylor,Peter D",
+        "MATH126 Friday 15:30-16:30 Taylor,Peter D",
+        "MATH126 Thursday 12:30-13:30 Taylor,Peter D"
+    ],
+    "MATH126_2": [
+        "MATH126",
+        "Taylor,Peter D",
+        "MATH126 Tuesday 14:30-15:30 Taylor,Peter D",
+        "MATH126 Wednesday 16:30-17:30 Taylor,Peter D",
+        "MATH126 Friday 15:30-16:30 Taylor,Peter D",
+        "MATH126 Friday 12:30-13:30 Taylor,Peter D"
+    ],
+    "MATH126_3": [
+        "MATH126",
+        "Taylor,Peter D",
+        "MATH126 Tuesday 14:30-15:30 Taylor,Peter D",
+        "MATH126 Wednesday 16:30-17:30 Taylor,Peter D",
+        "MATH126 Friday 15:30-16:30 Taylor,Peter D",
+        "MATH126 Thursday 11:30-12:30 Taylor,Peter D"
+    ],
+    "MATH126_4": [
+        "MATH126",
+        "Staff",
+        "MATH126 Tuesday 14:30-15:30 Staff",
+        "MATH126 Wednesday 16:30-17:30 Staff",
+        "MATH126 Friday 15:30-16:30 Staff",
+        "MATH126 Thursday 12:30-13:30 Staff"
+    ],
+    "MATH126_5": [
+        "MATH126",
+        "Staff",
+        "MATH126 Tuesday 14:30-15:30 Staff",
+        "MATH126 Wednesday 16:30-17:30 Staff",
+        "MATH126 Friday 15:30-16:30 Staff",
+        "MATH126 Friday 12:30-13:30 Staff"
+    ],
+    "MATH126_6": [
+        "MATH126",
+        "Staff",
+        "MATH126 Tuesday 14:30-15:30 Staff",
+        "MATH126 Wednesday 16:30-17:30 Staff",
+        "MATH126 Friday 15:30-16:30 Staff",
+        "MATH126 Thursday 11:30-12:30 Staff"
+    ],
+    "MATH130_1": [
+        "MATH130",
+        "Day,Troy",
+        "MATH130 Monday 10:30-11:30 Day,Troy",
+        "MATH130 Tuesday 9:30-10:30 Day,Troy",
+        "MATH130 Friday 10:30-11:30 Day,Troy",
+        "MATH130 Wednesday 17:30-18:30 Day,Troy"
+    ],
+    "MATH130_2": [
+        "MATH130",
+        "Day,Troy",
+        "MATH130 Monday 10:30-11:30 Day,Troy",
+        "MATH130 Tuesday 9:30-10:30 Day,Troy",
+        "MATH130 Friday 10:30-11:30 Day,Troy",
+        "MATH130 Wednesday 17:30-18:30 Day,Troy"
+    ],
+    "MATH130_3": [
+        "MATH130",
+        "Day,Troy",
+        "MATH130 Monday 10:30-11:30 Day,Troy",
+        "MATH130 Tuesday 9:30-10:30 Day,Troy",
+        "MATH130 Friday 10:30-11:30 Day,Troy",
+        "MATH130 Wednesday 17:30-18:30 Day,Troy"
+    ],
+    "MATH130_4": [
+        "MATH130",
+        "Day,Troy",
+        "MATH130 Monday 10:30-11:30 Day,Troy",
+        "MATH130 Tuesday 9:30-10:30 Day,Troy",
+        "MATH130 Friday 10:30-11:30 Day,Troy",
+        "MATH130 Wednesday 17:30-18:30 Day,Troy"
+    ],
+    "MATH221_1": [
+        "MATH221",
+        "Levit,Boris",
+        "MATH221 Monday 14:30-15:30 Levit,Boris",
+        "MATH221 Tuesday 16:30-17:30 Levit,Boris",
+        "MATH221 Thursday 15:30-16:30 Levit,Boris"
+    ],
+    "MATH225_1": [
+        "MATH225",
+        "Staff",
+        "MATH225 Tuesday 11:30-12:30 Staff",
+        "MATH225 Wednesday 13:30-14:30 Staff",
+        "MATH225 Friday 12:30-13:30 Staff",
+        "MATH225 Friday 8:30-9:30 Staff"
+    ],
+    "MATH225_2": [
+        "MATH225",
+        "Staff",
+        "MATH225 Tuesday 11:30-12:30 Staff",
+        "MATH225 Wednesday 13:30-14:30 Staff",
+        "MATH225 Friday 12:30-13:30 Staff",
+        "MATH225 Friday 8:30-9:30 Staff"
+    ],
+    "MATH225_3": [
+        "MATH225",
+        "Staff",
+        "MATH225 Tuesday 11:30-12:30 Staff",
+        "MATH225 Wednesday 13:30-14:30 Staff",
+        "MATH225 Friday 12:30-13:30 Staff",
+        "MATH225 Friday 8:30-9:30 Staff"
+    ],
+    "MATH225_4": [
+        "MATH225",
+        "Staff",
+        "MATH225 Tuesday 11:30-12:30 Staff",
+        "MATH225 Wednesday 13:30-14:30 Staff",
+        "MATH225 Friday 12:30-13:30 Staff",
+        "MATH225 Friday 8:30-9:30 Staff"
+    ],
+    "MATH280_1": [
+        "MATH280",
+        "chiri,Maria Teresa",
+        "MATH280 Monday 9:30-10:30 chiri,Maria Teresa",
+        "MATH280 Wednesday 8:30-9:30 chiri,Maria Teresa",
+        "MATH280 Thursday 10:30-11:30 chiri,Maria Teresa",
+        "MATH280 Tuesday 8:30-9:30 chiri,Maria Teresa"
+    ],
+    "MATH280_2": [
+        "MATH280",
+        "chiri,Maria Teresa",
+        "MATH280 Monday 9:30-10:30 chiri,Maria Teresa",
+        "MATH280 Wednesday 8:30-9:30 chiri,Maria Teresa",
+        "MATH280 Thursday 10:30-11:30 chiri,Maria Teresa",
+        "MATH280 Tuesday 14:30-15:30 chiri,Maria Teresa"
+    ],
+    "MATH280_3": [
+        "MATH280",
+        "Naik,Sunil Lakshman",
+        "MATH280 Monday 9:30-10:30 Naik,Sunil Lakshman",
+        "MATH280 Wednesday 8:30-9:30 Naik,Sunil Lakshman",
+        "MATH280 Thursday 10:30-11:30 Naik,Sunil Lakshman",
+        "MATH280 Tuesday 8:30-9:30 Naik,Sunil Lakshman"
+    ],
+    "MATH280_4": [
+        "MATH280",
+        "Naik,Sunil Lakshman",
+        "MATH280 Monday 9:30-10:30 Naik,Sunil Lakshman",
+        "MATH280 Wednesday 8:30-9:30 Naik,Sunil Lakshman",
+        "MATH280 Thursday 10:30-11:30 Naik,Sunil Lakshman",
+        "MATH280 Tuesday 14:30-15:30 Naik,Sunil Lakshman"
+    ],
+    "MATH310_1": [
+        "MATH310",
+        "Nguyen,Khoa",
+        "MATH310 Monday 15:30-16:30 Nguyen,Khoa",
+        "MATH310 Wednesday 14:30-15:30 Nguyen,Khoa",
+        "MATH310 Thursday 16:30-17:30 Nguyen,Khoa"
+    ],
+    "MATH326_1": [
+        "MATH326",
+        "Dimitrov,Ivan K",
+        "MATH326 Tuesday 11:30-12:30 Dimitrov,Ivan K",
+        "MATH326 Wednesday 13:30-14:30 Dimitrov,Ivan K",
+        "MATH326 Friday 12:30-13:30 Dimitrov,Ivan K",
+        "MATH326 Thursday 12:30-13:30 Dimitrov,Ivan K"
+    ],
+    "MATH331_1": [
+        "MATH331",
+        "Magpantay,Felicia",
+        "MATH331 Monday 11:30-12:30 Magpantay,Felicia",
+        "MATH331 Tuesday 13:30-14:30 Magpantay,Felicia",
+        "MATH331 Thursday 12:30-13:30 Magpantay,Felicia",
+        "MATH331 Monday 8:30-9:30 Magpantay,Felicia"
+    ],
+    "MATH347_1": [
+        "MATH347",
+        "Roth,Mike A",
+        "MATH347 Tuesday 9:30-10:30 Roth,Mike A",
+        "MATH347 Thursday 8:30-9:30 Roth,Mike A",
+        "MATH347 Friday 10:30-11:30 Roth,Mike A"
+    ],
+    "MATH381_1": [
+        "MATH381",
+        "Murty,Ram P M",
+        "MATH381 Monday 8:30-9:30 Murty,Ram P M",
+        "MATH381 Tuesday 10:30-11:30 Murty,Ram P M",
+        "MATH381 Thursday 9:30-10:30 Murty,Ram P M"
+    ],
+    "MATH421_1": [
+        "MATH421",
+        "Lewis,Andrew",
+        "MATH421 Monday 12:30-13:30 Lewis,Andrew",
+        "MATH421 Wednesday 11:30-12:30 Lewis,Andrew",
+        "MATH421 Thursday 13:30-14:30 Lewis,Andrew"
+    ],
+    "MATH429_1": [
+        "MATH429",
+        "Cellarosi,Francesco",
+        "MATH429 Wednesday 17:30-19:00 Cellarosi,Francesco",
+        "MATH429 Thursday 17:30-19:00 Cellarosi,Francesco"
+    ],
+    "MATH433_1": [
+        "MATH433",
+        "Mazzone,Giusy",
+        "MATH433 Monday 9:30-10:30 Mazzone,Giusy",
+        "MATH433 Wednesday 8:30-9:30 Mazzone,Giusy",
+        "MATH433 Thursday 10:30-11:30 Mazzone,Giusy"
+    ],
+    "MATH474_1": [
+        "MATH474",
+        "Alajaji,Fady",
+        "MATH474 Monday 8:30-9:30 Alajaji,Fady",
+        "MATH474 Tuesday 10:30-11:30 Alajaji,Fady",
+        "MATH474 Thursday 9:30-10:30 Alajaji,Fady"
+    ],
+    "STAT161_1": [
+        "STAT161",
+        "Lin,Devon",
+        "STAT161 Monday 11:30-12:30 Lin,Devon",
+        "STAT161 Tuesday 13:30-14:30 Lin,Devon",
+        "STAT161 Thursday 12:30-13:30 Lin,Devon"
+    ],
+    "STAT252_1": [
+        "STAT252",
+        "Rodgers,Brad",
+        "STAT252 Monday 11:30-12:30 Rodgers,Brad",
+        "STAT252 Tuesday 13:30-14:30 Rodgers,Brad",
+        "STAT252 Thursday 12:30-13:30 Rodgers,Brad"
+    ],
+    "STAT263_1": [
+        "STAT263",
+        "Molson,Charles Arthur",
+        "STAT263 Monday 15:30-16:30 Molson,Charles Arthur",
+        "STAT263 Wednesday 14:30-15:30 Molson,Charles Arthur",
+        "STAT263 Thursday 16:30-17:30 Molson,Charles Arthur"
+    ],
+    "STAT263_2": [
+        "STAT263",
+        "Molson,Charles Arthur",
+        "STAT263 Tuesday 8:30-9:30 Molson,Charles Arthur",
+        "STAT263 Wednesday 10:30-11:30 Molson,Charles Arthur",
+        "STAT263 Friday 9:30-10:30 Molson,Charles Arthur"
+    ],
+    "STAT268_1": [
+        "STAT268",
+        "Jiang,Wenyu",
+        "STAT268 Monday 12:30-13:30 Jiang,Wenyu",
+        "STAT268 Wednesday 11:30-12:30 Jiang,Wenyu",
+        "STAT268 Thursday 13:30-14:30 Jiang,Wenyu"
+    ],
+    "STAT361_1": [
+        "STAT361",
+        "Lin,Devon",
+        "STAT361 Monday 12:30-13:30 Lin,Devon",
+        "STAT361 Wednesday 11:30-12:30 Lin,Devon",
+        "STAT361 Thursday 13:30-14:30 Lin,Devon"
+    ],
+    "STAT455_1": [
+        "STAT455",
+        "Song,Yanglei",
+        "STAT455 Tuesday 15:30-16:30 Song,Yanglei",
+        "STAT455 Thursday 14:30-15:30 Song,Yanglei",
+        "STAT455 Friday 16:30-17:30 Song,Yanglei",
+        "STAT455 Tuesday 11:30-12:30 Song,Yanglei"
+    ],
+    "STAT462_1": [
+        "STAT462",
+        "Jiang,Wenyu",
+        "STAT462 Wednesday 13:00-14:30 Jiang,Wenyu",
+        "STAT462 Friday 11:30-13:00 Jiang,Wenyu"
+    ],
+    "STAT463_1": [
+        "STAT463",
+        "Song,Yanglei",
+        "STAT463 Monday 8:30-9:30 Song,Yanglei",
+        "STAT463 Tuesday 10:30-11:30 Song,Yanglei",
+        "STAT463 Thursday 9:30-10:30 Song,Yanglei"
+    ],
+    "STAT464_1": [
+        "STAT464",
+        "Takahara,Glen",
+        "STAT464 Monday 10:30-11:30 Takahara,Glen",
+        "STAT464 Wednesday 9:30-10:30 Takahara,Glen",
+        "STAT464 Friday 8:30-9:30 Takahara,Glen"
+    ],
+    "STAT473_1": [
+        "STAT473",
+        "Levit,Boris",
+        "STAT473 Monday 9:30-10:30 Levit,Boris",
+        "STAT473 Wednesday 8:30-9:30 Levit,Boris",
+        "STAT473 Thursday 10:30-11:30 Levit,Boris"
+    ]
+}
