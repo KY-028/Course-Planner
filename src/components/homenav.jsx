@@ -43,10 +43,10 @@ export default function HomeNav({ accountpage }) {
                     <div className="text-white md:text-2xl text-lg font-bold ">Course Planner</div>
                 </Link>
                 <div className="flex items-center text-white md:text-xl text-base mr-3">
-                    <Link to="/about" className="md:mx-5 mx-3 transition duration-300 transform hover:text-custom-blue-1">
+                    <Link to="/about" className="ub md:mx-5 mx-3">
                         About
                     </Link>
-                    <Link to="/support" className="md:mx-5 mx-3 transition duration-300 transform hover:text-custom-blue-1">
+                    <Link to="/support" className="ub md:mx-5 mx-3">
                         Support
                     </Link>
                 </div>

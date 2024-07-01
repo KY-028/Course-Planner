@@ -41,12 +41,12 @@ const Calendar = (props) => {
                         console.log('Very weird solus prof name');
                     }
                     else
-                    if (parts.length == 5) {
-                        profName = parts[3] + ' ' + parts[4];
-                    }
-                    else {
-                        profName = parts[3];
-                    }
+                        if (parts.length == 5) {
+                            profName = parts[3] + ' ' + parts[4];
+                        }
+                        else {
+                            profName = parts[3];
+                        }
                     const [startHour, startMinute] = time.split('-')[0].split(':').map(Number);
                     const [endHour, endMinute] = time.split('-')[1].split(':').map(Number);
                     const startTime = startHour * 60 + startMinute;
@@ -55,8 +55,31 @@ const Calendar = (props) => {
                 });
 
             setTimes(processedTimes); // Update state with processed times
+            checkForConflicts(processedTimes);  // Check and update conflicts
         }
     }, [props.times]); // Dependency array includes props.times
+
+
+    const checkForConflicts = (processedTimes) => {
+        const newConflicts = new Set();  // Use a set to automatically handle duplicates
+        processedTimes.forEach((current, index, array) => {
+            for (let i = 0; i < array.length; i++) {
+                if (i !== index && current.day === array[i].day) {  // Check only against other classes on the same day
+                    const slot = array[i];
+                    if (((current.startTime < slot.endTime && current.endTime > slot.startTime) ||
+                        (current.endTime > slot.startTime && current.startTime < slot.endTime)) &&
+                        !(current.startTime === slot.endTime || current.endTime === slot.startTime)) {
+                        // Ensure consistent ordering of course names in the string
+                        const sortedNames = [current.name, slot.name].sort();
+                        const conflictString = `${sortedNames[0]} and ${sortedNames[1]}`;
+                        newConflicts.add(conflictString);  // Add to set, duplicates are automatically ignored
+                    }
+                }
+            }
+        });
+        props.setConflicts([...newConflicts]);  // Directly set the new conflicts
+    };
+
 
     const isConflict = (event, slots) => {
         const [startHour, startMinute] = event.time.split('-')[0].split(':').map(Number);
@@ -84,7 +107,7 @@ const Calendar = (props) => {
 
             return (
                 <div key={index}>
-                    <Slot time={event.time} name={event.name} color={color} conflict={conflict} profName={event.profName}  />
+                    <Slot time={event.time} name={event.name} color={color} conflict={conflict} profName={event.profName} />
                 </div>
             );
         });
@@ -246,11 +269,11 @@ const Slot = ({ time, name, color, conflict, profName }) => {
                     </p>
 
                     <div className="absolute left-0 w-full h-full flex items-center justify-center transition-opacity duration-300 opacity-0 hover:opacity-100">
-                        <div className=' absolute bottom-full bg-dark-blue text-white rounded px-3 py-1 text-sm' 
-                        style={{
-                            bottom: '108%'
-                        }}>
-                            {profName}
+                        <div className='absolute bottom-full bg-dark-blue text-white rounded px-3 py-1 text-sm text-nowrap'
+                            style={{
+                                bottom: '108%'
+                            }}>
+                            {profName.split(",").reverse().join(" ")}
                         </div>
                     </div>
 
