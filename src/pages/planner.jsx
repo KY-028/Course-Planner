@@ -2,15 +2,15 @@ import { Link } from "react-router-dom";
 
 export default function Planner() {
     return (
-        <div class="w-full">
-            <div class="flex bg-white h-screen">
-                <div class="flex items-center text-center lg:text-left px-8 md:px-12 lg:w-1/2">
+        <div className="w-full">
+            <div className="flex bg-white h-screen">
+                <div className="flex items-center text-center lg:text-left px-8 md:px-12 lg:w-1/2">
                     <div>
-                        <span class="text-2xl font-semibold text-gray-800 md:text-4xl">⏰ Coming<span class="ml-2 text-blue-600">Soon</span> ⏰</span>
-                        <h1 class="py-5 text-5xl font-semibold text-gray-800 md:text-6xl">Plan Req<span class="text-blue-600"> Planner</span></h1>
-                        <p class="mt-2 text-sm text-gray-500 md:text-lg"><Link to="/" className="text-blue-600">CoursePlanner</Link> is the best free online website to generate cool and stylish timetable. This Plan Req Planner Feature is currently under construction. But please come back to see its deployment in July!</p>
-                        <div class="flex space-x-3 justify-center lg:justify-start mt-6">
-                            <Link to="/course-selection" class="flex bg-blue-500 lg:h-12 h-8 w-fit px-0.5  py-2 font-semibold text-white items-center rounded whitespace-nowrap">
+                        <span className="text-2xl font-semibold text-gray-800 md:text-4xl">⏰ Coming<span className="ml-2 text-blue-600">Soon</span> ⏰</span>
+                        <h1 className="py-5 text-5xl font-semibold text-gray-800 md:text-6xl">Plan Req<span className="text-blue-600"> Planner</span></h1>
+                        <p className="mt-2 text-sm text-gray-500 md:text-lg"><Link to="/" className="text-blue-600">CoursePlanner</Link> is the best free online website to generate cool and stylish timetable. This Plan Req Planner Feature is currently under construction. But please come back to see its deployment in July!</p>
+                        <div className="flex space-x-3 justify-center lg:justify-start mt-6">
+                            <Link to="/course-selection" className="flex bg-blue-500 lg:h-12 h-8 w-fit px-0.5  py-2 font-semibold text-white items-center rounded whitespace-nowrap">
                                 <svg fill="#FFFFFF" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                                     width="800px" height="800px" viewBox="0 0 299.021 299.021" className="z-30 w-[10%] h-full mx-2  object-contain">
                                     <g>

@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import mainIcon from '../assets/icon1.png';
 import { AuthContext } from "../context/authContext";
+import UpdateManager from "./updatemanager"
 
 const LeftMenu = ({ activeTab }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -9,12 +10,19 @@ const LeftMenu = ({ activeTab }) => {
 
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);
-    const { logout } = useContext(AuthContext);
+    const { currentUser, logout } = useContext(AuthContext);
 
     const handleLogout = async () => {
-        await logout()
-        closeModal();
-        nav('/login');
+        try {
+            await UpdateManager.waitForAllUpdates(); // Wait for all pending updates to complete
+            // Proceed with logout
+            console.log("All updates completed, proceeding with logout.");
+            await logout()
+            closeModal();
+            nav('/login');
+        } catch (error) {
+            alert("Please give us a few seconds to store your changes before loggin out.")
+        }
     };
 
     return (
@@ -25,16 +33,19 @@ const LeftMenu = ({ activeTab }) => {
                     <h1 className="text-xl font-bold ml-1.5">Course Planner</h1>
                 </div>
             </Link>
-            <Link to="/course-selection" className={`transition duration-300 hover:text-custom-blue-1 py-1.5 px-4 rounded-lg text-xl ${activeTab === 'courses' ? 'text-teal' : ''}`}>Courses</Link>
-            <Link to="/planner" className={`transition duration-300 hover:text-custom-blue-1 py-1.5 px-4 rounded-lg text-xl ${activeTab === 'planner' ? 'text-teal' : ''}`}>Planner</Link>
-            <Link to="/about" className={`transition duration-300 hover:text-custom-blue-1 py-1.5 px-4 rounded-lg text-xl ${activeTab === 'about' ? 'text-teal ' : ''}`}>About</Link>
-            <Link to="/support" className={`transition duration-300 hover:text-custom-blue-1 py-1.5 px-4 rounded-lg text-xl ${activeTab === 'support' ? 'text-teal' : ''}`}>Support</Link>
-            <button
-                onClick={openModal}
-                className="transition duration-300 bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full absolute bottom-5 left-3 w-56 h-12"
-            >
-                Logout
-            </button>
+            <Link to="/course-selection" className={`w-fit my-1.5 mx-4 text-xl ${activeTab === 'courses' ? 'text-teal' : ''}`}>Courses</Link>
+            <Link to="/planner" className={`w-fit ub my-1.5 mx-4 text-xl ${activeTab === 'planner' ? 'text-teal' : ''}`}>Planner</Link>
+            <Link to="/about" className={`w-fit ub my-1.5 mx-4 text-xl ${activeTab === 'about' ? 'text-teal ' : ''}`}>About</Link>
+            <Link to="/support" className={`w-fit ub my-1.5 mx-4 text-xl ${activeTab === 'support' ? 'text-teal' : ''}`}>Support</Link>
+
+            {currentUser ?
+                <button onClick={openModal} className={`w-fit ub my-1.5 mx-4 absolute bottom-8 text-xl text-start`}>
+                    Logout
+                </button> :
+                <Link to="/login" className={`w-fit ub my-1.5 mx-4 absolute bottom-8 text-xl text-start`}>
+                    Log In
+                </Link>
+            }
 
             {isModalOpen && (
                 <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity z-50" aria-labelledby="modal-title" role="dialog" aria-modal="true">

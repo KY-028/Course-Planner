@@ -32,8 +32,6 @@ const signUp = () => {
         }
     };
 
-    console.log(inputs)
-
     return (
         <div className='login'>
             <form onSubmit={handleSubmit}>
@@ -43,7 +41,7 @@ const signUp = () => {
                 <input required type="text" placeholder='User name' name='username' onChange={handleChange} />
                 <input required type="email" placeholder='Email' name='email' onChange={handleChange} />
                 <input required type="password" placeholder='Password' name='password' onChange={handleChange} />
-                <input required type="number" maxLength="1" placeholder='Year of study' name='grade' onChange={handleChange} />
+                <input required type="number" maxLength="1" placeholder='Year of Study' name='grade' onChange={handleChange} />
                 <button>Sign up</button>
                 <p style={{ minHeight: '25px' }} >{err ? err : ''}</p>
                 <span> You already have an account? <Link to="/login">Login</Link>
