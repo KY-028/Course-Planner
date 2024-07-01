@@ -29,13 +29,13 @@ const Home = () => {
                         }}>
                         Streamline Your Course Selection and Graduation Path at Queen's<br />Made with ❤️ by Queen's students.
                     </p>
-                    <Link to="/course-selection" className="mt-10 text-sm lg:text-xl px-8 py-3 bg-blue-500 text-white rounded-xl inline-block transition duration-300 hover:bg-blue-600 hover:scale-105"
+                    <Link to="/signup" className="mt-10 text-sm lg:text-xl px-8 py-3 bg-blue-500 text-white rounded-xl inline-block transition duration-300 hover:bg-blue-600 hover:scale-105"
                         style={{
                             opacity: 0,
                             animation: `fadeIn 1s ease-out forwards`,
                             animationDelay: '2.2s',
                         }}>
-                        Try the Course Selection Planner
+                        Get Started
                     </Link>
                 </div>
                 <div className="lg:w-1/2 sm:w-full flex justify-center items-center text-2xl text-gray-400 rounded-full mt-0 lg:mt-0 lg:h-auto pb-0">
