@@ -53,6 +53,7 @@ export default function LoginSignup({ signinintent }) {
         try {
             const response = await axios.post("https://cp-backend-psi.vercel.app/backend/auth/signUp", signupInputs);
             setError("Success!");
+            setLoginInputs((prev) => ({ ...prev, email: signupInputs.email }));
             setTimeout(() => {
                 toggle(true);
                 setError(null);

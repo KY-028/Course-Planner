@@ -124,9 +124,6 @@ export default function Courses() {
         const courses = courses_ids.flatMap(course => fallData[course].slice(1));
         setFallCourses(courses);
 
-        // Check if user is logged in
-        console.log(courses_ids)
-        console.log(currentUser)
         if (!currentUser) {
             return;  // Early return if no user is logged in
         }
@@ -148,9 +145,6 @@ export default function Courses() {
         const courses = courses_ids.flatMap(course => winterData[course].slice(2));
         setWinterCourses(courses);
 
-        // Check if user is logged in
-        console.log(courses_ids)
-        console.log(currentUser)
         if (!currentUser) {
             return;  // Early return if no user is logged in
         }
