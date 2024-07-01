@@ -18,7 +18,7 @@ const Home = () => {
                         }}>
                         Committed to Your Academic Journey
                     </h1>
-                    <h1 className=" visible lg:invisible lg:size-0 text-xl lg:text-4xl font-bold whitespace-normal overflow-hidden">
+                    <h1 className=" visible lg:invisible lg:size-0 md:text-3xl lg:text-4xl sm:text-2xl text-xl font-bold whitespace-normal overflow-hidden">
                         Committed to Your Academic Journey
                     </h1>
                     <p className="text-base lg:text-xl mt-5 text-gray-400 font-light fade-in"
@@ -39,7 +39,7 @@ const Home = () => {
                     </Link>
                 </div>
                 <div className="lg:w-1/2 sm:w-full flex justify-center items-center text-2xl text-gray-400 rounded-full mt-0 lg:mt-0 lg:h-auto pb-0">
-                    <img src={"./demo.png"} alt="icon" className="lg:w-auto lg:h-auto md: w-[30%] sm:h-full mr-2"
+                    <img src={"./demo.png"} alt="icon" className="lg:w-auto lg:h-auto md:w-[30%] sm:w-[50%] w-[80%] sm:h-full mr-2"
                         style={{
                             opacity: 0,
                             animation: `flyInFromRight 1s ease-out forwards`,
