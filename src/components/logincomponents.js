@@ -79,7 +79,7 @@ export const RightOverlayPanel = styled(OverlayPanel)`
   right: 0;
   transform: translateX(0);
   ${props => (props.signingin !== true ? `transform: translateX(20%);` : null)}
-  ${props => (props.signingin !== true ? `z-index: -1;` : "z-index: 10")}
+  ${props => (props.signingin !== true ? `z-index: 0;` : "z-index: 10")}
 `;
 
 
