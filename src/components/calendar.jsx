@@ -271,7 +271,8 @@ const Slot = ({ time, name, color, conflict, profName }) => {
                     <div className="absolute left-0 w-full h-full flex items-center justify-center transition-opacity duration-300 opacity-0 hover:opacity-100">
                         <div className='absolute bottom-full bg-dark-blue text-white rounded px-3 py-1 text-sm text-nowrap'
                             style={{
-                                bottom: '108%'
+                                bottom: '108%',
+                                zIndex: 100000
                             }}>
                             {profName.split(",").reverse().join(" ")}
                         </div>
