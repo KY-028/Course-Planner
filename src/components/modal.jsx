@@ -60,7 +60,8 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
         if (starthour === 18 && endhour === 9) {
             endhour += 12;
         }
-
+        
+        console.log([starthour, endhour]);
         return `${starthour}:${bmin}-${endhour}:${emin}`;
     }
 
@@ -80,7 +81,7 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
 
         const formattedArray = [courseName, staffName];
         times.forEach(time => {
-            const time_str = convertTo24Hour(time.time)
+            const time_str = convertTo24Hour(time.time);
             formattedArray.push(`${courseName} ${time.day} ${time_str} ${staffName}`);
         });
 
