@@ -61,7 +61,6 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
             endhour += 12;
         }
         
-        console.log([starthour, endhour]);
         return `${starthour}:${bmin}-${endhour}:${emin}`;
     }
 
