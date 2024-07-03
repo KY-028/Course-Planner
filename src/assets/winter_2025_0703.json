@@ -1,0 +1,1157 @@
+{
+    "CISC101_1": [
+        "CISC101",
+        "Intro to Computer Programming",
+        "Abbas,Hazem",
+        [
+            "DUPUIS AUD"
+        ],
+        "CISC101 E Wednesday 11:30-12:30 Abbas,Hazem"
+    ],
+    "CISC102_1": [
+        "CISC102",
+        "Discrete Structures I",
+        "Akl,Selim G",
+        [
+            "HUMPHREY AUD",
+            "HUMPHREY AUD",
+            "HUMPHREY AUD"
+        ],
+        "CISC102 E Monday 11:30-12:30 Akl,Selim G",
+        "CISC102 E Tuesday 13:30-14:30 Akl,Selim G",
+        "CISC102 E Thursday 12:30-13:30 Akl,Selim G"
+    ],
+    "CISC121_1": [
+        "CISC121",
+        "Intro to Comp Sci I",
+        "Meger,Erin",
+        [
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM1102"
+        ],
+        "CISC121 E Tuesday 11:30-12:30 Meger,Erin",
+        "CISC121 E Wednesday 13:30-14:30 Meger,Erin",
+        "CISC121 E Friday 12:30-13:30 Meger,Erin"
+    ],
+    "CISC121_2": [
+        "CISC121",
+        "Intro to Comp Sci I",
+        "Meger,Erin",
+        [
+            "WALTER LIGHT RM205",
+            "WALTER LIGHT RM205",
+            "WALTER LIGHT RM205"
+        ],
+        "CISC121 E Tuesday 12:30-13:30 Meger,Erin",
+        "CISC121 E Thursday 11:30-12:30 Meger,Erin",
+        "CISC121 E Friday 13:30-14:30 Meger,Erin"
+    ],
+    "CISC124_1": [
+        "CISC124",
+        "Intro to Comp Sci II",
+        "Ma,Burton",
+        [
+            "DUNNING AUD",
+            "DUNNING AUD",
+            "BIOSCI 1101"
+        ],
+        "CISC124 E Tuesday 9:30-10:30 Ma,Burton",
+        "CISC124 E Thursday 8:30-9:30 Ma,Burton",
+        "CISC124 E Friday 10:30-11:30 Ma,Burton"
+    ],
+    "CISC151_1": [
+        "CISC151",
+        "Elements of Computing with Data Analytics",
+        "Abbas,Hazem",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101"
+        ],
+        "CISC151 W Monday 10:30-11:30 Abbas,Hazem",
+        "CISC151 W Tuesday 9:30-10:30 Abbas,Hazem",
+        "CISC151 W Friday 10:30-11:30 Abbas,Hazem"
+    ],
+    "CISC151_2": [
+        "CISC151",
+        "Elements of Computing with Data Analytics",
+        "Abbas,Hazem",
+        [
+            "MACINTOSH-CORRY RM B201",
+            "MACINTOSH-CORRY RM B201",
+            "MACINTOSH-CORRY RM B201"
+        ],
+        "CISC151 E Monday 8:30-9:30 Abbas,Hazem",
+        "CISC151 E Tuesday 10:30-11:30 Abbas,Hazem",
+        "CISC151 E Thursday 9:30-10:30 Abbas,Hazem"
+    ],
+    "CISC203_1": [
+        "CISC203",
+        "Discrete Structures II",
+        "Salomaa,Kai T",
+        [
+            "DUPUIS RM217",
+            "DUPUIS RM217",
+            "DUPUIS RM217"
+        ],
+        "CISC203 E Monday 13:30-14:30 Salomaa,Kai T",
+        "CISC203 E Wednesday 12:30-13:30 Salomaa,Kai T",
+        "CISC203 E Friday 11:30-12:30 Salomaa,Kai T"
+    ],
+    "CISC204_1": [
+        "CISC204",
+        "Logic for Comp Sci",
+        "Stewart,James A",
+        [
+            "DUNNING RM14",
+            "DUNNING RM14",
+            "DUNNING RM14"
+        ],
+        "CISC204 E Monday 8:30-9:30 Stewart,James A",
+        "CISC204 E Tuesday 10:30-11:30 Stewart,James A",
+        "CISC204 E Thursday 9:30-10:30 Stewart,James A"
+    ],
+    "CISC220_1": [
+        "CISC220",
+        "System Level Programming",
+        "Ma,Burton",
+        [
+            "KINGSTON RM101",
+            "KINGSTON RM101",
+            "KINGSTON RM101"
+        ],
+        "CISC220 E Monday 11:30-12:30 Ma,Burton",
+        "CISC220 E Tuesday 13:30-14:30 Ma,Burton",
+        "CISC220 E Thursday 12:30-13:30 Ma,Burton"
+    ],
+    "CISC221_1": [
+        "CISC221",
+        "Computer Architecture",
+        "ElSawy,Hesham",
+        [
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM1102"
+        ],
+        "CISC221 E Monday 14:30-15:30 ElSawy,Hesham",
+        "CISC221 E Tuesday 16:30-17:30 ElSawy,Hesham",
+        "CISC221 E Thursday 15:30-16:30 ElSawy,Hesham"
+    ],
+    "CISC223_1": [
+        "CISC223",
+        "Software Specifications",
+        "Choudhury,Salimur",
+        [
+            "DUPUIS AUD",
+            "DUPUIS AUD",
+            "DUPUIS AUD"
+        ],
+        "CISC223 E Monday 10:30-11:30 Choudhury,Salimur",
+        "CISC223 E Wednesday 9:30-10:30 Choudhury,Salimur",
+        "CISC223 E Friday 8:30-9:30 Choudhury,Salimur"
+    ],
+    "CISC223_2": [
+        "CISC223",
+        "Software Specifications",
+        "Choudhury,Salimur",
+        [
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF AUD"
+        ],
+        "CISC223 E Monday 15:30-16:30 Choudhury,Salimur",
+        "CISC223 E Wednesday 14:30-15:30 Choudhury,Salimur",
+        "CISC223 E Thursday 16:30-17:30 Choudhury,Salimur"
+    ],
+    "CISC226_1": [
+        "CISC226",
+        "Game Design",
+        "Lamb,Carolyn",
+        [
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "KINGSTON RM201"
+        ],
+        "CISC226 E Monday 9:30-10:30 Lamb,Carolyn",
+        "CISC226 E Wednesday 8:30-9:30 Lamb,Carolyn",
+        "CISC226 E Thursday 10:30-11:30 Lamb,Carolyn"
+    ],
+    "CISC235_1": [
+        "CISC235",
+        "Data Structures",
+        "Tian,Yuan",
+        [
+            "HUMPHREY AUD",
+            "HUMPHREY AUD",
+            "HUMPHREY AUD"
+        ],
+        "CISC235 E Monday 15:30-16:30 Tian,Yuan",
+        "CISC235 E Wednesday 14:30-15:30 Tian,Yuan",
+        "CISC235 E Thursday 16:30-17:30 Tian,Yuan"
+    ],
+    "CISC235_2": [
+        "CISC235",
+        "Data Structures",
+        "Mohammad,Samir",
+        [
+            "DUPUIS AUD",
+            "DUPUIS AUD",
+            "DUPUIS AUD"
+        ],
+        "CISC235 E Monday 9:30-10:30 Mohammad,Samir",
+        "CISC235 E Wednesday 8:30-9:30 Mohammad,Samir",
+        "CISC235 E Thursday 10:30-11:30 Mohammad,Samir"
+    ],
+    "CISC271_1": [
+        "CISC271",
+        "Linear Data Analysis",
+        "Ellis,Randy E",
+        [
+            "DUPUIS AUD",
+            "DUPUIS AUD",
+            "DUPUIS AUD"
+        ],
+        "CISC271 E Tuesday 8:30-9:30 Ellis,Randy E",
+        "CISC271 E Wednesday 10:30-11:30 Ellis,Randy E",
+        "CISC271 E Friday 9:30-10:30 Ellis,Randy E"
+    ],
+    "CISC322_1": [
+        "CISC322",
+        "Software Architecture",
+        "Adams,Bram Mark",
+        [
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "KINGSTON RM101"
+        ],
+        "CISC322 E Monday 16:30-17:30 Adams,Bram Mark",
+        "CISC322 E Wednesday 15:30-16:30 Adams,Bram Mark",
+        "CISC322 E Friday 14:30-15:30 Adams,Bram Mark",
+        "CISC322 E Monday 14:30-16:30 Adams,Bram Mark"
+    ],
+    "CISC322_2": [
+        "CISC322",
+        "Software Architecture",
+        "Adams,Bram Mark",
+        [
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "STIRLING RM C"
+        ],
+        "CISC322 E Monday 16:30-17:30 Adams,Bram Mark",
+        "CISC322 E Wednesday 15:30-16:30 Adams,Bram Mark",
+        "CISC322 E Friday 14:30-15:30 Adams,Bram Mark",
+        "CISC322 E Tuesday 15:30-17:30 Adams,Bram Mark"
+    ],
+    "CISC324_1": [
+        "CISC324",
+        "Operating Systems",
+        "Hossain,Anwar",
+        [
+            "STIRLING RM C",
+            "STIRLING RM C",
+            "STIRLING RM C"
+        ],
+        "CISC324 E Tuesday 8:30-9:30 Hossain,Anwar",
+        "CISC324 E Wednesday 10:30-11:30 Hossain,Anwar",
+        "CISC324 E Friday 9:30-10:30 Hossain,Anwar"
+    ],
+    "CISC325_1": [
+        "CISC325",
+        "Human-Computer Interaction",
+        "Nabil,Sara",
+        [
+            "ETHERINGTON AUD",
+            "ELLIS RM321/333/324"
+        ],
+        "CISC325 E Monday 12:30-13:30 Nabil,Sara",
+        "CISC325 E Wednesday 12:30-14:30 Nabil,Sara"
+    ],
+    "CISC326_1": [
+        "CISC326",
+        "Game Architecture",
+        "Adams,Bram Mark",
+        [
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "KINGSTON RM101"
+        ],
+        "CISC326 E Monday 16:30-17:30 Adams,Bram Mark",
+        "CISC326 E Wednesday 15:30-16:30 Adams,Bram Mark",
+        "CISC326 E Friday 14:30-15:30 Adams,Bram Mark",
+        "CISC326 E Monday 14:30-16:30 Adams,Bram Mark"
+    ],
+    "CISC326_2": [
+        "CISC326",
+        "Game Architecture",
+        "Adams,Bram Mark",
+        [
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "STIRLING RM C"
+        ],
+        "CISC326 E Monday 16:30-17:30 Adams,Bram Mark",
+        "CISC326 E Wednesday 15:30-16:30 Adams,Bram Mark",
+        "CISC326 E Friday 14:30-15:30 Adams,Bram Mark",
+        "CISC326 E Tuesday 15:30-17:30 Adams,Bram Mark"
+    ],
+    "CISC332_1": [
+        "CISC332",
+        "Database Management Systems",
+        "Powley,Wendy L",
+        [
+            "BIOSCI RM1101",
+            "BIOSCI RM1101",
+            "BIOSCI RM1101"
+        ],
+        "CISC332 E Tuesday 8:30-9:30 Powley,Wendy L",
+        "CISC332 E Wednesday 10:30-11:30 Powley,Wendy L",
+        "CISC332 E Friday 9:30-10:30 Powley,Wendy L"
+    ],
+    "CISC335_1": [
+        "CISC335",
+        "Computer Networks",
+        "Chen,Yuanzhu",
+        [
+            "BOTTER RM B147",
+            "BOTTER RM B147",
+            "BOTTER RM B147"
+        ],
+        "CISC335 E Monday 11:30-12:30 Chen,Yuanzhu",
+        "CISC335 E Tuesday 13:30-14:30 Chen,Yuanzhu",
+        "CISC335 E Thursday 12:30-13:30 Chen,Yuanzhu"
+    ],
+    "CISC351_1": [
+        "CISC351",
+        "Advanced Data Analytics",
+        "Tian,Yuan",
+        [
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM B"
+        ],
+        "CISC351 E Monday 9:30-10:30 Tian,Yuan",
+        "CISC351 E Wednesday 8:30-9:30 Tian,Yuan",
+        "CISC351 E Thursday 10:30-11:30 Tian,Yuan"
+    ],
+    "CISC352_1": [
+        "CISC352",
+        "Artificial Intelligence",
+        "Muise,Christian",
+        [
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF AUD"
+        ],
+        "CISC352 E Tuesday 9:30-10:30 Muise,Christian",
+        "CISC352 E Thursday 8:30-9:30 Muise,Christian",
+        "CISC352 E Friday 10:30-11:30 Muise,Christian"
+    ],
+    "CISC360_1": [
+        "CISC360",
+        "Programming Paradigms",
+        "Dunfield,Jana",
+        [
+            "WALTER LIGHT RM205",
+            "WALTER LIGHT RM205",
+            "WALTER LIGHT RM205"
+        ],
+        "CISC360 E Monday 8:30-9:30 Dunfield,Jana",
+        "CISC360 E Tuesday 10:30-11:30 Dunfield,Jana",
+        "CISC360 E Thursday 9:30-10:30 Dunfield,Jana"
+    ],
+    "CISC365_1": [
+        "CISC365",
+        "Algorithms I",
+        "Hu,Ting",
+        [
+            "DUNNING AUD",
+            "DUNNING AUD",
+            "DUNNING AUD"
+        ],
+        "CISC365 E Tuesday 12:30-13:30 Hu,Ting",
+        "CISC365 E Thursday 11:30-12:30 Hu,Ting",
+        "CISC365 E Friday 13:30-14:30 Hu,Ting"
+    ],
+    "CISC372_1": [
+        "CISC372",
+        "Advanced Data Analytics",
+        "Tian,Yuan",
+        [
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM B"
+        ],
+        "CISC372 E Monday 9:30-10:30 Tian,Yuan",
+        "CISC372 E Wednesday 8:30-9:30 Tian,Yuan",
+        "CISC372 E Thursday 10:30-11:30 Tian,Yuan"
+    ],
+    "CISC423_1": [
+        "CISC423",
+        "Software Requirements",
+        "Staff",
+        [
+            "MCLAUGHLIN RM315",
+            "MCLAUGHLIN RM315",
+            "MCLAUGHLIN RM315"
+        ],
+        "CISC423 E Tuesday 9:30-10:30 Staff",
+        "CISC423 E Thursday 8:30-9:30 Staff",
+        "CISC423 E Friday 10:30-11:30 Staff"
+    ],
+    "CISC454_1": [
+        "CISC454",
+        "Graphics (A)",
+        "Stewart,James A",
+        [
+            "STIRLING RM C",
+            "STIRLING RM C",
+            "STIRLING RM C"
+        ],
+        "CISC454 E Monday 10:30-11:30 Stewart,James A",
+        "CISC454 E Wednesday 9:30-10:30 Stewart,James A",
+        "CISC454 E Friday 8:30-9:30 Stewart,James A"
+    ],
+    "CISC455_1": [
+        "CISC455",
+        "Evolutionary Optimization and Learning",
+        "Hu,Ting",
+        [
+            "MILLER RM105",
+            "MILLER RM105",
+            "MILLER RM105"
+        ],
+        "CISC455 E Monday 12:30-13:30 Hu,Ting",
+        "CISC455 E Wednesday 11:30-12:30 Hu,Ting",
+        "CISC455 E Thursday 13:30-14:30 Hu,Ting"
+    ],
+    "CISC458_1": [
+        "CISC458",
+        "Programming Language Processors (S)",
+        "Staff",
+        [
+            "CHERNOFF RM117",
+            "CHERNOFF RM117",
+            "CHERNOFF RM117",
+            "CONVOCATION HALL"
+        ],
+        "CISC458 E Monday 14:30-15:30 Staff",
+        "CISC458 E Tuesday 16:30-17:30 Staff",
+        "CISC458 E Thursday 15:30-16:30 Staff",
+        "CISC458 E Friday 11:30-13:30 Staff"
+    ],
+    "CISC465_1": [
+        "CISC465",
+        "Semantics of Programming Languages",
+        "Dunfield,Jana",
+        [
+            "GOODWIN RM247",
+            "GOODWIN RM247",
+            "GOODWIN RM247"
+        ],
+        "CISC465 E Monday 11:30-12:30 Dunfield,Jana",
+        "CISC465 E Tuesday 13:30-14:30 Dunfield,Jana",
+        "CISC465 E Thursday 12:30-13:30 Dunfield,Jana"
+    ],
+    "CISC468_1": [
+        "CISC468",
+        "Cryptography",
+        "Alaca,Furkan",
+        [
+            "MACINTOSH-CORRY RM D214",
+            "MACINTOSH-CORRY RM D214",
+            "MACINTOSH-CORRY RM D214"
+        ],
+        "CISC468 E Monday 8:30-9:30 Alaca,Furkan",
+        "CISC468 E Tuesday 10:30-11:30 Alaca,Furkan",
+        "CISC468 E Thursday 9:30-10:30 Alaca,Furkan"
+    ],
+    "CISC474_1": [
+        "CISC474",
+        "Reinforcement Learning",
+        "Givigi,Sidney",
+        [
+            "JEFFERY RM101",
+            "JEFFERY RM101",
+            "JEFFERY RM101"
+        ],
+        "CISC474 E Monday 10:30-11:30 Givigi,Sidney",
+        "CISC474 E Wednesday 9:30-10:30 Givigi,Sidney",
+        "CISC474 E Friday 8:30-9:30 Givigi,Sidney"
+    ],
+    "CISC496_1": [
+        "CISC496",
+        "Game Dev Project",
+        "Graham,Nicholas",
+        [
+            "MACINTOSH-CORRY RM C420",
+            "MACINTOSH-CORRY RM C420",
+            "MACINTOSH-CORRY RM C420"
+        ],
+        "CISC496 E Monday 8:30-9:30 Graham,Nicholas",
+        "CISC496 E Tuesday 10:30-11:30 Graham,Nicholas",
+        "CISC496 E Thursday 9:30-10:30 Graham,Nicholas"
+    ],
+    "CISC499_1": [
+        "CISC499",
+        "Advanced Undergraduate Project",
+        "Chen,Yuanzhu",
+        [
+            "STIRLING RM A",
+            "STIRLING RM A",
+            "STIRLING RM A"
+        ],
+        "CISC499 E Monday 9:30-10:30 Chen,Yuanzhu",
+        "CISC499 E Wednesday 8:30-9:30 Chen,Yuanzhu",
+        "CISC499 E Thursday 10:30-11:30 Chen,Yuanzhu"
+    ],
+    "CISC500_1": [
+        "CISC500",
+        "Undergraduate Thesis",
+        "Chen,Yuanzhu",
+        [
+            "JOHN WATSON RM207"
+        ],
+        "CISC500 E Wednesday 12:30-14:30 Chen,Yuanzhu"
+    ],
+    "COGS100_1": [
+        "COGS100",
+        "Intro to Cognitive Science",
+        "Zulkernine,Farhana",
+        [
+            "STIRLING AUD",
+            "STIRLING AUD",
+            "STIRLING AUD"
+        ],
+        "COGS100 E Tuesday 14:30-15:30 Zulkernine,Farhana",
+        "COGS100 E Wednesday 16:30-17:30 Zulkernine,Farhana",
+        "COGS100 E Friday 15:30-16:30 Zulkernine,Farhana"
+    ],
+    "COGS201_1": [
+        "COGS201",
+        "Cognition and Computation",
+        "Lamb,Carolyn",
+        [
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "KINGSTON RM201"
+        ],
+        "COGS201 E Monday 16:30-17:30 Lamb,Carolyn",
+        "COGS201 E Wednesday 15:30-16:30 Lamb,Carolyn",
+        "COGS201 E Friday 14:30-15:30 Lamb,Carolyn"
+    ],
+    "MATH110_1": [
+        "MATH110",
+        "Linear Algebra",
+        "Yui,Noriko",
+        [
+            "STIRLING RM C",
+            "STIRLING RM C",
+            "STIRLING RM C",
+            "ELLIS RM324"
+        ],
+        "MATH110 E Monday 9:30-10:30 Yui,Noriko",
+        "MATH110 E Wednesday 8:30-9:30 Yui,Noriko",
+        "MATH110 E Thursday 10:30-11:30 Yui,Noriko",
+        "MATH110 E Tuesday 15:30-16:30 Yui,Noriko"
+    ],
+    "MATH110_2": [
+        "MATH110",
+        "Linear Algebra",
+        "Yui,Noriko",
+        [
+            "STIRLING RM C",
+            "STIRLING RM C",
+            "STIRLING RM C",
+            "ELLIS RM324"
+        ],
+        "MATH110 E Monday 9:30-10:30 Yui,Noriko",
+        "MATH110 E Wednesday 8:30-9:30 Yui,Noriko",
+        "MATH110 E Thursday 10:30-11:30 Yui,Noriko",
+        "MATH110 E Wednesday 17:30-18:30 Yui,Noriko"
+    ],
+    "MATH110_3": [
+        "MATH110",
+        "Linear Algebra",
+        "Barthelme,Thomas",
+        [
+            "JEFFERY RM128",
+            "JEFFERY RM128",
+            "JEFFERY RM128",
+            "ELLIS RM324"
+        ],
+        "MATH110 E Monday 9:30-10:30 Barthelme,Thomas",
+        "MATH110 E Wednesday 8:30-9:30 Barthelme,Thomas",
+        "MATH110 E Thursday 10:30-11:30 Barthelme,Thomas",
+        "MATH110 E Tuesday 15:30-16:30 Barthelme,Thomas"
+    ],
+    "MATH110_4": [
+        "MATH110",
+        "Linear Algebra",
+        "Barthelme,Thomas",
+        [
+            "JEFFERY RM128",
+            "JEFFERY RM128",
+            "JEFFERY RM128",
+            "ELLIS RM324"
+        ],
+        "MATH110 E Monday 9:30-10:30 Barthelme,Thomas",
+        "MATH110 E Wednesday 8:30-9:30 Barthelme,Thomas",
+        "MATH110 E Thursday 10:30-11:30 Barthelme,Thomas",
+        "MATH110 E Wednesday 17:30-18:30 Barthelme,Thomas"
+    ],
+    "MATH112_1": [
+        "MATH112",
+        "Intro to Linear Algebra",
+        "Staff",
+        [
+            "WALTER LIGHT RM205",
+            "WALTER LIGHT RM205",
+            "WALTER LIGHT RM205"
+        ],
+        "MATH112 E Tuesday 14:30-15:30 Staff",
+        "MATH112 E Wednesday 16:30-17:30 Staff",
+        "MATH112 E Friday 15:30-16:30 Staff"
+    ],
+    "MATH112_2": [
+        "MATH112",
+        "Intro to Linear Algebra",
+        "Staff",
+        [
+            "DUPUIS AUD",
+            "DUPUIS AUD",
+            "DUPUIS AUD"
+        ],
+        "MATH112 E Monday 15:30-16:30 Staff",
+        "MATH112 E Wednesday 14:30-15:30 Staff",
+        "MATH112 E Thursday 16:30-17:30 Staff"
+    ],
+    "MATH120_1": [
+        "MATH120",
+        "Diff. and Integ. Calc",
+        "chiri,Maria Teresa",
+        [
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "ELLIS RM324"
+        ],
+        "MATH120 E Monday 12:30-13:30 chiri,Maria Teresa",
+        "MATH120 E Wednesday 11:30-12:30 chiri,Maria Teresa",
+        "MATH120 E Thursday 13:30-14:30 chiri,Maria Teresa",
+        "MATH120 E Tuesday 17:30-18:30 chiri,Maria Teresa"
+    ],
+    "MATH120_2": [
+        "MATH120",
+        "Diff. and Integ. Calc",
+        "chiri,Maria Teresa",
+        [
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "ELLIS RM324"
+        ],
+        "MATH120 E Monday 12:30-13:30 chiri,Maria Teresa",
+        "MATH120 E Wednesday 11:30-12:30 chiri,Maria Teresa",
+        "MATH120 E Thursday 13:30-14:30 chiri,Maria Teresa",
+        "MATH120 E Monday 17:30-18:30 chiri,Maria Teresa"
+    ],
+    "MATH120_3": [
+        "MATH120",
+        "Diff. and Integ. Calc",
+        "Nguyen,Khoa",
+        [
+            "JEFFERY RM128",
+            "JEFFERY RM128",
+            "JEFFERY RM128",
+            "ELLIS RM324"
+        ],
+        "MATH120 E Monday 12:30-13:30 Nguyen,Khoa",
+        "MATH120 E Wednesday 11:30-12:30 Nguyen,Khoa",
+        "MATH120 E Thursday 13:30-14:30 Nguyen,Khoa",
+        "MATH120 E Tuesday 17:30-18:30 Nguyen,Khoa"
+    ],
+    "MATH120_4": [
+        "MATH120",
+        "Diff. and Integ. Calc",
+        "Nguyen,Khoa",
+        [
+            "JEFFERY RM128",
+            "JEFFERY RM128",
+            "JEFFERY RM128",
+            "ELLIS RM324"
+        ],
+        "MATH120 E Monday 12:30-13:30 Nguyen,Khoa",
+        "MATH120 E Wednesday 11:30-12:30 Nguyen,Khoa",
+        "MATH120 E Thursday 13:30-14:30 Nguyen,Khoa",
+        "MATH120 E Monday 17:30-18:30 Nguyen,Khoa"
+    ],
+    "MATH121_1": [
+        "MATH121",
+        "Diff. and Integ. Calc",
+        "Staff",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101"
+        ],
+        "MATH121 W Monday 9:30-10:30 Staff",
+        "MATH121 W Wednesday 8:30-9:30 Staff",
+        "MATH121 W Thursday 10:30-11:30 Staff"
+    ],
+    "MATH121_2": [
+        "MATH121",
+        "Diff. and Integ. Calc",
+        "Li,Ping",
+        [
+            "DUNNING AUD",
+            "DUNNING AUD",
+            "DUNNING AUD"
+        ],
+        "MATH121 E Monday 12:30-13:30 Li,Ping",
+        "MATH121 E Wednesday 11:30-12:30 Li,Ping",
+        "MATH121 E Thursday 13:30-14:30 Li,Ping"
+    ],
+    "MATH121_3": [
+        "MATH121",
+        "Diff. and Integ. Calc",
+        "Kennedy,Christopher Pearce Andrew",
+        [
+            "DUPUIS AUD",
+            "DUPUIS AUD",
+            "DUPUIS AUD"
+        ],
+        "MATH121 E Tuesday 14:30-15:30 Kennedy,Christopher Pearce Andrew",
+        "MATH121 E Wednesday 16:30-17:30 Kennedy,Christopher Pearce Andrew",
+        "MATH121 E Friday 15:30-16:30 Kennedy,Christopher Pearce Andrew"
+    ],
+    "MATH124_1": [
+        "MATH124",
+        "Diff. and Integ. Calc II",
+        "Staff",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101"
+        ],
+        "MATH124 W Monday 9:30-10:30 Staff",
+        "MATH124 W Wednesday 8:30-9:30 Staff",
+        "MATH124 W Thursday 10:30-11:30 Staff"
+    ],
+    "MATH124_2": [
+        "MATH124",
+        "Diff. and Integ. Calc II",
+        "Li,Ping",
+        [
+            "DUNNING AUD",
+            "DUNNING AUD",
+            "DUNNING AUD"
+        ],
+        "MATH124 E Monday 12:30-13:30 Li,Ping",
+        "MATH124 E Wednesday 11:30-12:30 Li,Ping",
+        "MATH124 E Thursday 13:30-14:30 Li,Ping"
+    ],
+    "MATH124_3": [
+        "MATH124",
+        "Diff. and Integ. Calc II",
+        "Kennedy,Christopher Pearce Andrew",
+        [
+            "DUPUIS AUD",
+            "DUPUIS AUD",
+            "DUPUIS AUD"
+        ],
+        "MATH124 E Tuesday 14:30-15:30 Kennedy,Christopher Pearce Andrew",
+        "MATH124 E Wednesday 16:30-17:30 Kennedy,Christopher Pearce Andrew",
+        "MATH124 E Friday 15:30-16:30 Kennedy,Christopher Pearce Andrew"
+    ],
+    "MATH181_1": [
+        "MATH181",
+        "Designing Sophisticated Activities for Grade 7-10",
+        "Taylor,Peter D",
+        [
+            "NICOL RM232"
+        ],
+        "MATH181 E Wednesday 17:30-7:30 Taylor,Peter D"
+    ],
+    "MATH210_1": [
+        "MATH210",
+        "Rings and Fields",
+        "Smith,Gregory G",
+        [
+            "JEFFERY RM127",
+            "JEFFERY RM127",
+            "JEFFERY RM127",
+            "ELLIS RM321"
+        ],
+        "MATH210 E Monday 9:30-10:30 Smith,Gregory G",
+        "MATH210 E Wednesday 8:30-9:30 Smith,Gregory G",
+        "MATH210 E Thursday 10:30-11:30 Smith,Gregory G",
+        "MATH210 E Wednesday 16:30-17:30 Smith,Gregory G"
+    ],
+    "MATH212_1": [
+        "MATH212",
+        "Linear Algebra ll",
+        "Meadows,Tyler Allan",
+        [
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "JEFFERY RM126"
+        ],
+        "MATH212 E Tuesday 11:30-12:30 Meadows,Tyler Allan",
+        "MATH212 E Wednesday 13:30-14:30 Meadows,Tyler Allan",
+        "MATH212 E Friday 12:30-13:30 Meadows,Tyler Allan",
+        "MATH212 E Monday 10:30-11:30 Meadows,Tyler Allan"
+    ],
+    "MATH212_2": [
+        "MATH212",
+        "Linear Algebra ll",
+        "Meadows,Tyler Allan",
+        [
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "JEFFERY RM126"
+        ],
+        "MATH212 E Tuesday 11:30-12:30 Meadows,Tyler Allan",
+        "MATH212 E Wednesday 13:30-14:30 Meadows,Tyler Allan",
+        "MATH212 E Friday 12:30-13:30 Meadows,Tyler Allan",
+        "MATH212 E Wednesday 11:30-12:30 Meadows,Tyler Allan"
+    ],
+    "MATH225_1": [
+        "MATH225",
+        "Ordinary Diff. Equations",
+        "Mansouri,Abdol-Reza",
+        [
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM B"
+        ],
+        "MATH225 E Tuesday 8:30-9:30 Mansouri,Abdol-Reza",
+        "MATH225 E Wednesday 10:30-11:30 Mansouri,Abdol-Reza",
+        "MATH225 E Friday 9:30-10:30 Mansouri,Abdol-Reza",
+        "MATH225 E Monday 13:30-14:30 Mansouri,Abdol-Reza"
+    ],
+    "MATH228_1": [
+        "MATH228",
+        "Complex Analysis",
+        "Nguyen,David Tuan",
+        [
+            "HUMPHREY AUD",
+            "HUMPHREY AUD",
+            "HUMPHREY AUD",
+            "WALTER LIGHT RM205"
+        ],
+        "MATH228 E Monday 14:30-15:30 Nguyen,David Tuan",
+        "MATH228 E Tuesday 16:30-17:30 Nguyen,David Tuan",
+        "MATH228 E Thursday 15:30-16:30 Nguyen,David Tuan",
+        "MATH228 E Tuesday 13:30-14:30 Nguyen,David Tuan"
+    ],
+    "MATH281_1": [
+        "MATH281",
+        "Intro to Real Analysis",
+        "Barthelme,Thomas",
+        [
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "ELLIS RM321"
+        ],
+        "MATH281 E Monday 15:30-16:30 Barthelme,Thomas",
+        "MATH281 E Wednesday 14:30-15:30 Barthelme,Thomas",
+        "MATH281 E Thursday 16:30-17:30 Barthelme,Thomas",
+        "MATH281 E Tuesday 15:30-16:30 Barthelme,Thomas"
+    ],
+    "MATH281_2": [
+        "MATH281",
+        "Intro to Real Analysis",
+        "Barthelme,Thomas",
+        [
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "ELLIS RM321"
+        ],
+        "MATH281 E Monday 15:30-16:30 Barthelme,Thomas",
+        "MATH281 E Wednesday 14:30-15:30 Barthelme,Thomas",
+        "MATH281 E Thursday 16:30-17:30 Barthelme,Thomas",
+        "MATH281 E Monday 16:30-17:30 Barthelme,Thomas"
+    ],
+    "MATH281_3": [
+        "MATH281",
+        "Intro to Real Analysis",
+        "Salmoiraghi,Federico",
+        [
+            "JEFFERY RM127",
+            "JEFFERY RM127",
+            "JEFFERY RM127",
+            "ELLIS RM321"
+        ],
+        "MATH281 E Monday 15:30-16:30 Salmoiraghi,Federico",
+        "MATH281 E Wednesday 14:30-15:30 Salmoiraghi,Federico",
+        "MATH281 E Thursday 16:30-17:30 Salmoiraghi,Federico",
+        "MATH281 E Tuesday 15:30-16:30 Salmoiraghi,Federico"
+    ],
+    "MATH281_4": [
+        "MATH281",
+        "Intro to Real Analysis",
+        "Salmoiraghi,Federico",
+        [
+            "JEFFERY RM127",
+            "JEFFERY RM127",
+            "JEFFERY RM127",
+            "ELLIS RM321"
+        ],
+        "MATH281 E Monday 15:30-16:30 Salmoiraghi,Federico",
+        "MATH281 E Wednesday 14:30-15:30 Salmoiraghi,Federico",
+        "MATH281 E Thursday 16:30-17:30 Salmoiraghi,Federico",
+        "MATH281 E Monday 16:30-17:30 Salmoiraghi,Federico"
+    ],
+    "MATH300_1": [
+        "MATH300",
+        "Modeling Techniques in Biology",
+        "Magpantay,Felicia",
+        [
+            "JEFFERY RM101",
+            "JEFFERY RM101",
+            "JEFFERY RM101"
+        ],
+        "MATH300 E Monday 9:30-10:30 Magpantay,Felicia",
+        "MATH300 E Wednesday 8:30-9:30 Magpantay,Felicia",
+        "MATH300 E Thursday 10:30-11:30 Magpantay,Felicia"
+    ],
+    "MATH311_1": [
+        "MATH311",
+        "Elementary Number Theory",
+        "Naik,Sunil Lakshmana",
+        [
+            "KINGSTON RM112",
+            "KINGSTON RM112",
+            "KINGSTON RM112"
+        ],
+        "MATH311 E Monday 10:30-11:30 Naik,Sunil Lakshmana",
+        "MATH311 E Wednesday 9:30-10:30 Naik,Sunil Lakshmana",
+        "MATH311 E Friday 8:30-9:30 Naik,Sunil Lakshmana"
+    ],
+    "MATH328_1": [
+        "MATH328",
+        "Real Analysis",
+        "Cellarosi,Francesco",
+        [
+            "STIRLING RM A",
+            "STIRLING RM A",
+            "STIRLING RM A"
+        ],
+        "MATH328 E Monday 13:30-14:30 Cellarosi,Francesco",
+        "MATH328 E Wednesday 12:30-13:30 Cellarosi,Francesco",
+        "MATH328 E Friday 11:30-12:30 Cellarosi,Francesco"
+    ],
+    "MATH335_1": [
+        "MATH335",
+        "Maths of Engineering Systems",
+        "Yuksel,Serdar",
+        [
+            "JEFFERY RM127",
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "JEFFERY RM127"
+        ],
+        "MATH335 E Monday 11:30-12:30 Yuksel,Serdar",
+        "MATH335 E Tuesday 13:30-14:30 Yuksel,Serdar",
+        "MATH335 E Thursday 12:30-13:30 Yuksel,Serdar",
+        "MATH335 E Tuesday 14:30-15:30 Yuksel,Serdar"
+    ],
+    "MATH337_1": [
+        "MATH337",
+        "Stochastic Models in Operations Research",
+        "Staff",
+        [
+            "JEFFERY RM234",
+            "JEFFERY RM234",
+            "JEFFERY RM234"
+        ],
+        "MATH337 E Tuesday 11:30-12:30 Staff",
+        "MATH337 E Wednesday 13:30-14:30 Staff",
+        "MATH337 E Friday 12:30-13:30 Staff"
+    ],
+    "MATH385_1": [
+        "MATH385",
+        "Life Contingencies",
+        "Staff",
+        [
+            "NICOL RM232",
+            "NICOL RM232"
+        ],
+        "MATH385 E Monday 16:00-17:30 Staff",
+        "MATH385 E Wednesday 14:30-16:00 Staff"
+    ],
+    "MATH401_1": [
+        "MATH401",
+        "Graph Theory",
+        "Rodgers,Brad",
+        [
+            "DUPUIS RM217",
+            "DUPUIS RM217"
+        ],
+        "MATH401 E Monday 18:30-20:00 Rodgers,Brad",
+        "MATH401 E Wednesday 18:30-20:00 Rodgers,Brad"
+    ],
+    "MATH413_1": [
+        "MATH413",
+        "Intro to Algebraic Geometry",
+        "Smith,Gregory G",
+        [
+            "MCLAUGHLIN RM306",
+            "MCLAUGHLIN RM306",
+            "MCLAUGHLIN RM306"
+        ],
+        "MATH413 E Monday 11:30-12:30 Smith,Gregory G",
+        "MATH413 E Tuesday 13:30-14:30 Smith,Gregory G",
+        "MATH413 E Thursday 12:30-13:30 Smith,Gregory G"
+    ],
+    "MATH472_1": [
+        "MATH472",
+        "Optimization and Control of Stochastic Systems",
+        "Yuksel,Serdar",
+        [
+            "DUPUIS RM215",
+            "DUPUIS RM215",
+            "DUPUIS RM215"
+        ],
+        "MATH472 E Monday 12:30-13:30 Yuksel,Serdar",
+        "MATH472 E Wednesday 11:30-12:30 Yuksel,Serdar",
+        "MATH472 E Thursday 13:30-14:30 Yuksel,Serdar"
+    ],
+    "MATH477_1": [
+        "MATH477",
+        "Data Compression and Source Coding: Theory and Algorithms",
+        "Alajaji,Fady",
+        [
+            "JEFFERY RM128",
+            "JEFFERY RM128"
+        ],
+        "MATH477 E Tuesday 8:30-10:00 Alajaji,Fady",
+        "MATH477 E Friday 10:00-11:30 Alajaji,Fady"
+    ],
+    "MATH487_1": [
+        "MATH487",
+        "Stochastic Calc with Applications to Mathematical Finance",
+        "Mansouri,Abdol-Reza",
+        [
+            "JEFFERY RM110",
+            "JEFFERY RM110"
+        ],
+        "MATH487 E Tuesday 10:00-11:30 Mansouri,Abdol-Reza",
+        "MATH487 E Thursday 8:30-10:00 Mansouri,Abdol-Reza"
+    ],
+    "STAT263_1": [
+        "STAT263",
+        "Intro to Stats.",
+        "Molson,Charles Arthur",
+        [
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF AUD"
+        ],
+        "STAT263 E Monday 9:30-10:30 Molson,Charles Arthur",
+        "STAT263 E Wednesday 8:30-9:30 Molson,Charles Arthur",
+        "STAT263 E Thursday 10:30-11:30 Molson,Charles Arthur"
+    ],
+    "STAT263_2": [
+        "STAT263",
+        "Intro to Stats.",
+        "Molson,Charles Arthur",
+        [
+            "ELLIS AUD",
+            "ELLIS AUD",
+            "ELLIS AUD"
+        ],
+        "STAT263 E Monday 13:30-14:30 Molson,Charles Arthur",
+        "STAT263 E Wednesday 12:30-13:30 Molson,Charles Arthur",
+        "STAT263 E Friday 11:30-12:30 Molson,Charles Arthur"
+    ],
+    "STAT269_1": [
+        "STAT269",
+        "Stats. and Probability II",
+        "Takahara,Glen",
+        [
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM B"
+        ],
+        "STAT269 E Tuesday 9:30-10:30 Takahara,Glen",
+        "STAT269 E Thursday 8:30-9:30 Takahara,Glen",
+        "STAT269 E Friday 10:30-11:30 Takahara,Glen"
+    ],
+    "STAT353_1": [
+        "STAT353",
+        "Probability II",
+        "Mingo,James A",
+        [
+            "JEFFERY RM127",
+            "JEFFERY RM127",
+            "JEFFERY RM127"
+        ],
+        "STAT353 E Monday 10:30-11:30 Mingo,James A",
+        "STAT353 E Wednesday 9:30-10:30 Mingo,James A",
+        "STAT353 E Friday 8:30-9:30 Mingo,James A"
+    ],
+    "STAT362_1": [
+        "STAT362",
+        "R for Data Science",
+        "Ling,Brian",
+        [
+            "STIRLING RM C",
+            "STIRLING RM C",
+            "STIRLING RM C"
+        ],
+        "STAT362 E Monday 13:30-14:30 Ling,Brian",
+        "STAT362 E Wednesday 12:30-13:30 Ling,Brian",
+        "STAT362 E Friday 11:30-12:30 Ling,Brian"
+    ],
+    "STAT456_1": [
+        "STAT456",
+        "Bayesian Analysis",
+        "Takahara,Glen",
+        [
+            "JEFFERY RM102",
+            "JEFFERY RM102",
+            "JEFFERY RM102"
+        ],
+        "STAT456 E Monday 9:30-10:30 Takahara,Glen",
+        "STAT456 E Wednesday 8:30-9:30 Takahara,Glen",
+        "STAT456 E Thursday 10:30-11:30 Takahara,Glen"
+    ],
+    "STAT457_1": [
+        "STAT457",
+        "Statistical Learning II",
+        "Ling,Brian",
+        [
+            "DUPUIS RM215",
+            "DUPUIS RM215",
+            "DUPUIS RM215"
+        ],
+        "STAT457 E Monday 15:30-16:30 Ling,Brian",
+        "STAT457 E Wednesday 14:30-15:30 Ling,Brian",
+        "STAT457 E Thursday 16:30-17:30 Ling,Brian"
+    ],
+    "STAT486_1": [
+        "STAT486",
+        "Survival Analysis",
+        "Jiang,Wenyu",
+        [
+            "KINES & HLTH RM106",
+            "KINES & HLTH RM106",
+            "KINES & HLTH RM106"
+        ],
+        "STAT486 E Monday 8:30-9:30 Jiang,Wenyu",
+        "STAT486 E Tuesday 10:30-11:30 Jiang,Wenyu",
+        "STAT486 E Thursday 9:30-10:30 Jiang,Wenyu"
+    ]
+}

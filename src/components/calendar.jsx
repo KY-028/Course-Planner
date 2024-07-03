@@ -32,26 +32,17 @@ const Calendar = (props) => {
                 .map(timeString => {
                     const parts = timeString.trim().split(' ');
                     const name = parts[0];
-                    const day = parts[1];
-                    const time = parts[2];
+                    const we = parts[1];
+                    const day = parts[2];
+                    const time = parts[3];
                     // length = 4: one prof name
                     // length = 5: with space in name
-                    let profName = ""
-                    if (parts.length > 5) {
-                        console.log('Very weird solus prof name');
-                    }
-                    else
-                        if (parts.length == 5) {
-                            profName = parts[3] + ' ' + parts[4];
-                        }
-                        else {
-                            profName = parts[3];
-                        }
+                    const profName = parts.slice(4,).join(" ");
                     const [startHour, startMinute] = time.split('-')[0].split(':').map(Number);
                     const [endHour, endMinute] = time.split('-')[1].split(':').map(Number);
                     const startTime = startHour * 60 + startMinute;
                     const endTime = endHour * 60 + endMinute;
-                    return { name, day, time, startTime, endTime, profName };
+                    return { name, we, day, time, startTime, endTime, profName };
                 });
 
             setTimes(processedTimes); // Update state with processed times
@@ -235,8 +226,6 @@ const Slot = ({ time, name, color, conflict, profName }) => {
     const mediaMatch = window.matchMedia('(min-width: 1280px)');
     const [matches, setMatches] = useState(mediaMatch.matches);
 
-    //console.log(profName);
-
     useEffect(() => {
         const handler = e => setMatches(e.matches);
         mediaMatch.addListener(handler);
@@ -258,13 +247,13 @@ const Slot = ({ time, name, color, conflict, profName }) => {
         >
             <div className={`${color} 2xl:px-1.5 xl:px-1 lg:px-0.5 md-custom:px-1 sm:px-1 px-0.5 sm:mx-0.5 rounded h-full box-border`}>
                 <div className='flex flex-col'>
-                    <p className='sm:block hidden 2xl:text-sm xl:text-small lg:text-xxxs lg-custom:text-xxs md-custom:text-xxxs text-xs 2xl:mt-0.5 xl:mt-0.5 lg:-mt-0 md-custom:-mt-0.5 font-bold'>
+                    <p className='sm:block hidden 2xl:text-sm xl:text-xs lg:text-xxxs lg-custom:text-xxs md-custom:text-xxxs text-xs 2xl:mt-0.5 xl:mt-0.5 lg:-mt-0 md-custom:-mt-0.5 mt-0.25 font-bold'>
                         {time}
                     </p>
-                    <p className='sm:hidden relative text-xs font-bold'>
+                    <p className='sm:hidden relative text-xs mt-0.25 font-bold'>
                         {start}
                     </p>
-                    <p className='2xl:text-sm xl:text-small lg:text-xxs md-custom:text-xxxs text-xs xl:-mt-0.5 lg:-mt-1 md-custom:-mt-1.5 sm:-mt-0.5'>
+                    <p className='2xl:text-sm xl:text-xs lg:text-xxs md-custom:text-xxxs text-xs xl:-mt-0.5 lg:-mt-1 md-custom:-mt-1.5 -mt-0.5'>
                         {name}
                     </p>
 
