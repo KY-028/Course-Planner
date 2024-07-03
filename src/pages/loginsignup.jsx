@@ -1,12 +1,21 @@
 import React from "react";
 import * as Components from "/src/components/logincomponents";
-import { useContext, useState } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from "../context/authContext";
 import Homenav from "/src/components/homenav"
 import axios from 'axios'
 
 export default function LoginSignup({ signinintent }) {
+
+    const { login, currentUser } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (currentUser) {
+            navigate("/course-selection");
+        }
+    }, [currentUser, navigate]);
 
     const [logininputs, setLoginInputs] = useState({
         email: "",
@@ -24,8 +33,6 @@ export default function LoginSignup({ signinintent }) {
 
     const [err, setError] = useState(null);
     const [signIn, toggle] = React.useState(signinintent);
-    const navigate = useNavigate();
-    const { login } = useContext(AuthContext);
 
 
     const handleLoginChange = (e) => {
