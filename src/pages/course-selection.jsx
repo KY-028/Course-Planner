@@ -3,8 +3,8 @@ import LeftMenu from '/src/components/leftMenu';
 import Calendar from '/src/components/calendar';
 import Nav from '/src/components/nav';
 import Selection from '/src/components/selections';
-import fallJSON from '/src/assets/fall_2024_0629.json';
-import winterJSON from '/src/assets/winter_2025_0629.json';
+import fallJSON from '/src/assets/fall_2024_0703.json';
+import winterJSON from '/src/assets/winter_2025_0703.json';
 import axios from 'axios'
 import { useContext } from 'react';
 import { AuthContext } from '../context/authContext';
@@ -73,7 +73,7 @@ export default function Courses() {
             const response = await axios.get(`https://cp-backend-psi.vercel.app/backend/users/courses/${userId}`);
             const { fallCourses, winterCourses } = response.data;
 
-            // Helper function to fetch custom course if not in JSON data
+            // Fetch custom course if not in JSON data
             const fetchAndMergeCustomCourse = async (courseId, term) => {
                 if (!(courseId in (term === 'fall' ? fallData : winterData))) {
                     const url = `https://cp-backend-psi.vercel.app/backend/customCourses/${courseId}?userId=${userId}&term=${term}`;
@@ -91,7 +91,7 @@ export default function Courses() {
             // Process fall courses
             const fallPromises = fallCourses.map(async (id) => {
                 await fetchAndMergeCustomCourse(id, 'fall');
-                return fallData[id].slice(2); // Assuming slice(2) removes unwanted elements
+                return fallData[id].slice(4);
             });
             const fall = await Promise.all(fallPromises);
             setFallCourses(fall.flat());
@@ -99,12 +99,12 @@ export default function Courses() {
             // Process winter courses
             const winterPromises = winterCourses.map(async (id) => {
                 await fetchAndMergeCustomCourse(id, 'winter');
-                return winterData[id].slice(2); // Assuming slice(2) removes unwanted elements
+                return winterData[id].slice(4);
             });
             const winter = await Promise.all(winterPromises);
             setWinterCourses(winter.flat());
 
-
+            // Set Selections Courses
             const processedFallCourses = fallCourses.map(courseId => generateNewCourse(courseId, fallData));
             setFc(processedFallCourses);
 
@@ -121,7 +121,7 @@ export default function Courses() {
 
     const updateFallCourses = async (courses_ids) => {
         // Prepare for Calendar Rendering
-        const courses = courses_ids.flatMap(course => fallData[course].slice(1));
+        const courses = courses_ids.flatMap(course => fallData[course].slice(4));
         setFallCourses(courses);
 
         if (!currentUser) {
@@ -142,7 +142,7 @@ export default function Courses() {
 
     const updateWinterCourses = async (courses_ids) => {
         // Prepare for Calendar Rendering
-        const courses = courses_ids.flatMap(course => winterData[course].slice(2));
+        const courses = courses_ids.flatMap(course => winterData[course].slice(4));
         setWinterCourses(courses);
 
         if (!currentUser) {

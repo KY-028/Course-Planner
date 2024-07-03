@@ -38,7 +38,7 @@ module.exports = {
         "table": "10% 18% 18% 18% 18% 18%",
       },
       fontSize: {
-        small: "12px",
+        small: "13px",
         xxs: "10px",
         xxxs: "9px",
       },
