@@ -1,4 +1,5 @@
 import { Children, useState } from 'react';
+import { Analytics } from "@vercel/analytics/react"
 import "./styles.css"
 import SignUp from "./pages/signUp"
 import Login from "./pages/login"
@@ -20,6 +21,7 @@ import {
 function Layout() {
   return (
     <>
+      <Analytics />
       <Outlet />
       <Footer />
     </>
