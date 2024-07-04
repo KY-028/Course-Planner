@@ -21,7 +21,7 @@ const LeftMenu = ({ activeTab }) => {
             closeModal();
             nav('/login');
         } catch (error) {
-            alert("Please give us a few seconds to store your changes before loggin out.")
+            alert("Please give us a few seconds to store your changes before logging out.")
         }
     };
 
@@ -38,8 +38,10 @@ const LeftMenu = ({ activeTab }) => {
             <Link to="/about" className={`w-fit ub my-1.5 mx-4 text-xl ${activeTab === 'about' ? 'text-teal ' : ''}`}>About</Link>
             <Link to="/support" className={`w-fit ub my-1.5 mx-4 text-xl ${activeTab === 'support' ? 'text-teal' : ''}`}>Support</Link>
 
+            <div className='w-fit my-1.5 mx-4 text-gray-300 absolute bottom-8 text-sm text-start tracking-tight leading-tight'>Course database last updated: July 3rd (ECON), July 2nd (CISC, MATH, STAT)</div>
+
             {currentUser ?
-                <button onClick={openModal} className={`w-fit ub my-1.5 mx-4 absolute bottom-8 text-xl text-start`}>
+                <button onClick={openModal} className={`w-fit ub my-1.5 mx-4 absolute xl:bottom-24 bottom-28 text-xl text-start`}>
                     Logout
                 </button> :
                 <Link to="/login" className={`w-fit ub my-1.5 mx-4 absolute bottom-8 text-xl text-start`}>
@@ -48,7 +50,7 @@ const LeftMenu = ({ activeTab }) => {
             }
 
             {isModalOpen && (
-                <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity z-50" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+                <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity z-50" aria-labelledby="modal-title" role="dialog" aria-modal="true" style={{ zIndex: 1100000 }}>
                     <div className="fixed inset-0 z-50 w-screen overflow-y-auto">
                         <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
                             <div className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg z-60">
