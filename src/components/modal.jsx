@@ -115,9 +115,9 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
     const searchResults = Object.keys(courseData)
         .filter(id => id.toLowerCase().includes(searchTerm.split(" ").join("").toLowerCase()))
         .map(id => (
-            <div key={id} onClick={() => handleCourseSelect(id)} className="p-1.5 hover:bg-gray-200 cursor-pointer">
+            <div key={id} onClick={() => handleCourseSelect(id)} className="p-1.5 hover:bg-gray-200 cursor-pointer overflow-hidden">
                 {`${courseData[id][0]} ${courseData[id][2].split(",").reverse().join(" ")} `}
-                <div className="text-gray-700 text-sm -mt-1">
+                <div className="text-gray-700 text-sm -mt-1 overflow-hidden">
                     {courseData[id][1]}
                 </div>
                 <div className="ml-6 text-gray-600 text-sm">

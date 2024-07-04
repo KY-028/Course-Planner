@@ -1153,5 +1153,332 @@
         "STAT486 E Monday 8:30-9:30 Jiang,Wenyu",
         "STAT486 E Tuesday 10:30-11:30 Jiang,Wenyu",
         "STAT486 E Thursday 9:30-10:30 Jiang,Wenyu"
+    ],
+
+    "ECON110_1": [
+        "ECON110",
+        "Principles of Economics",
+        "Abbott,Brant",
+        [
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF AUD"
+        ],
+        "ECON110 E Tuesday 15:30-16:30 Abbott,Brant",
+        "ECON110 E Thursday 14:30-15:30 Abbott,Brant",
+        "ECON110 E Friday 16:30-17:30 Abbott,Brant"
+    ],
+    "ECON110_2": [
+        "ECON110",
+        "Principles of Economics",
+        "Abbott,Brant",
+        [
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM1102"
+        ],
+        "ECON110 E Monday 10:30-11:30 Abbott,Brant",
+        "ECON110 E Wednesday 9:30-10:30 Abbott,Brant",
+        "ECON110 E Friday 8:30-9:30 Abbott,Brant"
+    ],
+    "ECON112_1": [
+        "ECON112",
+        "Introductory Macroeconomics",
+        "Berkok,Ugurhan",
+        [
+            "DUNNING AUD"
+        ],
+        "ECON112 E Monday 18:30-21:30 Berkok,Ugurhan"
+    ],
+    "ECON212_1": [
+        "ECON212",
+        "Microeconomic Theory I",
+        "Barber,Michael",
+        [
+            "DUNNING RM14",
+            "DUNNING RM14"
+        ],
+        "ECON212 E Monday 14:30-16:00 Barber,Michael",
+        "ECON212 E Thursday 16:00-17:30 Barber,Michael"
+    ],
+    "ECON222_1": [
+        "ECON222",
+        "Macroeconomic Theory I",
+        "Kennedy,Michael",
+        [
+            "MACINTOSH-CORRY RM B201",
+            "MACINTOSH-CORRY RM B201"
+        ],
+        "ECON222 E Wednesday 10:00-11:30 Kennedy,Michael",
+        "ECON222 E Friday 8:30-10:00 Kennedy,Michael"
+    ],
+    "ECON222_2": [
+        "ECON222",
+        "Macroeconomic Theory I",
+        "Shi,Shouyong",
+        [
+            "DUNNING RM12",
+            "DUNNING RM12"
+        ],
+        "ECON222 E Tuesday 16:00-17:30 Shi,Shouyong",
+        "ECON222 E Thursday 14:30-16:00 Shi,Shouyong"
+    ],
+    "ECON232_1": [
+        "ECON232",
+        "The Diffusion of Modern Economic Growth",
+        "Keay,Ian",
+        [
+            "DUNNING RM14",
+            "DUNNING RM14"
+        ],
+        "ECON232 E Wednesday 10:00-11:30 Keay,Ian",
+        "ECON232 E Friday 8:30-10:00 Keay,Ian"
+    ],
+    "ECON243_1": [
+        "ECON243",
+        "The Economics of Health Care",
+        "Berkok,Ugurhan",
+        [
+            "MACINTOSH-CORRY RM B201"
+        ],
+        "ECON243 E Wednesday 18:30-21:30 Berkok,Ugurhan"
+    ],
+    "ECON250_1": [
+        "ECON250",
+        "Introduction to Statistics",
+        "Smith,Gregor W",
+        [
+            "MACINTOSH-CORRY RM B201",
+            "MACINTOSH-CORRY RM B201"
+        ],
+        "ECON250 E Tuesday 8:30-10:00 Smith,Gregor W",
+        "ECON250 E Friday 10:00-11:30 Smith,Gregor W"
+    ],
+    "ECON255_1": [
+        "ECON255",
+        "Introduction to Mathematical Economics",
+        "Zabojnik,Jan",
+        [
+            "DUNNING RM14",
+            "DUNNING RM14"
+        ],
+        "ECON255 E Monday 10:00-11:30 Zabojnik,Jan",
+        "ECON255 E Wednesday 8:30-10:00 Zabojnik,Jan"
+    ],
+    "ECON262_1": [
+        "ECON262",
+        "Labour Market and Gender Differences",
+        "Xu,Ming",
+        [
+            "MILLER RM201",
+            "MILLER RM201"
+        ],
+        "ECON262 E Monday 8:30-10:00 Xu,Ming",
+        "ECON262 E Thursday 10:00-11:30 Xu,Ming"
+    ],
+    "ECON280_1": [
+        "ECON280",
+        "Population and Economic Change",
+        "Hageman,Anya",
+        [
+            "ELLIS RM324",
+            "DUPUIS RM217"
+        ],
+        "ECON280 E Monday 16:00-17:30 Hageman,Anya",
+        "ECON280 E Tuesday 16:00-17:30 Hageman,Anya"
+    ],
+    "ECON290_1": [
+        "ECON290",
+        "Environmental Economics and Assessment",
+        "Zahur,Nahim",
+        [
+            "KINES & HLTH RM101",
+            "KINES & HLTH RM101"
+        ],
+        "ECON290 E Monday 13:00-14:30 Zahur,Nahim",
+        "ECON290 E Wednesday 11:30-13:00 Zahur,Nahim"
+    ],
+    "ECON310_1": [
+        "ECON310",
+        "Microeconomic Theory II",
+        "Ye,Karen",
+        [
+            "CHERNOFF RM117"
+        ],
+        "ECON310 E Monday Tuesday 1:00-2:30 Ye,Karen"
+    ],
+    "ECON320_1": [
+        "ECON320",
+        "Macroeconomic Theory II",
+        "Kennedy,Michael",
+        [
+            "JOHN WATSON RM217",
+            "JOHN WATSON RM217"
+        ],
+        "ECON320 E Monday 8:30-10:00 Kennedy,Michael",
+        "ECON320 E Thursday 10:00-11:30 Kennedy,Michael"
+    ],
+    "ECON348_1": [
+        "ECON348",
+        "Law and Economics",
+        "Kushniryk,Seth John",
+        [
+            "JOHN WATSON RM217",
+            "JOHN WATSON RM217"
+        ],
+        "ECON348 E Monday 10:00-11:30 Kushniryk,Seth John",
+        "ECON348 E Wednesday 8:30-10:00 Kushniryk,Seth John"
+    ],
+    "ECON351_1": [
+        "ECON351",
+        "Introductory Econometrics",
+        "Lehrer,Steven F",
+        [
+            "BOTTER RM B139",
+            "BOTTER RM B139"
+        ],
+        "ECON351 E Monday 11:30-13:00 Lehrer,Steven F",
+        "ECON351 E Thursday 13:00-14:30 Lehrer,Steven F"
+    ],
+    "ECON361_1": [
+        "ECON361",
+        "Income Distribution and Problems of Inequality",
+        "Ding,Weili",
+        [
+            "DUPUIS RM217",
+            "DUPUIS RM217"
+        ],
+        "ECON361 E Tuesday 13:00-14:30 Ding,Weili",
+        "ECON361 E Thursday 11:30-13:00 Ding,Weili"
+    ],
+    "ECON370_1": [
+        "ECON370",
+        "Urban and Regional Economics",
+        "Head,Allen C",
+        [
+            "JOHN WATSON RM217",
+            "JOHN WATSON RM217"
+        ],
+        "ECON370 E Tuesday 11:30-13:00 Head,Allen C",
+        "ECON370 E Friday 13:00-14:30 Head,Allen C"
+    ],
+    "ECON371_1": [
+        "ECON371",
+        "Economics of Regulation",
+        "Chan,Mons",
+        [
+            "MACINTOSH-CORRY RM D216",
+            "MACINTOSH-CORRY RM D216"
+        ],
+        "ECON371 E Monday 10:00-11:30 Chan,Mons",
+        "ECON371 E Wednesday 8:30-10:00 Chan,Mons"
+    ],
+    "ECON423_1": [
+        "ECON423",
+        "Topics in Financial Economics",
+        "Zabojnik,Jan",
+        [
+            "MACINTOSH-CORRY RM D216",
+            "MACINTOSH-CORRY RM D216"
+        ],
+        "ECON423 E Tuesday 10:00-11:30 Zabojnik,Jan",
+        "ECON423 E Thursday 8:30-10:00 Zabojnik,Jan"
+    ],
+    "ECON426_1": [
+        "ECON426",
+        "International Macroeconomics",
+        "Smith,Gregor W",
+        [
+            "MCLAUGHLIN RM306",
+            "MCLAUGHLIN RM306"
+        ],
+        "ECON426 E Monday 16:00-17:30 Smith,Gregor W",
+        "ECON426 E Wednesday 14:30-16:00 Smith,Gregor W"
+    ],
+    "ECON430_1": [
+        "ECON430",
+        "Issues in Economic History",
+        "Keay,Ian",
+        [
+            "MACINTOSH-CORRY RM D216",
+            "MACINTOSH-CORRY RM D216"
+        ],
+        "ECON430 E Monday 8:30-10:00 Keay,Ian",
+        "ECON430 E Thursday 10:00-11:30 Keay,Ian"
+    ],
+    "ECON435_1": [
+        "ECON435",
+        "Development Economics",
+        "Cotton,Christopher",
+        [
+            "Law Building RM3",
+            "Law Building RM3"
+        ],
+        "ECON435 E Tuesday 11:30-13:00 Cotton,Christopher",
+        "ECON435 E Friday 13:00-14:30 Cotton,Christopher"
+    ],
+    "ECON443_1": [
+        "ECON443",
+        "Issues in Microeconomics Policy",
+        "Ye,Karen",
+        [
+            "Law Building RM2",
+            "Law Building RM3"
+        ],
+        "ECON443 E Wednesday 13:00-14:30 Ye,Karen",
+        "ECON443 E Tuesday 14:30-16:00 Ye,Karen"
+    ],
+    "ECON445_1": [
+        "ECON445",
+        "Industrial Organization and Public Policy",
+        "Zahur,Nahim",
+        [
+            "KINES & HLTH RM101",
+            "KINES & HLTH RM101"
+        ],
+        "ECON445 E Monday 10:00-11:30 Zahur,Nahim",
+        "ECON445 E Wednesday 8:30-10:00 Zahur,Nahim"
+    ],
+    "ECON452_1": [
+        "ECON452",
+        "Applied Econometrics",
+        "Liu,Sitian",
+        [
+            "JOHN WATSON RM217",
+            "JOHN WATSON RM217"
+        ],
+        "ECON452 E Tuesday 13:00-14:30 Liu,Sitian",
+        "ECON452 E Thursday 11:30-13:00 Liu,Sitian"
+    ],
+    "ECON483_1": [
+        "ECON483",
+        "Seminar in Microeconomics IV",
+        "Berkok,Ugurhan",
+        [
+            "MACINTOSH-CORRY RM A416"
+        ],
+        "ECON483 E Tuesday 18:30-21:30 Berkok,Ugurhan"
+    ],
+    "ECON491_1": [
+        "ECON491",
+        "Seminar in Macroeconomics II",
+        "Kennedy,Michael",
+        [
+            "Hand-Purvis Conference Room",
+            "Hand-Purvis Conference Room"
+        ],
+        "ECON491 E Monday 11:30-13:00 Kennedy,Michael",
+        "ECON491 E Thursday 13:00-14:30 Kennedy,Michael"
+    ],
+    "ECON835_1": [
+        "ECON835",
+        "Development Economics",
+        "Cotton,Christopher",
+        [
+            "Law Building RM3",
+            "Law Building RM3"
+        ],
+        "ECON835 E Tuesday 11:30-13:00 Cotton,Christopher",
+        "ECON835 E Friday 13:00-14:30 Cotton,Christopher"
     ]
 }
