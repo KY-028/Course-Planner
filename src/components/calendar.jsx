@@ -98,7 +98,7 @@ const Calendar = (props) => {
 
             return (
                 <div key={index}>
-                    <Slot time={event.time} name={event.name} color={color} conflict={conflict} profName={event.profName} />
+                    <Slot time={event.time} name={event.name} color={color} west={event.we} profName={event.profName} />
                 </div>
             );
         });
@@ -222,7 +222,7 @@ const styles = {
 };
 
 
-const Slot = ({ time, name, color, conflict, profName }) => {
+const Slot = ({ time, name, color, west, profName }) => {
     const mediaMatch = window.matchMedia('(min-width: 1280px)');
     const [matches, setMatches] = useState(mediaMatch.matches);
 
@@ -269,13 +269,13 @@ const Slot = ({ time, name, color, conflict, profName }) => {
 
                 </div>
             </div>
-            {/* {conflict && (
-                <div className='absolute md-custom:bottom-1.5 md-custom:left-1.5 sm:bottom-1 sm:left-1
-                rounded-full bg-white bg-opacity-80 text-center
-                lg:w-4 lg:h-4 sm:w-2 sm:h-2' style={{ zIndex: 10000000}}>
-                    <img src={"./exclamation.svg"} alt="!" />
+            {west === 'W' && (
+                <div className='absolute md-custom:bottom-1.5 md-custom:right-1.5 bottom-0 right-1.5 xl:font-bold lg:text-xs text-xxs cursor-help text-red-600' style={{ zIndex: 10000000 }}
+                    onClick={() => alert('This class is on west campus!')}>
+                    {/* <img src={"./exclamation.svg"} alt="!" /> */}
+                    W
                 </div>
-            )} */}
+            )}
         </div>
     )
 }
