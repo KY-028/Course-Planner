@@ -21,7 +21,7 @@ const LeftMenu = ({ activeTab }) => {
             closeModal();
             nav('/login');
         } catch (error) {
-            alert("Please give us a few seconds to store your changes before loggin out.")
+            alert("Please give us a few seconds to store your changes before logging out.")
         }
     };
 
@@ -48,7 +48,7 @@ const LeftMenu = ({ activeTab }) => {
             }
 
             {isModalOpen && (
-                <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity z-50" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+                <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity z-50" aria-labelledby="modal-title" role="dialog" aria-modal="true" style={{ zIndex: 1100000 }}>
                     <div className="fixed inset-0 z-50 w-screen overflow-y-auto">
                         <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
                             <div className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg z-60">
