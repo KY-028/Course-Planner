@@ -17,19 +17,20 @@ function Toggle({ message, isToggled, toggleSwitch }) {
     );
 }
 
-function Course({ id, name, options, selectedOption, onSelectChange, onRemove, term }) {
+function Course({ id, name, title, options, selectedOption, onSelectChange, onRemove, term }) {
     return (
-        <div className="relative bg-white rounded-lg xl:h-16 lg:h-14 md-custom:h-12 sm:h-14 h-12 xl:pt-1 lg:pt-1.5 mx-0.5 px-2">
+        <div className="relative bg-white rounded-lg xl:h-20 lg:h-[4.25rem] md-custom:h-14 sm:h-[4.25rem] h-14 xl:pt-1 lg:pt-1.5 mx-0.5 lg:px-2 md-custom:px-1 sm:px-2 px-1 overflow-hidden">
             <button
                 className=" rounded-xl  absolute top-0 right-0 p-1 px-2 lg:pt-1 md-custom:pt-0.5 lg:text-xxs text-xxxs font-extrabold text-black hover:text-red-500"
                 onClick={() => onRemove(id)}
             >
                 &#x2715;
             </button>
-            <div className="w-full font-semibold xl:text-base lg:text-xs md-custom:text-xs sm:text-sm text-xs xl:mb-0.5 lg:mt-0.5 md-custom:mt-1 md-custom:-mb-0.5 mt-1">{name}</div>
+            <div className="w-full font-semibold xl:text-base lg:text-xs md-custom:text-xs sm:text-sm text-xs lg:mb-0.25 lg:mt-0.5 md-custom:mt-1 sm:-mb-0 mt-1">{name}</div>
+            <div className="w-full text-gray-600 xl:text-xs lg:text-xxs md-custom:text-xxs sm:text-xs text-xxs xl:mb-0.5 lg:-mb-1 md-custom:-mb-1.5 sm:-mb-0.5 -mb-1.5 text-nowrap overflow-hidden">{title}</div>
             <select
                 id={`${term}-${id}`}
-                className="w-full bg-gray-100 border-gray-300 rounded xl:text-xs md-custom:text-xxs sm:text-sm text-xs"
+                className="w-full bg-gray-100 border-gray-300 rounded xl:text-xs md-custom:text-xxs sm:text-small text-xxs"
                 value={selectedOption}
                 onChange={(e) => onSelectChange(id, e.target.value)}
             >
@@ -127,7 +128,7 @@ function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChan
         // Check if the course ID does not start with any of the specified prefixes
 
         const newCourseData = { ...courseData };
-        if (!id.startsWith("CISC") && !id.startsWith("MATH") && !id.startsWith("STAT") && !id.startsWith("COGS")) {
+        if (!id.startsWith("CISC") && !id.startsWith("MATH") && !id.startsWith("STAT") && !id.startsWith("COGS") && !id.startsWith("ECON")) {
             // Prompt the user to confirm the removal of a custom course
             const confirmRemoval = confirm("Removing a custom course will require you to reenter it. Do you want to proceed?");
 
@@ -172,12 +173,13 @@ function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChan
 
 
     return (
-        <div className=" bg-slate-200 rounded-2xl mt-3 grid grid-cols-4 gap-1 p-4">
+        <div className=" bg-slate-200 rounded-2xl mt-3 grid grid-cols-4 gap-1 xl:p-4 sm:p-2 p-3">
             {courses.map((course) => (
                 <Course
                     key={course.id}
                     id={course.id}
                     name={course.name}
+                    title={course.title}
                     options={course.options}
                     selectedOption={course.selectedOption}
                     onSelectChange={handleSelectChange}
@@ -186,7 +188,7 @@ function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChan
                 />
             ))}
             {courses.length < 15 &&
-                <button className="flex justify-center items-center xl:h-16 lg:h-14 md-custom:h-12 sm:h-14 h-12 border-2 border-dashed border-gray-400 rounded-lg transition duration-200 bg-white hover:bg-sky-100 mx-0.5"
+                <button className="flex justify-center items-center xl:h-20 lg:h-[4.25rem] md-custom:h-14 sm:h-[4.25rem] h-14 border-2 border-dashed border-gray-400 rounded-lg transition duration-200 bg-white hover:bg-sky-100 mx-0.5"
                     onClick={() => setIsModalOpen(true)}>
                     <span className="text-xl">+</span>
                 </button>
@@ -243,7 +245,7 @@ function Selection({ isLoading, onUpdate, courseData, changeCourseData, courses,
 
         ids.forEach(id => {
             if (id in courseData) {
-                allCourseDetails.push(id);  // Collect all times, assuming times start from index 2
+                allCourseDetails.push(id);
             } else {
                 notFoundIds.push(id);  // Collect IDs not found
             }
@@ -262,7 +264,7 @@ function Selection({ isLoading, onUpdate, courseData, changeCourseData, courses,
                 </div>
                 <CourseGrid courseData={courseData} courses={courses} setCourses={setCourses} setChangeCounter={setChangeCounter} changeCourseData={changeCourseData} term={term} />
                 {conflicts.length > 0 && (
-                    <div className="p-2 mx-1 bg-red-100 border border-red-400 text-red-700">
+                    <div className="mt-1 p-2 mx-1 bg-red-100 border border-red-400 text-red-700">
                         <p>The following Courses have Conflicts:</p>
                         <ul>
                             {conflicts.map(id => <li key={id}>{id}</li>)}
@@ -287,7 +289,7 @@ function Selection({ isLoading, onUpdate, courseData, changeCourseData, courses,
 
                 {notFound.length > 0 && (
                     <div className="p-2 mx-1 bg-red-100 border border-red-400 text-red-700">
-                        <p>Course ID(s) not found (check your format!):</p>
+                        <p>Course ID(s) not found:</p>
                         <ul>
                             {notFound.map(id => <li key={id}>{id}</li>)}
                         </ul>

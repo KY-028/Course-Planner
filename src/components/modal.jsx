@@ -3,6 +3,8 @@ import { useState } from "react";
 export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddCustomCourse }) {
     const [searchTerm, setSearchTerm] = useState('');
     const [courseName, setCourseName] = useState('');
+    const [courseTitle, setCourseTitle] = useState('Custom Course Title');
+    const [isCourseTitleFocused, setIsCourseTitleFocused] = useState(false);
     const [sectionNumber, setSectionNumber] = useState('');
     const [staffName, setStaffName] = useState('Staff');
     const [times, setTimes] = useState([{ day: 'Monday', time: '' }]);
@@ -36,12 +38,14 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
     };
 
     const formatDays = (times) => {
+        const daysOrder = ["M", "T", "W", "Th", "F"];
         const daysSet = new Set();
+
         times.forEach(({ day }) => { // Access the 'day' property of each time object
             daysSet.add(day.startsWith('Th') ? 'Th' : day.charAt(0));
         });
 
-        return Array.from(daysSet).join(''); // Sort and convert to string
+        return Array.from(daysSet).sort((a, b) => daysOrder.indexOf(a) - daysOrder.indexOf(b)).join('');
     };
 
     function convertTo24Hour(timeStr) {
@@ -60,7 +64,7 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
         if (starthour === 18 && endhour === 9) {
             endhour += 12;
         }
-        
+
         return `${starthour}:${bmin}-${endhour}:${emin}`;
     }
 
@@ -78,15 +82,19 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
 
         const formattedDays = formatDays(times);
 
-        const formattedArray = [courseName, staffName];
+        const locations = [];
+
+        const formattedArray = [courseName, courseTitle, staffName, locations];
         times.forEach(time => {
             const time_str = convertTo24Hour(time.time);
-            formattedArray.push(`${courseName} ${time.day} ${time_str} ${staffName}`);
+            formattedArray.push(`${courseName} U ${time.day} ${time_str} ${staffName}`);
+            locations.push("");
         });
 
         const courseDetails = {
             id: id,
             name: courseName,
+            title: courseTitle,
             options: [`Section ${sectionNumber}: ${formattedDays}`],
             selectedOption: `Section ${sectionNumber}: ${formattedDays}`,
             correctformat: formattedArray,
@@ -97,6 +105,7 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
 
         // Reset all form fields and close custom form
         setCourseName('');
+        setCourseTitle('Custom Course Name');
         setSectionNumber('');
         setStaffName('Staff');
         setTimes([{ day: 'Monday', time: '' }]);
@@ -106,12 +115,15 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
     const searchResults = Object.keys(courseData)
         .filter(id => id.toLowerCase().includes(searchTerm.split(" ").join("").toLowerCase()))
         .map(id => (
-            <div key={id} onClick={() => handleCourseSelect(id)} className="p-1.5 hover:bg-gray-200 cursor-pointer">
-                {`${courseData[id][0]} ${courseData[id][1].split(",").reverse().join(" ")} `}
+            <div key={id} onClick={() => handleCourseSelect(id)} className="p-1.5 hover:bg-gray-200 cursor-pointer overflow-hidden">
+                {`${courseData[id][0]} ${courseData[id][2].split(",").reverse().join(" ")} `}
+                <div className="text-gray-700 text-sm -mt-1 overflow-hidden">
+                    {courseData[id][1]}
+                </div>
                 <div className="ml-6 text-gray-600 text-sm">
-                    {courseData[id].slice(2,).map((desc, i) => (
+                    {courseData[id].slice(4,).map((desc, i) => (
                         <div key={i}>
-                            {`${desc.split(" ")[1].slice(0, 3).toUpperCase()} ${desc.split(" ")[2]}`}
+                            {`${desc.split(" ")[2].slice(0, 3).toUpperCase()} ${desc.split(" ")[3]}`}
                         </div>
                     ))
                     }
@@ -143,10 +155,10 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
                                     type="text"
                                     id="course"
                                     maxLength={8}
-                                    placeholder="Course name"
+                                    placeholder="Course Code"
                                     className="mt-4 p-2 w-full border-gray-400 border rounded"
                                     value={courseName}
-                                    onChange={e => setCourseName(e.target.value.toUpperCase())}
+                                    onChange={e => setCourseName(e.target.value.split(" ").join("").toUpperCase())}
                                     required
                                 />
                                 <label htmlFor="course" className="lg:ml-2 ml-1 text-sm text-gray-500">e.g. MATH110 (no space)</label>
@@ -170,6 +182,26 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
                         <input
                             type="text"
                             className="mt-2 p-2 w-full border-gray-400 border rounded"
+                            value={courseTitle}
+                            onFocus={() => {
+                                if (!isCourseTitleFocused) {
+                                    setCourseTitle('');
+                                    setIsCourseTitleFocused(true);
+                                }
+                            }}
+                            onBlur={() => {
+                                if (courseTitle === '') {
+                                    setCourseTitle('Custom Course');
+                                    setIsCourseTitleFocused(false);
+                                }
+                            }}
+                            onChange={e => setCourseTitle(e.target.value)}
+                            required
+                        />
+                        <input
+                            type="text"
+                            className="mt-2 p-2 w-full border-gray-400 border rounded"
+                            placeholder="Professor"
                             value={staffName}
                             onChange={e => setStaffName(e.target.value)}
                             required
