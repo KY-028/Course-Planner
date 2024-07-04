@@ -103,9 +103,6 @@ export default function Courses() {
             const fallResults = await processCourses(fallCourses, 'fall');
             const winterResults = await processCourses(winterCourses, 'winter');
 
-            console.log('Fall Courses (processed):', fallResults);
-            console.log('Winter Courses (processed):', winterResults);
-
             setFallCourses(fallResults.sliced);
             setWinterCourses(winterResults.sliced);
 
