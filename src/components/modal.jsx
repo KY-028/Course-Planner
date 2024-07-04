@@ -117,7 +117,7 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
         .map(id => (
             <div key={id} onClick={() => handleCourseSelect(id)} className="p-1.5 hover:bg-gray-200 cursor-pointer">
                 {`${courseData[id][0]} ${courseData[id][2].split(",").reverse().join(" ")} `}
-                <div className="text-gray-700 text-sm">
+                <div className="text-gray-700 text-sm -mt-1">
                     {courseData[id][1]}
                 </div>
                 <div className="ml-6 text-gray-600 text-sm">
