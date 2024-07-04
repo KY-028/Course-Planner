@@ -37,16 +37,14 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
         setTimes(newTimes);
     };
 
-    const formatDays = (sessions) => {
+    const formatDays = (times) => {
         const daysOrder = ["M", "T", "W", "Th", "F"];
         const daysSet = new Set();
 
-        sessions.forEach(session => {
-            session.match(/\b(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\b/g).forEach(day => {
-                const dayAbbr = day.startsWith('Th') ? 'Th' : day.charAt(0);
-                daysSet.add(dayAbbr);
-            });
+        times.forEach(({ day }) => { // Access the 'day' property of each time object
+            daysSet.add(day.startsWith('Th') ? 'Th' : day.charAt(0));
         });
+
         return Array.from(daysSet).sort((a, b) => daysOrder.indexOf(a) - daysOrder.indexOf(b)).join('');
     };
 
@@ -96,6 +94,7 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
         const courseDetails = {
             id: id,
             name: courseName,
+            title: courseTitle,
             options: [`Section ${sectionNumber}: ${formattedDays}`],
             selectedOption: `Section ${sectionNumber}: ${formattedDays}`,
             correctformat: formattedArray,
@@ -202,6 +201,7 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
                         <input
                             type="text"
                             className="mt-2 p-2 w-full border-gray-400 border rounded"
+                            placeholder="Professor"
                             value={staffName}
                             onChange={e => setStaffName(e.target.value)}
                             required
