@@ -38,7 +38,7 @@ const LeftMenu = ({ activeTab }) => {
             <Link to="/about" className={`w-fit ub my-1.5 mx-4 text-xl ${activeTab === 'about' ? 'text-teal ' : ''}`}>About</Link>
             <Link to="/support" className={`w-fit ub my-1.5 mx-4 text-xl ${activeTab === 'support' ? 'text-teal' : ''}`}>Support</Link>
 
-            <div className='w-fit my-1.5 mx-4 text-gray-300 absolute bottom-8 text-sm text-start tracking-tight leading-tight'>Course database last updated: July 3rd (ECON), July 2nd (CISC, MATH, STAT)</div>
+            <div className='w-fit my-1.5 mx-4 text-gray-300 absolute bottom-8 text-sm text-start tracking-tight leading-tight'>Database last updated: 0704PHYS, 0703ECON, 0702(CISC, MATH, STAT)</div>
 
             {currentUser ?
                 <button onClick={openModal} className={`w-fit ub my-1.5 mx-4 absolute xl:bottom-24 bottom-28 text-xl text-start`}>

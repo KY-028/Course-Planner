@@ -3,8 +3,8 @@ import LeftMenu from '/src/components/leftMenu';
 import Calendar from '/src/components/calendar';
 import Nav from '/src/components/nav';
 import Selection from '/src/components/selections';
-import fallJSON from '/src/assets/fall_2024_0703.json';
-import winterJSON from '/src/assets/winter_2025_0703.json';
+import fallJSON from '/src/assets/fall_2024_0705.json';
+import winterJSON from '/src/assets/winter_2025_0705.json';
 import axios from 'axios'
 import { useContext } from 'react';
 import { AuthContext } from '../context/authContext';
@@ -20,7 +20,7 @@ export default function Courses() {
     /**
      * Courses to be displayed in <Calendar />
      * Desired format: one single list of 
-     * ["CISC101 Day Time Prof", "CISC101 Day Time Prof", "CISC102 Day Time Prof", ...]
+     * ["CISC101 U Day Time Prof", "CISC101 U Day Time Prof", "CISC102 U Day Time Prof", ...]
      */
 
     const [fallCourses, setFallCourses] = useState([]);
