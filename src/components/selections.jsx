@@ -128,7 +128,7 @@ function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChan
         // Check if the course ID does not start with any of the specified prefixes
 
         const newCourseData = { ...courseData };
-        if (!id.startsWith("CISC") && !id.startsWith("MATH") && !id.startsWith("STAT") && !id.startsWith("COGS") && !id.startsWith("ECON")) {
+        if (!id.startsWith("CISC") && !id.startsWith("MATH") && !id.startsWith("STAT") && !id.startsWith("COGS") && !id.startsWith("ECON") && !id.startsWith("PHYS")) {
             // Prompt the user to confirm the removal of a custom course
             const confirmRemoval = confirm("Removing a custom course will require you to reenter it. Do you want to proceed?");
 
