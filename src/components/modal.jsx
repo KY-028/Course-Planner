@@ -58,7 +58,7 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
         if (1 <= starthour && starthour <= 6) { // if the hour is 1, 2, 3, 4, 5, or 6
             starthour += 12;
         }
-        if ((1 <= endhour && endhour <= 6) || endhour == 8) {
+        if (1 <= endhour && endhour <= 8) {
             endhour += 12;
         }
         if (starthour === 18 && endhour === 9) {
@@ -113,7 +113,12 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
     };
 
     const searchResults = Object.keys(courseData)
-        .filter(id => id.toLowerCase().includes(searchTerm.split(" ").join("").toLowerCase()))
+        .filter(id => {
+            const normalizedSearchTerm = searchTerm.split(" ").join("").toLowerCase();
+            const normalizedId = id.toLowerCase();
+            const normalizedDescription = courseData[id][1].split(" ").join("").toLowerCase();
+            return normalizedId.includes(normalizedSearchTerm) || normalizedDescription.includes(normalizedSearchTerm);
+        })
         .map(id => (
             <div key={id} onClick={() => handleCourseSelect(id)} className="p-1.5 hover:bg-gray-200 cursor-pointer overflow-hidden">
                 {`${courseData[id][0]} ${courseData[id][2].split(",").reverse().join(" ")} `}

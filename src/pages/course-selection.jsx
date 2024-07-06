@@ -3,8 +3,8 @@ import LeftMenu from '/src/components/leftMenu';
 import Calendar from '/src/components/calendar';
 import Nav from '/src/components/nav';
 import Selection from '/src/components/selections';
-import fallJSON from '/src/assets/fall_2024_0705.json';
-import winterJSON from '/src/assets/winter_2025_0705.json';
+import fallJSON from '/src/assets/fall_2024_0706.json';
+import winterJSON from '/src/assets/winter_2025_0706.json';
 import axios from 'axios'
 import { useContext } from 'react';
 import { AuthContext } from '../context/authContext';
@@ -16,6 +16,8 @@ export default function Courses() {
     // Imported JSON
     const [fallData, setFallData] = useState(fallJSON);
     const [winterData, setWinterData] = useState(winterJSON);
+    const [fallOriginal] = useState(JSON.parse(JSON.stringify(fallJSON)));
+    const [winterOriginal] = useState(JSON.parse(JSON.stringify(winterJSON)));
 
     /**
      * Courses to be displayed in <Calendar />
@@ -195,12 +197,12 @@ export default function Courses() {
                 <Nav activeTab="courses" />
                 <div className='w-full grid md-custom:grid-cols-2 grid-cols md-custom:mx-0 m-0 p-0 gap-3' >
                     <div className='sm:m-0 m-1.5 p-0'>
-                        <Selection isLoading={isLoading} onUpdate={updateFallCourses} courseData={fallData} changeCourseData={setFallData} courses={fc} setCourses={setFc} term={"Fall"} conflicts={fallConflicts} />
+                        <Selection isLoading={isLoading} onUpdate={updateFallCourses} courseData={fallData} changeCourseData={setFallData} courses={fc} setCourses={setFc} term={"Fall"} conflicts={fallConflicts} original={fallOriginal} />
                         <Calendar term="Fall" times={fallCourses} setConflicts={setFallConflicts} />
 
                     </div>
                     <div className='sm:m-0 m-1.5 p-0'>
-                        <Selection isLoading={isLoading} onUpdate={updateWinterCourses} courseData={winterData} changeCourseData={setWinterData} courses={wc} setCourses={setWc} term={"Winter"} conflicts={winterConflicts} />
+                        <Selection isLoading={isLoading} onUpdate={updateWinterCourses} courseData={winterData} changeCourseData={setWinterData} courses={wc} setCourses={setWc} term={"Winter"} conflicts={winterConflicts} original={winterOriginal} />
                         <Calendar term="Winter" times={winterCourses} setConflicts={setWinterConflicts} />
                     </div>
 

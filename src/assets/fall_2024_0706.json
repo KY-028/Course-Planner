@@ -1579,15 +1579,1170 @@
         "ECON494 E Monday 10:00-11:30 Hashemi,Majid",
         "ECON494 E Wednesday 8:30-10:00 Hashemi,Majid"
     ],
-    "ECON852_1": [
-        "ECON852",
-        "Quantitative Methods",
-        "Lehrer,Steven F",
+    "PHYS104A_1": [
+        "PHYS104A",
+        "Fundamental Physics",
+        "Martin,Ryan D",
         [
-            "BOTTER RM B139",
-            "BOTTER RM B139"
+            "STIRLING AUD",
+            "STIRLING AUD",
+            "STIRLING AUD",
+            "STIRLING RM401"
         ],
-        "ECON852 E Monday 8:30-10:00 Lehrer,Steven F",
-        "ECON852 E Thursday 10:00-11:30 Lehrer,Steven F"
+        "PHYS104A E Monday 11:30-12:30 Martin,Ryan D",
+        "PHYS104A E Tuesday 13:30-14:30 Martin,Ryan D",
+        "PHYS104A E Thursday 12:30-13:30 Martin,Ryan D",
+        "PHYS104A E Monday 14:30-17:30 Martin,Ryan D"
+    ],
+    "PHYS104A_2": [
+        "PHYS104A",
+        "Fundamental Physics",
+        "Martin,Ryan D",
+        [
+            "STIRLING AUD",
+            "STIRLING AUD",
+            "STIRLING AUD",
+            "STIRLING RM401"
+        ],
+        "PHYS104A E Monday 11:30-12:30 Martin,Ryan D",
+        "PHYS104A E Tuesday 13:30-14:30 Martin,Ryan D",
+        "PHYS104A E Thursday 12:30-13:30 Martin,Ryan D",
+        "PHYS104A E Wednesday 14:30-17:30 Martin,Ryan D"
+    ],
+    "PHYS104A_3": [
+        "PHYS104A",
+        "Fundamental Physics",
+        "Martin,Ryan D",
+        [
+            "STIRLING AUD",
+            "STIRLING AUD",
+            "STIRLING AUD",
+            "STIRLING RM401"
+        ],
+        "PHYS104A E Monday 11:30-12:30 Martin,Ryan D",
+        "PHYS104A E Tuesday 13:30-14:30 Martin,Ryan D",
+        "PHYS104A E Thursday 12:30-13:30 Martin,Ryan D",
+        "PHYS104A E Tuesday 14:30-17:30 Martin,Ryan D"
+    ],
+    "PHYS106A_1": [
+        "PHYS106A",
+        "General Physics",
+        "Martin,Ryan D",
+        [
+            "STIRLING AUD",
+            "STIRLING AUD",
+            "STIRLING AUD",
+            "STIRLING RM401"
+        ],
+        "PHYS106A E Monday 11:30-12:30 Martin,Ryan D",
+        "PHYS106A E Tuesday 13:30-14:30 Martin,Ryan D",
+        "PHYS106A E Thursday 12:30-13:30 Martin,Ryan D",
+        "PHYS106A E Monday 14:30-17:30 Martin,Ryan D"
+    ],
+    "PHYS106A_2": [
+        "PHYS106A",
+        "General Physics",
+        "Martin,Ryan D",
+        [
+            "STIRLING AUD",
+            "STIRLING AUD",
+            "STIRLING AUD",
+            "STIRLING RM401"
+        ],
+        "PHYS106A E Monday 11:30-12:30 Martin,Ryan D",
+        "PHYS106A E Tuesday 13:30-14:30 Martin,Ryan D",
+        "PHYS106A E Thursday 12:30-13:30 Martin,Ryan D",
+        "PHYS106A E Wednesday 14:30-17:30 Martin,Ryan D"
+    ],
+    "PHYS106A_3": [
+        "PHYS106A",
+        "General Physics",
+        "Martin,Ryan D",
+        [
+            "STIRLING AUD",
+            "STIRLING AUD",
+            "STIRLING AUD",
+            "STIRLING RM401"
+        ],
+        "PHYS106A E Monday 11:30-12:30 Martin,Ryan D",
+        "PHYS106A E Tuesday 13:30-14:30 Martin,Ryan D",
+        "PHYS106A E Thursday 12:30-13:30 Martin,Ryan D",
+        "PHYS106A E Tuesday 14:30-17:30 Martin,Ryan D"
+    ],
+    "PHYS119A_1": [
+        "PHYS119A",
+        "Introductory Physics Laboratory",
+        "Staff",
+        [
+            "STIRLING RM409"
+        ],
+        "PHYS119A E Monday 14:30-17:30 Staff"
+    ],
+    "PHYS119A_2": [
+        "PHYS119A",
+        "Introductory Physics Laboratory",
+        "Staff",
+        [
+            "STIRLING RM409"
+        ],
+        "PHYS119A E Tuesday 14:30-17:30 Staff"
+    ],
+    "PHYS119A_3": [
+        "PHYS119A",
+        "Introductory Physics Laboratory",
+        "Staff",
+        [
+            "STIRLING RM409"
+        ],
+        "PHYS119A E Thursday 14:30-17:30 Staff"
+    ],
+    "PHYS206_1": [
+        "PHYS206",
+        "Dynamics",
+        "Sadavoy,Sarah",
+        [
+            "STIRLING RM A",
+            "STIRLING RM A",
+            "STIRLING RM A",
+            "STIRLING RM401"
+        ],
+        "PHYS206 E Monday 10:30-11:30 Sadavoy,Sarah",
+        "PHYS206 E Wednesday 9:30-10:30 Sadavoy,Sarah",
+        "PHYS206 E Friday 8:30-9:30 Sadavoy,Sarah",
+        "PHYS206 E Thursday 16:30-17:30 Sadavoy,Sarah"
+    ],
+    "PHYS206_2": [
+        "PHYS206",
+        "Dynamics",
+        "Sadavoy,Sarah",
+        [
+            "STIRLING RM A",
+            "STIRLING RM A",
+            "STIRLING RM A",
+            "STIRLING RM401"
+        ],
+        "PHYS206 E Monday 10:30-11:30 Sadavoy,Sarah",
+        "PHYS206 E Wednesday 9:30-10:30 Sadavoy,Sarah",
+        "PHYS206 E Friday 8:30-9:30 Sadavoy,Sarah",
+        "PHYS206 E Monday 13:30-14:30 Sadavoy,Sarah"
+    ],
+    "PHYS213_1": [
+        "PHYS213",
+        "Computational Methods in Physics",
+        "Giroux,Guillaume",
+        [
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "ELLIS RM319"
+        ],
+        "PHYS213 E Monday 8:30-9:30 Giroux,Guillaume",
+        "PHYS213 E Thursday 9:30-10:30 Giroux,Guillaume",
+        "PHYS213 E Tuesday 8:30-10:30 Giroux,Guillaume"
+    ],
+    "PHYS213_2": [
+        "PHYS213",
+        "Computational Methods in Physics",
+        "Giroux,Guillaume",
+        [
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "ELLIS RM319"
+        ],
+        "PHYS213 E Monday 8:30-9:30 Giroux,Guillaume",
+        "PHYS213 E Thursday 9:30-10:30 Giroux,Guillaume",
+        "PHYS213 E Wednesday 14:30-16:30 Giroux,Guillaume"
+    ],
+    "PHYS242_1": [
+        "PHYS242",
+        "Relativity and Quanta",
+        "Dignam,Marc",
+        [
+            "STIRLING RM A",
+            "STIRLING RM A",
+            "STIRLING RM A",
+            "KINGSTON RM200"
+        ],
+        "PHYS242 E Tuesday 15:30-16:30 Dignam,Marc",
+        "PHYS242 E Thursday 14:30-15:30 Dignam,Marc",
+        "PHYS242 E Friday 16:30-17:30 Dignam,Marc",
+        "PHYS242 E Monday 11:30-12:30 Dignam,Marc"
+    ],
+    "PHYS242_2": [
+        "PHYS242",
+        "Relativity and Quanta",
+        "Dignam,Marc",
+        [
+            "STIRLING RM A",
+            "STIRLING RM A",
+            "STIRLING RM A",
+            "STIRLING RM B"
+        ],
+        "PHYS242 E Tuesday 15:30-16:30 Dignam,Marc",
+        "PHYS242 E Thursday 14:30-15:30 Dignam,Marc",
+        "PHYS242 E Friday 16:30-17:30 Dignam,Marc",
+        "PHYS242 E Monday 11:30-12:30 Dignam,Marc"
+    ],
+    "PHYS315_1": [
+        "PHYS315",
+        "Physical Processes in Astrophysics",
+        "Irwin,Judith",
+        [
+            "STIRLING RM401",
+            "STIRLING RM401",
+            "STIRLING RM401"
+        ],
+        "PHYS315 E Monday 12:30-13:30 Irwin,Judith",
+        "PHYS315 E Wednesday 11:30-12:30 Irwin,Judith",
+        "PHYS315 E Thursday 13:30-14:30 Irwin,Judith"
+    ],
+    "PHYS316_1": [
+        "PHYS316",
+        "Methods in Mathematical Physics I",
+        "Weisgarber,Thomas",
+        [
+            "STIRLING RM A",
+            "STIRLING RM A",
+            "STIRLING RM A",
+            "STIRLING RM B"
+        ],
+        "PHYS316 E Tuesday 11:30-12:30 Weisgarber,Thomas",
+        "PHYS316 E Wednesday 13:30-14:30 Weisgarber,Thomas",
+        "PHYS316 E Friday 12:30-13:30 Weisgarber,Thomas",
+        "PHYS316 E Tuesday 13:30-14:30 Weisgarber,Thomas"
+    ],
+    "PHYS321_1": [
+        "PHYS321",
+        "Advanced Mechanics",
+        "Lake,Kayll W",
+        [
+            "GOODWIN RM254",
+            "GOODWIN RM254",
+            "GOODWIN RM254",
+            "STIRLING RM C"
+        ],
+        "PHYS321 E Monday 15:30-16:30 Lake,Kayll W",
+        "PHYS321 E Wednesday 14:30-15:30 Lake,Kayll W",
+        "PHYS321 E Thursday 16:30-17:30 Lake,Kayll W",
+        "PHYS321 E Wednesday 16:30-17:30 Lake,Kayll W"
+    ],
+    "PHYS334_1": [
+        "PHYS334",
+        "Electronics for Physicists",
+        "Shastri,Bhavin",
+        [
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM404",
+            "STIRLING RM B"
+        ],
+        "PHYS334 E Monday 16:30-17:30 Shastri,Bhavin",
+        "PHYS334 E Wednesday 15:30-16:30 Shastri,Bhavin",
+        "PHYS334 E Friday 14:30-15:30 Shastri,Bhavin",
+        "PHYS334 E Wednesday 8:30-11:30 Shastri,Bhavin",
+        "PHYS334 E Friday 11:30-12:30 Shastri,Bhavin"
+    ],
+    "PHYS334_2": [
+        "PHYS334",
+        "Electronics for Physicists",
+        "Shastri,Bhavin",
+        [
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM404",
+            "STIRLING RM B"
+        ],
+        "PHYS334 E Monday 16:30-17:30 Shastri,Bhavin",
+        "PHYS334 E Wednesday 15:30-16:30 Shastri,Bhavin",
+        "PHYS334 E Friday 14:30-15:30 Shastri,Bhavin",
+        "PHYS334 E Friday 8:30-11:30 Shastri,Bhavin",
+        "PHYS334 E Friday 11:30-12:30 Shastri,Bhavin"
+    ],
+    "PHYS334_3": [
+        "PHYS334",
+        "Electronics for Physicists",
+        "Shastri,Bhavin",
+        [
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM404",
+            "STIRLING RM B"
+        ],
+        "PHYS334 E Monday 16:30-17:30 Shastri,Bhavin",
+        "PHYS334 E Wednesday 15:30-16:30 Shastri,Bhavin",
+        "PHYS334 E Friday 14:30-15:30 Shastri,Bhavin",
+        "PHYS334 E Monday 11:30-14:30 Shastri,Bhavin",
+        "PHYS334 E Friday 11:30-12:30 Shastri,Bhavin"
+    ],
+    "PHYS334_4": [
+        "PHYS334",
+        "Electronics for Physicists",
+        "Shastri,Bhavin",
+        [
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM404",
+            "STIRLING RM B"
+        ],
+        "PHYS334 E Monday 16:30-17:30 Shastri,Bhavin",
+        "PHYS334 E Wednesday 15:30-16:30 Shastri,Bhavin",
+        "PHYS334 E Friday 14:30-15:30 Shastri,Bhavin",
+        "PHYS334 E Tuesday 8:30-11:30 Shastri,Bhavin",
+        "PHYS334 E Friday 11:30-12:30 Shastri,Bhavin"
+    ],
+    "PHYS344_1": [
+        "PHYS344",
+        "Introduction to Quantum Mechanics",
+        "Bramante,Joseph Andrew",
+        [
+            "STIRLING RM A",
+            "STIRLING RM A",
+            "STIRLING RM B",
+            "JEFFERY RM127"
+        ],
+        "PHYS344 E Tuesday 16:30-17:30 Bramante,Joseph Andrew",
+        "PHYS344 E Thursday 15:30-16:30 Bramante,Joseph Andrew",
+        "PHYS344 E Friday 16:30-17:30 Bramante,Joseph Andrew",
+        "PHYS344 E Tuesday 12:30-13:30 Bramante,Joseph Andrew"
+    ],
+    "PHYS350A_1": [
+        "PHYS350A",
+        "General Laboratory",
+        "Park,Nahee",
+        [
+            "STIRLING RM401",
+            "STIRLING RM401"
+        ],
+        "PHYS350A E Monday 8:30-11:30 Staff",
+        "PHYS350A E Tuesday 8:30-9:30 Park,Nahee"
+    ],
+    "PHYS432_1": [
+        "PHYS432",
+        "Electromagnetic Theory",
+        "Gooding,Robert J",
+        [
+            "STIRLING RM C",
+            "STIRLING RM C",
+            "STIRLING RM A",
+            "ELLIS RM324"
+        ],
+        "PHYS432 E Tuesday 15:30-16:30 Gooding,Robert J",
+        "PHYS432 E Thursday 14:30-15:30 Gooding,Robert J",
+        "PHYS432 E Friday 16:30-17:30 Gooding,Robert J",
+        "PHYS432 E Friday 11:30-12:30 Gooding,Robert J"
+    ],
+    "PHYS435_1": [
+        "PHYS435",
+        "Stellar Structure and Evolution",
+        "Irwin,Judith",
+        [
+            "STIRLING RM401",
+            "STIRLING RM401",
+            "STIRLING RM401"
+        ],
+        "PHYS435 E Monday 8:30-9:30 Irwin,Judith",
+        "PHYS435 E Tuesday 10:30-11:30 Irwin,Judith",
+        "PHYS435 E Thursday 9:30-10:30 Irwin,Judith"
+    ],
+    "PHYS472_1": [
+        "PHYS472",
+        "Statistical Mechanics",
+        "Iorsh,Ivan",
+        [
+            "JEFFERY RM115",
+            "STIRLING RM401",
+            "STIRLING RM401",
+            "STIRLING RM414"
+        ],
+        "PHYS472 E Tuesday 14:30-15:30 Iorsh,Ivan",
+        "PHYS472 E Wednesday 10:30-11:30 Iorsh,Ivan",
+        "PHYS472 E Friday 9:30-10:30 Iorsh,Ivan",
+        "PHYS472 E Thursday 12:30-13:30 Iorsh,Ivan"
+    ],
+    "PHYS490_1": [
+        "PHYS490",
+        "Nuclear and Particle Physics",
+        "Bramante,Joseph Andrew",
+        [
+            "STIRLING RM401",
+            "STIRLING RM401",
+            "STIRLING RM401",
+            "STIRLING RM401"
+        ],
+        "PHYS490 E Monday 10:30-11:30 Bramante,Joseph Andrew",
+        "PHYS490 E Wednesday 9:30-10:30 Bramante,Joseph Andrew",
+        "PHYS490 E Friday 8:30-9:30 Bramante,Joseph Andrew",
+        "PHYS490 E Wednesday 12:30-13:30 Bramante,Joseph Andrew"
+    ],
+    "BIOL205_1": [
+        "BIOL205",
+        "Mendelian and Molecular Genetics",
+        "Bendena,William George",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2109"
+        ],
+        "BIOL205 E Tuesday 12:30-13:30 Bendena,William George",
+        "BIOL205 E Thursday 11:30-12:30 Bendena,William George",
+        "BIOL205 E Friday 13:30-14:30 Bendena,William George",
+        "BIOL205 E Tuesday 8:30-10:00 Bendena,William George"
+    ],
+    "BIOL205_2": [
+        "BIOL205",
+        "Mendelian and Molecular Genetics",
+        "Bendena,William George",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2109"
+        ],
+        "BIOL205 E Tuesday 12:30-13:30 Bendena,William George",
+        "BIOL205 E Thursday 11:30-12:30 Bendena,William George",
+        "BIOL205 E Friday 13:30-14:30 Bendena,William George",
+        "BIOL205 E Tuesday 10:00-11:30 Bendena,William George"
+    ],
+    "BIOL205_3": [
+        "BIOL205",
+        "Mendelian and Molecular Genetics",
+        "Bendena,William George",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2109"
+        ],
+        "BIOL205 E Tuesday 12:30-13:30 Bendena,William George",
+        "BIOL205 E Thursday 11:30-12:30 Bendena,William George",
+        "BIOL205 E Friday 13:30-14:30 Bendena,William George",
+        "BIOL205 E Tuesday 14:30-16:00 Bendena,William George"
+    ],
+    "BIOL205_4": [
+        "BIOL205",
+        "Mendelian and Molecular Genetics",
+        "Bendena,William George",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2109"
+        ],
+        "BIOL205 E Tuesday 12:30-13:30 Bendena,William George",
+        "BIOL205 E Thursday 11:30-12:30 Bendena,William George",
+        "BIOL205 E Friday 13:30-14:30 Bendena,William George",
+        "BIOL205 E Tuesday 16:00-17:30 Bendena,William George"
+    ],
+    "BIOL205_5": [
+        "BIOL205",
+        "Mendelian and Molecular Genetics",
+        "Bendena,William George",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2109"
+        ],
+        "BIOL205 E Tuesday 12:30-13:30 Bendena,William George",
+        "BIOL205 E Thursday 11:30-12:30 Bendena,William George",
+        "BIOL205 E Friday 13:30-14:30 Bendena,William George",
+        "BIOL205 E Thursday 8:30-10:00 Bendena,William George"
+    ],
+    "BIOL205_6": [
+        "BIOL205",
+        "Mendelian and Molecular Genetics",
+        "Bendena,William George",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2109"
+        ],
+        "BIOL205 E Tuesday 12:30-13:30 Bendena,William George",
+        "BIOL205 E Thursday 11:30-12:30 Bendena,William George",
+        "BIOL205 E Friday 13:30-14:30 Bendena,William George",
+        "BIOL205 E Wednesday 10:00-11:30 Bendena,William George"
+    ],
+    "BIOL205_7": [
+        "BIOL205",
+        "Mendelian and Molecular Genetics",
+        "Bendena,William George",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2109"
+        ],
+        "BIOL205 E Tuesday 12:30-13:30 Bendena,William George",
+        "BIOL205 E Thursday 11:30-12:30 Bendena,William George",
+        "BIOL205 E Friday 13:30-14:30 Bendena,William George",
+        "BIOL205 E Wednesday 11:30-13:00 Bendena,William George"
+    ],
+    "BIOL205_8": [
+        "BIOL205",
+        "Mendelian and Molecular Genetics",
+        "Bendena,William George",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2109"
+        ],
+        "BIOL205 E Tuesday 12:30-13:30 Bendena,William George",
+        "BIOL205 E Thursday 11:30-12:30 Bendena,William George",
+        "BIOL205 E Friday 13:30-14:30 Bendena,William George",
+        "BIOL205 E Wednesday 13:00-14:30 Bendena,William George"
+    ],
+    "BIOL205_9": [
+        "BIOL205",
+        "Mendelian and Molecular Genetics",
+        "Bendena,William George",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2109"
+        ],
+        "BIOL205 E Tuesday 12:30-13:30 Bendena,William George",
+        "BIOL205 E Thursday 11:30-12:30 Bendena,William George",
+        "BIOL205 E Friday 13:30-14:30 Bendena,William George",
+        "BIOL205 E Wednesday 16:00-17:30 Bendena,William George"
+    ],
+    "BIOL205_10": [
+        "BIOL205",
+        "Mendelian and Molecular Genetics",
+        "Bendena,William George",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2109"
+        ],
+        "BIOL205 E Tuesday 12:30-13:30 Bendena,William George",
+        "BIOL205 E Thursday 11:30-12:30 Bendena,William George",
+        "BIOL205 E Friday 13:30-14:30 Bendena,William George",
+        "BIOL205 E Wednesday 8:30-10:00 Bendena,William George"
+    ],
+    "BIOL212_1": [
+        "BIOL212",
+        "Scientific Methods in Biology",
+        "Wang,Yuxiang S",
+        [
+            "CHERNOFF RM117",
+            "BIOSCI RM2305",
+            "BIOSCI RM2305"
+        ],
+        "BIOL212 E Monday 15:30-16:30 Wang,Yuxiang S",
+        "BIOL212 E Tuesday 8:30-11:30 Wang,Yuxiang S",
+        "BIOL212 E Thursday 8:30-11:30 Wang,Yuxiang S"
+    ],
+    "BIOL212_2": [
+        "BIOL212",
+        "Scientific Methods in Biology",
+        "Wang,Yuxiang S,",
+        [
+            "CHERNOFF RM117",
+            "BIOSCI RM2305",
+            "BIOSCI RM2305"
+        ],
+        "BIOL212 E Monday 15:30-16:30 Wang,Yuxiang S,",
+        "BIOL212 E Wednesday 8:30-11:30 Wang,Yuxiang S,",
+        "BIOL212 E Friday 8:30-11:30 Wang,Yuxiang S,"
+    ],
+    "BIOL212_3": [
+        "BIOL212",
+        "Scientific Methods in Biology",
+        "Wang,Yuxiang S,",
+        [
+            "CHERNOFF RM117",
+            "BIOSCI RM2305",
+            "BIOSCI RM2305"
+        ],
+        "BIOL212 E Monday 15:30-16:30 Wang,Yuxiang S,",
+        "BIOL212 E Tuesday 14:30-17:30 Wang,Yuxiang S,",
+        "BIOL212 E Thursday 14:30-17:30 Wang,Yuxiang S,"
+    ],
+    "BIOL300_1": [
+        "BIOL300",
+        "Ecology",
+        "Martin,Paul",
+        [
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM3311"
+        ],
+        "BIOL300 E Monday 13:30-14:30 Martin,Paul",
+        "BIOL300 E Wednesday 12:30-13:30 Martin,Paul",
+        "BIOL300 E Friday 11:30-12:30 Martin,Paul",
+        "BIOL300 E Monday 11:30-13:30 Martin,Paul"
+    ],
+    "BIOL300_2": [
+        "BIOL300",
+        "Ecology",
+        "Martin,Paul",
+        [
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM3312"
+        ],
+        "BIOL300 E Monday 13:30-14:30 Martin,Paul",
+        "BIOL300 E Wednesday 12:30-13:30 Martin,Paul",
+        "BIOL300 E Friday 11:30-12:30 Martin,Paul",
+        "BIOL300 E Monday 11:30-13:30 Martin,Paul"
+    ],
+    "BIOL300_3": [
+        "BIOL300",
+        "Ecology",
+        "Martin,Paul",
+        [
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM3311"
+        ],
+        "BIOL300 E Monday 13:30-14:30 Martin,Paul",
+        "BIOL300 E Wednesday 12:30-13:30 Martin,Paul",
+        "BIOL300 E Friday 11:30-12:30 Martin,Paul",
+        "BIOL300 E Thursday 8:30-10:30 Martin,Paul"
+    ],
+    "BIOL300_4": [
+        "BIOL300",
+        "Ecology",
+        "Martin,Paul",
+        [
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM3312"
+        ],
+        "BIOL300 E Monday 13:30-14:30 Martin,Paul",
+        "BIOL300 E Wednesday 12:30-13:30 Martin,Paul",
+        "BIOL300 E Friday 11:30-12:30 Martin,Paul",
+        "BIOL300 E Thursday 8:30-10:30 Martin,Paul"
+    ],
+    "BIOL300_5": [
+        "BIOL300",
+        "Ecology",
+        "Martin,Paul",
+        [
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM3311"
+        ],
+        "BIOL300 E Monday 13:30-14:30 Martin,Paul",
+        "BIOL300 E Wednesday 12:30-13:30 Martin,Paul",
+        "BIOL300 E Friday 11:30-12:30 Martin,Paul",
+        "BIOL300 E Wednesday 8:30-10:30 Martin,Paul"
+    ],
+    "BIOL300_6": [
+        "BIOL300",
+        "Ecology",
+        "Martin,Paul",
+        [
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM3312"
+        ],
+        "BIOL300 E Monday 13:30-14:30 Martin,Paul",
+        "BIOL300 E Wednesday 12:30-13:30 Martin,Paul",
+        "BIOL300 E Friday 11:30-12:30 Martin,Paul",
+        "BIOL300 E Tuesday 8:30-10:30 Martin,Paul"
+    ],
+    "BIOL300_7": [
+        "BIOL300",
+        "Ecology",
+        "Martin,Paul",
+        [
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM3311"
+        ],
+        "BIOL300 E Monday 13:30-14:30 Martin,Paul",
+        "BIOL300 E Wednesday 12:30-13:30 Martin,Paul",
+        "BIOL300 E Friday 11:30-12:30 Martin,Paul",
+        "BIOL300 E Tuesday 14:30-16:30 Martin,Paul"
+    ],
+    "BIOL300_8": [
+        "BIOL300",
+        "Ecology",
+        "Martin,Paul",
+        [
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM3312"
+        ],
+        "BIOL300 E Monday 13:30-14:30 Martin,Paul",
+        "BIOL300 E Wednesday 12:30-13:30 Martin,Paul",
+        "BIOL300 E Friday 11:30-12:30 Martin,Paul",
+        "BIOL300 E Tuesday 8:30-10:30 Martin,Paul"
+    ],
+    "BIOL300_9": [
+        "BIOL300",
+        "Ecology",
+        "Martin,Paul",
+        [
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM3311"
+        ],
+        "BIOL300 E Monday 13:30-14:30 Martin,Paul",
+        "BIOL300 E Wednesday 12:30-13:30 Martin,Paul",
+        "BIOL300 E Friday 11:30-12:30 Martin,Paul",
+        "BIOL300 E Tuesday 11:30-13:30 Martin,Paul"
+    ],
+    "BIOL300_10": [
+        "BIOL300",
+        "Ecology",
+        "Martin,Paul",
+        [
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM3312"
+        ],
+        "BIOL300 E Monday 13:30-14:30 Martin,Paul",
+        "BIOL300 E Wednesday 12:30-13:30 Martin,Paul",
+        "BIOL300 E Friday 11:30-12:30 Martin,Paul",
+        "BIOL300 E Tuesday 11:30-13:30 Martin,Paul"
+    ],
+    "BIOL300_11": [
+        "BIOL300",
+        "Ecology",
+        "Martin,Paul",
+        [
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM3311"
+        ],
+        "BIOL300 E Monday 13:30-14:30 Martin,Paul",
+        "BIOL300 E Wednesday 12:30-13:30 Martin,Paul",
+        "BIOL300 E Friday 11:30-12:30 Martin,Paul",
+        "BIOL300 E Tuesday 8:30-10:30 Martin,Paul"
+    ],
+    "BIOL300_12": [
+        "BIOL300",
+        "Ecology",
+        "Martin,Paul",
+        [
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM3312"
+        ],
+        "BIOL300 E Monday 13:30-14:30 Martin,Paul",
+        "BIOL300 E Wednesday 12:30-13:30 Martin,Paul",
+        "BIOL300 E Friday 11:30-12:30 Martin,Paul",
+        "BIOL300 E Tuesday 8:30-10:30 Martin,Paul"
+    ],
+    "BIOL330_1": [
+        "BIOL330",
+        "Cell Biology",
+        "Yates,Susan,",
+        [
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "KINGSTON RM301"
+        ],
+        "BIOL330 E Monday 14:30-15:30 Yates,Susan,",
+        "BIOL330 E Tuesday 16:30-17:30 Yates,Susan,",
+        "BIOL330 E Thursday 15:30-16:30 Yates,Susan,",
+        "BIOL330 E Wednesday 16:00-17:30 Yates,Susan,"
+    ],
+    "BIOL330_2": [
+        "BIOL330",
+        "Cell Biology",
+        "Yates,Susan,",
+        [
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "KINGSTON RM301"
+        ],
+        "BIOL330 E Monday 14:30-15:30 Yates,Susan,",
+        "BIOL330 E Tuesday 16:30-17:30 Yates,Susan,",
+        "BIOL330 E Thursday 15:30-16:30 Yates,Susan,",
+        "BIOL330 E Friday 8:30-10:00 Yates,Susan,"
+    ],
+    "BIOL330_3": [
+        "BIOL330",
+        "Cell Biology",
+        "Yates,Susan,",
+        [
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "KINGSTON RM301"
+        ],
+        "BIOL330 E Monday 14:30-15:30 Yates,Susan,",
+        "BIOL330 E Tuesday 16:30-17:30 Yates,Susan,",
+        "BIOL330 E Thursday 15:30-16:30 Yates,Susan,",
+        "BIOL330 E Wednesday 16:00-17:30 Yates,Susan,"
+    ],
+    "BIOL330_4": [
+        "BIOL330",
+        "Cell Biology",
+        "Yates,Susan,",
+        [
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "KINGSTON RM301"
+        ],
+        "BIOL330 E Monday 14:30-15:30 Yates,Susan,",
+        "BIOL330 E Tuesday 16:30-17:30 Yates,Susan,",
+        "BIOL330 E Thursday 15:30-16:30 Yates,Susan,",
+        "BIOL330 E Friday 8:30-10:00 Yates,Susan,"
+    ],
+    "BIOL335_1": [
+        "BIOL335",
+        "Limnology and Aquatic Ecology",
+        "Cumming,Brian Fraser",
+        [
+            "DUNNING RM27",
+            "DUNNING RM27",
+            "DUNNING RM27",
+            "BIOSCI RM3320"
+        ],
+        "BIOL335 E Monday 9:30-10:30 Cumming,Brian Fraser",
+        "BIOL335 E Wednesday 8:30-9:30 Cumming,Brian Fraser",
+        "BIOL335 E Thursday 10:30-11:30 Cumming,Brian Fraser",
+        "BIOL335 E Monday 14:30-17:30 Cumming,Brian Fraser"
+    ],
+    "BIOL335_2": [
+        "BIOL335",
+        "Limnology and Aquatic Ecology",
+        "Cumming,Brian Fraser",
+        [
+            "DUNNING RM27",
+            "DUNNING RM27",
+            "DUNNING RM27",
+            "BIOSCI RM3320"
+        ],
+        "BIOL335 E Monday 9:30-10:30 Cumming,Brian Fraser",
+        "BIOL335 E Wednesday 8:30-9:30 Cumming,Brian Fraser",
+        "BIOL335 E Thursday 10:30-11:30 Cumming,Brian Fraser",
+        "BIOL335 E Thursday 14:30-17:30 Cumming,Brian Fraser"
+    ],
+    "BIOL335_3": [
+        "BIOL335",
+        "Limnology and Aquatic Ecology",
+        "Cumming,Brian Fraser",
+        [
+            "DUNNING RM27",
+            "DUNNING RM27",
+            "DUNNING RM27",
+            "BIOSCI RM3320"
+        ],
+        "BIOL335 E Monday 9:30-10:30 Cumming,Brian Fraser",
+        "BIOL335 E Wednesday 8:30-9:30 Cumming,Brian Fraser",
+        "BIOL335 E Thursday 10:30-11:30 Cumming,Brian Fraser",
+        "BIOL335 E Wednesday 11:30-14:30 Cumming,Brian Fraser"
+    ],
+    "BIOL339_1": [
+        "BIOL339",
+        "Animal Physiology",
+        "Tufts,Bruce,",
+        [
+            "DUPUIS AUD",
+            "CHERNOFF AUD"
+        ],
+        "BIOL339 E Wednesday 13:30-14:30 Tufts,Bruce,",
+        "BIOL339 E Friday 12:30-13:30 Tufts,Bruce,"
+    ],
+    "BIOL343_1": [
+        "BIOL343",
+        "Data Analysis for Biologists",
+        "Colautti,Robert",
+        [
+            "BIOSCI RM2109",
+            "ELLIS RM319"
+        ],
+        "BIOL343 E Thursday 11:30-14:30 Colautti,Robert",
+        "BIOL343 E Tuesday 11:30-13:00 Colautti,Robert"
+    ],
+    "BIOL350_1": [
+        "BIOL350",
+        "Evolution and Human Affairs",
+        "Aarssen,Lonnie William",
+        [
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM1102"
+        ],
+        "BIOL350 E Monday 15:30-16:30 Aarssen,Lonnie William",
+        "BIOL350 E Wednesday 14:30-15:30 Aarssen,Lonnie William",
+        "BIOL350 E Thursday 16:30-17:30 Aarssen,Lonnie William"
+    ],
+    "BIOL369_1": [
+        "BIOL369",
+        "Sex and Evolution",
+        "Chippindale,Adam",
+        [
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "KINGSTON RM304"
+        ],
+        "BIOL369 E Tuesday 9:30-10:30 Chippindale,Adam",
+        "BIOL369 E Thursday 8:30-9:30 Chippindale,Adam",
+        "BIOL369 E Friday 10:30-11:30 Chippindale,Adam",
+        "BIOL369 E Tuesday 17:30-18:30 Chippindale,Adam"
+    ],
+    "BIOL369_2": [
+        "BIOL369",
+        "Sex and Evolution",
+        "Chippindale,Adam",
+        [
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "ELLIS RM218"
+        ],
+        "BIOL369 E Tuesday 9:30-10:30 Chippindale,Adam",
+        "BIOL369 E Thursday 8:30-9:30 Chippindale,Adam",
+        "BIOL369 E Friday 10:30-11:30 Chippindale,Adam",
+        "BIOL369 E Tuesday 17:30-18:30 Chippindale,Adam"
+    ],
+    "BIOL369_3": [
+        "BIOL369",
+        "Sex and Evolution",
+        "Chippindale,Adam",
+        [
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "ELLIS RM218"
+        ],
+        "BIOL369 E Tuesday 9:30-10:30 Chippindale,Adam",
+        "BIOL369 E Thursday 8:30-9:30 Chippindale,Adam",
+        "BIOL369 E Friday 10:30-11:30 Chippindale,Adam",
+        "BIOL369 E Tuesday 18:30-19:30 Chippindale,Adam"
+    ],
+    "BIOL369_4": [
+        "BIOL369",
+        "Sex and Evolution",
+        "Chippindale,Adam",
+        [
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "KINGSTON RM304"
+        ],
+        "BIOL369 E Tuesday 9:30-10:30 Chippindale,Adam",
+        "BIOL369 E Thursday 8:30-9:30 Chippindale,Adam",
+        "BIOL369 E Friday 10:30-11:30 Chippindale,Adam",
+        "BIOL369 E Wednesday 18:30-19:30 Chippindale,Adam"
+    ],
+    "BIOL369_5": [
+        "BIOL369",
+        "Sex and Evolution",
+        "Chippindale,Adam",
+        [
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "ELLIS RM218"
+        ],
+        "BIOL369 E Tuesday 9:30-10:30 Chippindale,Adam",
+        "BIOL369 E Thursday 8:30-9:30 Chippindale,Adam",
+        "BIOL369 E Friday 10:30-11:30 Chippindale,Adam",
+        "BIOL369 E Wednesday 17:30-18:30 Chippindale,Adam"
+    ],
+    "BIOL369_6": [
+        "BIOL369",
+        "Sex and Evolution",
+        "Chippindale,Adam",
+        [
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "KINGSTON RM304"
+        ],
+        "BIOL369 E Tuesday 9:30-10:30 Chippindale,Adam",
+        "BIOL369 E Thursday 8:30-9:30 Chippindale,Adam",
+        "BIOL369 E Friday 10:30-11:30 Chippindale,Adam",
+        "BIOL369 E Wednesday 17:30-18:30 Chippindale,Adam"
+    ],
+    "BIOL369_7": [
+        "BIOL369",
+        "Sex and Evolution",
+        "Chippindale,Adam",
+        [
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "ELLIS RM218"
+        ],
+        "BIOL369 E Tuesday 9:30-10:30 Chippindale,Adam",
+        "BIOL369 E Thursday 8:30-9:30 Chippindale,Adam",
+        "BIOL369 E Friday 10:30-11:30 Chippindale,Adam",
+        "BIOL369 E Wednesday 18:30-19:30 Chippindale,Adam"
+    ],
+    "BIOL369_8": [
+        "BIOL369",
+        "Sex and Evolution",
+        "Chippindale,Adam",
+        [
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "KINGSTON RM304"
+        ],
+        "BIOL369 E Tuesday 9:30-10:30 Chippindale,Adam",
+        "BIOL369 E Thursday 8:30-9:30 Chippindale,Adam",
+        "BIOL369 E Friday 10:30-11:30 Chippindale,Adam",
+        "BIOL369 E Tuesday 18:30-19:30 Chippindale,Adam"
+    ],
+    "BIOL401_1": [
+        "BIOL401",
+        "Experimental Approaches to Animal Physiology",
+        "Wang,Yuxiang S",
+        [
+            "BIOSCI RM1120",
+            "BIOSCI RM3306"
+        ],
+        "BIOL401 E Friday 10:30-11:30 Wang,Yuxiang S",
+        "BIOL401 E Wednesday 8:30-11:30 Wang,Yuxiang S"
+    ],
+    "BIOL401_2": [
+        "BIOL401",
+        "Experimental Approaches to Animal Physiology",
+        "Wang,Yuxiang S",
+        [
+            "BIOSCI RM1120",
+            "BIOSCI RM3306"
+        ],
+        "BIOL401 E Friday 10:30-11:30 Wang,Yuxiang S",
+        "BIOL401 E Thursday 8:30-11:30 Wang,Yuxiang S"
+    ],
+    "BIOL409_1": [
+        "BIOL409",
+        "Bioremediation",
+        "Regan,Sharon",
+        [
+            "BIOSCI RM1120",
+            "BIOSCI RM1120"
+        ],
+        "BIOL409 E Tuesday 14:30-17:30 Regan,Sharon",
+        "BIOL409 E Monday 13:30-14:30 Regan,Sharon"
+    ],
+    "BIOL439_1": [
+        "BIOL439",
+        "Natural Selection and Microevolution",
+        "Friedman,Jannice",
+        [
+            "KINGSTON RM108",
+            "KINGSTON RM108",
+            "BIOSCI RM3110"
+        ],
+        "BIOL439 E Monday 13:00-14:30 Friedman,Jannice",
+        "BIOL439 E Wednesday 11:30-13:00 Friedman,Jannice",
+        "BIOL439 E Tuesday 9:30-11:30 Friedman,Jannice"
+    ],
+    "BIOL439_2": [
+        "BIOL439",
+        "Natural Selection and Microevolution",
+        "Friedman,Jannice",
+        [
+            "KINGSTON RM108",
+            "KINGSTON RM108",
+            "BIOSCI RM3110"
+        ],
+        "BIOL439 E Monday 13:00-14:30 Friedman,Jannice",
+        "BIOL439 E Wednesday 11:30-13:00 Friedman,Jannice",
+        "BIOL439 E Tuesday 14:30-16:30 Friedman,Jannice"
+    ],
+    "BIOL440_1": [
+        "BIOL440",
+        "Speciation and Macroevolution",
+        "Lougheed,Stephen C",
+        [
+            "NICOL RM232",
+            "NICOL RM232",
+            "NICOL RM232",
+            "MACINTOSH-CORRY RM D405"
+        ],
+        "BIOL440 E Monday 9:30-10:30 Lougheed,Stephen C",
+        "BIOL440 E Wednesday 8:30-9:30 Lougheed,Stephen C",
+        "BIOL440 E Thursday 10:30-11:30 Lougheed,Stephen C",
+        "BIOL440 E Tuesday 14:30-17:30 Lougheed,Stephen C"
+    ],
+    "BIOL440_2": [
+        "BIOL440",
+        "Speciation and Macroevolution",
+        "Lougheed,Stephen C",
+        [
+            "NICOL RM232",
+            "NICOL RM232",
+            "NICOL RM232",
+            "KINES & HLTH RM107"
+        ],
+        "BIOL440 E Monday 9:30-10:30 Lougheed,Stephen C",
+        "BIOL440 E Wednesday 8:30-9:30 Lougheed,Stephen C",
+        "BIOL440 E Thursday 10:30-11:30 Lougheed,Stephen C",
+        "BIOL440 E Friday 8:30-11:30 Lougheed,Stephen C"
+    ],
+    "BIOL441_1": [
+        "BIOL441",
+        "Molecular Genetics",
+        "Seroude,Laurent",
+        [
+            "BIOSCI RM3110",
+            "BIOSCI RM3110"
+        ],
+        "BIOL441 E Wednesday 14:30-17:30 Seroude,Laurent",
+        "BIOL441 E Thursday 11:30-12:30 Seroude,Laurent"
+    ],
+    "BIOL442_1": [
+        "BIOL442",
+        "Evolutionary Medicine",
+        "Bonier,Frances",
+        [
+            "WALTER LIGHT RM210",
+            "WALTER LIGHT RM210",
+            "BIOSCI RM3110"
+        ],
+        "BIOL442 E Tuesday 8:30-9:30 Bonier,Frances",
+        "BIOL442 E Friday 9:30-10:30 Bonier,Frances",
+        "BIOL442 E Friday 12:30-14:30 Bonier,Frances"
+    ],
+    "BIOL442_2": [
+        "BIOL442",
+        "Evolutionary Medicine",
+        "Bonier,Frances",
+        [
+            "WALTER LIGHT RM210",
+            "WALTER LIGHT RM210",
+            "BIOSCI RM3110"
+        ],
+        "BIOL442 E Tuesday 8:30-9:30 Bonier,Frances",
+        "BIOL442 E Friday 9:30-10:30 Bonier,Frances",
+        "BIOL442 E Monday 14:30-16:30 Bonier,Frances"
+    ],
+    "BIOL442_3": [
+        "BIOL442",
+        "Evolutionary Medicine",
+        "Bonier,Frances",
+        [
+            "WALTER LIGHT RM210",
+            "WALTER LIGHT RM210",
+            "BIOSCI RM3110"
+        ],
+        "BIOL442 E Tuesday 8:30-9:30 Bonier,Frances",
+        "BIOL442 E Friday 9:30-10:30 Bonier,Frances",
+        "BIOL442 E Tuesday 11:30-13:30 Bonier,Frances"
     ]
 }

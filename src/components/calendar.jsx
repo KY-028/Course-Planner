@@ -35,8 +35,6 @@ const Calendar = (props) => {
                     const we = parts[1];
                     const day = parts[2];
                     const time = parts[3];
-                    // length = 4: one prof name
-                    // length = 5: with space in name
                     const profName = parts.slice(4,).join(" ");
                     const [startHour, startMinute] = time.split('-')[0].split(':').map(Number);
                     const [endHour, endMinute] = time.split('-')[1].split(':').map(Number);
@@ -263,7 +261,7 @@ const Slot = ({ time, name, color, west, profName }) => {
                                 bottom: '108%',
                                 zIndex: 100000
                             }}>
-                            {profName.split(",").reverse().join(" ")}
+                            {profName.split(",").reverse().join(" ").trim()}
                         </div>
                     </div>
 
