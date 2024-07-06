@@ -58,9 +58,9 @@ export default function Nav({ activeTab }) {
     }, [open, controls]);
 
     return (
-        <header className="w-full z-40">
+        <header className="w-full relative" style={{ zIndex: 50000 }}>
             {/* The Normal Screen Size */}
-            <div className="lg:flex hidden justify-between items-center w-full h-16 px-4 py-10 bg-white">
+            <div className="z-40 lg:flex hidden justify-between items-center w-full h-16 px-4 py-10 bg-white">
                 <div className="flex-1"></div> {/* This div is just to center the title with flex */}
                 <div className="flex-1 flex justify-center items-center text-2xl font-bold text-dark-blue  whitespace-nowrap">Course Selection Planner</div>
                 <div className="flex-1 flex flex-col items-end text-black">
@@ -75,9 +75,9 @@ export default function Nav({ activeTab }) {
 
             {/* The Smaller Screen Size */}
 
-            <div className="lg:hidden flex w-full h-12 bg-dark-blue">
+            <div className="lg:hidden flex w-full h-12 bg-dark-blue" style={{ zIndex: 2000000 }}>
                 <div className="w-full h-full flex justify-center items-center md:text-2xl text-lg font-bold text-white"> Course Selection Planner</div>
-                <div className="z-50 absolute top-0 right-0 items-center p-1">
+                <div className="absolute top-0 right-0 items-center p-1">
                     <button
                         className="relative w-8 h-8 rounded-lg focus:outline-none focus:shadow-outline"
                         onClick={() => setOpen(!open)}
@@ -104,7 +104,7 @@ export default function Nav({ activeTab }) {
                     initial="hidden"
                     animate={controls}
                     variants={menuVariants}
-                    className={`z-30 flex-col flex-grow pb-2 absolute right-0 top-10 bg-dark-blue bg-opacity-90 w-full text-right ${open ? 'flex' : 'hidden'}`}
+                    className={`flex-col flex-grow pb-2 absolute right-0 top-10 bg-dark-blue bg-opacity-90 w-full text-right ${open ? 'flex' : 'hidden'}`}
                 >
                     <motion.div variants={itemVariants} className="px-4 py-1 w-full font-semibold bg-transparent rounded-lg text-white focus:text-gray-400 hover:bg-gray-700 focus:bg-gray-700 focus:outline-none focus:shadow-outline">
                         <Link to="/course-selection" className={`${activeTab === 'courses' ? 'text-teal' : ''}`}>Courses</Link>
@@ -129,10 +129,10 @@ export default function Nav({ activeTab }) {
                             </Link>
                         }
                         {isModalOpen && (
-                            <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity z-50" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-                                <div className="fixed inset-0 z-50 w-screen overflow-y-auto">
+                            <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+                                <div className="fixed inset-0 w-screen overflow-y-auto">
                                     <div className="flex min-h-full items-center justify-center p-4 text-center sm:items-center sm:p-0">
-                                        <div className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg z-60">
+                                        <div className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
                                             <div className="bg-white p-4">
                                                 <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
                                                     <svg className="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">

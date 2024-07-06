@@ -42,7 +42,7 @@ function Course({ id, name, title, options, selectedOption, onSelectChange, onRe
     );
 }
 
-function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChangeCounter, term }) {
+function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChangeCounter, term, original }) {
 
     const { currentUser } = useContext(AuthContext);
 
@@ -125,10 +125,9 @@ function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChan
     }
 
     const removeCourse = async id => {
-        // Check if the course ID does not start with any of the specified prefixes
 
         const newCourseData = { ...courseData };
-        if (!id.startsWith("CISC") && !id.startsWith("MATH") && !id.startsWith("STAT") && !id.startsWith("COGS") && !id.startsWith("ECON") && !id.startsWith("PHYS")) {
+        if (!(id in original)) {
             // Prompt the user to confirm the removal of a custom course
             const confirmRemoval = confirm("Removing a custom course will require you to reenter it. Do you want to proceed?");
 
@@ -140,7 +139,6 @@ function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChan
                 // Because it's a custom course it must be removed from the library
                 delete newCourseData[id];
                 changeCourseData(newCourseData);
-
 
                 const data = {
                     user_id: currentUser.id,
@@ -199,7 +197,7 @@ function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChan
 }
 
 
-function Selection({ isLoading, onUpdate, courseData, changeCourseData, courses, setCourses, term, conflicts }) {
+function Selection({ isLoading, onUpdate, courseData, changeCourseData, courses, setCourses, term, conflicts, original }) {
     const [inputValue, setInputValue] = useState('');
     const [notFound, setNotFound] = useState([]);  // State to track IDs not found
     const [isToggled, setIsToggled] = useState(false); // Manage toggle state here
@@ -262,7 +260,7 @@ function Selection({ isLoading, onUpdate, courseData, changeCourseData, courses,
                 <div className='w-full h-full flex items-center justify-begin'>
                     <Toggle message="Entry Mode" isToggled={isToggled} toggleSwitch={toggleSwitch} />
                 </div>
-                <CourseGrid courseData={courseData} courses={courses} setCourses={setCourses} setChangeCounter={setChangeCounter} changeCourseData={changeCourseData} term={term} />
+                <CourseGrid courseData={courseData} courses={courses} setCourses={setCourses} setChangeCounter={setChangeCounter} changeCourseData={changeCourseData} term={term} original={original} />
                 {conflicts.length > 0 && (
                     <div className="mt-1 p-2 mx-1 bg-red-100 border border-red-400 text-red-700">
                         <p>The following Courses have Conflicts:</p>

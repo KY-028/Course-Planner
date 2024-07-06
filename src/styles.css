@@ -737,8 +737,7 @@ video {
 }
 
 .account-small {
-  background: -webkit-linear-gradient(to bottom, #264569, #356193);
-  background: linear-gradient(to bottom, #264569, #356193);
+  background-color: #264569;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;
@@ -762,7 +761,7 @@ video {
 
   
   input {
-    background-color: transparent;
+    background-color: #264569;
     border-bottom: solid rgb(205, 205, 205);
     color: white;
     padding: 5px 2px;
