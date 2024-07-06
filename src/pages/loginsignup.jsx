@@ -134,35 +134,35 @@ export default function LoginSignup({ signinintent }) {
             </div>
             {
                 signIn ? (
-                    <div className="account-small md:hidden flex w-full h-screen items-center justify-center">
+                    <div className="bg-[#264569] md:hidden flex flex-col w-full h-screen items-center justify-center">
 
                         <form className="sm:w-[60%] w-[80%] flex flex-col items-center justify-center" onSubmit={handleLoginSubmit}>
-                            <h1>Welcome back!</h1>
-                            <input required type="email" placeholder='Email' name='email' onChange={handleLoginChange} value={logininputs.email} />
-                            <input required type="password" placeholder='Password' name='password' onChange={handleLoginChange} value={logininputs.password} />
-                            <button onClick={handleLoginSubmit}>Log In</button>
-                            <p style={{ minHeight: '25px' }} >{err ? err : ''}</p>
-                            <span>
-                                Don't have an account yet? <a onClick={() => handleToggle(false)}>Sign up</a>
+                            <h1 className="font-bold text-2xl mb-1.5 mt-10 text-white">Welcome back!</h1>
+                            <input className="bg-transparent border-b border-gray-300 text-white p-[5px_2px] m-[8px_10px]  focus:border-b-white focus:outline-none md:text-base w-3/4" required type="email" placeholder='Email' name='email' onChange={handleLoginChange} value={logininputs.email} />
+                            <input className="bg-transparent border-b border-gray-300 text-white p-[5px_2px] m-[8px_10px] focus:border-b-white focus:outline-none md:text-base w-3/4" required type="password" placeholder='Password' name='password' onChange={handleLoginChange} value={logininputs.password} />
+                            <button className="border border-[#79b7ff] text-white text-lg font-bold p-1.5 w-3/5 tracking-wide my-3.5 transition-transform duration-75 ease-in focus:outline-none active:scale-95 sm:text-sm sm:p-1 sm:w-3/4" onClick={handleLoginSubmit}>Log In</button>
+                            <p className="text-base text-center text-yellow-300 mb-2.5" style={{ minHeight: '25px' }} >{err ? err : ''}</p>
+                            <span className="text-white text-base text-center flex-col mb-10">
+                                Don't have an account yet? <a className="text-[#b0e6ff] underline cursor-pointer" onClick={() => handleToggle(false)}>Sign up</a>
                             </span>
                         </form>
                     </div>
 
                 ) : (
 
-                    <div className="account-small md:hidden flex w-full h-screen items-center justify-center">
+                    <div className="bg-[#264569] md:hidden flex flex-col w-full h-screen items-center justify-center">
                         <form className="sm:w-[60%] w-[80%]  flex flex-col items-center justify-center" onSubmit={handleSignupSubmit}>
-                            <h1>Create Account</h1>
+                            <h1 className="font-bold text-xl mb-1.5 mt-10 text-white">Create Account</h1>
 
-                            <input required onChange={handleSignupChange} value={signupInputs.email} name="email" type="email" placeholder="Email" />
-                            <input required onChange={handleSignupChange} value={signupInputs.username} name="username" type="text" placeholder="Username" />
-                            <input required onChange={handleSignupChange} value={signupInputs.password} name="password" type="password" placeholder="Password" />
-                            <input required onChange={handleSignupChange} value={signupInputs.grade} name="grade" type="number" min={1} placeholder="Year of Study" />
-                            <button>Sign Up</button>
+                            <input className="bg-transparent border-b border-gray-300 text-white p-[5px_2px] m-[8px_10px] w-3/5 focus:border-b-white focus:outline-none md:text-base md:w-3/4" required onChange={handleSignupChange} value={signupInputs.email} name="email" type="email" placeholder="Email" />
+                            <input className="bg-transparent border-b border-gray-300 text-white p-[5px_2px] m-[8px_10px] w-3/5 focus:border-b-white focus:outline-none md:text-base md:w-3/4" required onChange={handleSignupChange} value={signupInputs.username} name="username" type="text" placeholder="Username" />
+                            <input className="bg-transparent border-b border-gray-300 text-white p-[5px_2px] m-[8px_10px] w-3/5 focus:border-b-white focus:outline-none md:text-base md:w-3/4" required onChange={handleSignupChange} value={signupInputs.password} name="password" type="password" placeholder="Password" />
+                            <input className="bg-transparent border-b border-gray-300 text-white p-[5px_2px] m-[8px_10px] w-3/5 focus:border-b-white focus:outline-none md:text-base md:w-3/4" required onChange={handleSignupChange} value={signupInputs.grade} name="grade" type="number" min={1} placeholder="Year of Study" />
+                            <button className="border border-[#79b7ff] text-white text-lg font-bold p-1.5 w-3/5 tracking-wide my-3.5 transition-transform duration-75 ease-in focus:outline-none active:scale-95 sm:text-sm sm:p-1 sm:w-3/4">Sign Up</button>
 
-                            <p style={{ minHeight: '25px' }} >{err ? err : ''}</p>
-                            <span>
-                                Already have an account? <a onClick={() => handleToggle(true)}>Log in</a>
+                            <p className="text-base text-center text-yellow-300 mb-2.5" style={{ minHeight: '25px' }} >{err ? err : ''}</p>
+                            <span className="text-white text-base text-center flex-col mb-10">
+                                Already have an account? <a className="text-[#b0e6ff] underline cursor-pointer" onClick={() => handleToggle(true)}>Log in</a>
                             </span>
                         </form>
                     </div>
