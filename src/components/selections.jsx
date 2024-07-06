@@ -27,7 +27,7 @@ function Course({ id, name, title, options, selectedOption, onSelectChange, onRe
                 &#x2715;
             </button>
             <div className="w-full font-semibold xl:text-base lg:text-xs md-custom:text-xs sm:text-sm text-xs lg:mb-0.25 lg:mt-0.5 md-custom:mt-1 sm:-mb-0 mt-1">{name}</div>
-            <div className="w-full text-gray-600 xl:text-xs lg:text-xxs md-custom:text-xxs sm:text-xs text-xxs xl:mb-0.5 lg:-mb-1 md-custom:-mb-1.5 sm:-mb-0.5 -mb-1.5 text-nowrap overflow-hidden">{title}</div>
+            <div className="w-full text-gray-600 xl:text-xs lg:text-xxs md-custom:text-xxs sm:text-xs text-xxs xl:mb-0.5 lg:-mb-1 md-custom:-mb-1.5 sm:-mb-0.5 -mb-1.5 text-nowrap whitespace-nowrap overflow-hidden">{title}</div>
             <select
                 id={`${term}-${id}`}
                 className="w-full bg-gray-100 border-gray-300 rounded xl:text-xs md-custom:text-xxs sm:text-small text-xxs"
