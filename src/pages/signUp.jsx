@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 const signUp = () => {
+    const apiUrl = import.meta.env.VITE_API_URL;
     const [inputs, setInputs] = useState({
         firstName: "",
         lastName: "",
@@ -24,7 +25,7 @@ const signUp = () => {
         e.preventDefault();
 
         try {
-            await axios.post("https://cp-backend-psi.vercel.app/backend/auth/signUp", inputs);
+            await axios.post(`${apiUrl}/backend/auth/signUp`, inputs);
             navigate("/login");
         } catch (err) {
             const errorMessage = err.response?.data?.message || "An unexpected error occurred";

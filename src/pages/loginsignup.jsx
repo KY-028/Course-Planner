@@ -7,6 +7,7 @@ import Homenav from "/src/components/homenav"
 import axios from 'axios'
 
 export default function LoginSignup({ signinintent }) {
+    const apiUrl = import.meta.env.VITE_API_URL;
 
     const { login, currentUser } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -58,7 +59,7 @@ export default function LoginSignup({ signinintent }) {
         e.preventDefault();
 
         try {
-            const response = await axios.post("https://cp-backend-psi.vercel.app/backend/auth/signUp", signupInputs);
+            const response = await axios.post(`${apiUrl}/backend/auth/signUp`, signupInputs);
             setError("Success!");
             setLoginInputs((prev) => ({ ...prev, email: signupInputs.email }));
             setTimeout(() => {

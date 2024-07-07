@@ -44,6 +44,8 @@ function Course({ id, name, title, options, selectedOption, onSelectChange, onRe
 
 function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChangeCounter, term, original }) {
 
+    const apiUrl = import.meta.env.VITE_API_URL;
+
     const { currentUser } = useContext(AuthContext);
 
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -89,7 +91,7 @@ function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChan
         }
 
         UpdateManager.addUpdate({
-            endpoint: 'https://cp-backend-psi.vercel.app/backend/customCourses/',
+            endpoint: `${apiUrl}/backend/customCourses/`,
             data: data
         });
 
@@ -147,7 +149,7 @@ function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChan
                 }
 
                 UpdateManager.addUpdate({
-                    endpoint: 'https://cp-backend-psi.vercel.app/backend/customCourses/delete',
+                    endpoint: `${apiUrl}/backend/customCourses/delete`,
                     data: data
                 });
 
