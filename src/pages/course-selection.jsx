@@ -13,6 +13,9 @@ import UpdateManager from '../components/updatemanager';
 
 export default function Courses() {
     const { currentUser } = useContext(AuthContext);
+
+    const apiUrl = import.meta.env.VITE_API_URL;
+
     // Imported JSON
     const [fallData, setFallData] = useState(fallJSON);
     const [winterData, setWinterData] = useState(winterJSON);
@@ -72,7 +75,7 @@ export default function Courses() {
                 return;
             }
 
-            const response = await axios.get(`https://cp-backend-psi.vercel.app/backend/users/courses/${userId}`);
+            const response = await axios.get(`${apiUrl}/backend/users/courses/${userId}`);
             const { fallCourses, winterCourses } = response.data;
 
             let errorCourses = { fall: [], winter: [] };
@@ -81,7 +84,7 @@ export default function Courses() {
                 try {
                     const termData = term === 'fall' ? fallData : winterData;
                     if (!(courseId in termData)) {
-                        const url = `https://cp-backend-psi.vercel.app/backend/customCourses/${courseId}?userId=${userId}&term=${term}`;
+                        const url = `${apiUrl}/backend/customCourses/${courseId}?userId=${userId}&term=${term}`;
                         const res = await axios.get(url);
                         termData[courseId] = res.data.courseInfo[courseId];
                         console.log(`Course ${courseId} fetched and merged for ${term}:`, termData[courseId]);
@@ -138,7 +141,7 @@ export default function Courses() {
         };
 
         UpdateManager.addUpdate({
-            endpoint: 'https://cp-backend-psi.vercel.app/backend/courseChange/',
+            endpoint: `${apiUrl}/backend/courseChange/`,
             data: data
         });
     };
@@ -159,7 +162,7 @@ export default function Courses() {
         };
 
         UpdateManager.addUpdate({
-            endpoint: 'https://cp-backend-psi.vercel.app/backend/courseChange/',
+            endpoint: `${apiUrl}/backend/courseChange/`,
             data: data
         });
     };

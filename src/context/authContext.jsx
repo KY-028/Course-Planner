@@ -4,13 +4,15 @@ import { createContext, useEffect, useState } from "react";
 export const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
+  const apiUrl = import.meta.env.VITE_API_URL;
+
   const [currentUser, setCurrentUser] = useState(
     JSON.parse(localStorage.getItem("user")) || null
   );
 
   const login = async (inputs) => {
     try {
-      const res = await axios.post("https://cp-backend-psi.vercel.app/backend/auth/login", inputs, {
+      const res = await axios.post(`${apiUrl}/backend/auth/login`, inputs, {
         withCredentials: true,
       });
       setCurrentUser(res.data);
@@ -22,7 +24,7 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   const logout = async () => {
-    await axios.post("https://cp-backend-psi.vercel.app/backend/auth/logout", {}, {
+    await axios.post(`${apiUrl}/backend/auth/logout`, {}, {
       withCredentials: true
     });
     setCurrentUser(null);
