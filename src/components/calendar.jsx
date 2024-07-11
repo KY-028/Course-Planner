@@ -217,7 +217,7 @@ const styles = {
     container: (isWide, totalMinutes, durationMinutes, startMinutes) => ({
         top: isWide ? `${(totalMinutes / 60) * 3.5}rem` : `${(totalMinutes / 60) * 3}rem`,
         height: isWide ? `${(durationMinutes / 60) * 3.5}rem` : `${(durationMinutes / 60) * 3}rem`,
-        zIndex: 1000 + startMinutes - durationMinutes,
+        zIndex: 1000 + startMinutes - (durationMinutes / 60),
     })
 };
 
@@ -263,7 +263,7 @@ const Slot = ({ time, name, color, west, profName }) => {
                                 bottom: '108%',
                                 zIndex: 100000
                             }}>
-                            { profName.toLowerCase() !== "staff" ? (
+                            {profName.toLowerCase() !== "staff" ? (
                                 <a className='flex items-center' href={`https://www.ratemyprofessors.com/search/professors/1466?q=${profName.split(",").reverse().join(" ").trim()}`} target="_blank" rel="noopener noreferrer">
                                     <img src={linkIcon} alt="Icon" className="mr-2" style={{ height: '1em' }} />
                                     {profName.split(",").reverse().join(" ").trim()}
