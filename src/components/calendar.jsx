@@ -217,7 +217,7 @@ const styles = {
     container: (isWide, totalMinutes, durationMinutes, startMinutes) => ({
         top: isWide ? `${(totalMinutes / 60) * 3.5}rem` : `${(totalMinutes / 60) * 3}rem`,
         height: isWide ? `${(durationMinutes / 60) * 3.5}rem` : `${(durationMinutes / 60) * 3}rem`,
-        zIndex: 1000 + startMinutes - (durationMinutes / 60),
+        zIndex: Math.round(1000 + startMinutes - (durationMinutes / 60)),
     })
 };
 
@@ -239,11 +239,12 @@ const Slot = ({ time, name, color, west, profName }) => {
     const endTotalMinutes = (endHour - 8) * 60 + endMinute;
 
     const durationMinutes = endTotalMinutes - totalMinutes;
+    console.log(name, 1000 + startHour * 60 + startMinute - (durationMinutes / 60));
 
     return (
         <div
             className="z-10 absolute left-0 w-full py-0.5 drop-shadow-md"
-            style={styles.container(matches, totalMinutes, durationMinutes, startHour * 60 + startMinute)}
+            style={styles.container(matches, totalMinutes, durationMinutes, (startHour * 60 + startMinute))}
         >
             <div className={`${color} 2xl:px-1.5 xl:px-1 lg:px-0.5 md-custom:px-1 sm:px-1 px-0.5 sm:mx-0.5 rounded h-full box-border`}>
                 <div className='flex flex-col'>
