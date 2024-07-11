@@ -1,6 +1,8 @@
 // src/components/Calendar.jsx
 
 import React, { useState, useEffect } from 'react';
+import linkIcon from '/src/assets/ext-link.png';
+
 
 const initialColors = [
     "bg-blue-100 text-blue-500",
@@ -256,12 +258,15 @@ const Slot = ({ time, name, color, west, profName }) => {
                     </p>
 
                     <div className="absolute left-0 w-full h-full flex items-center justify-center transition-opacity duration-300 opacity-0 hover:opacity-100">
-                        <div className='absolute bottom-full bg-dark-blue text-white rounded px-3 py-1 text-sm text-nowrap'
+                        <div className='absolute bottom-full bg-dark-blue text-white rounded px-3 py-1 pr-6 text-sm text-nowrap'
                             style={{
                                 bottom: '108%',
                                 zIndex: 100000
                             }}>
-                            {profName.split(",").reverse().join(" ").trim()}
+                            <a className='flex items-center' href={`https://www.ratemyprofessors.com/search/professors/1466?q=${profName.split(",").reverse().join(" ").trim()}`} target="_blank" rel="noopener noreferrer">
+                                <img src={linkIcon} alt="Icon" className="mr-2" style={{ height: '1em' }} />
+                                {profName.split(",").reverse().join(" ").trim()}
+                            </a>
                         </div>
                     </div>
 
