@@ -3,8 +3,8 @@ import LeftMenu from '/src/components/leftMenu';
 import Calendar from '/src/components/calendar';
 import Nav from '/src/components/nav';
 import Selection from '/src/components/selections';
-import fallJSON from '/src/assets/fall_2024_0706.json';
-import winterJSON from '/src/assets/winter_2025_0706.json';
+import fallJSON from '/src/assets/fall_2024_0710.json';
+import winterJSON from '/src/assets/winter_2025_0710.json';
 import axios from 'axios'
 import { useContext } from 'react';
 import { AuthContext } from '../context/authContext';
