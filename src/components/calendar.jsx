@@ -263,10 +263,16 @@ const Slot = ({ time, name, color, west, profName }) => {
                                 bottom: '108%',
                                 zIndex: 100000
                             }}>
-                            <a className='flex items-center' href={`https://www.ratemyprofessors.com/search/professors/1466?q=${profName.split(",").reverse().join(" ").trim()}`} target="_blank" rel="noopener noreferrer">
-                                <img src={linkIcon} alt="Icon" className="mr-2" style={{ height: '1em' }} />
-                                {profName.split(",").reverse().join(" ").trim()}
-                            </a>
+                            { profName.toLowerCase() !== "staff" ? (
+                                <a className='flex items-center' href={`https://www.ratemyprofessors.com/search/professors/1466?q=${profName.split(",").reverse().join(" ").trim()}`} target="_blank" rel="noopener noreferrer">
+                                    <img src={linkIcon} alt="Icon" className="mr-2" style={{ height: '1em' }} />
+                                    {profName.split(",").reverse().join(" ").trim()}
+                                </a>
+                            ) : (
+                                <span className="flex items-center">
+                                    <span className="pl-3">Staff</span>
+                                </span>
+                            )}
                         </div>
                     </div>
 
