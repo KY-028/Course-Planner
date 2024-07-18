@@ -44,7 +44,7 @@ const LeftMenu = ({ activeTab }) => {
                 <button onClick={openModal} className={`w-fit ub my-1.5 mx-4 absolute xl:bottom-24 bottom-28 text-xl text-start`}>
                     Logout
                 </button> :
-                <Link to="/login" className={`w-fit ub my-1.5 mx-4 absolute bottom-8 text-xl text-start`}>
+                <Link to="/login" className={`w-fit ub my-1.5 mx-4 absolute xl:bottom-24 bottom-28  text-xl text-start`}>
                     Log In
                 </Link>
             }
