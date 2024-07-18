@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import LeftMenu from '/src/components/leftMenu';
 import Calendar from '/src/components/calendar';
 import Nav from '/src/components/nav';
+import DonateBanner from '/src/components/donatebanner'
 import Selection from '/src/components/selections';
 import fallJSON from '/src/assets/fall_2024_0710.json';
 import winterJSON from '/src/assets/winter_2025_0710.json';
@@ -198,6 +199,7 @@ export default function Courses() {
 
             <div className='flex flex-col w-full'>
                 <Nav activeTab="courses" />
+                <DonateBanner />
                 <div className='w-full grid md-custom:grid-cols-2 grid-cols md-custom:mx-0 m-0 p-0 gap-3' >
                     <div className='sm:m-0 m-1.5 p-0'>
                         <Selection isLoading={isLoading} onUpdate={updateFallCourses} courseData={fallData} changeCourseData={setFallData} courses={fc} setCourses={setFc} term={"Fall"} conflicts={fallConflicts} original={fallOriginal} />
