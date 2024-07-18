@@ -25,7 +25,8 @@ const DonateBanner = () => {
       <button onClick={handleClose} className="absolute right-5 top-1/2 -translate-y-1/2 text-2xl text-black hover:text-[#D2042D]">
         &times;
       </button>
-      <p className="text-center text-blue-800">Liked Course Planner? Send a donation!</p>
+      <p className="sm:block hidden text-center text-blue-800">Liked Course Planner? Send a donation!</p>
+      <p className="sm:hidden block text-center text-blue-800">Send a donation!</p>
       <button
         className="ml-2 text-blue-800 hover:text-blue-600"
         onMouseOver={() => document.getElementById('info-tooltip').style.visibility = 'visible'}
