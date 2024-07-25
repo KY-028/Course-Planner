@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddCustomCourse }) {
     const [searchTerm, setSearchTerm] = useState('');
@@ -9,6 +9,19 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
     const [staffName, setStaffName] = useState('Staff');
     const [times, setTimes] = useState([{ day: 'Monday', time: '' }]);
     const [showCustomForm, setShowCustomForm] = useState(false);
+
+    const searchInputRef = useRef(null);
+    const courseNameInputRef = useRef(null);
+
+    useEffect(() => {
+        if (isOpen) {
+            if (showCustomForm) {
+                courseNameInputRef.current.focus();  // Focus course name input when custom form is shown
+            } else {
+                searchInputRef.current.focus();  // Focus search input when default form is shown
+            }
+        }
+    }, [isOpen, showCustomForm]);
 
     const handleSearchChange = (e) => {
         setSearchTerm(e.target.value);
@@ -164,6 +177,7 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
                                     className="mt-4 p-2 w-full border-gray-400 border rounded"
                                     value={courseName}
                                     onChange={e => setCourseName(e.target.value.split(" ").join("").toUpperCase())}
+                                    ref={courseNameInputRef}
                                     required
                                 />
                                 <label htmlFor="course" className="lg:ml-2 ml-1 text-sm text-gray-500">e.g. MATH110 (no space)</label>
@@ -262,6 +276,7 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
                             className="mt-4 p-2 w-full border-gray-400 border rounded"
                             value={searchTerm}
                             onChange={handleSearchChange}
+                            ref={searchInputRef}
                         />
                         <div className="mt-4 max-h-60 overflow-y-auto">
                             {searchResults}

@@ -239,7 +239,6 @@ const Slot = ({ time, name, color, west, profName }) => {
     const endTotalMinutes = (endHour - 8) * 60 + endMinute;
 
     const durationMinutes = endTotalMinutes - totalMinutes;
-    console.log(name, 1000 + startHour * 60 + startMinute - (durationMinutes / 60));
 
     return (
         <div
