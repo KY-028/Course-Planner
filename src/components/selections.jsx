@@ -98,7 +98,11 @@ function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChan
     }
 
     const handleSelectChange = (courseId, newSelection) => {
-        const isAlreadySelected = courses.some(course => course.selectedOption === newSelection);
+
+        const match = newSelection.match(/\d+/);
+        const number = match ? match[0] : null;
+
+        const isAlreadySelected = courses.some(course => course.id === `${courseId.split("_")[0]}_${number}`);
 
         if (isAlreadySelected) {
             alert("The new section you selected is already in the list!");
