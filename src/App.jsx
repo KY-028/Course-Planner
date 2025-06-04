@@ -1,7 +1,5 @@
 import { Children, useState } from 'react';
 import "./styles.css"
-import SignUp from "./pages/signUp"
-import Login from "./pages/login"
 import Courses from "./pages/course-selection"
 import Planner from "./pages/planner"
 import Home from "./pages/home"
@@ -9,6 +7,7 @@ import Footer from "./components/footer"
 import Contact from "./pages/contact"
 import About from './pages/about';
 import LoginSignup from "./pages/loginsignup";
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 import {
   createBrowserRouter,
@@ -77,9 +76,11 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div>
-      <RouterProvider router={router} />
-    </div>
+    <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
+      <div>
+        <RouterProvider router={router} />
+      </div>
+    </GoogleOAuthProvider>
   );
 }
 
