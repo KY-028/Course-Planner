@@ -5,11 +5,12 @@ import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from "../context/authContext";
 import Homenav from "/src/components/homenav"
 import axios from 'axios'
+import { useGoogleLogin } from '@react-oauth/google';
 
 export default function LoginSignup({ signinintent }) {
     const apiUrl = import.meta.env.VITE_API_URL;
 
-    const { login, currentUser } = useContext(AuthContext);
+    const { login, loginWithGoogle, currentUser } = useContext(AuthContext); 
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -45,13 +46,11 @@ export default function LoginSignup({ signinintent }) {
 
     const handleLoginSubmit = async (e) => {
         e.preventDefault();
-
-        try {
-            await login(logininputs)
+        const result = await login(logininputs);
+        if (result.success) {
             navigate("/course-selection");
-        } catch (err) {
-            const errorMessage = err.response?.data?.message || "An unexpected error occurred";
-            setError(errorMessage);
+        } else {
+            setError(result.error);
         }
     };
 
@@ -72,6 +71,14 @@ export default function LoginSignup({ signinintent }) {
         }
     };
 
+    const handleGoogleSuccess = async (credentialResponse) => {
+        const result = await loginWithGoogle(credentialResponse.access_token);
+        if (result.success) {
+            navigate("/course-selection");
+        } else {
+            setError(result.error);
+        }
+    };
 
     const handleToggle = (value) => {
         if (value) {
@@ -83,6 +90,10 @@ export default function LoginSignup({ signinintent }) {
         setError(null);
     };
 
+    const googleLogin = useGoogleLogin({
+        onSuccess: handleGoogleSuccess,
+        onError: () => setError("Google Sign In was unsuccessful")
+    });
 
     return (
         <div>
@@ -97,7 +108,22 @@ export default function LoginSignup({ signinintent }) {
                             <input required onChange={handleSignupChange} value={signupInputs.password} name="password" type="password" placeholder="Password" />
                             <input required onChange={handleSignupChange} value={signupInputs.grade} name="grade" type="number" min={1} placeholder="Year of Study" />
                             <p className="error">{err ? err : ''}</p>
-                            <button type="submit">Sign Up</button>
+                            <button type="submit" className="w-[200px] h-10 bg-[#65A8F6] text-white rounded-full font-bold text-base flex items-center justify-center">Sign Up</button>
+                            <div className="mt-1">
+                                <button
+                                    type="button"
+                                    onClick={() => googleLogin()}
+                                    className="w-[200px] h-10 bg-[#65A8F6] text-white rounded-full font-bold text-base flex items-center justify-center hover:bg-[#4d96e6] transition-colors duration-200"
+                                >
+                                    <img 
+                                        src="https://www.google.com/favicon.ico" 
+                                        alt="Google" 
+                                        className="w-5 h-5 mr-2 align-middle"
+                                        style={{ display: 'inline-block' }}
+                                    />
+                                    <div className="w-[150px] text-nowrap">Google Sign Up</div>
+                                </button>
+                            </div>
                         </form>
                     </Components.SignUpContainer>
                     <Components.SignInContainer signingin={signIn}>
@@ -106,7 +132,22 @@ export default function LoginSignup({ signinintent }) {
                             <input required onChange={handleLoginChange} value={logininputs.email} name="email" type="email" placeholder="Email" />
                             <input required onChange={handleLoginChange} value={logininputs.password} name="password" type="password" placeholder="Password" />
                             <p className="error" style={{ minHeight: '25px' }}>{err ? err : ''}</p>
-                            <button type="submit">Sign In</button>
+                            <button type="submit" className="w-[200px] h-10 bg-[#65A8F6] text-white rounded-full font-bold text-base flex items-center justify-center">Sign In</button>
+                            <div className="mt-1">
+                                <button
+                                    type="button"
+                                    onClick={() => googleLogin()}
+                                    className="w-[200px] h-10 bg-[#65A8F6] text-white rounded-full font-bold text-base flex items-center justify-center hover:bg-[#4d96e6] transition-colors duration-200"
+                                >
+                                    <img 
+                                        src="https://www.google.com/favicon.ico" 
+                                        alt="Google" 
+                                        className="w-5 h-5 mr-2 align-middle"
+                                        style={{ display: 'inline-block' }}
+                                    />
+                                    <div className="w-[150px] text-nowrap">Google Sign In</div>
+                                </button>
+                            </div>
                         </form>
                     </Components.SignInContainer>
                     <Components.OverlayContainer signingin={signIn}>
@@ -142,6 +183,19 @@ export default function LoginSignup({ signinintent }) {
                             <input className="bg-transparent border-b border-gray-300 text-white p-[5px_2px] m-[8px_10px]  focus:border-b-white focus:outline-none md:text-base w-3/4" required type="email" placeholder='Email' name='email' onChange={handleLoginChange} value={logininputs.email} />
                             <input className="bg-transparent border-b border-gray-300 text-white p-[5px_2px] m-[8px_10px] focus:border-b-white focus:outline-none md:text-base w-3/4" required type="password" placeholder='Password' name='password' onChange={handleLoginChange} value={logininputs.password} />
                             <button className="border border-[#79b7ff] text-white text-lg font-bold p-1.5 w-3/5 tracking-wide my-3.5 transition-transform duration-75 ease-in focus:outline-none active:scale-95 sm:text-sm sm:p-1 sm:w-3/4" onClick={handleLoginSubmit}>Log In</button>
+                            <button
+                                type="button"
+                                onClick={() => googleLogin()}
+                                className="border border-[#79b7ff] text-white text-lg font-bold p-1.5 w-3/5 tracking-wide my-1.5 transition-transform duration-75 ease-in focus:outline-none active:scale-95 sm:text-sm sm:p-1 sm:w-3/4 bg-[#65A8F6] rounded-full flex items-center justify-center"
+                            >
+                                <img
+                                    src="https://www.google.com/favicon.ico"
+                                    alt="Google"
+                                    className="w-4 h-4 mr-2 align-middle"
+                                    style={{ display: 'inline-block' }}
+                                />
+                                Google Sign In
+                            </button>
                             <p className="text-base text-center text-yellow-300 mb-2.5" style={{ minHeight: '25px' }} >{err ? err : ''}</p>
                             <span className="text-white text-base text-center flex-col mb-10">
                                 Don't have an account yet? <a className="text-[#b0e6ff] underline cursor-pointer" onClick={() => handleToggle(false)}>Sign up</a>
@@ -160,7 +214,19 @@ export default function LoginSignup({ signinintent }) {
                             <input className="bg-transparent border-b border-gray-300 text-white p-[5px_2px] m-[8px_10px] w-3/5 focus:border-b-white focus:outline-none md:text-base md:w-3/4" required onChange={handleSignupChange} value={signupInputs.password} name="password" type="password" placeholder="Password" />
                             <input className="bg-transparent border-b border-gray-300 text-white p-[5px_2px] m-[8px_10px] w-3/5 focus:border-b-white focus:outline-none md:text-base md:w-3/4" required onChange={handleSignupChange} value={signupInputs.grade} name="grade" type="number" min={1} placeholder="Year of Study" />
                             <button className="border border-[#79b7ff] text-white text-lg font-bold p-1.5 w-3/5 tracking-wide my-3.5 transition-transform duration-75 ease-in focus:outline-none active:scale-95 sm:text-sm sm:p-1 sm:w-3/4">Sign Up</button>
-
+                            <button
+                                type="button"
+                                onClick={() => googleLogin()}
+                                className="border border-[#79b7ff] text-white text-lg font-bold p-1.5 w-3/5 tracking-wide my-1.5 transition-transform duration-75 ease-in focus:outline-none active:scale-95 sm:text-sm sm:p-1 sm:w-3/4 bg-[#65A8F6] rounded-full flex items-center justify-center"
+                            >
+                                <img
+                                    src="https://www.google.com/favicon.ico"
+                                    alt="Google"
+                                    className="w-4 h-4 mr-2 align-middle"
+                                    style={{ display: 'inline-block' }}
+                                />
+                                Google Sign Up
+                            </button>
                             <p className="text-base text-center text-yellow-300 mb-2.5" style={{ minHeight: '25px' }} >{err ? err : ''}</p>
                             <span className="text-white text-base text-center flex-col mb-10">
                                 Already have an account? <a className="text-[#b0e6ff] underline cursor-pointer" onClick={() => handleToggle(true)}>Log in</a>

@@ -1,0 +1,3950 @@
+[
+  {
+    "name": "ARIN 101",
+    "parsedRequirements": {
+      "all": {
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "ARIN 201",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "grouping",
+              "values": [
+                {
+                  "type": "level",
+                  "level": 2
+                },
+                {
+                  "type": "courses",
+                  "courses": {
+                    "type": "single",
+                    "course": {
+                      "type": "course",
+                      "name": "ARIN 101"
+                    }
+                  }
+                }
+              ],
+              "operator": "and"
+            },
+            {
+              "type": "permission",
+              "from": "School"
+            }
+          ],
+          "operator": "or"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "ARIN 210",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "level",
+              "level": 2
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "grouping",
+                "values": [
+                  {
+                    "type": "course",
+                    "name": "ARIN 101"
+                  },
+                  {
+                    "type": "course",
+                    "name": "COGS 100"
+                  }
+                ],
+                "operator": "and"
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 101",
+    "parsedRequirements": {
+      "all": {
+        "exclusions": [
+          {
+            "type": "normal",
+            "courses": [
+              {
+                "type": "course",
+                "name": "APSC 142"
+              },
+              {
+                "type": "course",
+                "name": "APSC 143"
+              },
+              {
+                "type": "course",
+                "name": "CISC 110"
+              },
+              {
+                "type": "course",
+                "name": "CISC 151"
+              }
+            ]
+          },
+          {
+            "type": "one-way",
+            "exclusions": [
+              {
+                "type": "course",
+                "name": "CISC 121"
+              },
+              {
+                "type": "subject-level",
+                "subjects": [
+                  "CISC",
+                  "CMPE",
+                  "COCA",
+                  "COGS",
+                  "SOFT"
+                ],
+                "level": 200,
+                "aboveAllowed": true
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "CISC 102",
+    "parsedRequirements": {
+      "all": {
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 110",
+    "parsedRequirements": {
+      "all": {
+        "exclusions": [
+          {
+            "type": "normal",
+            "courses": [
+              {
+                "type": "course",
+                "name": "APSC 142"
+              },
+              {
+                "type": "course",
+                "name": "APSC 143"
+              },
+              {
+                "type": "course",
+                "name": "CISC 101"
+              },
+              {
+                "type": "course",
+                "name": "CISC 151"
+              }
+            ]
+          },
+          {
+            "type": "one-way",
+            "exclusions": [
+              {
+                "type": "course",
+                "name": "CISC 121"
+              },
+              {
+                "type": "subject-level",
+                "subjects": [
+                  "CISC",
+                  "CMPE",
+                  "COCA",
+                  "COGS",
+                  "SOFT"
+                ],
+                "level": 200,
+                "aboveAllowed": true
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "CISC 121",
+    "parsedRequirements": {
+      "all": {
+        "corequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "grouping",
+              "values": [
+                {
+                  "type": "course",
+                  "name": "CISC 102"
+                },
+                {
+                  "type": "course",
+                  "name": "MATH 110"
+                },
+                {
+                  "type": "course",
+                  "name": "MATH 111"
+                },
+                {
+                  "type": "course",
+                  "name": "MATH 112"
+                },
+                {
+                  "type": "course",
+                  "name": "MATH 120"
+                },
+                {
+                  "type": "course",
+                  "name": "MATH 121"
+                },
+                {
+                  "type": "course",
+                  "name": "MATH 123"
+                },
+                {
+                  "type": "course",
+                  "name": "MATH 124"
+                },
+                {
+                  "type": "course",
+                  "name": "MATH 126"
+                },
+                {
+                  "type": "course",
+                  "name": "MATH 130"
+                },
+                {
+                  "type": "course",
+                  "name": "APSC 171"
+                },
+                {
+                  "type": "course",
+                  "name": "APSC 172"
+                },
+                {
+                  "type": "course",
+                  "name": "APSC 174"
+                },
+                {
+                  "type": "course",
+                  "name": "COMM 161"
+                },
+                {
+                  "type": "course",
+                  "name": "COMM 162"
+                }
+              ],
+              "operator": "or"
+            }
+          ],
+          "operator": "single"
+        },
+        "exclusions": [
+          {
+            "type": "normal",
+            "courses": [
+              {
+                "type": "course",
+                "name": "APSC 143"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "CISC 124",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "courses",
+              "courses": {
+                "type": "single",
+                "course": {
+                  "type": "course",
+                  "name": "CISC 121"
+                }
+              }
+            }
+          ],
+          "operator": "single"
+        },
+        "corequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "grouping",
+              "values": [
+                {
+                  "type": "course",
+                  "name": "CISC 102"
+                },
+                {
+                  "type": "course",
+                  "name": "MATH 110"
+                },
+                {
+                  "type": "course",
+                  "name": "MATH 111"
+                },
+                {
+                  "type": "course",
+                  "name": "MATH 112"
+                },
+                {
+                  "type": "course",
+                  "name": "MATH 120"
+                },
+                {
+                  "type": "course",
+                  "name": "MATH 121"
+                },
+                {
+                  "type": "course",
+                  "name": "MATH 123"
+                },
+                {
+                  "type": "course",
+                  "name": "MATH 124"
+                },
+                {
+                  "type": "course",
+                  "name": "MATH 126"
+                },
+                {
+                  "type": "course",
+                  "name": "MATH 130"
+                },
+                {
+                  "type": "course",
+                  "name": "APSC 171"
+                },
+                {
+                  "type": "course",
+                  "name": "APSC 172"
+                },
+                {
+                  "type": "course",
+                  "name": "APSC 174"
+                },
+                {
+                  "type": "course",
+                  "name": "COMM 161"
+                },
+                {
+                  "type": "course",
+                  "name": "COMM 162"
+                }
+              ],
+              "operator": "or"
+            }
+          ],
+          "operator": "single"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 151",
+    "parsedRequirements": {
+      "all": {
+        "exclusions": [
+          {
+            "type": "normal",
+            "courses": [
+              {
+                "type": "course",
+                "name": "APSC 142"
+              },
+              {
+                "type": "course",
+                "name": "APSC 143"
+              },
+              {
+                "type": "course",
+                "name": "CISC 101"
+              },
+              {
+                "type": "course",
+                "name": "CISC 110"
+              }
+            ]
+          },
+          {
+            "type": "one-way",
+            "exclusions": [
+              {
+                "type": "course",
+                "name": "CISC 121"
+              },
+              {
+                "type": "subject-level",
+                "subjects": [
+                  "CISC",
+                  "CMPE",
+                  "COCA",
+                  "COGS",
+                  "SOFT"
+                ],
+                "level": 200,
+                "aboveAllowed": true
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "CISC 181",
+    "parsedRequirements": {
+      "all": {
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 203",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "level",
+              "level": 2
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "grouping",
+                "values": [
+                  {
+                    "type": "course",
+                    "name": "CISC 102"
+                  },
+                  {
+                    "type": "course",
+                    "name": "CISC 121"
+                  }
+                ],
+                "operator": "and"
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 204",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "level",
+              "level": 2
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "grouping",
+                "values": [
+                  {
+                    "type": "course",
+                    "name": "CISC 121"
+                  },
+                  {
+                    "type": "grouping",
+                    "values": [
+                      {
+                        "type": "course",
+                        "name": "CISC 102"
+                      },
+                      {
+                        "type": "course",
+                        "name": "MATH 110"
+                      }
+                    ],
+                    "operator": "or"
+                  }
+                ],
+                "operator": "and"
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 220",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "level",
+              "level": 2
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "single",
+                "course": {
+                  "type": "course",
+                  "name": "CISC 121"
+                }
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "corequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "course",
+              "name": "CISC 124"
+            }
+          ],
+          "operator": "single"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 221",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "level",
+              "level": 2
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "single",
+                "course": {
+                  "type": "course",
+                  "name": "CISC 124"
+                }
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 223",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "level",
+              "level": 2
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "grouping",
+                "values": [
+                  {
+                    "type": "course",
+                    "name": "CISC 124"
+                  },
+                  {
+                    "type": "course",
+                    "name": "CISC 204"
+                  }
+                ],
+                "operator": "and"
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 226",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "level",
+              "level": 2
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "single",
+                "course": {
+                  "type": "course",
+                  "name": "CISC 124"
+                }
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 235",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "level",
+              "level": 2
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "grouping",
+                "values": [
+                  {
+                    "type": "course",
+                    "name": "CISC 124"
+                  },
+                  {
+                    "type": "course",
+                    "name": "CISC 203"
+                  }
+                ],
+                "operator": "and"
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 251",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "cumulative-gpa",
+              "gpa": 1.7
+            }
+          ],
+          "operator": "single"
+        },
+        "exclusions": [
+          {
+            "type": "normal",
+            "courses": [
+              {
+                "type": "course",
+                "name": "CISC 333"
+              },
+              {
+                "type": "course",
+                "name": "CMPE 333"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "CISC 271",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "level",
+              "level": 2
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "grouping",
+                "values": [
+                  {
+                    "type": "grouping",
+                    "values": [
+                      {
+                        "type": "course",
+                        "name": "CISC 101"
+                      },
+                      {
+                        "type": "course",
+                        "name": "CISC 110"
+                      },
+                      {
+                        "type": "course",
+                        "name": "CISC 151"
+                      },
+                      {
+                        "type": "course",
+                        "name": "CISC 121"
+                      }
+                    ],
+                    "operator": "or"
+                  },
+                  {
+                    "type": "grouping",
+                    "values": [
+                      {
+                        "type": "course",
+                        "name": "MATH 110"
+                      },
+                      {
+                        "type": "course",
+                        "name": "MATH 111"
+                      },
+                      {
+                        "type": "course",
+                        "name": "MATH 112"
+                      }
+                    ],
+                    "operator": "or"
+                  },
+                  {
+                    "type": "grouping",
+                    "values": [
+                      {
+                        "type": "course",
+                        "name": "MATH 120"
+                      },
+                      {
+                        "type": "course",
+                        "name": "MATH 121"
+                      },
+                      {
+                        "type": "grouping",
+                        "values": [
+                          {
+                            "type": "course",
+                            "name": "MATH 123"
+                          },
+                          {
+                            "type": "course",
+                            "name": "MATH 124"
+                          }
+                        ],
+                        "operator": "and"
+                      },
+                      {
+                        "type": "course",
+                        "name": "MATH 126"
+                      }
+                    ],
+                    "operator": "or"
+                  }
+                ],
+                "operator": "and"
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": [
+          {
+            "type": "normal",
+            "courses": [
+              {
+                "type": "course",
+                "name": "MATH 272"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "CISC 282",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "level",
+              "level": 2
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "single",
+                "course": {
+                  "type": "course",
+                  "name": "CISC 124"
+                }
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 320",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-plan"
+                }
+              ]
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "single",
+                "course": {
+                  "type": "course",
+                  "name": "CISC 235"
+                }
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 322",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-plan"
+                }
+              ]
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "grouping",
+                "values": [
+                  {
+                    "type": "course",
+                    "name": "CISC 223"
+                  },
+                  {
+                    "type": "course",
+                    "name": "CISC 235"
+                  }
+                ],
+                "operator": "and"
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": [
+          {
+            "type": "normal",
+            "courses": [
+              {
+                "type": "course",
+                "name": "CISC 326"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "CISC 324",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-plan"
+                }
+              ]
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "grouping",
+                "values": [
+                  {
+                    "type": "course",
+                    "name": "CISC 221"
+                  },
+                  {
+                    "type": "course",
+                    "name": "CISC 235"
+                  }
+                ],
+                "operator": "and"
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 325",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-plan"
+                }
+              ]
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "single",
+                "course": {
+                  "type": "course",
+                  "name": "CISC 124"
+                }
+              }
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "single",
+                "course": {
+                  "type": "course",
+                  "name": "CISC 235"
+                }
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": [
+          {
+            "type": "normal",
+            "courses": [
+              {
+                "type": "course",
+                "name": "CMPE 325"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "CISC 326",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-plan"
+                }
+              ]
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "grouping",
+                "values": [
+                  {
+                    "type": "course",
+                    "name": "CISC 223"
+                  },
+                  {
+                    "type": "course",
+                    "name": "CISC 235"
+                  }
+                ],
+                "operator": "and"
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": [
+          {
+            "type": "normal",
+            "courses": [
+              {
+                "type": "course",
+                "name": "CISC 322"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "CISC 327",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "courses",
+              "courses": {
+                "type": "grouping",
+                "values": [
+                  {
+                    "type": "course",
+                    "name": "CISC 220"
+                  },
+                  {
+                    "type": "course",
+                    "name": "CISC 124"
+                  }
+                ],
+                "operator": "and"
+              }
+            },
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-plan"
+                }
+              ]
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": [
+          {
+            "type": "normal",
+            "courses": [
+              {
+                "type": "course",
+                "name": "SOFT 327"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "CISC 330",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-plan"
+                }
+              ]
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "grouping",
+                "values": [
+                  {
+                    "type": "course",
+                    "name": "CISC 121"
+                  },
+                  {
+                    "type": "course",
+                    "name": "CISC 271"
+                  }
+                ],
+                "operator": "and"
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": [
+          {
+            "type": "normal",
+            "courses": [
+              {
+                "type": "course",
+                "name": "COMP 329"
+              },
+              {
+                "type": "course",
+                "name": "COMP 230"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "CISC 332",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "level",
+              "level": 2
+            },
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-plan"
+                }
+              ]
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "grouping",
+                "values": [
+                  {
+                    "type": "course",
+                    "name": "CISC 102"
+                  },
+                  {
+                    "type": "course",
+                    "name": "CISC 124"
+                  }
+                ],
+                "operator": "and"
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": [
+          {
+            "type": "normal",
+            "courses": [
+              {
+                "type": "course",
+                "name": "COMM 392"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "CISC 335",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-plan"
+                }
+              ]
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "single",
+                "course": {
+                  "type": "course",
+                  "name": "CISC 324"
+                }
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 340",
+    "parsedRequirements": {
+      "ASC": {
+        "label": "ASC",
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-plan"
+                }
+              ]
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "single",
+                "course": {
+                  "type": "course",
+                  "name": "CISC 221"
+                }
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      },
+      "FEAS": {
+        "label": "FEAS",
+        "exclusions": [
+          {
+            "type": "normal",
+            "courses": [
+              {
+                "type": "course",
+                "name": "ELEC 272"
+              },
+              {
+                "type": "course",
+                "name": "ELEC 373"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "CISC 351",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "courses",
+              "courses": {
+                "type": "single",
+                "course": {
+                  "type": "course",
+                  "name": "CISC 251"
+                }
+              }
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "grouping",
+                "values": [
+                  {
+                    "type": "units-amount",
+                    "unitCount": 3,
+                    "from": "STAT"
+                  },
+                  {
+                    "type": "units-amount",
+                    "unitCount": 3,
+                    "from": "STAT_Options"
+                  }
+                ],
+                "operator": "or"
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": [
+          {
+            "type": "normal",
+            "courses": [
+              {
+                "type": "course",
+                "name": "CISC 371"
+              },
+              {
+                "type": "course",
+                "name": "CISC 372"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "CISC 352",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-plan"
+                }
+              ]
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "single",
+                "course": {
+                  "type": "course",
+                  "name": "CISC 235"
+                }
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 360",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-plan"
+                }
+              ]
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "grouping",
+                "values": [
+                  {
+                    "type": "course",
+                    "name": "CISC 124"
+                  },
+                  {
+                    "type": "course",
+                    "name": "CISC 204"
+                  }
+                ],
+                "operator": "and"
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 365",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-plan"
+                }
+              ]
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "grouping",
+                "values": [
+                  {
+                    "type": "course",
+                    "name": "CISC 203"
+                  },
+                  {
+                    "type": "course",
+                    "name": "CISC 204"
+                  },
+                  {
+                    "type": "course",
+                    "name": "CISC 235"
+                  }
+                ],
+                "operator": "and"
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 371",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-plan"
+                }
+              ]
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "grouping",
+                "values": [
+                  {
+                    "type": "course",
+                    "name": "CISC 271"
+                  },
+                  {
+                    "type": "grouping",
+                    "values": [
+                      {
+                        "type": "course",
+                        "name": "STAT 263"
+                      },
+                      {
+                        "type": "course-group",
+                        "name": "STAT_Options"
+                      }
+                    ],
+                    "operator": "or"
+                  }
+                ],
+                "operator": "and"
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": [
+          {
+            "type": "normal",
+            "courses": [
+              {
+                "type": "course",
+                "name": "CISC 351"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "CISC 372",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-plan"
+                }
+              ]
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "grouping",
+                "values": [
+                  {
+                    "type": "course",
+                    "name": "CISC 271"
+                  },
+                  {
+                    "type": "grouping",
+                    "values": [
+                      {
+                        "type": "units-amount",
+                        "unitCount": 3,
+                        "from": "STAT"
+                      },
+                      {
+                        "type": "course-group",
+                        "name": "STAT_Options"
+                      }
+                    ],
+                    "operator": "or"
+                  }
+                ],
+                "operator": "and"
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 422",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-plan"
+                }
+              ]
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "single",
+                "course": {
+                  "type": "course",
+                  "name": "CISC 223"
+                }
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 423",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-plan"
+                }
+              ]
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "grouping",
+                "values": [
+                  {
+                    "type": "course",
+                    "name": "CISC 223"
+                  },
+                  {
+                    "type": "course",
+                    "name": "CISC 235"
+                  }
+                ],
+                "operator": "and"
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "corequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "grouping",
+              "values": [
+                {
+                  "type": "course",
+                  "name": "CISC 325"
+                },
+                {
+                  "type": "grouping",
+                  "values": [
+                    {
+                      "type": "course",
+                      "name": "CISC 322"
+                    },
+                    {
+                      "type": "course",
+                      "name": "CISC 326"
+                    }
+                  ],
+                  "operator": "or"
+                }
+              ],
+              "operator": "and"
+            }
+          ],
+          "operator": "single"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 432",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-plan"
+                }
+              ]
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "grouping",
+                "values": [
+                  {
+                    "type": "course",
+                    "name": "CISC 235"
+                  },
+                  {
+                    "type": "course",
+                    "name": "CISC 332"
+                  }
+                ],
+                "operator": "and"
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 437",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-plan"
+                }
+              ]
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "grouping",
+                "values": [
+                  {
+                    "type": "course",
+                    "name": "CISC 324"
+                  },
+                  {
+                    "type": "course",
+                    "name": "CISC 327"
+                  }
+                ],
+                "operator": "and"
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 447",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "courses",
+              "courses": {
+                "type": "single",
+                "course": {
+                  "type": "course",
+                  "name": "CISC 324"
+                }
+              }
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "single",
+                "course": {
+                  "type": "course",
+                  "name": "CISC 335"
+                }
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": [
+          {
+            "type": "normal",
+            "courses": [
+              {
+                "type": "course",
+                "name": "CISC 490"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "CISC 448",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "courses",
+              "courses": {
+                "type": "single",
+                "course": {
+                  "type": "course",
+                  "name": "CISC 327"
+                }
+              }
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "single",
+                "course": {
+                  "type": "course",
+                  "name": "CMPE 327"
+                }
+              }
+            }
+          ],
+          "operator": "or"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 451",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "courses",
+              "courses": {
+                "type": "grouping",
+                "values": [
+                  {
+                    "type": "course",
+                    "name": "CISC 333"
+                  },
+                  {
+                    "type": "course",
+                    "name": "CISC 351"
+                  },
+                  {
+                    "type": "course",
+                    "name": "CISC 372"
+                  }
+                ],
+                "operator": "or"
+              }
+            }
+          ],
+          "operator": "single"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 452",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-plan"
+                }
+              ]
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "single",
+                "course": {
+                  "type": "course",
+                  "name": "CISC 235"
+                }
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": [
+          {
+            "type": "normal",
+            "courses": [
+              {
+                "type": "course",
+                "name": "COGS 400"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "CISC 453",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-plan"
+                }
+              ]
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "single",
+                "course": {
+                  "type": "course",
+                  "name": "CISC 352"
+                }
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 454",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "level",
+              "level": 3
+            },
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-plan"
+                }
+              ]
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "grouping",
+                "values": [
+                  {
+                    "type": "course",
+                    "name": "CISC 235"
+                  },
+                  {
+                    "type": "grouping",
+                    "values": [
+                      {
+                        "type": "course",
+                        "name": "MATH 110"
+                      },
+                      {
+                        "type": "course",
+                        "name": "MATH 111"
+                      },
+                      {
+                        "type": "course",
+                        "name": "MATH 112"
+                      }
+                    ],
+                    "operator": "or"
+                  }
+                ],
+                "operator": "and"
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 455",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-plan"
+                }
+              ]
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "grouping",
+                "values": [
+                  {
+                    "type": "course",
+                    "name": "CISC 365"
+                  },
+                  {
+                    "type": "course",
+                    "name": "STAT 263"
+                  }
+                ],
+                "operator": "and"
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 457",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-plan"
+                }
+              ]
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "grouping",
+                "values": [
+                  {
+                    "type": "grouping",
+                    "values": [
+                      {
+                        "type": "course",
+                        "name": "MATH 110"
+                      },
+                      {
+                        "type": "course",
+                        "name": "MATH 111"
+                      },
+                      {
+                        "type": "course",
+                        "name": "MATH 112"
+                      }
+                    ],
+                    "operator": "or"
+                  },
+                  {
+                    "type": "grouping",
+                    "values": [
+                      {
+                        "type": "course",
+                        "name": "MATH 120"
+                      },
+                      {
+                        "type": "course",
+                        "name": "MATH 121"
+                      },
+                      {
+                        "type": "course",
+                        "name": "MATH 123"
+                      },
+                      {
+                        "type": "course",
+                        "name": "MATH 124"
+                      },
+                      {
+                        "type": "course",
+                        "name": "MATH 126"
+                      }
+                    ],
+                    "operator": "or"
+                  },
+                  {
+                    "type": "course",
+                    "name": "CISC 124"
+                  }
+                ],
+                "operator": "and"
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 458",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-plan"
+                }
+              ]
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "grouping",
+                "values": [
+                  {
+                    "type": "course",
+                    "name": "CISC 121"
+                  },
+                  {
+                    "type": "course",
+                    "name": "CISC 221"
+                  },
+                  {
+                    "type": "course",
+                    "name": "CISC 223"
+                  }
+                ],
+                "operator": "and"
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 465",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-plan"
+                }
+              ]
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "grouping",
+                "values": [
+                  {
+                    "type": "course",
+                    "name": "CISC 204"
+                  },
+                  {
+                    "type": "course",
+                    "name": "CISC 223"
+                  },
+                  {
+                    "type": "grouping",
+                    "values": [
+                      {
+                        "type": "course",
+                        "name": "CISC 360"
+                      },
+                      {
+                        "type": "course",
+                        "name": "CISC 260"
+                      }
+                    ],
+                    "operator": "or"
+                  }
+                ],
+                "operator": "and"
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 467",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "level",
+              "level": 4
+            },
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-plan",
+                  "options": [
+                    "COCA"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "single",
+                "course": {
+                  "type": "course",
+                  "name": "CISC 204"
+                }
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 468",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-plan"
+                }
+              ]
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "grouping",
+                "values": [
+                  {
+                    "type": "course",
+                    "name": "CISC 235"
+                  },
+                  {
+                    "type": "course",
+                    "name": "CISC 335"
+                  }
+                ],
+                "operator": "and"
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 471",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-plan"
+                }
+              ]
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "grouping",
+                "values": [
+                  {
+                    "type": "course",
+                    "name": "CISC 352"
+                  },
+                  {
+                    "type": "course",
+                    "name": "CISC 365"
+                  }
+                ],
+                "operator": "and"
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 472",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-plan"
+                }
+              ]
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "single",
+                "course": {
+                  "type": "course",
+                  "name": "CISC 330"
+                }
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 473",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-plan"
+                }
+              ]
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "grouping",
+                "values": [
+                  {
+                    "type": "course",
+                    "name": "CISC 371"
+                  },
+                  {
+                    "type": "grouping",
+                    "values": [
+                      {
+                        "type": "course",
+                        "name": "CISC 271"
+                      },
+                      {
+                        "type": "course",
+                        "name": "CISC 352"
+                      }
+                    ],
+                    "operator": "and"
+                  }
+                ],
+                "operator": "or"
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 474",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-plan"
+                }
+              ]
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "single",
+                "course": {
+                  "type": "course",
+                  "name": "CISC 352"
+                }
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 486",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-plan"
+                }
+              ]
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "grouping",
+                "values": [
+                  {
+                    "type": "course",
+                    "name": "CISC 226"
+                  },
+                  {
+                    "type": "grouping",
+                    "values": [
+                      {
+                        "type": "course",
+                        "name": "CISC 322"
+                      },
+                      {
+                        "type": "course",
+                        "name": "CISC 326"
+                      }
+                    ],
+                    "operator": "or"
+                  },
+                  {
+                    "type": "course",
+                    "name": "CISC 324"
+                  },
+                  {
+                    "type": "grouping",
+                    "values": [
+                      {
+                        "type": "course",
+                        "name": "MATH 110"
+                      },
+                      {
+                        "type": "course",
+                        "name": "MATH 111"
+                      },
+                      {
+                        "type": "course",
+                        "name": "MATH 112"
+                      }
+                    ],
+                    "operator": "or"
+                  }
+                ],
+                "operator": "and"
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 490",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-plan"
+                }
+              ]
+            },
+            {
+              "type": "permission",
+              "from": "instructor"
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 492",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-plan"
+                }
+              ]
+            },
+            {
+              "type": "permission",
+              "from": "instructor"
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 495",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "level",
+              "level": 4
+            },
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-major"
+                },
+                {
+                  "type": "computing-specialization",
+                  "options": [
+                    "BMCO",
+                    "COCA",
+                    "COGS",
+                    "COMA",
+                    "CSCI"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "cumulative-gpa",
+              "gpa": 1.9
+            },
+            {
+              "type": "minimum-gpa",
+              "gpa": 2.6,
+              "subjects": [
+                "CISC",
+                "COCA",
+                "COGS",
+                "SOFT"
+              ],
+              "level": 100,
+              "aboveAllowed": false
+            },
+            {
+              "type": "minimum-units",
+              "unitCount": 12,
+              "subjects": [
+                "CISC",
+                "COCA",
+                "COGS",
+                "SOFT"
+              ],
+              "level": 300,
+              "aboveAllowed": true
+            },
+            {
+              "type": "minimum-gpa",
+              "gpa": 2.6,
+              "subjects": [
+                "CISC",
+                "COCA",
+                "COGS",
+                "SOFT"
+              ],
+              "level": 300,
+              "aboveAllowed": true
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": [
+          {
+            "type": "max-one",
+            "from": [
+              {
+                "type": "course",
+                "name": "CISC 495"
+              },
+              {
+                "type": "course",
+                "name": "CISC 496"
+              },
+              {
+                "type": "course",
+                "name": "CISC 499"
+              },
+              {
+                "type": "course",
+                "name": "CISC 500"
+              },
+              {
+                "type": "course",
+                "name": "COGS 499"
+              }
+            ]
+          },
+          {
+            "type": "max-one",
+            "from": [
+              {
+                "type": "course",
+                "name": "CISC 495"
+              },
+              {
+                "type": "course",
+                "name": "CISC 498"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "CISC 496",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "grouping",
+              "values": [
+                {
+                  "type": "grouping",
+                  "values": [
+                    {
+                      "type": "level",
+                      "level": 4
+                    },
+                    {
+                      "type": "registration",
+                      "targets": [
+                        {
+                          "type": "computing-honours-plan"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "cumulative-gpa",
+                      "gpa": 1.9
+                    }
+                  ],
+                  "operator": "and"
+                },
+                {
+                  "type": "grouping",
+                  "values": [
+                    {
+                      "type": "minimum-gpa",
+                      "gpa": 2.6,
+                      "subjects": [
+                        "CISC",
+                        "COCA",
+                        "COGS",
+                        "SOFT"
+                      ],
+                      "level": 100,
+                      "aboveAllowed": false
+                    }
+                  ],
+                  "operator": "single"
+                },
+                {
+                  "type": "grouping",
+                  "values": [
+                    {
+                      "type": "minimum-units",
+                      "unitCount": 12,
+                      "subjects": [
+                        "CISC",
+                        "COCA",
+                        "COGS",
+                        "SOFT"
+                      ],
+                      "level": 300,
+                      "aboveAllowed": true
+                    }
+                  ],
+                  "operator": "single"
+                },
+                {
+                  "type": "grouping",
+                  "values": [
+                    {
+                      "type": "minimum-gpa",
+                      "gpa": 2.6,
+                      "subjects": [
+                        "CISC",
+                        "COCA",
+                        "COGS",
+                        "SOFT"
+                      ],
+                      "level": 300,
+                      "aboveAllowed": true
+                    }
+                  ],
+                  "operator": "single"
+                },
+                {
+                  "type": "grouping",
+                  "values": [
+                    {
+                      "type": "courses",
+                      "courses": {
+                        "type": "single",
+                        "course": {
+                          "type": "course",
+                          "name": "CISC 486"
+                        }
+                      }
+                    }
+                  ],
+                  "operator": "single"
+                },
+                {
+                  "type": "permission",
+                  "from": "School"
+                }
+              ],
+              "operator": "and"
+            }
+          ],
+          "operator": "single"
+        },
+        "exclusions": [
+          {
+            "type": "max-one",
+            "from": [
+              {
+                "type": "course",
+                "name": "CISC 495"
+              },
+              {
+                "type": "course",
+                "name": "CISC 496"
+              },
+              {
+                "type": "course",
+                "name": "CISC 499"
+              },
+              {
+                "type": "course",
+                "name": "CISC 500"
+              },
+              {
+                "type": "course",
+                "name": "COGS 499"
+              }
+            ]
+          },
+          {
+            "type": "max-one",
+            "from": [
+              {
+                "type": "course",
+                "name": "CISC 496"
+              },
+              {
+                "type": "course",
+                "name": "CISC 498"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "CISC 497",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "level",
+              "level": 4
+            },
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-major",
+                  "options": [
+                    "COMP"
+                  ]
+                },
+                {
+                  "type": "computing-specialization",
+                  "options": [
+                    "COMP"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "cumulative-gpa",
+              "gpa": 1.9
+            },
+            {
+              "type": "grouping",
+              "values": [
+                {
+                  "type": "minimum-gpa",
+                  "gpa": 2.6,
+                  "subjects": [
+                    "CISC",
+                    "COCA",
+                    "COGS",
+                    "SOFT"
+                  ],
+                  "level": 100,
+                  "aboveAllowed": false
+                }
+              ],
+              "operator": "single"
+            },
+            {
+              "type": "grouping",
+              "values": [
+                {
+                  "type": "minimum-units",
+                  "unitCount": 30,
+                  "subjects": [
+                    "CISC",
+                    "COCA",
+                    "COGS",
+                    "SOFT"
+                  ],
+                  "level": 100,
+                  "aboveAllowed": false
+                }
+              ],
+              "operator": "single"
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "grouping",
+                "values": [
+                  {
+                    "type": "course",
+                    "name": "CISC 352"
+                  },
+                  {
+                    "type": "course",
+                    "name": "CISC 365"
+                  }
+                ],
+                "operator": "or"
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 498",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "grouping",
+              "values": [
+                {
+                  "type": "grouping",
+                  "values": [
+                    {
+                      "type": "level",
+                      "level": 4
+                    },
+                    {
+                      "type": "registration",
+                      "targets": [
+                        {
+                          "type": "computing-specialization",
+                          "options": [
+                            "SODE"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "cumulative-gpa",
+                      "gpa": 1.9
+                    }
+                  ],
+                  "operator": "and"
+                },
+                {
+                  "type": "grouping",
+                  "values": [
+                    {
+                      "type": "minimum-gpa",
+                      "gpa": 2.6,
+                      "subjects": [
+                        "CISC",
+                        "COCA",
+                        "COGS",
+                        "SOFT"
+                      ],
+                      "level": 100,
+                      "aboveAllowed": false
+                    }
+                  ],
+                  "operator": "single"
+                },
+                {
+                  "type": "grouping",
+                  "values": [
+                    {
+                      "type": "minimum-units",
+                      "unitCount": 12,
+                      "subjects": [
+                        "CISC",
+                        "COCA",
+                        "COGS",
+                        "SOFT"
+                      ],
+                      "level": 300,
+                      "aboveAllowed": true
+                    }
+                  ],
+                  "operator": "single"
+                },
+                {
+                  "type": "grouping",
+                  "values": [
+                    {
+                      "type": "minimum-gpa",
+                      "gpa": 2.6,
+                      "subjects": [
+                        "CISC",
+                        "COCA",
+                        "COGS",
+                        "SOFT"
+                      ],
+                      "level": 300,
+                      "aboveAllowed": true
+                    }
+                  ],
+                  "operator": "single"
+                },
+                {
+                  "type": "grouping",
+                  "values": [
+                    {
+                      "type": "courses",
+                      "courses": {
+                        "type": "grouping",
+                        "values": [
+                          {
+                            "type": "course",
+                            "name": "CISC 322"
+                          },
+                          {
+                            "type": "course",
+                            "name": "CISC 326"
+                          }
+                        ],
+                        "operator": "or"
+                      }
+                    },
+                    {
+                      "type": "grouping",
+                      "values": [
+                        {
+                          "type": "courses",
+                          "courses": {
+                            "type": "single",
+                            "course": {
+                              "type": "course",
+                              "name": "CISC 325"
+                            }
+                          }
+                        },
+                        {
+                          "type": "courses",
+                          "courses": {
+                            "type": "single",
+                            "course": {
+                              "type": "course",
+                              "name": "CISC 327"
+                            }
+                          }
+                        }
+                      ],
+                      "operator": "or"
+                    }
+                  ],
+                  "operator": "and"
+                },
+                {
+                  "type": "permission",
+                  "from": "School"
+                }
+              ],
+              "operator": "and"
+            }
+          ],
+          "operator": "single"
+        },
+        "exclusions": [
+          {
+            "type": "normal",
+            "courses": [
+              {
+                "type": "course",
+                "name": "CISC 495"
+              },
+              {
+                "type": "course",
+                "name": "CISC 496"
+              },
+              {
+                "type": "course",
+                "name": "CISC 499"
+              },
+              {
+                "type": "course",
+                "name": "COGS 499"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "CISC 499",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "grouping",
+              "values": [
+                {
+                  "type": "grouping",
+                  "values": [
+                    {
+                      "type": "level",
+                      "level": 4
+                    },
+                    {
+                      "type": "registration",
+                      "targets": [
+                        {
+                          "type": "computing-major",
+                          "options": [
+                            "COMP"
+                          ]
+                        },
+                        {
+                          "type": "computing-specialization",
+                          "options": [
+                            "BMCO",
+                            "COCA",
+                            "COMA",
+                            "CSCI"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "cumulative-gpa",
+                      "gpa": 1.9
+                    }
+                  ],
+                  "operator": "and"
+                },
+                {
+                  "type": "grouping",
+                  "values": [
+                    {
+                      "type": "minimum-gpa",
+                      "gpa": 2.6,
+                      "subjects": [
+                        "CISC",
+                        "COCA",
+                        "COGS",
+                        "SOFT"
+                      ],
+                      "level": 100,
+                      "aboveAllowed": false
+                    }
+                  ],
+                  "operator": "single"
+                },
+                {
+                  "type": "grouping",
+                  "values": [
+                    {
+                      "type": "minimum-units",
+                      "unitCount": 12,
+                      "subjects": [
+                        "CISC",
+                        "COCA",
+                        "COGS",
+                        "SOFT"
+                      ],
+                      "level": 300,
+                      "aboveAllowed": true
+                    }
+                  ],
+                  "operator": "single"
+                },
+                {
+                  "type": "grouping",
+                  "values": [
+                    {
+                      "type": "minimum-gpa",
+                      "gpa": 2.6,
+                      "subjects": [
+                        "CISC",
+                        "COCA",
+                        "COGS",
+                        "SOFT"
+                      ],
+                      "level": 300,
+                      "aboveAllowed": true
+                    }
+                  ],
+                  "operator": "single"
+                },
+                {
+                  "type": "permission",
+                  "from": "School"
+                }
+              ],
+              "operator": "and"
+            }
+          ],
+          "operator": "single"
+        },
+        "exclusions": [
+          {
+            "type": "max-one",
+            "from": [
+              {
+                "type": "course",
+                "name": "CISC 495"
+              },
+              {
+                "type": "course",
+                "name": "CISC 496"
+              },
+              {
+                "type": "course",
+                "name": "CISC 500"
+              },
+              {
+                "type": "course",
+                "name": "COGS 499"
+              }
+            ]
+          },
+          {
+            "type": "max-one",
+            "from": [
+              {
+                "type": "course",
+                "name": "CISC 498"
+              },
+              {
+                "type": "course",
+                "name": "CISC 499"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "CISC 500",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "grouping",
+              "values": [
+                {
+                  "type": "grouping",
+                  "values": [
+                    {
+                      "type": "level",
+                      "level": 4
+                    },
+                    {
+                      "type": "registration",
+                      "targets": [
+                        {
+                          "type": "computing-major",
+                          "options": [
+                            "COMP"
+                          ]
+                        },
+                        {
+                          "type": "computing-specialization",
+                          "options": [
+                            "BMCO",
+                            "COCA",
+                            "COMA",
+                            "CSCI"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "cumulative-gpa",
+                      "gpa": 3.3
+                    }
+                  ],
+                  "operator": "and"
+                },
+                {
+                  "type": "grouping",
+                  "values": [
+                    {
+                      "type": "minimum-gpa",
+                      "gpa": 3.5,
+                      "subjects": [
+                        "CISC",
+                        "COCA",
+                        "COGS",
+                        "SOFT"
+                      ],
+                      "level": 100,
+                      "aboveAllowed": false
+                    }
+                  ],
+                  "operator": "single"
+                },
+                {
+                  "type": "grouping",
+                  "values": [
+                    {
+                      "type": "minimum-units",
+                      "unitCount": 12,
+                      "subjects": [
+                        "CISC",
+                        "COCA",
+                        "COGS",
+                        "SOFT"
+                      ],
+                      "level": 300,
+                      "aboveAllowed": true
+                    }
+                  ],
+                  "operator": "single"
+                },
+                {
+                  "type": "grouping",
+                  "values": [
+                    {
+                      "type": "minimum-gpa",
+                      "gpa": 3.5,
+                      "subjects": [
+                        "CISC",
+                        "COCA",
+                        "COGS",
+                        "SOFT"
+                      ],
+                      "level": 300,
+                      "aboveAllowed": true
+                    }
+                  ],
+                  "operator": "single"
+                },
+                {
+                  "type": "permission",
+                  "from": "School"
+                }
+              ],
+              "operator": "and"
+            }
+          ],
+          "operator": "single"
+        },
+        "exclusions": [
+          {
+            "type": "normal",
+            "courses": [
+              {
+                "type": "course",
+                "name": "CISC 495"
+              },
+              {
+                "type": "course",
+                "name": "CISC 496"
+              },
+              {
+                "type": "course",
+                "name": "CISC 499"
+              },
+              {
+                "type": "course",
+                "name": "COGS 499"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "CISC 594",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "permission",
+              "from": "departments"
+            }
+          ],
+          "operator": "single"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 595",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "permission",
+              "from": "departments"
+            }
+          ],
+          "operator": "single"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "CISC 596",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "permission",
+              "from": "departments"
+            }
+          ],
+          "operator": "single"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "COCA 201",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "level",
+              "level": 2
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "unit-amount",
+                "unitCount": 6,
+                "subjects": [
+                  "ARTF",
+                  "ARTH",
+                  "DRAM",
+                  "FILM",
+                  "MUSC"
+                ],
+                "level": 100,
+                "aboveAllowed": false
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "corequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "grouping",
+              "values": [
+                {
+                  "type": "course",
+                  "name": "CISC 101"
+                },
+                {
+                  "type": "course",
+                  "name": "CISC 110"
+                },
+                {
+                  "type": "course",
+                  "name": "CISC 121"
+                },
+                {
+                  "type": "course",
+                  "name": "CISC 151"
+                },
+                {
+                  "type": "course",
+                  "name": "APSC 142"
+                },
+                {
+                  "type": "course",
+                  "name": "APSC 143"
+                }
+              ],
+              "operator": "or"
+            },
+            {
+              "type": "permission",
+              "from": "School"
+            }
+          ],
+          "operator": "or"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "COGS 100",
+    "parsedRequirements": {
+      "all": {
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "COGS 201",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "level",
+              "level": 2
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "grouping",
+                "values": [
+                  {
+                    "type": "course",
+                    "name": "COGS 100"
+                  },
+                  {
+                    "type": "course",
+                    "name": "PSYC 100"
+                  }
+                ],
+                "operator": "or"
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": [
+          {
+            "type": "normal",
+            "courses": [
+              {
+                "type": "course",
+                "name": "COGS 200"
+              },
+              {
+                "type": "course",
+                "name": "PSYC 220"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "COGS 400",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "computing-plan",
+                  "options": [
+                    "COGS"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "courses",
+              "courses": {
+                "type": "grouping",
+                "values": [
+                  {
+                    "type": "course",
+                    "name": "CISC 235"
+                  },
+                  {
+                    "type": "course",
+                    "name": "ELEC 278"
+                  }
+                ],
+                "operator": "or"
+              }
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": [
+          {
+            "type": "normal",
+            "courses": [
+              {
+                "type": "course",
+                "name": "CISC 452"
+              },
+              {
+                "type": "course",
+                "name": "CMPE 452"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "COGS 499",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "grouping",
+              "values": [
+                {
+                  "type": "grouping",
+                  "values": [
+                    {
+                      "type": "level",
+                      "level": 4
+                    },
+                    {
+                      "type": "registration",
+                      "targets": [
+                        {
+                          "type": "computing-specialization",
+                          "options": [
+                            "COGS"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "cumulative-gpa",
+                      "gpa": 1.9
+                    }
+                  ],
+                  "operator": "and"
+                },
+                {
+                  "type": "grouping",
+                  "values": [
+                    {
+                      "type": "minimum-gpa",
+                      "gpa": 2.6,
+                      "subjects": [
+                        "CISC",
+                        "COCA",
+                        "COGS",
+                        "SOFT"
+                      ],
+                      "level": 100,
+                      "aboveAllowed": false
+                    }
+                  ],
+                  "operator": "single"
+                },
+                {
+                  "type": "grouping",
+                  "values": [
+                    {
+                      "type": "minimum-units",
+                      "unitCount": 12,
+                      "subjects": [
+                        "CISC",
+                        "COCA",
+                        "COGS",
+                        "SOFT"
+                      ],
+                      "level": 300,
+                      "aboveAllowed": true
+                    }
+                  ],
+                  "operator": "single"
+                },
+                {
+                  "type": "grouping",
+                  "values": [
+                    {
+                      "type": "minimum-gpa",
+                      "gpa": 2.6,
+                      "subjects": [
+                        "CISC",
+                        "COCA",
+                        "COGS",
+                        "SOFT"
+                      ],
+                      "level": 300,
+                      "aboveAllowed": true
+                    }
+                  ],
+                  "operator": "single"
+                },
+                {
+                  "type": "permission",
+                  "from": "School"
+                }
+              ],
+              "operator": "and"
+            }
+          ],
+          "operator": "single"
+        },
+        "exclusions": [
+          {
+            "type": "max-one",
+            "from": [
+              {
+                "type": "course",
+                "name": "CISC 495"
+              },
+              {
+                "type": "course",
+                "name": "CISC 496"
+              },
+              {
+                "type": "course",
+                "name": "CISC 499"
+              },
+              {
+                "type": "course",
+                "name": "CISC 500"
+              },
+              {
+                "type": "course",
+                "name": "COGS 499"
+              }
+            ]
+          },
+          {
+            "type": "max-one",
+            "from": [
+              {
+                "type": "course",
+                "name": "CISC 498"
+              },
+              {
+                "type": "course",
+                "name": "COGS 499"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "COGS 594",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "permission",
+              "from": "departments"
+            }
+          ],
+          "operator": "single"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "COMP 390",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "cumulative-gpa",
+              "gpa": 1.9
+            },
+            {
+              "type": "level",
+              "level": 2
+            },
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "internship-plan",
+                  "degrees": [
+                    "BMCO-I-BCH",
+                    "COGS-I-BCH",
+                    "COMA-I-BCH",
+                    "COMP-I-BCH",
+                    "CSCI-I-BCH",
+                    "SODE-I-BCH"
+                  ]
+                }
+              ]
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "COMP 391",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "cumulative-gpa",
+              "gpa": 1.9
+            },
+            {
+              "type": "level",
+              "level": 2
+            },
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "internship-plan",
+                  "degrees": [
+                    "BMCO-I-BCH",
+                    "COGS-I-BCH",
+                    "COMA-I-BCH",
+                    "COMP-I-BCH",
+                    "CSCI-I-BCH",
+                    "SODE-I-BCH"
+                  ]
+                }
+              ]
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "COMP 392",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "cumulative-gpa",
+              "gpa": 1.9
+            },
+            {
+              "type": "level",
+              "level": 2
+            },
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "internship-plan",
+                  "degrees": [
+                    "BMCO-I-BCH",
+                    "COGS-I-BCH",
+                    "COMA-I-BCH",
+                    "COMP-I-BCH",
+                    "CSCI-I-BCH",
+                    "SODE-I-BCH"
+                  ]
+                }
+              ]
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  },
+  {
+    "name": "COMP 393",
+    "parsedRequirements": {
+      "all": {
+        "prerequisites": {
+          "type": "grouping",
+          "values": [
+            {
+              "type": "cumulative-gpa",
+              "gpa": 1.9
+            },
+            {
+              "type": "level",
+              "level": 2
+            },
+            {
+              "type": "registration",
+              "targets": [
+                {
+                  "type": "internship-plan",
+                  "degrees": [
+                    "BMCO-I-BCH",
+                    "COGS-I-BCH",
+                    "COMA-I-BCH",
+                    "COMP-I-BCH",
+                    "CSCI-I-BCH",
+                    "SODE-I-BCH"
+                  ]
+                }
+              ]
+            }
+          ],
+          "operator": "and"
+        },
+        "exclusions": []
+      }
+    }
+  }
+]

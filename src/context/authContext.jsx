@@ -16,10 +16,23 @@ export const AuthContextProvider = ({ children }) => {
         withCredentials: true,
       });
       setCurrentUser(res.data);
-      return res;  // Ensure this returns a response indicating success or failure
+      return { success: true, user: res.data };
     } catch (error) {
       console.error("Login failed:", error);
-      throw error;  // Rethrow to handle it in the calling component
+      return { success: false, error: error.response?.data?.message || "An unexpected error occurred" };
+    }
+  };
+
+  const loginWithGoogle = async (googleToken) => {
+    try {
+      const res = await axios.post(`${apiUrl}/backend/auth/google`, {
+        token: googleToken
+      });
+      setCurrentUser(res.data.user);
+      return { success: true, user: res.data.user };
+    } catch (error) {
+      console.error("Google login failed:", error);
+      return { success: false, error: error.response?.data?.message || "An unexpected error occurred" };
     }
   };
 
@@ -35,7 +48,7 @@ export const AuthContextProvider = ({ children }) => {
   }, [currentUser]);
 
   return (
-    <AuthContext.Provider value={{ currentUser, login, logout }}>
+    <AuthContext.Provider value={{ currentUser, login, loginWithGoogle, logout }}>
       {children}
     </AuthContext.Provider>
   );
