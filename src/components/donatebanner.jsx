@@ -25,8 +25,8 @@ const DonateBanner = () => {
       <button onClick={handleClose} className="absolute right-5 top-1/2 -translate-y-1/2 text-2xl text-black hover:text-[#D2042D]">
         &times;
       </button>
-      <p className="sm:block hidden text-center text-blue-800">Liked Course Planner? Send a donation!</p>
-      <p className="sm:hidden block text-center text-blue-800">Send a donation!</p>
+      <p className="sm:block hidden text-center text-blue-800">Liking Course Planner?</p>
+      <p className="sm:hidden block text-center text-blue-800">Liking Course Planner?</p>
       <button
         className="ml-2 text-blue-800 hover:text-blue-600"
         onMouseOver={() => document.getElementById('info-tooltip').style.visibility = 'visible'}
@@ -38,7 +38,7 @@ const DonateBanner = () => {
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded ml-3 text-sm"
         onClick={handleDonateClick}
       >
-        Donate!
+        Buy me a coffee! &#x2615;
       </button>
       <div id="info-tooltip" className="z-50 absolute w-[35%] top-full mt-2 left-1/2 -translate-x-1/2 bg-white text-black p-2 border rounded shadow-lg text-xs invisible" >
         Help us cover the web hosting, server set up, and labor costs to keep the site running for future years and other upcoming amazing features!
