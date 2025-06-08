@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import LeftMenu from '/src/components/leftMenu';
 import Nav from '/src/components/nav';
-import DonateBanner from '/src/components/donateBanner';
+import DonateBanner from '/src/components/donatebanner';
 import TakenGrid from '/src/components/takenGrid';
+import SelectPlan from '/src/components/selectPlan';
 
 export default function Planner() {
 
@@ -20,14 +21,13 @@ export default function Planner() {
                 <Nav activeTab="planner" />
                 <DonateBanner />
                 
-                <div className='w-full flex md-custom:flex-row flex-col-reverse md-custom:mx-0 m-0 p-0 gap-3 ' >
-                    <div className='m-4 p-0 basis-3/4'>
+                <div className='w-full flex md-custom:flex-row flex-col-reverse gap-3'>
+                    <div className='m-4 p-0 md-custom:w-[70%] w-full'>
                         <div className='text-center text-2xl font-bold mb-2 lg:mt-0 mt-2'>Courses Taken</div>
                         <TakenGrid />
                     </div>
-                    <div className='m-4 ml-0 p-0 basis-1/4 border flex flex-col'>
-                        <div className='text-xl font-bold mb-2 lg:mt-0 mt-2'>Select Plan</div>
-
+                    <div className='m-4 ml-0 p-0 md-custom:w-[30%] w-full border flex flex-col'>
+                        <SelectPlan />
                     </div>
                 </div>
             </div>
