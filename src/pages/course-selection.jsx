@@ -53,6 +53,7 @@ export default function Courses() {
     */
     useEffect(() => {
         if (!currentUser) {
+            alert("You are not logged in. All data entered will not be remembered.");
             setIsLoading(false);  // Immediately allow interaction if not logged in
             return;
         }
@@ -60,6 +61,11 @@ export default function Courses() {
         fetchUserCourses()
     }, [currentUser]);
 
+    useEffect(() => {
+        if (err) {
+            alert(err);
+        }
+    }, [err]);
 
     /**
      * try to obtain the user ID, if not found, stop the function
