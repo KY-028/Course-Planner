@@ -8,6 +8,7 @@ import Contact from "./pages/contact"
 import About from './pages/about';
 import LoginSignup from "./pages/loginsignup";
 import { GoogleOAuthProvider } from '@react-oauth/google';
+import Privacy from './pages/privacy';
 
 import {
   createBrowserRouter,
@@ -69,7 +70,11 @@ const router = createBrowserRouter([
   {
     path: "/about",
     element: <About />,
-  }
+  },
+  {
+    path: "/privacy",
+    element: <Privacy />,
+  },
 ]);
 
 function App() {

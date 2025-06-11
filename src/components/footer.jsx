@@ -13,7 +13,7 @@ const Footer = () => {
                     <Link to="/about">
                         <p className="hover:underline mx-4 md:mx-6">About</p>
                     </Link>
-                    <Link to="/">
+                    <Link to="/privacy">
                         <p className="hover:underline mx-4 md:mx-6">Privacy Policy</p>
                     </Link>
                     <Link to="/support">
