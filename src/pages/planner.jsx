@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useState } from 'react';
 import LeftMenu from '/src/components/leftMenu';
 import Nav from '/src/components/nav';
 import DonateBanner from '/src/components/donatebanner';
@@ -7,7 +8,7 @@ import SelectPlan from '/src/components/selectPlan';
 
 export default function Planner() {
 
-
+    const [coursesTaken, setCoursesTaken] = useState(Array(60).fill(null));
 
     return (
         <div className='grid xl:grid-cols-sidebar-lg lg:grid-cols-sidebar min-h-screen overflow-y-auto'>
@@ -24,10 +25,10 @@ export default function Planner() {
                 <div className='w-full flex md-custom:flex-row flex-col-reverse gap-3'>
                     <div className='m-4 p-0 md-custom:w-[70%] w-full'>
                         <div className='text-center text-2xl font-bold mb-2 lg:mt-0 mt-2'>Courses Taken</div>
-                        <TakenGrid />
+                        <TakenGrid coursesTaken={coursesTaken} setCoursesTaken={setCoursesTaken} />
                     </div>
                     <div className='m-4 ml-0 p-0 md-custom:w-[30%] w-full border flex flex-col'>
-                        <SelectPlan />
+                        <SelectPlan coursesTaken={coursesTaken} setCoursesTaken={setCoursesTaken} />
                     </div>
                 </div>
             </div>
