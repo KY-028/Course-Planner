@@ -44,20 +44,19 @@ export default function SelectPlan() {
             return false;
         }
     };
-
     const validateResponse = (response, planType, fieldType) => {
         const title = response.title?.toLowerCase() || '';
         const planTypeLower = planType.toLowerCase();
+        const fieldTypeLower = fieldType.toLowerCase();
         
-        if (planTypeLower.includes('major') && !title.includes('major')) {
+        // Extract the expected type from the field (e.g., "Major", "Minor", "Specialization")
+        const expectedType = fieldTypeLower.split('[')[0].trim();
+        
+        // Check if the title contains the expected type
+        if (!title.includes(expectedType)) {
             return false;
         }
-        if (planTypeLower.includes('minor') && !title.includes('minor')) {
-            return false;
-        }
-        if (planTypeLower.includes('specialization') && !title.includes('specialization')) {
-            return false;
-        }
+        
         return true;
     };
 
@@ -185,10 +184,26 @@ export default function SelectPlan() {
                             <div className='text-red-500 text-sm mt-1'>{errors[idx]}</div>
                         )}
                         {responses[idx] && (
-                            <div className='mt-2 p-3 bg-gray-100 rounded-lg'>
-                                <pre className='whitespace-pre-wrap text-sm'>
-                                    {JSON.stringify(responses[idx], null, 2)}
-                                </pre>
+                            <div className='mt-2 p-3 bg-gray-100 rounded-lg flex flex-row items-center gap-4'>
+                                {/* Left: Circular Progress */}
+                                <div className='flex items-center justify-center'>
+                                    <svg width="64" height="64" viewBox="0 0 64 64">
+                                        <circle cx="32" cy="32" r="28" stroke="#e5e7eb" strokeWidth="8" fill="none" />
+                                        <circle cx="32" cy="32" r="28" stroke="#65A8F6" strokeWidth="8" fill="none" strokeDasharray="176" strokeDashoffset="176" />
+                                        <text x="50%" y="50%" textAnchor="middle" dy="0.3em" fontSize="16" fill="#333">0/{responses[idx].units}</text>
+                                    </svg>
+                                </div>
+                                {/* Right: Section List */}
+                                <div className='flex flex-col gap-1'>
+                                    {Object.entries(responses[idx])
+                                        .filter(([key]) => !['title', 'electives', 'units'].includes(key))
+                                        .map(([key, value], i) => (
+                                            <div key={key} className='flex flex-row items-center gap-2'>
+                                                <span className='font-semibold'>{key}</span>
+                                                <span className='text-gray-700'>0/{value.sectionunits}</span>
+                                            </div>
+                                        ))}
+                                </div>
                             </div>
                         )}
                     </div>
