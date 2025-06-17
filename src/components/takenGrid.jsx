@@ -7,7 +7,6 @@ export default function TakenGrid({ coursesTaken, setCoursesTaken }) {
     const headers = ["1st Year", "2nd Year", "3rd Year", "4th+ Year", "Transfer Credits"];
     const [editingIndex, setEditingIndex] = useState(null);
     const [inputValue, setInputValue] = useState('');
-    const [courseDetails, setCourseDetails] = useState(Array(60).fill(null));
     const [loadingIndices, setLoadingIndices] = useState(new Set());
     const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -17,11 +16,11 @@ export default function TakenGrid({ coursesTaken, setCoursesTaken }) {
         const seen = new Set();
         
         courses.forEach((course, index) => {
-            if (course && seen.has(course)) {
-                duplicates.add(index);
-            }
-            if (course) {
-                seen.add(course);
+            if (course && course.code) {
+                if (seen.has(course.code)) {
+                    duplicates.add(index);
+                }
+                seen.add(course.code);
             }
         });
         
@@ -29,15 +28,34 @@ export default function TakenGrid({ coursesTaken, setCoursesTaken }) {
     };
 
     const fetchCourseDetails = async (courseCode, index) => {
+        setLoadingIndices(prev => new Set([...prev, index]));
         try {
-            setLoadingIndices(prev => new Set([...prev, index]));
             const formattedCode = courseCode.replace(/\s+/g, '%20');
             const response = await axios.get(`${apiUrl}/backend/courseDetails?courseCode=${formattedCode}`);
-            const newDetails = [...courseDetails];
-            newDetails[index] = response.data;
-            setCourseDetails(newDetails);
+            const details = response.data; // { title, units }
+
+            setCoursesTaken(prevCourses => {
+                const newCourses = [...prevCourses];
+                const currentCourse = newCourses[index] || {};
+                newCourses[index] = {
+                    ...currentCourse, // Keep existing code
+                    title: details?.title || null,
+                    units: details?.units || null
+                };
+                return newCourses;
+            });
         } catch (error) {
             console.error(`Error fetching details for ${courseCode}:`, error);
+            setCoursesTaken(prevCourses => {
+                const newCourses = [...prevCourses];
+                const currentCourse = newCourses[index] || {};
+                newCourses[index] = {
+                    ...currentCourse, // Keep existing code
+                    title: null, // Explicitly set to null on error
+                    units: null  // Explicitly set to null on error
+                };
+                return newCourses;
+            });
         } finally {
             setLoadingIndices(prev => {
                 const newSet = new Set(prev);
@@ -49,18 +67,18 @@ export default function TakenGrid({ coursesTaken, setCoursesTaken }) {
 
     // Load course details for existing courses on mount
     useEffect(() => {
+        console.log(coursesTaken);
         const loadExistingCourseDetails = async () => {
-            const newDetails = [...courseDetails];
-            
             for (let i = 0; i < coursesTaken.length; i++) {
-                if (coursesTaken[i] && !courseDetails[i]) {
-                    await fetchCourseDetails(coursesTaken[i], i);
+                // Only fetch if course object exists and details are missing
+                if (coursesTaken[i] && (!coursesTaken[i].title || !coursesTaken[i].units)) {
+                    await fetchCourseDetails(coursesTaken[i].code, i);
                 }
             }
         };
 
         loadExistingCourseDetails();
-    }, [coursesTaken]);
+    }, []);
 
     const formatCourseCode = (code) => {
         // Remove any existing spaces
@@ -92,22 +110,22 @@ export default function TakenGrid({ coursesTaken, setCoursesTaken }) {
     const handleSubmit = async (index) => {
         if (inputValue.trim()) {
             const formattedCode = formatCourseCode(inputValue);
-            const newCourses = [...coursesTaken];
-            newCourses[index] = formattedCode;
-            setCoursesTaken(newCourses);
-
-            // Fetch course details
+            // Update the coursesTaken with the code immediately, details will be fetched
+            setCoursesTaken(prevCourses => {
+                const newCourses = [...prevCourses];
+                newCourses[index] = { code: formattedCode, title: null, units: null }; // Initialize with null details
+                return newCourses;
+            });
+            
+            // Fetch course details after setting the basic course info
             await fetchCourseDetails(formattedCode, index);
         } else {
-            // If input is empty, clear the course
-            const newCourses = [...coursesTaken];
-            newCourses[index] = null;
-            setCoursesTaken(newCourses);
-            
-            // Clear course details
-            const newDetails = [...courseDetails];
-            newDetails[index] = null;
-            setCourseDetails(newDetails);
+            // If input is empty, clear the course by setting it to null
+            setCoursesTaken(prevCourses => {
+                const newCourses = [...prevCourses];
+                newCourses[index] = null;
+                return newCourses;
+            });
         }
         setEditingIndex(null);
         setInputValue('');
@@ -124,7 +142,8 @@ export default function TakenGrid({ coursesTaken, setCoursesTaken }) {
 
     const startEditing = (index) => {
         setEditingIndex(index);
-        setInputValue(coursesTaken[index] || '');
+        // Set inputValue from the existing course code if available
+        setInputValue(coursesTaken[index]?.code || '');
     };
 
     const duplicates = findDuplicates(coursesTaken);
@@ -179,23 +198,23 @@ export default function TakenGrid({ coursesTaken, setCoursesTaken }) {
                                 onClick={() => startEditing(index)}
                             >
                                 <div className="flex items-center justify-between w-full">
-                                    <span className="xl:text-base lg:text-small sm:text-sm text-xxs">{coursesTaken[index]}</span>
+                                    <span className="xl:text-base lg:text-small sm:text-sm text-xxs">{coursesTaken[index].code}</span>
                                     <div className="flex items-center">
-                                        {courseDetails[index]?.units && (
+                                        {coursesTaken[index]?.units && (
                                             <>
-                                                <span className="xl:text-base lg:text-small sm:text-sm text-xxs xl:mr-2 mr-0.5">{courseDetails[index].units}</span>
+                                                <span className="xl:text-base lg:text-small sm:text-sm text-xxs xl:mr-2 mr-0.5">{coursesTaken[index].units}</span>
                                             </>
                                         )}
                                         <img 
                                             src={penIcon} 
                                             alt="edit" 
-                                            className="sm:w-4 sm:h-4 w-3 h-3"
+                                            className="xl:w-4 xl:h-4 lg:w-3 lg:h-3 sm:w-4 sm:h-4 w-3 h-3"
                                         />
                                     </div>
                                 </div>
-                                {courseDetails[index]?.title && (
+                                {coursesTaken[index]?.title && (
                                     <div className="lg:text-xs sm:text-xxs text-xxxs text-gray-600 truncate">
-                                        {loadingIndices.has(index) ? 'Loading...' : courseDetails[index].title}
+                                        {loadingIndices.has(index) ? 'Loading...' : coursesTaken[index].title}
                                     </div>
                                 )}
                             </div>
