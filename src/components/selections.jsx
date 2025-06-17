@@ -42,7 +42,7 @@ function Course({ id, name, title, options, selectedOption, onSelectChange, onRe
     );
 }
 
-function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChangeCounter, term, original }) {
+function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChangeCounter, term, original, setInputValue }) {
 
     const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -61,6 +61,7 @@ function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChan
         // Generate the appropriate format to add to our list of courses for <Selection />
         const newCourse = generateNewCourse(id, courseData);
         setCourses([...courses, newCourse]);
+        setInputValue(prev => (prev + "\n" + id).trim());
         setIsModalOpen(false);
     };
 
@@ -68,6 +69,7 @@ function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChan
         const newData = { ...courseData, [newCourse.id]: newCourse.correctformat };
         changeCourseData(newData);
         setCourses([...courses, newCourse]);
+        setInputValue(prev => (prev + "\n" + newCourse.id).trim());
 
         // Update the options for all related courses
         const baseCourseName = newCourse.id.split('_')[0];
@@ -83,17 +85,22 @@ function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChan
 
         // Send a POST request to add a custom course into the database
 
-        const data = {
-            "user_id": currentUser.id,
-            "term": term,
-            "course_id": newCourse.id,
-            "course_info": { [newCourse.id]: newCourse.correctformat }
+        if (currentUser) {
+            const data = {
+                "user_id": currentUser.id,
+                "term": term,
+                "course_id": newCourse.id,
+                "course_info": { [newCourse.id]: newCourse.correctformat }
+            }
+
+            UpdateManager.addUpdate({
+                endpoint: `${apiUrl}/backend/customCourses/`,
+                data: data
+            });
+        } else {
+            console.warn("Cannot add custom course: User not logged in.");
         }
 
-        UpdateManager.addUpdate({
-            endpoint: `${apiUrl}/backend/customCourses/`,
-            data: data
-        });
 
     }
 
@@ -146,16 +153,20 @@ function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChan
                 delete newCourseData[id];
                 changeCourseData(newCourseData);
 
-                const data = {
-                    user_id: currentUser.id,
-                    term: term,
-                    course_id: id
+                if (currentUser) {
+                    const data = {
+                        user_id: currentUser.id,
+                        term: term,
+                        course_id: id
+                    }
+    
+                    UpdateManager.addUpdate({
+                        endpoint: `${apiUrl}/backend/customCourses/delete`,
+                        data: data
+                    });
+                } else {
+                    console.warn("Cannot remove custom course: User not logged in.");
                 }
-
-                UpdateManager.addUpdate({
-                    endpoint: `${apiUrl}/backend/customCourses/delete`,
-                    data: data
-                });
 
             }
         }
@@ -246,10 +257,15 @@ function Selection({ isLoading, onUpdate, courseData, changeCourseData, courses,
         const ids = inputValue.split('\n').map(id => id.trim().toUpperCase());  // Split input by new lines and trim
         const allCourseDetails = [];
         const notFoundIds = [];
+        // First, remove any courses that are no longer in the input
+        setCourses(prevCourses => prevCourses.filter(course => ids.includes(course.id)));
 
         ids.forEach(id => {
             if (id in courseData) {
                 allCourseDetails.push(id);
+                if (!courses.some(course => course.id === id)) {
+                    setCourses(prevCourses => [...prevCourses, generateNewCourse(id, courseData)]);
+                }
             } else {
                 notFoundIds.push(id);  // Collect IDs not found
             }
@@ -266,7 +282,7 @@ function Selection({ isLoading, onUpdate, courseData, changeCourseData, courses,
                 <div className='w-full h-full flex items-center justify-begin'>
                     <Toggle message="Entry Mode" isToggled={isToggled} toggleSwitch={toggleSwitch} />
                 </div>
-                <CourseGrid courseData={courseData} courses={courses} setCourses={setCourses} setChangeCounter={setChangeCounter} changeCourseData={changeCourseData} term={term} original={original} />
+                <CourseGrid courseData={courseData} courses={courses} setCourses={setCourses} setChangeCounter={setChangeCounter} changeCourseData={changeCourseData} term={term} original={original} setInputValue={setInputValue}/>
                 {conflicts.length > 0 && (
                     <div className="mt-1 p-2 mx-1 bg-red-100 border border-red-400 text-red-700">
                         <p>The following Courses have Conflicts:</p>
