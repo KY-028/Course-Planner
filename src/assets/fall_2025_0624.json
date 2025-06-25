@@ -1,4 +1,22 @@
 {
+    "CISC101_1": [
+        "CISC101",
+        "Intro to Computer Programming",
+        "Staff",
+        [
+            "DUNNING AUD"
+        ],
+        "CISC101 E Monday 10:30-11:30 Staff"
+    ],
+    "CISC101_2": [
+        "CISC101",
+        "Intro to Computer Programming",
+        "Staff",
+        [
+            "DUNNING AUD"
+        ],
+        "CISC101 E Monday 13:30-14:30 Staff"
+    ],
     "CISC102_1": [
         "CISC102",
         "Discrete Structures I",
