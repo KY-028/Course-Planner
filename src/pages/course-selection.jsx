@@ -12,6 +12,18 @@ import { AuthContext } from '../context/authContext';
 import { generateNewCourse, generateOptions } from '../components/courseFunctions';
 import UpdateManager from '../components/updatemanager';
 
+// Loading Modal Component
+function LoadingModal() {
+    return (
+        <div className="fixed inset-0 bg-gray-600 bg-opacity-75 flex items-center justify-center p-4 z-50">
+            <div className="bg-white rounded-lg shadow-xl p-8 flex flex-col items-center">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mb-4"></div>
+                <p className="text-lg font-semibold text-gray-700">Loading...</p>
+            </div>
+        </div>
+    );
+}
+
 export default function Courses() {
     const { currentUser } = useContext(AuthContext);
 
@@ -197,6 +209,7 @@ export default function Courses() {
     return (
 
         <div className='grid xl:grid-cols-sidebar-lg lg:grid-cols-sidebar min-h-screen overflow-y-auto'>
+            {isLoading && <LoadingModal />}
             <div className='relative lg:block hidden '>
                 <div className='absolute top-0 left-0'>
                     <LeftMenu activeTab="courses" />

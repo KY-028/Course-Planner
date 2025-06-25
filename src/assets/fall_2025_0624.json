@@ -1,0 +1,4440 @@
+{
+    "CISC102_1": [
+        "CISC102",
+        "Discrete Structures I",
+        "Meger,Erin",
+        [
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM1102"
+        ],
+        "CISC102 E Monday 14:30-15:30 Meger,Erin",
+        "CISC102 E Tuesday 16:30-17:30 Meger,Erin",
+        "CISC102 E Thursday 15:30-16:30 Meger,Erin"
+    ],
+    "CISC102_2": [
+        "CISC102",
+        "Discrete Structures I",
+        "Meger,Erin",
+        [
+            "ETHERINGTON AUD",
+            "DUNNING AUD",
+            "ETHERINGTON AUD"
+        ],
+        "CISC102 E Monday 16:30-17:30 Meger,Erin",
+        "CISC102 E Wednesday 15:30-16:30 Meger,Erin",
+        "CISC102 E Friday 14:30-15:30 Meger,Erin"
+    ],
+    "CISC121_1": [
+        "CISC121",
+        "Intro to Comp Sci I",
+        "Staff",
+        [
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM1102"
+        ],
+        "CISC121 E Tuesday 12:30-13:30 Staff",
+        "CISC121 E Thursday 11:30-12:30 Staff",
+        "CISC121 E Friday 13:30-14:30 Staff"
+    ],
+    "CISC121_2": [
+        "CISC121",
+        "Intro to Comp Sci I",
+        "Staff",
+        [
+            "BIOSCI RM1102",
+            "BIOSCI RM1102",
+            "BIOSCI RM1102"
+        ],
+        "CISC121 E Tuesday 11:30-12:30 Staff",
+        "CISC121 E Wednesday 13:30-14:30 Staff",
+        "CISC121 E Friday 12:30-13:30 Staff"
+    ],
+    "CISC124_1": [
+        "CISC124",
+        "Intro to Comp Sci II",
+        "Mohammad,Samir",
+        [
+            "CONVOCATION HALL",
+            "CONVOCATION HALL",
+            "CONVOCATION HALL"
+        ],
+        "CISC124 E Monday 15:30-16:30 Mohammad,Samir",
+        "CISC124 E Wednesday 14:30-15:30 Mohammad,Samir",
+        "CISC124 E Thursday 16:30-17:30 Mohammad,Samir"
+    ],
+    "CISC203_1": [
+        "CISC203",
+        "Discrete Structures II",
+        "Alaca,Furkan",
+        [
+            "HUMPHREY AUD",
+            "HUMPHREY AUD",
+            "HUMPHREY AUD"
+        ],
+        "CISC203 E Monday 10:30-11:30 Alaca,Furkan",
+        "CISC203 E Wednesday 9:30-10:30 Alaca,Furkan",
+        "CISC203 E Friday 8:30-9:30 Alaca,Furkan"
+    ],
+    "CISC203_2": [
+        "CISC203",
+        "Discrete Structures II",
+        "Salomaa,Kai T",
+        [
+            "DUPUIS AUD",
+            "DUPUIS AUD",
+            "DUPUIS AUD"
+        ],
+        "CISC203 E Monday 12:30-13:30 Salomaa,Kai T",
+        "CISC203 E Wednesday 11:30-12:30 Salomaa,Kai T",
+        "CISC203 E Thursday 13:30-14:30 Salomaa,Kai T"
+    ],
+    "CISC204_1": [
+        "CISC204",
+        "Logic for Comp Sci",
+        "Lu,Rongxing",
+        [
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM B"
+        ],
+        "CISC204 E Monday 13:30-14:30 Lu,Rongxing",
+        "CISC204 E Wednesday 12:30-13:30 Lu,Rongxing",
+        "CISC204 E Friday 11:30-12:30 Lu,Rongxing"
+    ],
+    "CISC204_2": [
+        "CISC204",
+        "Logic for Comp Sci",
+        "Staff",
+        [
+            "DUNNING RM14",
+            "DUNNING RM14",
+            "DUNNING RM14"
+        ],
+        "CISC204 E Tuesday 9:30-10:30 Staff",
+        "CISC204 E Thursday 8:30-9:30 Staff",
+        "CISC204 E Friday 10:30-11:30 Staff"
+    ],
+    "CISC220_1": [
+        "CISC220",
+        "System-Level Programming",
+        "Staff",
+        [
+            "BOTTER RM B147",
+            "BOTTER RM B147",
+            "BOTTER RM B147"
+        ],
+        "CISC220 E Tuesday 11:30-12:30 Staff",
+        "CISC220 E Wednesday 13:30-14:30 Staff",
+        "CISC220 E Friday 12:30-13:30 Staff"
+    ],
+    "CISC221_1": [
+        "CISC221",
+        "Computer Architecture",
+        "ElSawy,Hesham",
+        [
+            "ETHERINGTON AUD",
+            "ETHERINGTON AUD",
+            "ETHERINGTON AUD"
+        ],
+        "CISC221 E Monday 11:30-12:30 ElSawy,Hesham",
+        "CISC221 E Tuesday 13:30-14:30 ElSawy,Hesham",
+        "CISC221 E Thursday 12:30-13:30 ElSawy,Hesham"
+    ],
+    "CISC223_1": [
+        "CISC223",
+        "Software Specifications",
+        "Choudhury,Salimur",
+        [
+            "DUPUIS AUD",
+            "DUPUIS AUD",
+            "DUPUIS AUD"
+        ],
+        "CISC223 E Tuesday 8:30-9:30 Choudhury,Salimur",
+        "CISC223 E Wednesday 10:30-11:30 Choudhury,Salimur",
+        "CISC223 E Friday 9:30-10:30 Choudhury,Salimur"
+    ],
+    "CISC235_1": [
+        "CISC235",
+        "Data Structures",
+        "Mohammad,Samir",
+        [
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM B"
+        ],
+        "CISC235 E Monday 16:30-17:30 Mohammad,Samir",
+        "CISC235 E Wednesday 15:30-16:30 Mohammad,Samir",
+        "CISC235 E Friday 14:30-15:30 Mohammad,Samir"
+    ],
+    "CISC251_1": [
+        "CISC251",
+        "Data Analytics",
+        "Staff",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI 1101"
+        ],
+        "CISC251 E Monday 15:30-16:30 Staff",
+        "CISC251 E Wednesday 14:30-15:30 Staff",
+        "CISC251 E Thursday 16:30-17:30 Staff"
+    ],
+    "CISC320_1": [
+        "CISC320",
+        "Fund. of Software Dev",
+        "Mohammad,Samir",
+        [
+            "KINES & HLTH RM100",
+            "KINES & HLTH RM100",
+            "KINES & HLTH RM100",
+            "THEOLOGICAL RM307"
+        ],
+        "CISC320 E Tuesday 11:30-12:30 Mohammad,Samir",
+        "CISC320 E Wednesday 13:30-14:30 Mohammad,Samir",
+        "CISC320 E Friday 12:30-13:30 Mohammad,Samir",
+        "CISC320 E Friday 9:30-11:30 Mohammad,Samir"
+    ],
+    "CISC320_2": [
+        "CISC320",
+        "Fund. of Software Dev",
+        "Mohammad,Samir",
+        [
+            "KINES & HLTH RM100",
+            "KINES & HLTH RM100",
+            "KINES & HLTH RM100",
+            "ELLIS RM333"
+        ],
+        "CISC320 E Tuesday 11:30-12:30 Mohammad,Samir",
+        "CISC320 E Wednesday 13:30-14:30 Mohammad,Samir",
+        "CISC320 E Friday 12:30-13:30 Mohammad,Samir",
+        "CISC320 E Thursday 14:30-16:30 Mohammad,Samir"
+    ],
+    "CISC320_3": [
+        "CISC320",
+        "Fund. of Software Dev",
+        "Mohammad,Samir",
+        [
+            "KINES & HLTH RM100",
+            "KINES & HLTH RM100",
+            "KINES & HLTH RM100",
+            "THEOLOGICAL RM307"
+        ],
+        "CISC320 E Tuesday 11:30-12:30 Mohammad,Samir",
+        "CISC320 E Wednesday 13:30-14:30 Mohammad,Samir",
+        "CISC320 E Friday 12:30-13:30 Mohammad,Samir",
+        "CISC320 E Thursday 11:30-13:30 Mohammad,Samir"
+    ],
+    "CISC322_1": [
+        "CISC322",
+        "Software Architecture",
+        "Adams,Bram Mark",
+        [
+            "KINES & HLTH RM100",
+            "KINES & HLTH RM100",
+            "KINES & HLTH RM100",
+            "KINES & HLTH RM101"
+        ],
+        "CISC322 E Monday 15:30-16:30 Adams,Bram Mark",
+        "CISC322 E Wednesday 14:30-15:30 Adams,Bram Mark",
+        "CISC322 E Thursday 16:30-17:30 Adams,Bram Mark",
+        "CISC322 E Thursday 11:30-13:30 Adams,Bram Mark"
+    ],
+    "CISC322_2": [
+        "CISC322",
+        "Software Architecture",
+        "Adams,Bram Mark",
+        [
+            "KINES & HLTH RM100",
+            "KINES & HLTH RM100",
+            "KINES & HLTH RM100",
+            "MACINTOSH-CORRY RM B201"
+        ],
+        "CISC322 E Monday 15:30-16:30 Adams,Bram Mark",
+        "CISC322 E Wednesday 14:30-15:30 Adams,Bram Mark",
+        "CISC322 E Thursday 16:30-17:30 Adams,Bram Mark",
+        "CISC322 E Thursday 8:30-10:30 Adams,Bram Mark"
+    ],
+    "CISC324_1": [
+        "CISC324",
+        "Operating Systems",
+        "Hossain,Anwar",
+        [
+            "STIRLING AUD",
+            "STIRLING AUD",
+            "STIRLING AUD"
+        ],
+        "CISC324 E Monday 12:30-13:30 Hossain,Anwar",
+        "CISC324 E Wednesday 11:30-12:30 Hossain,Anwar",
+        "CISC324 E Thursday 13:30-14:30 Hossain,Anwar"
+    ],
+    "CISC326_1": [
+        "CISC326",
+        "Game Architecture",
+        "Adams,Bram Mark",
+        [
+            "KINES & HLTH RM100",
+            "KINES & HLTH RM100",
+            "KINES & HLTH RM100",
+            "KINES & HLTH RM101"
+        ],
+        "CISC326 E Monday 15:30-16:30 Adams,Bram Mark",
+        "CISC326 E Wednesday 14:30-15:30 Adams,Bram Mark",
+        "CISC326 E Thursday 16:30-17:30 Adams,Bram Mark",
+        "CISC326 E Thursday 11:30-13:30 Adams,Bram Mark"
+    ],
+    "CISC326_2": [
+        "CISC326",
+        "Game Architecture",
+        "Adams,Bram Mark",
+        [
+            "KINES & HLTH RM100",
+            "KINES & HLTH RM100",
+            "KINES & HLTH RM100",
+            "MACINTOSH-CORRY RM B201"
+        ],
+        "CISC326 E Monday 15:30-16:30 Adams,Bram Mark",
+        "CISC326 E Wednesday 14:30-15:30 Adams,Bram Mark",
+        "CISC326 E Thursday 16:30-17:30 Adams,Bram Mark",
+        "CISC326 E Thursday 8:30-10:30 Adams,Bram Mark"
+    ],
+    "CISC327_1": [
+        "CISC327",
+        "Software Quality Assurance",
+        "Hossain,Anwar",
+        [
+            "DUPUIS AUD",
+            "DUPUIS AUD",
+            "DUPUIS AUD"
+        ],
+        "CISC327 E Monday 9:30-10:30 Hossain,Anwar",
+        "CISC327 E Wednesday 8:30-9:30 Hossain,Anwar",
+        "CISC327 E Thursday 10:30-11:30 Hossain,Anwar"
+    ],
+    "CISC360_1": [
+        "CISC360",
+        "Programming Paradigms",
+        "Staff",
+        [
+            "ETHERINGTON AUD",
+            "ETHERINGTON AUD",
+            "ETHERINGTON AUD"
+        ],
+        "CISC360 E Monday 14:30-15:30 Staff",
+        "CISC360 E Tuesday 16:30-17:30 Staff",
+        "CISC360 E Thursday 15:30-16:30 Staff"
+    ],
+    "CISC365_1": [
+        "CISC365",
+        "Algorithms I",
+        "Stewart,James A",
+        [
+            "KINGSTON RM101",
+            "KINGSTON RM101",
+            "KINGSTON RM101"
+        ],
+        "CISC365 E Monday 13:30-14:30 Stewart,James A",
+        "CISC365 E Wednesday 12:30-13:30 Stewart,James A",
+        "CISC365 E Friday 11:30-12:30 Stewart,James A"
+    ],
+    "CISC371_1": [
+        "CISC371",
+        "Numerical Optimization for Artificial Intelligence",
+        "Ellis,Randy E",
+        [
+            "DUNNING RM14",
+            "DUNNING RM14",
+            "DUNNING RM14"
+        ],
+        "CISC371 E Tuesday 8:30-9:30 Ellis,Randy E",
+        "CISC371 E Wednesday 10:30-11:30 Ellis,Randy E",
+        "CISC371 E Friday 9:30-10:30 Ellis,Randy E"
+    ],
+    "CISC422_1": [
+        "CISC422",
+        "Formal Methods in Software Eng.",
+        "Dingel,Juergen U",
+        [
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "KINGSTON RM201"
+        ],
+        "CISC422 E Monday 16:30-17:30 Dingel,Juergen U",
+        "CISC422 E Wednesday 15:30-16:30 Dingel,Juergen U",
+        "CISC422 E Friday 14:30-15:30 Dingel,Juergen U"
+    ],
+    "CISC447_1": [
+        "CISC447",
+        "Intro to Cybersecurity",
+        "Alaca,Furkan",
+        [
+            "MILLER RM201",
+            "MILLER RM201",
+            "MILLER RM201"
+        ],
+        "CISC447 E Monday 16:30-17:30 Alaca,Furkan",
+        "CISC447 E Wednesday 15:30-16:30 Alaca,Furkan",
+        "CISC447 E Friday 14:30-15:30 Alaca,Furkan"
+    ],
+    "CISC451_1": [
+        "CISC451",
+        "Topics in Data Analytics",
+        "Tian,Yuan",
+        [
+            "KINGSTON RM200"
+        ],
+        "CISC451 E Monday 18:30-21:30 Tian,Yuan"
+    ],
+    "CISC457_1": [
+        "CISC457",
+        "Image Processing and Computer Vision",
+        "Stewart,James A",
+        [
+            "STIRLING RM C",
+            "STIRLING RM C",
+            "STIRLING RM C"
+        ],
+        "CISC457 E Monday 12:30-13:30 Stewart,James A",
+        "CISC457 E Wednesday 11:30-12:30 Stewart,James A",
+        "CISC457 E Thursday 13:30-14:30 Stewart,James A"
+    ],
+    "CISC472_1": [
+        "CISC472",
+        "Medical Informatics",
+        "Fichtinger,Gabor",
+        [
+            "GOODWIN RM254",
+            "GOODWIN RM254",
+            "GOODWIN RM254"
+        ],
+        "CISC472 E Tuesday 11:30-12:30 Fichtinger,Gabor",
+        "CISC472 E Wednesday 13:30-14:30 Fichtinger,Gabor",
+        "CISC472 E Friday 12:30-13:30 Fichtinger,Gabor"
+    ],
+    "CISC473_1": [
+        "CISC473",
+        "Deep Learning",
+        "Abbas,Hazem",
+        [
+            "KINES & HLTH RM100",
+            "KINES & HLTH RM100",
+            "KINES & HLTH RM100"
+        ],
+        "CISC473 E Tuesday 9:30-10:30 Abbas,Hazem",
+        "CISC473 E Thursday 8:30-9:30 Abbas,Hazem",
+        "CISC473 E Friday 10:30-11:30 Abbas,Hazem"
+    ],
+    "CISC486_1": [
+        "CISC486",
+        "Game Dev",
+        "Staff",
+        [
+            "BOTTER RM B148",
+            "BOTTER RM B148",
+            "BOTTER RM B148"
+        ],
+        "CISC486 E Monday 14:30-15:30 Staff",
+        "CISC486 E Tuesday 16:30-17:30 Staff",
+        "CISC486 E Thursday 15:30-16:30 Staff"
+    ],
+    "CISC497_1": [
+        "CISC497",
+        "Social, Ethical and Legal Issues in Computing",
+        "Stinson,Catherine",
+        [
+            "WALTER LIGHT RM205",
+            "JEFFERY RM101"
+        ],
+        "CISC497 E Wednesday 10:00-11:30 Stinson,Catherine",
+        "CISC497 E Tuesday 13:00-14:30 Stinson,Catherine"
+    ],
+    "CISC497_2": [
+        "CISC497",
+        "Social, Ethical and Legal Issues in Computing",
+        "Stinson,Catherine",
+        [
+            "WALTER LIGHT RM205",
+            "JEFFERY RM116"
+        ],
+        "CISC497 E Wednesday 10:00-11:30 Stinson,Catherine",
+        "CISC497 E Tuesday 13:00-14:30 Stinson,Catherine"
+    ],
+    "CISC497_3": [
+        "CISC497",
+        "Social, Ethical and Legal Issues in Computing",
+        "Stinson,Catherine",
+        [
+            "WALTER LIGHT RM205",
+            "JEFFERY RM110"
+        ],
+        "CISC497 E Wednesday 10:00-11:30 Stinson,Catherine",
+        "CISC497 E Tuesday 13:00-14:30 Stinson,Catherine"
+    ],
+    "CISC497_4": [
+        "CISC497",
+        "Social, Ethical and Legal Issues in Computing",
+        "Stinson,Catherine",
+        [
+            "WALTER LIGHT RM205",
+            "JEFFERY RM102"
+        ],
+        "CISC497 E Wednesday 10:00-11:30 Stinson,Catherine",
+        "CISC497 E Tuesday 13:00-14:30 Stinson,Catherine"
+    ],
+    "CISC497_5": [
+        "CISC497",
+        "Social, Ethical and Legal Issues in Computing",
+        "Stinson,Catherine",
+        [
+            "WALTER LIGHT RM205",
+            "WALTER LIGHT RM212"
+        ],
+        "CISC497 E Wednesday 10:00-11:30 Stinson,Catherine",
+        "CISC497 E Tuesday 13:00-14:30 Stinson,Catherine"
+    ],
+    "CISC497_6": [
+        "CISC497",
+        "Social, Ethical and Legal Issues in Computing",
+        "Stinson,Catherine",
+        [
+            "WALTER LIGHT RM205",
+            "JEFFERY RM115"
+        ],
+        "CISC497 E Wednesday 10:00-11:30 Stinson,Catherine",
+        "CISC497 E Tuesday 13:00-14:30 Stinson,Catherine"
+    ],
+    "CISC498_1": [
+        "CISC498",
+        "Information Technology Project",
+        "Hossain,Anwar",
+        [
+            "NICOL RM321"
+        ],
+        "CISC498 E Tuesday 14:30-17:30 Hossain,Anwar"
+    ],
+    "CISC500_1": [
+        "CISC500",
+        "Undergraduate Thesis",
+        "Givigi,Sidney",
+        [
+            "MACINTOSH-CORRY RM A416"
+        ],
+        "CISC500 E Friday 12:30-14:30 Givigi,Sidney"
+    ],
+
+    "MATH110_1": [
+        "MATH110",
+        "Linear Algebra",
+        "Yui,Noriko",
+        [
+            "STIRLING RM A",
+            "STIRLING RM A",
+            "STIRLING RM A",
+            "ELLIS RM324"
+        ],
+        "MATH110 E Tuesday 9:30-10:30 Yui,Noriko",
+        "MATH110 E Thursday 8:30-9:30 Yui,Noriko",
+        "MATH110 E Friday 10:30-11:30 Yui,Noriko",
+        "MATH110 E Wednesday 17:30-18:30 Yui,Noriko"
+    ],
+    "MATH110_2": [
+        "MATH110",
+        "Linear Algebra",
+        "Yui,Noriko",
+        [
+            "STIRLING RM A",
+            "STIRLING RM A",
+            "STIRLING RM A",
+            "ELLIS RM324"
+        ],
+        "MATH110 E Tuesday 9:30-10:30 Yui,Noriko",
+        "MATH110 E Thursday 8:30-9:30 Yui,Noriko",
+        "MATH110 E Friday 10:30-11:30 Yui,Noriko",
+        "MATH110 E Tuesday 15:30-16:30 Yui,Noriko"
+    ],
+    "MATH110_3": [
+        "MATH110",
+        "Linear Algebra",
+        "Staff",
+        [
+            "JEFFERY RM128",
+            "JEFFERY RM128",
+            "JEFFERY RM128",
+            "ELLIS RM324"
+        ],
+        "MATH110 E Tuesday 9:30-10:30 Staff",
+        "MATH110 E Thursday 8:30-9:30 Staff",
+        "MATH110 E Friday 10:30-11:30 Staff",
+        "MATH110 E Wednesday 17:30-18:30 Staff"
+    ],
+    "MATH110_4": [
+        "MATH110",
+        "Linear Algebra",
+        "Staff",
+        [
+            "JEFFERY RM128",
+            "JEFFERY RM128",
+            "JEFFERY RM128",
+            "ELLIS RM324"
+        ],
+        "MATH110 E Tuesday 9:30-10:30 Staff",
+        "MATH110 E Thursday 8:30-9:30 Staff",
+        "MATH110 E Friday 10:30-11:30 Staff",
+        "MATH110 E Tuesday 15:30-16:30 Staff"
+    ],
+    "MATH112_1": [
+        "MATH112",
+        "Intro to Linear Algebra",
+        "Gharesifard,Bahman",
+        [
+            "HUMPHREY AUD",
+            "HUMPHREY AUD",
+            "HUMPHREY AUD"
+        ],
+        "MATH112 E Tuesday 12:30-13:30 Gharesifard,Bahman",
+        "MATH112 E Thursday 11:30-12:30 Gharesifard,Bahman",
+        "MATH112 E Friday 13:30-14:30 Gharesifard,Bahman"
+    ],
+    "MATH112_2": [
+        "MATH112",
+        "Intro to Linear Algebra",
+        "Gharesifard,Bahman",
+        [
+            "HUMPHREY AUD",
+            "HUMPHREY AUD",
+            "HUMPHREY AUD"
+        ],
+        "MATH112 E Tuesday 15:30-16:30 Gharesifard,Bahman",
+        "MATH112 E Thursday 14:30-15:30 Gharesifard,Bahman",
+        "MATH112 E Friday 16:30-17:30 Gharesifard,Bahman"
+    ],
+    "MATH120_1": [
+        "MATH120",
+        "Diff. and Integ. Calc",
+        "Roth,Mike A",
+        [
+            "JEFFERY RM127",
+            "JEFFERY RM127",
+            "JEFFERY RM127",
+            "ELLIS RM324"
+        ],
+        "MATH120 E Monday 12:30-13:30 Roth,Mike A",
+        "MATH120 E Wednesday 11:30-12:30 Roth,Mike A",
+        "MATH120 E Thursday 13:30-14:30 Roth,Mike A",
+        "MATH120 E Monday 17:30-18:30 Roth,Mike A"
+    ],
+    "MATH120_2": [
+        "MATH120",
+        "Diff. and Integ. Calc",
+        "Roth,Mike A",
+        [
+            "JEFFERY RM127",
+            "JEFFERY RM127",
+            "JEFFERY RM127",
+            "ELLIS RM324"
+        ],
+        "MATH120 E Monday 12:30-13:30 Roth,Mike A",
+        "MATH120 E Wednesday 11:30-12:30 Roth,Mike A",
+        "MATH120 E Thursday 13:30-14:30 Roth,Mike A",
+        "MATH120 E Tuesday 17:30-18:30 Roth,Mike A"
+    ],
+    "MATH120_3": [
+        "MATH120",
+        "Diff. and Integ. Calc",
+        "Paulet,Neige",
+        [
+            "JEFFERY RM128",
+            "JEFFERY RM128",
+            "JEFFERY RM128",
+            "ELLIS RM324"
+        ],
+        "MATH120 E Monday 12:30-13:30 Paulet,Neige",
+        "MATH120 E Wednesday 11:30-12:30 Paulet,Neige",
+        "MATH120 E Thursday 13:30-14:30 Paulet,Neige",
+        "MATH120 E Monday 17:30-18:30 Paulet,Neige"
+    ],
+    "MATH120_4": [
+        "MATH120",
+        "Diff. and Integ. Calc",
+        "Paulet,Neige",
+        [
+            "JEFFERY RM128",
+            "JEFFERY RM128",
+            "JEFFERY RM128",
+            "ELLIS RM324"
+        ],
+        "MATH120 E Monday 12:30-13:30 Paulet,Neige",
+        "MATH120 E Wednesday 11:30-12:30 Paulet,Neige",
+        "MATH120 E Thursday 13:30-14:30 Paulet,Neige",
+        "MATH120 E Tuesday 17:30-18:30 Paulet,Neige"
+    ],
+    "MATH121_1": [
+        "MATH121",
+        "Diff. and Integ. Calc",
+        "Staff",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101"
+        ],
+        "MATH121 W Monday 9:30-10:30 Staff",
+        "MATH121 W Wednesday 8:30-9:30 Staff",
+        "MATH121 W Thursday 10:30-11:30 Staff"
+    ],
+    "MATH121_2": [
+        "MATH121",
+        "Diff. and Integ. Calc",
+        "Li,Ping",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI 1101"
+        ],
+        "MATH121 E Monday 12:30-13:30 Li,Ping",
+        "MATH121 E Wednesday 11:30-12:30 Li,Ping",
+        "MATH121 E Thursday 13:30-14:30 Li,Ping"
+    ],
+    "MATH121_3": [
+        "MATH121",
+        "Diff. and Integ. Calc",
+        "Staff",
+        [
+            "DUPUIS AUD",
+            "DUPUIS AUD",
+            "DUPUIS AUD"
+        ],
+        "MATH121 E Tuesday 14:30-15:30 Staff",
+        "MATH121 E Wednesday 16:30-17:30 Staff",
+        "MATH121 E Friday 15:30-16:30 Staff"
+    ],
+    "MATH126_1": [
+        "MATH126",
+        "Diff. and Integ. Calc",
+        "aylor,Peter D",
+        [
+            "STIRLING RM A",
+            "STIRLING RM A",
+            "STIRLING RM A"
+        ],
+        "MATH126 E Tuesday 14:30-15:30 aylor,Peter D",
+        "MATH126 E Wednesday 16:30-17:30 aylor,Peter D",
+        "MATH126 E Friday 15:30-16:30 aylor,Peter D"
+    ],
+    "MATH126_2": [
+        "MATH126",
+        "Diff. and Integ. Calc",
+        "Kennedy,Christopher Pear",
+        [
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM B"
+        ],
+        "MATH126 E Tuesday 14:30-15:30 Kennedy,Christopher Pear",
+        "MATH126 E Wednesday 16:30-17:30 Kennedy,Christopher Pear",
+        "MATH126 E Friday 15:30-16:30 Kennedy,Christopher Pear"
+    ],
+    "MATH127_1": [
+        "MATH127",
+        "Diff. and Integ. Calc I",
+        "Taylor,Peter D",
+        [
+            "STIRLING RM A",
+            "STIRLING RM A",
+            "STIRLING RM A"
+        ],
+        "MATH127 E Tuesday 14:30-15:30 Taylor,Peter D",
+        "MATH127 E Wednesday 16:30-17:30 Taylor,Peter D",
+        "MATH127 E Friday 15:30-16:30 Taylor,Peter D"
+    ],
+    "MATH127_2": [
+        "MATH127",
+        "Diff. and Integ. Calc I",
+        "Kennedy,Christopher Pear",
+        [
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM B"
+        ],
+        "MATH127 E Tuesday 14:30-15:30 Kennedy,Christopher Pear",
+        "MATH127 E Wednesday 16:30-17:30 Kennedy,Christopher Pear",
+        "MATH127 E Friday 15:30-16:30 Kennedy,Christopher Pear"
+    ],
+    "MATH130_1": [
+        "MATH130",
+        "Maths for Biochemistry and Life Sciences",
+        "Taylor,Peter D",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "JEFFERY RM155"
+        ],
+        "MATH130 W Monday 10:30-11:30 Taylor,Peter D",
+        "MATH130 W Tuesday 9:30-10:30 Taylor,Peter D",
+        "MATH130 W Friday 10:30-11:30 Taylor,Peter D",
+        "MATH130 E Wednesday 17:30-18:30 Taylor,Peter D"
+    ],
+    "MATH130_2": [
+        "MATH130",
+        "Maths for Biochemistry and Life Sciences",
+        "Taylor,Peter D",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "JEFFERY RM156"
+        ],
+        "MATH130 W Monday 10:30-11:30 Taylor,Peter D",
+        "MATH130 W Tuesday 9:30-10:30 Taylor,Peter D",
+        "MATH130 W Friday 10:30-11:30 Taylor,Peter D",
+        "MATH130 E Wednesday 17:30-18:30 Taylor,Peter D"
+    ],
+    "MATH130_3": [
+        "MATH130",
+        "Maths for Biochemistry and Life Sciences",
+        "Taylor,Peter D",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "ELLIS RM321"
+        ],
+        "MATH130 W Monday 10:30-11:30 Taylor,Peter D",
+        "MATH130 W Tuesday 9:30-10:30 Taylor,Peter D",
+        "MATH130 W Friday 10:30-11:30 Taylor,Peter D",
+        "MATH130 E Wednesday 17:30-18:30 Taylor,Peter D"
+    ],
+    "MATH130_4": [
+        "MATH130",
+        "Maths for Biochemistry and Life Sciences",
+        "Taylor,Peter D",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "ELLIS RM333"
+        ],
+        "MATH130 W Monday 10:30-11:30 Taylor,Peter D",
+        "MATH130 W Tuesday 9:30-10:30 Taylor,Peter D",
+        "MATH130 W Friday 10:30-11:30 Taylor,Peter D",
+        "MATH130 E Wednesday 17:30-18:30 Taylor,Peter D"
+    ],
+    "MATH221_1": [
+        "MATH221",
+        "Vector Calc",
+        "Levit,Boris",
+        [
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "KINGSTON RM201"
+        ],
+        "MATH221 E Tuesday 9:30-10:30 Levit,Boris",
+        "MATH221 E Thursday 8:30-9:30 Levit,Boris",
+        "MATH221 E Friday 10:30-11:30 Levit,Boris"
+    ],
+    "MATH225_1": [
+        "MATH225",
+        "Ordinary Diff. Equations",
+        "Lewis,Andrew",
+        [
+            "STIRLING RM C",
+            "STIRLING RM C",
+            "STIRLING RM C",
+            "STIRLING RM C"
+        ],
+        "MATH225 E Tuesday 11:30-12:30 Lewis,Andrew",
+        "MATH225 E Wednesday 13:30-14:30 Lewis,Andrew",
+        "MATH225 E Friday 12:30-13:30 Lewis,Andrew",
+        "MATH225 E Monday 14:30-15:30 Lewis,Andrew"
+    ],
+    "MATH225_2": [
+        "MATH225",
+        "Ordinary Diff. Equations",
+        "Lewis,Andrew",
+        [
+            "STIRLING RM C",
+            "STIRLING RM C",
+            "STIRLING RM C",
+            "STIRLING RM A"
+        ],
+        "MATH225 E Tuesday 11:30-12:30 Lewis,Andrew",
+        "MATH225 E Wednesday 13:30-14:30 Lewis,Andrew",
+        "MATH225 E Friday 12:30-13:30 Lewis,Andrew",
+        "MATH225 E Monday 14:30-15:30 Lewis,Andrew"
+    ],
+    "MATH225_3": [
+        "MATH225",
+        "Ordinary Diff. Equations",
+        "Staff",
+        [
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM C"
+        ],
+        "MATH225 E Tuesday 11:30-12:30 Staff",
+        "MATH225 E Wednesday 13:30-14:30 Staff",
+        "MATH225 E Friday 12:30-13:30 Staff",
+        "MATH225 E Monday 14:30-15:30 Staff"
+    ],
+    "MATH225_4": [
+        "MATH225",
+        "Ordinary Diff. Equations",
+        "Staff",
+        [
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM A"
+        ],
+        "MATH225 E Tuesday 11:30-12:30 Staff",
+        "MATH225 E Wednesday 13:30-14:30 Staff",
+        "MATH225 E Friday 12:30-13:30 Staff",
+        "MATH225 E Monday 14:30-15:30 Staff"
+    ],
+    "MATH280_1": [
+        "MATH280",
+        "Advanced Calc",
+        "Chiri,Maria Teresa",
+        [
+            "STIRLING RM A",
+            "STIRLING RM A",
+            "STIRLING RM A",
+            "STIRLING RM A"
+        ],
+        "MATH280 E Monday 9:30-10:30 Chiri,Maria Teresa",
+        "MATH280 E Wednesday 8:30-9:30 Chiri,Maria Teresa",
+        "MATH280 E Thursday 10:30-11:30 Chiri,Maria Teresa",
+        "MATH280 E Friday 11:30-12:30 Chiri,Maria Teresa"
+    ],
+    "MATH280_2": [
+        "MATH280",
+        "Advanced Calc",
+        "Chiri,Maria Teresa",
+        [
+            "STIRLING RM A",
+            "STIRLING RM A",
+            "STIRLING RM A",
+            "STIRLING RM C"
+        ],
+        "MATH280 E Monday 9:30-10:30 Chiri,Maria Teresa",
+        "MATH280 E Wednesday 8:30-9:30 Chiri,Maria Teresa",
+        "MATH280 E Thursday 10:30-11:30 Chiri,Maria Teresa",
+        "MATH280 E Thursday 15:30-16:30 Chiri,Maria Teresa"
+    ],
+    "MATH280_3": [
+        "MATH280",
+        "Advanced Calc",
+        "Naik,Sunil Lakshmana",
+        [
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM A"
+        ],
+        "MATH280 E Monday 9:30-10:30 Naik,Sunil Lakshmana",
+        "MATH280 E Wednesday 8:30-9:30 Naik,Sunil Lakshmana",
+        "MATH280 E Thursday 10:30-11:30 Naik,Sunil Lakshmana",
+        "MATH280 E Friday 11:30-12:30 Naik,Sunil Lakshmana"
+    ],
+    "MATH280_4": [
+        "MATH280",
+        "Advanced Calc",
+        "Naik,Sunil Lakshmana",
+        [
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM C"
+        ],
+        "MATH280 E Monday 9:30-10:30 Naik,Sunil Lakshmana",
+        "MATH280 E Wednesday 8:30-9:30 Naik,Sunil Lakshmana",
+        "MATH280 E Thursday 10:30-11:30 Naik,Sunil Lakshmana",
+        "MATH280 E Thursday 15:30-16:30 Naik,Sunil Lakshmana"
+    ],
+    "MATH310_1": [
+        "MATH310",
+        "Group Theory",
+        "Kani,Ernst",
+        [
+            "EFFERY RM101",
+            "JEFFERY RM101",
+            "JEFFERY RM101"
+        ],
+        "MATH310 E Monday 13:30-14:30 Kani,Ernst",
+        "MATH310 E Wednesday 12:30-13:30 Kani,Ernst",
+        "MATH310 E Friday 11:30-12:30 Kani,Ernst"
+    ],
+    "MATH326_1": [
+        "MATH326",
+        "Functions of a Complex Variable",
+        "Dimitrov,Ivan K",
+        [
+            "STIRLING RM C",
+            "STIRLING RM C",
+            "STIRLING RM C",
+            "STIRLING RM B"
+        ],
+        "MATH326 E Tuesday 14:30-15:30 Dimitrov,Ivan K",
+        "MATH326 E Wednesday 16:30-17:30 Dimitrov,Ivan K",
+        "MATH326 E Friday 15:30-16:30 Dimitrov,Ivan K",
+        "MATH326 E Thursday 12:30-13:30 Dimitrov,Ivan K"
+    ],
+    "MATH331_1": [
+        "MATH331",
+        "Ordinary Diff. Equations II",
+        "Lewis,Andrew",
+        [
+            "JEFFERY RM101",
+            "JEFFERY RM101",
+            "JEFFERY RM101",
+            "JEFFERY RM110"
+        ],
+        "MATH331 E Tuesday 9:30-10:30 Lewis,Andrew",
+        "MATH331 E Thursday 8:30-9:30 Lewis,Andrew",
+        "MATH331 E Friday 10:30-11:30 Lewis,Andrew",
+        "MATH331 E Wednesday 8:30-9:30 Lewis,Andrew"
+    ],
+    "MATH341_1": [
+        "MATH341",
+        "Diff. Geometry",
+        "Barthelme,Thomas",
+        [
+            "STIRLING RM401",
+            "STIRLING RM401",
+            "STIRLING RM401"
+        ],
+        "MATH341 E Tuesday 12:30-13:30 Barthelme,Thomas",
+        "MATH341 E Thursday 11:30-12:30 Barthelme,Thomas",
+        "MATH341 E Friday 13:30-14:30 Barthelme,Thomas"
+    ],
+    "MATH381_1": [
+        "MATH381",
+        "Maths with a Historical Perspective",
+        "Murty,Ram P M",
+        [
+            "STIRLING RM A",
+            "STIRLING RM A",
+            "STIRLING RM A"
+        ],
+        "MATH381 E Monday 10:30-11:30 Murty,Ram P M",
+        "MATH381 E Wednesday 9:30-10:30 Murty,Ram P M",
+        "MATH381 E Friday 8:30-9:30 Murty,Ram P M"
+    ],
+    "MATH386_1": [
+        "MATH386",
+        "Our Number System - an Advanced Perspective",
+        "Yui,Noriko",
+        [
+            "KINES & HLTH RM101",
+            "KINES & HLTH RM101"
+        ],
+        "MATH386 E Monday 8:30-10:00 Yui,Noriko",
+        "MATH386 E Thursday 10:00-11:30 Yui,Noriko"
+    ],
+    "MATH402_1": [
+        "MATH402",
+        "Enumerative Combinatorics",
+        "Rodgers,Brad",
+        [
+            "JEFFERY RM234",
+            "JEFFERY RM234"
+        ],
+        "MATH402 E Monday 17:30-19:00 Rodgers,Brad",
+        "MATH402 E Wednesday 17:30-19:00 Rodgers,Brad"
+    ],
+    "MATH418_1": [
+        "MATH418",
+        "Number Theory and Cryptography",
+        "Murty,Ram P M",
+        [
+            "STIRLING RM401",
+            "STIRLING RM401",
+            "STIRLING RM401"
+        ],
+        "MATH418 E Monday 8:30-9:30 Murty,Ram P M",
+        "MATH418 E Tuesday 10:30-11:30 Murty,Ram P M",
+        "MATH418 E Thursday 9:30-10:30 Murty,Ram P M"
+    ],
+    "MATH429_1": [
+        "MATH429",
+        "Functional Analysis and Quantum Mechanics",
+        "Cellarosi,Francesco",
+        [
+            "JEFFERY RM110",
+            "JEFFERY RM110"
+        ],
+        "MATH429 E Tuesday 16:00-17:30 Cellarosi,Francesco",
+        "MATH429 E Thursday 14:30-16:00 Cellarosi,Francesco"
+    ],
+    "MATH433_1": [
+        "MATH433",
+        "Continuum Mechanics with Applications",
+        "Staff",
+        [
+            "DUPUIS RM215",
+            "DUPUIS RM215",
+            "DUPUIS RM215"
+        ],
+        "MATH433 E Tuesday 11:30-12:30 Staff",
+        "MATH433 E Wednesday 13:30-14:30 Staff",
+        "MATH433 E Friday 12:30-13:30 Staff"
+    ],
+    "MATH455_1": [
+        "MATH455",
+        "Stochastic Processes and Applications",
+        "Song,Yanglei",
+        [
+            "STIRLING RM C",
+            "STIRLING RM C",
+            "STIRLING RM C",
+            "JEFFERY RM127"
+        ],
+        "MATH455 E Monday 11:30-12:30 Song,Yanglei",
+        "MATH455 E Tuesday 13:30-14:30 Song,Yanglei",
+        "MATH455 E Thursday 12:30-13:30 Song,Yanglei",
+        "MATH455 E Monday 8:30-9:30 Song,Yanglei"
+    ],
+    "MATH474_1": [
+        "MATH474",
+        "Information Theory",
+        "Alajaji,Fady",
+        [
+            "STIRLING RM C",
+            "STIRLING RM C",
+            "STIRLING RM C"
+        ],
+        "MATH474 E Monday 15:30-16:30 Alajaji,Fady",
+        "MATH474 E Wednesday 14:30-15:30 Alajaji,Fady",
+        "MATH474 E Thursday 16:30-17:30 Alajaji,Fady"
+    ],
+    
+    "STAT161_1": [
+        "STAT161",
+        "Intro to Data Science",
+        "Lin,Devon",
+        [
+            "JEFFERY RM127",
+            "JEFFERY RM127",
+            "JEFFERY RM127",
+            "JEFFERY RM155"
+        ],
+        "STAT161 E Monday 11:30-12:30 Lin,Devon",
+        "STAT161 E Tuesday 13:30-14:30 Lin,Devon",
+        "STAT161 E Thursday 12:30-13:30 Lin,Devon",
+        "STAT161 E Monday 13:30-14:30 Lin,Devon"
+    ],
+    "STAT252_1": [
+        "STAT252",
+        "Introductory Applied Probability",
+        "Rodgers,Brad",
+        [
+            "DUPUIS RM217",
+            "DUPUIS RM217",
+            "DUPUIS RM217"
+        ],
+        "STAT252 E Monday 15:30-16:30 Rodgers,Brad",
+        "STAT252 E Wednesday 14:30-15:30 Rodgers,Brad",
+        "STAT252 E Thursday 16:30-17:30 Rodgers,Brad"
+    ],
+    "STAT263_1": [
+        "STAT263",
+        "Intro to Stats.",
+        "Molson,Charles Arthur",
+        [
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF AUD"
+        ],
+        "STAT263 E Tuesday 12:30-13:30 Molson,Charles Arthur",
+        "STAT263 E Thursday 11:30-12:30 Molson,Charles Arthur",
+        "STAT263 E Friday 13:30-14:30 Molson,Charles Arthur"
+    ],
+    "STAT263_2": [
+        "STAT263",
+        "Intro to Stats.",
+        "Molson,Charles Arthur",
+        [
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF AUD"
+        ],
+        "STAT263 E Monday 12:30-13:30 Molson,Charles Arthur",
+        "STAT263 E Wednesday 11:30-12:30 Molson,Charles Arthur",
+        "STAT263 E Thursday 13:30-14:30 Molson,Charles Arthur"
+    ],
+    "STAT268_1": [
+        "STAT268",
+        "Stats. and Probability I",
+        "Song,Yanglei",
+        [
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM B"
+        ],
+        "STAT268 E Monday 12:30-13:30 Song,Yanglei",
+        "STAT268 E Wednesday 11:30-12:30 Song,Yanglei",
+        "STAT268 E Thursday 13:30-14:30 Song,Yanglei"
+    ],
+    "STAT361_1": [
+        "STAT361",
+        "Applied Methods in Stats. I",
+        "Jiang,Wenyu",
+        [
+            "EFFERY RM128",
+            "JEFFERY RM128",
+            "JEFFERY RM128"
+        ],
+        "STAT361 E Tuesday 8:30-9:30 Jiang,Wenyu",
+        "STAT361 E Wednesday 10:30-11:30 Jiang,Wenyu",
+        "STAT361 E Friday 9:30-10:30 Jiang,Wenyu"
+    ],
+    "STAT455_1": [
+        "STAT455",
+        "Stochastic Processes and Applications",
+        "Song,Yanglei",
+        [
+            "STIRLING RM C",
+            "STIRLING RM C",
+            "STIRLING RM C",
+            "JEFFERY RM127"
+        ],
+        "STAT455 E Monday 11:30-12:30 Song,Yanglei",
+        "STAT455 E Tuesday 13:30-14:30 Song,Yanglei",
+        "STAT455 E Thursday 12:30-13:30 Song,Yanglei",
+        "STAT455 E Monday 8:30-9:30 Song,Yanglei"
+    ],
+    "STAT463_1": [
+        "STAT463",
+        "Fund. of Statistical Inference",
+        "Levit,Boris",
+        [
+            "DUPUIS RM217",
+            "DUPUIS RM217",
+            "DUPUIS RM217"
+        ],
+        "STAT463 E Monday 9:30-10:30 Levit,Boris",
+        "STAT463 E Wednesday 8:30-9:30 Levit,Boris",
+        "STAT463 E Thursday 10:30-11:30 Levit,Boris"
+    ],
+    "BIOL102_1": [
+        "BIOL102_1",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2326"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Tuesday 14:30-16:00 Regan,Sharon"
+    ],
+    "BIOL102_2": [
+        "BIOL102_2",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2319"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Tuesday 16:00-17:30 Regan,Sharon"
+    ],
+    "BIOL102_3": [
+        "BIOL102_3",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2320"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Tuesday 16:00-17:30 Regan,Sharon"
+    ],
+    "BIOL102_4": [
+        "BIOL102_4",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2326"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Tuesday 16:00-17:30 Regan,Sharon"
+    ],
+    "BIOL102_5": [
+        "BIOL102_5",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2325"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Tuesday 16:00-17:30 Regan,Sharon"
+    ],
+    "BIOL102_6": [
+        "BIOL102_6",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2325"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Wednesday 8:30-10:00 Regan,Sharon"
+    ],
+    "BIOL102_7": [
+        "BIOL102_7",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2319"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Wednesday 8:30-10:00 Regan,Sharon"
+    ],
+    "BIOL102_8": [
+        "BIOL102_8",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2320"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Wednesday 8:30-10:00 Regan,Sharon"
+    ],
+    "BIOL102_9": [
+        "BIOL102_9",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2319"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Wednesday 10:00-11:30 Regan,Sharon"
+    ],
+    "BIOL102_10": [
+        "BIOL102_10",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2320"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Wednesday 10:00-11:30 Regan,Sharon"
+    ],
+    "BIOL102_11": [
+        "BIOL102_11",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2325"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Wednesday 10:00-11:30 Regan,Sharon"
+    ],
+    "BIOL102_12": [
+        "BIOL102_12",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2326"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Wednesday 10:00-11:30 Regan,Sharon"
+    ],
+    "BIOL102_13": [
+        "BIOL102_13",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2319"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Wednesday 14:30-16:00 Regan,Sharon"
+    ],
+    "BIOL102_14": [
+        "BIOL102_14",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2320"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Wednesday 14:30-16:00 Regan,Sharon"
+    ],
+    "BIOL102_15": [
+        "BIOL102_15",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2325"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Wednesday 14:30-16:00 Regan,Sharon"
+    ],
+    "BIOL102_16": [
+        "BIOL102_16",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2326"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Wednesday 14:30-16:00 Regan,Sharon"
+    ],
+    "BIOL102_17": [
+        "BIOL102_17",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2319"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Wednesday 16:00-17:30 Regan,Sharon"
+    ],
+    "BIOL102_18": [
+        "BIOL102_18",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2320"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Wednesday 16:00-17:30 Regan,Sharon"
+    ],
+    "BIOL102_19": [
+        "BIOL102_19",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2325"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Wednesday 16:00-17:30 Regan,Sharon"
+    ],
+    "BIOL102_20": [
+        "BIOL102_20",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2326"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Wednesday 16:00-17:30 Regan,Sharon"
+    ],
+    "BIOL102_21": [
+        "BIOL102_21",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2319"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Thursday 8:30-10:00 Regan,Sharon"
+    ],
+    "BIOL102_22": [
+        "BIOL102_22",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2320"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Thursday 8:30-10:00 Regan,Sharon"
+    ],
+    "BIOL102_23": [
+        "BIOL102_23",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2325"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Thursday 8:30-10:00 Regan,Sharon"
+    ],
+    "BIOL102_24": [
+        "BIOL102_24",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2326"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Thursday 8:30-10:00 Regan,Sharon"
+    ],
+    "BIOL102_25": [
+        "BIOL102_25",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2319"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Thursday 10:00-11:30 Regan,Sharon"
+    ],
+    "BIOL102_26": [
+        "BIOL102_26",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2320"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Thursday 10:00-11:30 Regan,Sharon"
+    ],
+    "BIOL102_27": [
+        "BIOL102_27",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2325"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Thursday 10:00-11:30 Regan,Sharon"
+    ],
+    "BIOL102_28": [
+        "BIOL102_28",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2325"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Thursday 14:30-16:00 Regan,Sharon"
+    ],
+    "BIOL102_29": [
+        "BIOL102_29",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2319"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Thursday 14:30-16:00 Regan,Sharon"
+    ],
+    "BIOL102_30": [
+        "BIOL102_30",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2319"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Thursday 14:30-16:00 Regan,Sharon"
+    ],
+    "BIOL102_31": [
+        "BIOL102_31",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2319"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Thursday 16:00-17:30 Regan,Sharon"
+    ],
+    "BIOL102_32": [
+        "BIOL102_32",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2320"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Thursday 16:00-17:30 Regan,Sharon"
+    ],
+    "BIOL102_33": [
+        "BIOL102_33",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2325"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Thursday 16:00-17:30 Regan,Sharon"
+    ],
+    "BIOL102_34": [
+        "BIOL102_34",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2326"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Thursday 16:00-17:30 Regan,Sharon"
+    ],
+    "BIOL102_35": [
+        "BIOL102_35",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2319"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Thursday 14:30-16:00 Regan,Sharon"
+    ],
+    "BIOL102_36": [
+        "BIOL102_36",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2319"
+        ],
+        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
+        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
+        "BIOL102 E Monday 8:30-10:00 Regan,Sharon"
+    ],
+    "BIOL102_37": [
+        "BIOL102_37",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2325"
+        ],
+        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
+        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
+        "BIOL102 E Monday 8:30-10:00 Regan,Sharon"
+    ],
+    "BIOL102_38": [
+        "BIOL102_38",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2326"
+        ],
+        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
+        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
+        "BIOL102 E Monday 8:30-10:00 Regan,Sharon"
+    ],
+    "BIOL102_39": [
+        "BIOL102_39",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2319"
+        ],
+        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
+        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
+        "BIOL102 E Monday 10:00-11:30 Regan,Sharon"
+    ],
+    "BIOL102_40": [
+        "BIOL102_40",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2325"
+        ],
+        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
+        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
+        "BIOL102 E Monday 10:00-11:30 Regan,Sharon"
+    ],
+    "BIOL102_41": [
+        "BIOL102_41",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2326"
+        ],
+        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
+        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
+        "BIOL102 E Monday 10:00-11:30 Regan,Sharon"
+    ],
+    "BIOL102_42": [
+        "BIOL102_42",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2319"
+        ],
+        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
+        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
+        "BIOL102 E Monday 14:30-16:00 Regan,Sharon"
+    ],
+    "BIOL102_43": [
+        "BIOL102_43",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2325"
+        ],
+        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
+        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
+        "BIOL102 E Monday 14:30-16:00 Regan,Sharon"
+    ],
+    "BIOL102_44": [
+        "BIOL102_44",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2326"
+        ],
+        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
+        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
+        "BIOL102 E Monday 14:30-16:00 Regan,Sharon"
+    ],
+    "BIOL102_45": [
+        "BIOL102_45",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2319"
+        ],
+        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
+        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
+        "BIOL102 E Monday 16:00-17:30 Regan,Sharon"
+    ],
+    "BIOL102_46": [
+        "BIOL102_46",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2325"
+        ],
+        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
+        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
+        "BIOL102 E Monday 16:00-17:30 Regan,Sharon"
+    ],
+    "BIOL102_47": [
+        "BIOL102_47",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2326"
+        ],
+        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
+        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
+        "BIOL102 E Monday 16:00-17:30 Regan,Sharon"
+    ],
+    "BIOL102_48": [
+        "BIOL102_48",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2319"
+        ],
+        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
+        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
+        "BIOL102 E Tuesday 8:30-10:00 Regan,Sharon"
+    ],
+    "BIOL102_49": [
+        "BIOL102_49",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2325"
+        ],
+        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
+        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
+        "BIOL102 E Tuesday 8:30-10:00 Regan,Sharon"
+    ],
+    "BIOL102_50": [
+        "BIOL102_50",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2326"
+        ],
+        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
+        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
+        "BIOL102 E Tuesday 8:30-10:00 Regan,Sharon"
+    ],
+    "BIOL102_51": [
+        "BIOL102_51",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2320"
+        ],
+        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
+        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
+        "BIOL102 E Tuesday 14:30-16:00 Regan,Sharon"
+    ],
+    "BIOL102_52": [
+        "BIOL102_52",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2325"
+        ],
+        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
+        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
+        "BIOL102 E Tuesday 14:30-16:00 Regan,Sharon"
+    ],
+    "BIOL102_53": [
+        "BIOL102_53",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2320"
+        ],
+        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
+        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
+        "BIOL102 E Thursday 14:30-16:00 Regan,Sharon"
+    ],
+    "BIOL102_54": [
+        "BIOL102_54",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNNING AUD",
+            "DUNNING AUD",
+            "BIOSCI RM2320"
+        ],
+        "BIOL102 E Monday 14:30-15:30 Regan,Sharon",
+        "BIOL102 E Thursday 15:30-16:30 Regan,Sharon",
+        "BIOL102 E Monday 8:30-10:00 Regan,Sharon"
+    ],
+    "BIOL102_55": [
+        "BIOL102_55",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNNING AUD",
+            "DUNNING AUD",
+            "BIOSCI RM2320"
+        ],
+        "BIOL102 E Monday 14:30-15:30 Regan,Sharon",
+        "BIOL102 E Thursday 15:30-16:30 Regan,Sharon",
+        "BIOL102 E Monday 10:00-11:30 Regan,Sharon"
+    ],
+    "BIOL102_56": [
+        "BIOL102_56",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNNING AUD",
+            "DUNNING AUD",
+            "BIOSCI RM2320"
+        ],
+        "BIOL102 E Monday 14:30-15:30 Regan,Sharon",
+        "BIOL102 E Thursday 15:30-16:30 Regan,Sharon",
+        "BIOL102 E Monday 14:30-16:00 Regan,Sharon"
+    ],
+    "BIOL102_57": [
+        "BIOL102_57",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNNING AUD",
+            "DUNNING AUD",
+            "BIOSCI RM2320"
+        ],
+        "BIOL102 E Monday 14:30-15:30 Regan,Sharon",
+        "BIOL102 E Thursday 15:30-16:30 Regan,Sharon",
+        "BIOL102 E Monday 16:00-17:30 Regan,Sharon"
+    ],
+    "BIOL102_58": [
+        "BIOL102_58",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNNING AUD",
+            "DUNNING AUD",
+            "BIOSCI RM2320"
+        ],
+        "BIOL102 E Monday 14:30-15:30 Regan,Sharon",
+        "BIOL102 E Thursday 15:30-16:30 Regan,Sharon",
+        "BIOL102 E Tuesday 8:30-10:00 Regan,Sharon"
+    ],
+    "BIOL102_59": [
+        "BIOL102_59",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNNING AUD",
+            "DUNNING AUD",
+            "BIOSCI RM2319"
+        ],
+        "BIOL102 E Monday 14:30-15:30 Regan,Sharon",
+        "BIOL102 E Thursday 15:30-16:30 Regan,Sharon",
+        "BIOL102 E Tuesday 10:00-11:30 Regan,Sharon"
+    ],
+    "BIOL102_60": [
+        "BIOL102_60",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNNING AUD",
+            "DUNNING AUD",
+            "BIOSCI RM2320"
+        ],
+        "BIOL102 E Monday 14:30-15:30 Regan,Sharon",
+        "BIOL102 E Thursday 15:30-16:30 Regan,Sharon",
+        "BIOL102 E Tuesday 10:00-11:30 Regan,Sharon"
+    ],
+    "BIOL102_61": [
+        "BIOL102_61",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNNING AUD",
+            "DUNNING AUD",
+            "BIOSCI RM2325"
+        ],
+        "BIOL102 E Monday 14:30-15:30 Regan,Sharon",
+        "BIOL102 E Thursday 15:30-16:30 Regan,Sharon",
+        "BIOL102 E Tuesday 10:00-11:30 Regan,Sharon"
+    ],
+    "BIOL102_62": [
+        "BIOL102_62",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNNING AUD",
+            "DUNNING AUD",
+            "BIOSCI RM2319"
+        ],
+        "BIOL102 E Monday 14:30-15:30 Regan,Sharon",
+        "BIOL102 E Thursday 15:30-16:30 Regan,Sharon",
+        "BIOL102 E Tuesday 14:30-16:00 Regan,Sharon"
+    ],
+    "BIOL102_63": [
+        "BIOL102_63",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNNING AUD",
+            "DUNNING AUD",
+            "BIOSCI RM2320"
+        ],
+        "BIOL102 E Monday 14:30-15:30 Regan,Sharon",
+        "BIOL102 E Thursday 15:30-16:30 Regan,Sharon",
+        "BIOL102 E Thursday 14:30-16:00 Regan,Sharon"
+    ],
+    "BIOL205_1": [
+        "BIOL205_1",
+        "Mendelian and Molecular Genetics",
+        "Chin-Sang,Ian",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2109"
+        ],
+        "BIOL205 E Tuesday 12:30-13:30 Chin-Sang,Ian",
+        "BIOL205 E Thursday 11:30-12:30 Chin-Sang,Ian",
+        "BIOL205 E Friday 13:30-14:30 Chin-Sang,Ian",
+        "BIOL205 E Friday 14:30-16:00 Chin-Sang,Ian"
+    ],
+    "BIOL205_2": [
+        "BIOL205_2",
+        "Mendelian and Molecular Genetics",
+        "Chin-Sang,Ian",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2109"
+        ],
+        "BIOL205 E Tuesday 12:30-13:30 Chin-Sang,Ian",
+        "BIOL205 E Thursday 11:30-12:30 Chin-Sang,Ian",
+        "BIOL205 E Friday 13:30-14:30 Chin-Sang,Ian",
+        "BIOL205 E Friday 11:30-13:00 Chin-Sang,Ian"
+    ],
+    "BIOL205_3": [
+        "BIOL205_3",
+        "Mendelian and Molecular Genetics",
+        "Chin-Sang,Ian",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2109"
+        ],
+        "BIOL205 E Tuesday 12:30-13:30 Chin-Sang,Ian",
+        "BIOL205 E Thursday 11:30-12:30 Chin-Sang,Ian",
+        "BIOL205 E Friday 13:30-14:30 Chin-Sang,Ian",
+        "BIOL205 E Tuesday 16:00-17:30 Chin-Sang,Ian"
+    ],
+    "BIOL205_4": [
+        "BIOL205_4",
+        "Mendelian and Molecular Genetics",
+        "Chin-Sang,Ian",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2109"
+        ],
+        "BIOL205 E Tuesday 12:30-13:30 Chin-Sang,Ian",
+        "BIOL205 E Thursday 11:30-12:30 Chin-Sang,Ian",
+        "BIOL205 E Friday 13:30-14:30 Chin-Sang,Ian",
+        "BIOL205 E Monday 8:30-10:00 Chin-Sang,Ian"
+    ],
+    "BIOL205_5": [
+        "BIOL205_5",
+        "Mendelian and Molecular Genetics",
+        "Chin-Sang,Ian",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2109"
+        ],
+        "BIOL205 E Tuesday 12:30-13:30 Chin-Sang,Ian",
+        "BIOL205 E Thursday 11:30-12:30 Chin-Sang,Ian",
+        "BIOL205 E Friday 13:30-14:30 Chin-Sang,Ian",
+        "BIOL205 E Wednesday 14:30-16:00 Chin-Sang,Ian"
+    ],
+    "BIOL205_6": [
+        "BIOL205_6",
+        "Mendelian and Molecular Genetics",
+        "Chin-Sang,Ian",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2109"
+        ],
+        "BIOL205 E Tuesday 12:30-13:30 Chin-Sang,Ian",
+        "BIOL205 E Thursday 11:30-12:30 Chin-Sang,Ian",
+        "BIOL205 E Friday 13:30-14:30 Chin-Sang,Ian",
+        "BIOL205 E Wednesday 8:30-10:00 Chin-Sang,Ian"
+    ],
+    "BIOL205_7": [
+        "BIOL205_7",
+        "Mendelian and Molecular Genetics",
+        "Chin-Sang,Ian",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2109"
+        ],
+        "BIOL205 E Tuesday 12:30-13:30 Chin-Sang,Ian",
+        "BIOL205 E Thursday 11:30-12:30 Chin-Sang,Ian",
+        "BIOL205 E Friday 13:30-14:30 Chin-Sang,Ian",
+        "BIOL205 E Wednesday 11:30-13:00 Chin-Sang,Ian"
+    ],
+    "BIOL205_8": [
+        "BIOL205_8",
+        "Mendelian and Molecular Genetics",
+        "Chin-Sang,Ian",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2109"
+        ],
+        "BIOL205 E Tuesday 12:30-13:30 Chin-Sang,Ian",
+        "BIOL205 E Thursday 11:30-12:30 Chin-Sang,Ian",
+        "BIOL205 E Friday 13:30-14:30 Chin-Sang,Ian",
+        "BIOL205 E Monday 16:00-17:30 Chin-Sang,Ian"
+    ],
+    "BIOL205_9": [
+        "BIOL205_9",
+        "Mendelian and Molecular Genetics",
+        "Chin-Sang,Ian",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2109"
+        ],
+        "BIOL205 E Tuesday 12:30-13:30 Chin-Sang,Ian",
+        "BIOL205 E Thursday 11:30-12:30 Chin-Sang,Ian",
+        "BIOL205 E Friday 13:30-14:30 Chin-Sang,Ian",
+        "BIOL205 E Friday 8:30-10:00 Chin-Sang,Ian"
+    ],
+    "BIOL205_10": [
+        "BIOL205_10",
+        "Mendelian and Molecular Genetics",
+        "Chin-Sang,Ian",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2109"
+        ],
+        "BIOL205 E Tuesday 12:30-13:30 Chin-Sang,Ian",
+        "BIOL205 E Thursday 11:30-12:30 Chin-Sang,Ian",
+        "BIOL205 E Friday 13:30-14:30 Chin-Sang,Ian",
+        "BIOL205 E Monday 13:00-14:30 Chin-Sang,Ian"
+    ],
+    "BIOL212_1": [
+        "BIOL212",
+        "Scientific Methods in Biology",
+        "Snedden,Wayne",
+        [
+            "CHERNOFF RM117",
+            "BIOSCI RM2305",
+            "BIOSCI RM2305"
+        ],
+        "BIOL212 E Monday 13:30-14:30 Snedden,Wayne",
+        "BIOL212 E Tuesday 8:30-11:30 Snedden,Wayne",
+        "BIOL212 E Thursday 8:30-11:30 Snedden,Wayne"
+    ],
+    "BIOL212_2": [
+        "BIOL212",
+        "Scientific Methods in Biology",
+        "Snedden,Wayne",
+        [
+            "CHERNOFF RM117",
+            "BIOSCI RM2305",
+            "BIOSCI RM2305"
+        ],
+        "BIOL212 E Monday 13:30-14:30 Snedden,Wayne",
+        "BIOL212 E Wednesday 8:30-11:30 Snedden,Wayne",
+        "BIOL212 E Friday 8:30-11:30 Snedden,Wayne"
+    ],
+    "BIOL212_3": [
+        "BIOL212",
+        "Scientific Methods in Biology",
+        "Snedden,Wayne",
+        [
+            "CHERNOFF RM117",
+            "BIOSCI RM2305",
+            "BIOSCI RM2305"
+        ],
+        "BIOL212 E Monday 13:30-14:30 Snedden,Wayne",
+        "BIOL212 E Tuesday 14:30-17:30 Snedden,Wayne",
+        "BIOL212 E Thursday 14:30-17:30 Snedden,Wayne"
+    ],
+    "BIOL243_1": [
+        "BIOL243",
+        "Intro to Stats.",
+        "Yakimowski,Sarah",
+        [
+            "DUPUIS AUD",
+            "DUNNING RM10"
+        ],
+        "BIOL243 E Tuesday 11:30-12:30 Yakimowski,Sarah",
+        "BIOL243 E Monday 16:00-17:30 Yakimowski,Sarah"
+    ],
+    "BIOL243_2": [
+        "BIOL243",
+        "Intro to Stats.",
+        "Yakimowski,Sarah",
+        [
+            "DUPUIS AUD",
+            "DUNNING RM10"
+        ],
+        "BIOL243 E Tuesday 11:30-12:30 Yakimowski,Sarah",
+        "BIOL243 E Wednesday 14:30-16:00 Yakimowski,Sarah"
+    ],
+    "BIOL243_3": [
+        "BIOL243",
+        "Intro to Stats.",
+        "Yakimowski,Sarah",
+        [
+            "DUPUIS AUD",
+            "DUNNING RM10"
+        ],
+        "BIOL243 E Tuesday 11:30-12:30 Yakimowski,Sarah",
+        "BIOL243 E Wednesday 11:30-13:00 Yakimowski,Sarah"
+    ],
+
+    "BIOL300_1": [
+        "BIOL300_1",
+        "Ecology",
+        "Martin,Paul",
+        [
+            "ELLIS AUD",
+            "ELLIS AUD",
+            "ELLIS AUD",
+            "BIOSCI RM3311"
+        ],
+        "BIOL300 E Monday 12:30-13:30 Martin,Paul",
+        "BIOL300 E Wednesday 11:30-12:30 Martin,Paul",
+        "BIOL300 E Thursday 13:30-14:30 Martin,Paul",
+        "BIOL300 E Wednesday 8:30-10:30 Martin,Paul"
+    ],
+    "BIOL300_2": [
+        "BIOL300_2",
+        "Ecology",
+        "Martin,Paul",
+        [
+            "ELLIS AUD",
+            "ELLIS AUD",
+            "ELLIS AUD",
+            "BIOSCI RM3312"
+        ],
+        "BIOL300 E Monday 12:30-13:30 Martin,Paul",
+        "BIOL300 E Wednesday 11:30-12:30 Martin,Paul",
+        "BIOL300 E Thursday 13:30-14:30 Martin,Paul",
+        "BIOL300 E Wednesday 8:30-10:30 Martin,Paul"
+    ],
+    "BIOL300_3": [
+        "BIOL300_3",
+        "Ecology",
+        "Martin,Paul",
+        [
+            "ELLIS AUD",
+            "ELLIS AUD",
+            "ELLIS AUD",
+            "BIOSCI RM3311"
+        ],
+        "BIOL300 E Monday 12:30-13:30 Martin,Paul",
+        "BIOL300 E Wednesday 11:30-12:30 Martin,Paul",
+        "BIOL300 E Thursday 13:30-14:30 Martin,Paul",
+        "BIOL300 E Tuesday 14:30-16:30 Martin,Paul"
+    ],
+    "BIOL300_4": [
+        "BIOL300_4",
+        "Ecology",
+        "Martin,Paul",
+        [
+            "ELLIS AUD",
+            "ELLIS AUD",
+            "ELLIS AUD",
+            "BIOSCI RM3312"
+        ],
+        "BIOL300 E Monday 12:30-13:30 Martin,Paul",
+        "BIOL300 E Wednesday 11:30-12:30 Martin,Paul",
+        "BIOL300 E Thursday 13:30-14:30 Martin,Paul",
+        "BIOL300 E Tuesday 14:30-16:30 Martin,Paul"
+    ],
+    "BIOL300_5": [
+        "BIOL300_5",
+        "Ecology",
+        "Martin,Paul",
+        [
+            "ELLIS AUD",
+            "ELLIS AUD",
+            "ELLIS AUD",
+            "BIOSCI RM3311"
+        ],
+        "BIOL300 E Monday 12:30-13:30 Martin,Paul",
+        "BIOL300 E Wednesday 11:30-12:30 Martin,Paul",
+        "BIOL300 E Thursday 13:30-14:30 Martin,Paul",
+        "BIOL300 E Tuesday 11:30-13:30 Martin,Paul"
+    ],
+    "BIOL300_6": [
+        "BIOL300_6",
+        "Ecology",
+        "Martin,Paul",
+        [
+            "ELLIS AUD",
+            "ELLIS AUD",
+            "ELLIS AUD",
+            "BIOSCI RM3312"
+        ],
+        "BIOL300 E Monday 12:30-13:30 Martin,Paul",
+        "BIOL300 E Wednesday 11:30-12:30 Martin,Paul",
+        "BIOL300 E Thursday 13:30-14:30 Martin,Paul",
+        "BIOL300 E Monday 8:30-10:30 Martin,Paul"
+    ],
+    "BIOL300_7": [
+        "BIOL300_7",
+        "Ecology",
+        "Martin,Paul",
+        [
+            "ELLIS AUD",
+            "ELLIS AUD",
+            "ELLIS AUD",
+            "BIOSCI RM3311"
+        ],
+        "BIOL300 E Monday 12:30-13:30 Martin,Paul",
+        "BIOL300 E Wednesday 11:30-12:30 Martin,Paul",
+        "BIOL300 E Thursday 13:30-14:30 Martin,Paul",
+        "BIOL300 E Tuesday 8:30-10:30 Martin,Paul"
+    ],
+    "BIOL300_8": [
+        "BIOL300_8",
+        "Ecology",
+        "Martin,Paul",
+        [
+            "ELLIS AUD",
+            "ELLIS AUD",
+            "ELLIS AUD",
+            "BIOSCI RM3312"
+        ],
+        "BIOL300 E Monday 12:30-13:30 Martin,Paul",
+        "BIOL300 E Wednesday 11:30-12:30 Martin,Paul",
+        "BIOL300 E Thursday 13:30-14:30 Martin,Paul",
+        "BIOL300 E Tuesday 8:30-10:30 Martin,Paul"
+    ],
+    "BIOL300_9": [
+        "BIOL300_9",
+        "Ecology",
+        "Martin,Paul",
+        [
+            "ELLIS AUD",
+            "ELLIS AUD",
+            "ELLIS AUD",
+            "BIOSCI RM3311"
+        ],
+        "BIOL300 E Monday 12:30-13:30 Martin,Paul",
+        "BIOL300 E Wednesday 11:30-12:30 Martin,Paul",
+        "BIOL300 E Thursday 13:30-14:30 Martin,Paul",
+        "BIOL300 E Monday 14:30-16:30 Martin,Paul"
+    ],
+    "BIOL300_10": [
+        "BIOL300_10",
+        "Ecology",
+        "Martin,Paul",
+        [
+            "ELLIS AUD",
+            "ELLIS AUD",
+            "ELLIS AUD",
+            "BIOSCI RM3312"
+        ],
+        "BIOL300 E Monday 12:30-13:30 Martin,Paul",
+        "BIOL300 E Wednesday 11:30-12:30 Martin,Paul",
+        "BIOL300 E Thursday 13:30-14:30 Martin,Paul",
+        "BIOL300 E Monday 14:30-16:30 Martin,Paul"
+    ],
+    "BIOL300_11": [
+        "BIOL300_11",
+        "Ecology",
+        "Martin,Paul",
+        [
+            "ELLIS AUD",
+            "ELLIS AUD",
+            "ELLIS AUD",
+            "BIOSCI RM3311"
+        ],
+        "BIOL300 E Monday 12:30-13:30 Martin,Paul",
+        "BIOL300 E Wednesday 11:30-12:30 Martin,Paul",
+        "BIOL300 E Thursday 13:30-14:30 Martin,Paul",
+        "BIOL300 E Monday 8:30-10:30 Martin,Paul"
+    ],
+    "BIOL300_12": [
+        "BIOL300_12",
+        "Ecology",
+        "Martin,Paul",
+        [
+            "ELLIS AUD",
+            "ELLIS AUD",
+            "ELLIS AUD",
+            "BIOSCI RM3312"
+        ],
+        "BIOL300 E Monday 12:30-13:30 Martin,Paul",
+        "BIOL300 E Wednesday 11:30-12:30 Martin,Paul",
+        "BIOL300 E Thursday 13:30-14:30 Martin,Paul",
+        "BIOL300 E Tuesday 11:30-13:30 Martin,Paul"
+    ],
+
+    "BIOL321_1": [
+        "BIOL321_1",
+        "Animal Behaviour",
+        "Bonier,Frances",
+        [
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "BIOSCI RM3326"
+        ],
+        "BIOL321 E Monday 14:30-15:30 Bonier,Frances",
+        "BIOL321 E Tuesday 16:30-17:30 Bonier,Frances",
+        "BIOL321 E Thursday 15:30-16:30 Bonier,Frances",
+        "BIOL321 E Friday 11:30-13:00 Bonier,Frances"
+    ],
+    "BIOL321_2": [
+        "BIOL321_2",
+        "Animal Behaviour",
+        "Bonier,Frances",
+        [
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "BIOSCI RM3326"
+        ],
+        "BIOL321 E Monday 14:30-15:30 Bonier,Frances",
+        "BIOL321 E Tuesday 16:30-17:30 Bonier,Frances",
+        "BIOL321 E Thursday 15:30-16:30 Bonier,Frances",
+        "BIOL321 E Friday 8:30-10:00 Bonier,Frances"
+    ],
+    "BIOL321_3": [
+        "BIOL321_3",
+        "Animal Behaviour",
+        "Bonier,Frances",
+        [
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "BIOSCI RM3326"
+        ],
+        "BIOL321 E Monday 14:30-15:30 Bonier,Frances",
+        "BIOL321 E Tuesday 16:30-17:30 Bonier,Frances",
+        "BIOL321 E Thursday 15:30-16:30 Bonier,Frances",
+        "BIOL321 E Wednesday 16:00-17:30 Bonier,Frances"
+    ],
+    "BIOL321_4": [
+        "BIOL321_4",
+        "Animal Behaviour",
+        "Bonier,Frances",
+        [
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "BIOSCI RM3326"
+        ],
+        "BIOL321 E Monday 14:30-15:30 Bonier,Frances",
+        "BIOL321 E Tuesday 16:30-17:30 Bonier,Frances",
+        "BIOL321 E Thursday 15:30-16:30 Bonier,Frances",
+        "BIOL321 E Tuesday 8:30-10:00 Bonier,Frances"
+    ],
+    "BIOL321_5": [
+        "BIOL321_5",
+        "Animal Behaviour",
+        "Bonier,Frances",
+        [
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "BIOSCI RM3326"
+        ],
+        "BIOL321 E Monday 14:30-15:30 Bonier,Frances",
+        "BIOL321 E Tuesday 16:30-17:30 Bonier,Frances",
+        "BIOL321 E Thursday 15:30-16:30 Bonier,Frances",
+        "BIOL321 E Wednesday 8:30-10:00 Bonier,Frances"
+    ],
+    "BIOL321_6": [
+        "BIOL321_6",
+        "Animal Behaviour",
+        "Bonier,Frances",
+        [
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "BIOSCI RM3326"
+        ],
+        "BIOL321 E Monday 14:30-15:30 Bonier,Frances",
+        "BIOL321 E Tuesday 16:30-17:30 Bonier,Frances",
+        "BIOL321 E Thursday 15:30-16:30 Bonier,Frances",
+        "BIOL321 E Tuesday 14:30-16:00 Bonier,Frances"
+    ],
+    "BIOL321_7": [
+        "BIOL321_7",
+        "Animal Behaviour",
+        "Bonier,Frances",
+        [
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "BIOSCI RM3326"
+        ],
+        "BIOL321 E Monday 14:30-15:30 Bonier,Frances",
+        "BIOL321 E Tuesday 16:30-17:30 Bonier,Frances",
+        "BIOL321 E Thursday 15:30-16:30 Bonier,Frances",
+        "BIOL321 E Tuesday 11:30-13:00 Bonier,Frances"
+    ],
+    "BIOL321_8": [
+        "BIOL321_8",
+        "Animal Behaviour",
+        "Bonier,Frances",
+        [
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "BIOSCI RM3326"
+        ],
+        "BIOL321 E Monday 14:30-15:30 Bonier,Frances",
+        "BIOL321 E Tuesday 16:30-17:30 Bonier,Frances",
+        "BIOL321 E Thursday 15:30-16:30 Bonier,Frances",
+        "BIOL321 E Wednesday 13:00-14:30 Bonier,Frances"
+    ],
+    "BIOL330_1": [
+        "BIOL330",
+        "Cell Biology",
+        "Monaghan,Jacqueline",
+        [
+            "ETHERINGTON AUD",
+            "ETHERINGTON AUD",
+            "ETHERINGTON AUD",
+            "KINGSTON RM301"
+        ],
+        "BIOL330 E Monday 10:30-11:30 Monaghan,Jacqueline",
+        "BIOL330 E Wednesday 9:30-10:30 Monaghan,Jacqueline",
+        "BIOL330 E Friday 8:30-9:30 Monaghan,Jacqueline",
+        "BIOL330 E Thursday 10:00-11:30 Monaghan,Jacqueline"
+    ],
+    "BIOL330_2": [
+        "BIOL330",
+        "Cell Biology",
+        "Monaghan,Jacqueline",
+        [
+            "ETHERINGTON AUD",
+            "ETHERINGTON AUD",
+            "ETHERINGTON AUD",
+            "KINGSTON RM301"
+        ],
+        "BIOL330 E Monday 10:30-11:30 Monaghan,Jacqueline",
+        "BIOL330 E Wednesday 9:30-10:30 Monaghan,Jacqueline",
+        "BIOL330 E Friday 8:30-9:30 Monaghan,Jacqueline",
+        "BIOL330 E Wednesday 13:00-14:30 Monaghan,Jacqueline"
+    ],
+    "BIOL330_3": [
+        "BIOL330",
+        "Cell Biology",
+        "Monaghan,Jacqueline",
+        [
+            "ETHERINGTON AUD",
+            "ETHERINGTON AUD",
+            "ETHERINGTON AUD",
+            "KINGSTON RM301"
+        ],
+        "BIOL330 E Monday 10:30-11:30 Monaghan,Jacqueline",
+        "BIOL330 E Wednesday 9:30-10:30 Monaghan,Jacqueline",
+        "BIOL330 E Friday 8:30-9:30 Monaghan,Jacqueline",
+        "BIOL330 E Thursday 10:00-11:30 Monaghan,Jacqueline"
+    ],
+    "BIOL330_4": [
+        "BIOL330",
+        "Cell Biology",
+        "Monaghan,Jacqueline",
+        [
+            "ETHERINGTON AUD",
+            "ETHERINGTON AUD",
+            "ETHERINGTON AUD",
+            "KINGSTON RM301"
+        ],
+        "BIOL330 E Monday 10:30-11:30 Monaghan,Jacqueline",
+        "BIOL330 E Wednesday 9:30-10:30 Monaghan,Jacqueline",
+        "BIOL330 E Friday 8:30-9:30 Monaghan,Jacqueline",
+        "BIOL330 E Wednesday 13:00-14:30 Monaghan,Jacqueline"
+    ],
+    "BIOL335_1": [
+        "BIOL335",
+        "Limnology and Aquatic Ecology",
+        "Smol,John",
+        [
+            "DUNNING RM27",
+            "DUNNING RM27",
+            "DUNNING RM27",
+            "BIOSCI RM3320"
+        ],
+        "BIOL335 E Monday 9:30-10:30 Smol,John",
+        "BIOL335 E Wednesday 8:30-9:30 Smol,John",
+        "BIOL335 E Thursday 10:30-11:30 Smol,John",
+        "BIOL335 E Monday 14:30-17:30 Smol,John"
+    ],
+    "BIOL335_2": [
+        "BIOL335",
+        "Limnology and Aquatic Ecology",
+        "Smol,John",
+        [
+            "DUNNING RM27",
+            "DUNNING RM27",
+            "DUNNING RM27",
+            "BIOSCI RM3320"
+        ],
+        "BIOL335 E Monday 9:30-10:30 Smol,John",
+        "BIOL335 E Wednesday 8:30-9:30 Smol,John",
+        "BIOL335 E Thursday 10:30-11:30 Smol,John",
+        "BIOL335 E Thursday 14:30-17:30 Smol,John"
+    ],
+    "BIOL335_3": [
+        "BIOL335",
+        "Limnology and Aquatic Ecology",
+        "Smol,John",
+        [
+            "DUNNING RM27",
+            "DUNNING RM27",
+            "DUNNING RM27",
+            "BIOSCI RM3320"
+        ],
+        "BIOL335 E Monday 9:30-10:30 Smol,John",
+        "BIOL335 E Wednesday 8:30-9:30 Smol,John",
+        "BIOL335 E Thursday 10:30-11:30 Smol,John",
+        "BIOL335 E Wednesday 11:30-14:30 Smol,John"
+    ],
+    "BIOL339_1": [
+        "BIOL339",
+        "Animal Physiology",
+        "Tufts,Bruce,",
+        [
+            "DUPUIS AUD",
+            "DUPUIS AUD",
+            "DUPUIS AUD"
+        ],
+        "BIOL339 E Tuesday 12:30-13:30 Tufts,Bruce,",
+        "BIOL339 E Thursday 11:30-12:30 Tufts,Bruce,",
+        "BIOL339 E Friday 13:30-14:30 Tufts,Bruce,"
+    ],
+    "BIOL343_1": [
+        "BIOL343",
+        "Data Analysis for Biologists",
+        "Colautti,Robert",
+        [
+            "BIOSCI RM2109",
+            "BIOSCI RM2109"
+        ],
+        "BIOL343 E Thursday 14:30-17:30 Colautti,Robert",
+        "BIOL343 E Friday 10:00-11:30 Colautti,Robert"
+    ],
+    "BIOL401_1": [
+        "BIOL401",
+        "Experimental Approaches to Animal Physiology",
+        "Wang,Yuxiang S",
+        [
+            "BIOSCI RM1120",
+            "BIOSCI RM3306"
+        ],
+        "BIOL401 E Thursday 8:30-9:30 Wang,Yuxiang S",
+        "BIOL401 E Tuesday 8:30-11:30 Wang,Yuxiang S"
+    ],
+    "BIOL401_2": [
+        "BIOL401",
+        "Experimental Approaches to Animal Physiology",
+        "Wang,Yuxiang S",
+        [
+            "BIOSCI RM1120",
+            "BIOSCI RM3306"
+        ],
+        "BIOL401 E Thursday 8:30-9:30 Wang,Yuxiang S",
+        "BIOL401 E Wednesday 8:30-11:30 Wang,Yuxiang S"
+    ],
+    "BIOL411_1": [
+        "BIOL411",
+        "Global Change Biology",
+        "Grogan,Paul",
+        [
+            "MACINTOSH-CORRY RM A311",
+            "KINGSTON RM304"
+        ],
+        "BIOL411 E Monday 13:00-14:30 Grogan,Paul",
+        "BIOL411 E Thursday 8:30-10:00 Grogan,Paul"
+    ],
+    "BIOL432_1": [
+        "BIOL432",
+        "Computation and Big Data in Biology",
+        "Colautti,Robert",
+        [
+            "ELLIS RM333",
+            "BIOSCI RM2109"
+        ],
+        "BIOL432 E Tuesday 14:30-17:30 Colautti,Robert",
+        "BIOL432 E Friday 13:00-14:30 Colautti,Robert"
+    ],
+    "BIOL441_1": [
+        "BIOL441",
+        "Molecular Genetics",
+        "Seroude,Laurent",
+        [
+            "BIOSCI RM3110",
+            "BIOSCI RM3110"
+        ],
+        "BIOL441 E Monday 14:30-17:30 Seroude,Laurent",
+        "BIOL441 E Monday 10:30-11:30 Seroude,Laurent"
+    ],
+    "CHEM112_1": [
+        "CHEM112_1",
+        "General Chemistry",
+        "Wu,Gang",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "CHERNOFF RM211"
+        ],
+        "CHEM112 W Monday 8:30-9:30 Wu,Gang",
+        "CHEM112 W Tuesday 10:30-11:30 Wu,Gang",
+        "CHEM112 W Thursday 9:30-10:30 Wu,Gang",
+        "CHEM112 E Friday 14:30-17:30 Wu,Gang"
+    ],
+    "CHEM112_2": [
+        "CHEM112_2",
+        "General Chemistry",
+        "Wu,Gang",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "CHERNOFF RM213"
+        ],
+        "CHEM112 W Monday 8:30-9:30 Wu,Gang",
+        "CHEM112 W Tuesday 10:30-11:30 Wu,Gang",
+        "CHEM112 W Thursday 9:30-10:30 Wu,Gang",
+        "CHEM112 E Friday 14:30-17:30 Wu,Gang"
+    ],
+    "CHEM112_3": [
+        "CHEM112_3",
+        "General Chemistry",
+        "Wu,Gang",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "CHERNOFF RM206B"
+        ],
+        "CHEM112 W Monday 8:30-9:30 Wu,Gang",
+        "CHEM112 W Tuesday 10:30-11:30 Wu,Gang",
+        "CHEM112 W Thursday 9:30-10:30 Wu,Gang",
+        "CHEM112 E Monday 14:30-17:30 Wu,Gang"
+    ],
+    "CHEM112_4": [
+        "CHEM112_4",
+        "General Chemistry",
+        "Wu,Gang",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "CHERNOFF RM211"
+        ],
+        "CHEM112 W Monday 8:30-9:30 Wu,Gang",
+        "CHEM112 W Tuesday 10:30-11:30 Wu,Gang",
+        "CHEM112 W Thursday 9:30-10:30 Wu,Gang",
+        "CHEM112 E Monday 14:30-17:30 Wu,Gang"
+    ],
+    "CHEM112_5": [
+        "CHEM112_5",
+        "General Chemistry",
+        "Wu,Gang",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "CHERNOFF RM206B"
+        ],
+        "CHEM112 W Monday 8:30-9:30 Wu,Gang",
+        "CHEM112 W Tuesday 10:30-11:30 Wu,Gang",
+        "CHEM112 W Thursday 9:30-10:30 Wu,Gang",
+        "CHEM112 E Tuesday 14:30-17:30 Wu,Gang"
+    ],
+    "CHEM112_6": [
+        "CHEM112_6",
+        "General Chemistry",
+        "Wu,Gang",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "CHERNOFF RM213"
+        ],
+        "CHEM112 W Monday 8:30-9:30 Wu,Gang",
+        "CHEM112 W Tuesday 10:30-11:30 Wu,Gang",
+        "CHEM112 W Thursday 9:30-10:30 Wu,Gang",
+        "CHEM112 E Tuesday 14:30-17:30 Wu,Gang"
+    ],
+    "CHEM112_7": [
+        "CHEM112_7",
+        "General Chemistry",
+        "Wu,Gang",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "CHERNOFF RM206B"
+        ],
+        "CHEM112 W Monday 8:30-9:30 Wu,Gang",
+        "CHEM112 W Tuesday 10:30-11:30 Wu,Gang",
+        "CHEM112 W Thursday 9:30-10:30 Wu,Gang",
+        "CHEM112 E Tuesday 14:30-17:30 Wu,Gang"
+    ],
+    "CHEM112_8": [
+        "CHEM112_8",
+        "General Chemistry",
+        "Wu,Gang",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "CHERNOFF RM211"
+        ],
+        "CHEM112 W Monday 8:30-9:30 Wu,Gang",
+        "CHEM112 W Tuesday 10:30-11:30 Wu,Gang",
+        "CHEM112 W Thursday 9:30-10:30 Wu,Gang",
+        "CHEM112 E Tuesday 14:30-17:30 Wu,Gang"
+    ],
+    "CHEM112_9": [
+        "CHEM112_9",
+        "General Chemistry",
+        "Wu,Gang",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "CHERNOFF RM206B"
+        ],
+        "CHEM112 W Monday 8:30-9:30 Wu,Gang",
+        "CHEM112 W Tuesday 10:30-11:30 Wu,Gang",
+        "CHEM112 W Thursday 9:30-10:30 Wu,Gang",
+        "CHEM112 E Wednesday 14:30-17:30 Wu,Gang"
+    ],
+    "CHEM112_10": [
+        "CHEM112_10",
+        "General Chemistry",
+        "Wu,Gang",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "CHERNOFF RM213"
+        ],
+        "CHEM112 W Monday 8:30-9:30 Wu,Gang",
+        "CHEM112 W Tuesday 10:30-11:30 Wu,Gang",
+        "CHEM112 W Thursday 9:30-10:30 Wu,Gang",
+        "CHEM112 E Wednesday 14:30-17:30 Wu,Gang"
+    ],
+    "CHEM112_11": [
+        "CHEM112_11",
+        "General Chemistry",
+        "Wu,Gang",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "CHERNOFF RM206B"
+        ],
+        "CHEM112 W Monday 8:30-9:30 Wu,Gang",
+        "CHEM112 W Tuesday 10:30-11:30 Wu,Gang",
+        "CHEM112 W Thursday 9:30-10:30 Wu,Gang",
+        "CHEM112 E Wednesday 14:30-17:30 Wu,Gang"
+    ],
+    "CHEM112_12": [
+        "CHEM112_12",
+        "General Chemistry",
+        "Wu,Gang",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "CHERNOFF RM211"
+        ],
+        "CHEM112 W Monday 8:30-9:30 Wu,Gang",
+        "CHEM112 W Tuesday 10:30-11:30 Wu,Gang",
+        "CHEM112 W Thursday 9:30-10:30 Wu,Gang",
+        "CHEM112 E Wednesday 14:30-17:30 Wu,Gang"
+    ],
+    "CHEM112_13": [
+        "CHEM112_13",
+        "General Chemistry",
+        "Wu,Gang",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "CHERNOFF RM206B"
+        ],
+        "CHEM112 W Monday 8:30-9:30 Wu,Gang",
+        "CHEM112 W Tuesday 10:30-11:30 Wu,Gang",
+        "CHEM112 W Thursday 9:30-10:30 Wu,Gang",
+        "CHEM112 E Thursday 14:30-17:30 Wu,Gang"
+    ],
+    "CHEM112_14": [
+        "CHEM112_14",
+        "General Chemistry",
+        "Wu,Gang",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "CHERNOFF RM213"
+        ],
+        "CHEM112 W Monday 8:30-9:30 Wu,Gang",
+        "CHEM112 W Tuesday 10:30-11:30 Wu,Gang",
+        "CHEM112 W Thursday 9:30-10:30 Wu,Gang",
+        "CHEM112 E Thursday 14:30-17:30 Wu,Gang"
+    ],
+    "CHEM112_15": [
+        "CHEM112_15",
+        "General Chemistry",
+        "Wu,Gang",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "CHERNOFF RM206B"
+        ],
+        "CHEM112 W Monday 8:30-9:30 Wu,Gang",
+        "CHEM112 W Tuesday 10:30-11:30 Wu,Gang",
+        "CHEM112 W Thursday 9:30-10:30 Wu,Gang",
+        "CHEM112 E Thursday 14:30-17:30 Wu,Gang"
+    ],
+    "CHEM112_16": [
+        "CHEM112_16",
+        "General Chemistry",
+        "Wu,Gang",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "CHERNOFF RM206B"
+        ],
+        "CHEM112 W Monday 8:30-9:30 Wu,Gang",
+        "CHEM112 W Tuesday 10:30-11:30 Wu,Gang",
+        "CHEM112 W Thursday 9:30-10:30 Wu,Gang",
+        "CHEM112 E Monday 14:30-17:30 Wu,Gang"
+    ],
+    "CHEM112_17": [
+        "CHEM112_17",
+        "General Chemistry",
+        "Wu,Gang",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "CHERNOFF RM213"
+        ],
+        "CHEM112 W Monday 8:30-9:30 Wu,Gang",
+        "CHEM112 W Tuesday 10:30-11:30 Wu,Gang",
+        "CHEM112 W Thursday 9:30-10:30 Wu,Gang",
+        "CHEM112 E Monday 14:30-17:30 Wu,Gang"
+    ],
+    "CHEM112_18": [
+        "CHEM112_18",
+        "General Chemistry",
+        "Wu,Gang",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "CHERNOFF RM206B"
+        ],
+        "CHEM112 W Monday 8:30-9:30 Wu,Gang",
+        "CHEM112 W Tuesday 10:30-11:30 Wu,Gang",
+        "CHEM112 W Thursday 9:30-10:30 Wu,Gang",
+        "CHEM112 E Friday 14:30-17:30 Wu,Gang"
+    ],
+    "CHEM112_19": [
+        "CHEM112_19",
+        "General Chemistry",
+        "Heidar-Zadeh,Farnaz",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "CHERNOFF RM206B"
+        ],
+        "CHEM112 E Monday 11:30-12:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Tuesday 13:30-14:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Thursday 12:30-13:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Friday 14:30-17:30 Heidar-Zadeh,Farnaz"
+    ],
+    "CHEM112_20": [
+        "CHEM112_20",
+        "General Chemistry",
+        "Heidar-Zadeh,Farnaz",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "CHERNOFF RM211"
+        ],
+        "CHEM112 E Monday 11:30-12:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Tuesday 13:30-14:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Thursday 12:30-13:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Thursday 14:30-17:30 Heidar-Zadeh,Farnaz"
+    ],
+    "CHEM112_21": [
+        "CHEM112_21",
+        "General Chemistry",
+        "Heidar-Zadeh,Farnaz",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "CHERNOFF RM211"
+        ],
+        "CHEM112 E Monday 11:30-12:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Tuesday 13:30-14:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Thursday 12:30-13:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Wednesday 8:30-11:30 Heidar-Zadeh,Farnaz"
+    ],
+    "CHEM112_22": [
+        "CHEM112_22",
+        "General Chemistry",
+        "Heidar-Zadeh,Farnaz",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "CHERNOFF RM211"
+        ],
+        "CHEM112 E Monday 11:30-12:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Tuesday 13:30-14:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Thursday 12:30-13:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Friday 8:30-11:30 Heidar-Zadeh,Farnaz"
+    ],
+    "CHEM112_23": [
+        "CHEM112_23",
+        "General Chemistry",
+        "Heidar-Zadeh,Farnaz",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "CHERNOFF RM206B"
+        ],
+        "CHEM112 E Monday 11:30-12:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Tuesday 13:30-14:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Thursday 12:30-13:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Friday 8:30-11:30 Heidar-Zadeh,Farnaz"
+    ],
+    "CHEM112_24": [
+        "CHEM112_24",
+        "General Chemistry",
+        "Heidar-Zadeh,Farnaz",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "CHERNOFF RM213"
+        ],
+        "CHEM112 E Monday 11:30-12:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Tuesday 13:30-14:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Thursday 12:30-13:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Friday 8:30-11:30 Heidar-Zadeh,Farnaz"
+    ],
+    "CHEM112_25": [
+        "CHEM112_25",
+        "General Chemistry",
+        "Heidar-Zadeh,Farnaz",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "CHERNOFF RM213"
+        ],
+        "CHEM112 E Monday 11:30-12:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Tuesday 13:30-14:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Thursday 12:30-13:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Thursday 8:30-11:30 Heidar-Zadeh,Farnaz"
+    ],
+    "CHEM112_26": [
+        "CHEM112_26",
+        "General Chemistry",
+        "Heidar-Zadeh,Farnaz",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "CHERNOFF RM206B"
+        ],
+        "CHEM112 E Monday 11:30-12:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Tuesday 13:30-14:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Thursday 12:30-13:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Thursday 8:30-11:30 Heidar-Zadeh,Farnaz"
+    ],
+    "CHEM112_27": [
+        "CHEM112_27",
+        "General Chemistry",
+        "Heidar-Zadeh,Farnaz",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "CHERNOFF RM206B"
+        ],
+        "CHEM112 E Monday 11:30-12:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Tuesday 13:30-14:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Thursday 12:30-13:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Wednesday 8:30-11:30 Heidar-Zadeh,Farnaz"
+    ],
+    "CHEM112_28": [
+        "CHEM112_28",
+        "General Chemistry",
+        "Heidar-Zadeh,Farnaz",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "CHERNOFF RM213"
+        ],
+        "CHEM112 E Monday 11:30-12:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Tuesday 13:30-14:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Thursday 12:30-13:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Wednesday 8:30-11:30 Heidar-Zadeh,Farnaz"
+    ],
+    "CHEM112_29": [
+        "CHEM112_29",
+        "General Chemistry",
+        "Heidar-Zadeh,Farnaz",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "CHERNOFF RM213"
+        ],
+        "CHEM112 E Monday 11:30-12:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Tuesday 13:30-14:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Thursday 12:30-13:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Tuesday 8:30-11:30 Heidar-Zadeh,Farnaz"
+    ],
+    "CHEM112_30": [
+        "CHEM112_30",
+        "General Chemistry",
+        "Brown,Stephen",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "CHERNOFF RM211"
+        ],
+        "CHEM112 W Tuesday 11:30-12:30 Brown,Stephen",
+        "CHEM112 W Thursday 11:30-12:30 Brown,Stephen",
+        "CHEM112 W Friday 11:30-12:30 Brown,Stephen",
+        "CHEM112 E Thursday 8:30-11:30 Brown,Stephen"
+    ],
+    "CHEM112_31": [
+        "CHEM112_31",
+        "General Chemistry",
+        "Brown,Stephen",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "CHERNOFF RM206B"
+        ],
+        "CHEM112 W Tuesday 11:30-12:30 Brown,Stephen",
+        "CHEM112 W Thursday 11:30-12:30 Brown,Stephen",
+        "CHEM112 W Friday 11:30-12:30 Brown,Stephen",
+        "CHEM112 E Tuesday 8:30-11:30 Brown,Stephen"
+    ],
+    "CHEM112_32": [
+        "CHEM112_32",
+        "General Chemistry",
+        "Brown,Stephen",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "CHERNOFF RM211"
+        ],
+        "CHEM112 W Tuesday 11:30-12:30 Brown,Stephen",
+        "CHEM112 W Thursday 11:30-12:30 Brown,Stephen",
+        "CHEM112 W Friday 11:30-12:30 Brown,Stephen",
+        "CHEM112 E Tuesday 8:30-11:30 Brown,Stephen"
+    ],
+    "CHEM112_33": [
+        "CHEM112_33",
+        "General Chemistry",
+        "Brown,Stephen",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "CHERNOFF RM206B"
+        ],
+        "CHEM112 W Tuesday 11:30-12:30 Brown,Stephen",
+        "CHEM112 W Thursday 11:30-12:30 Brown,Stephen",
+        "CHEM112 W Friday 11:30-12:30 Brown,Stephen",
+        "CHEM112 E Wednesday 8:30-11:30 Brown,Stephen"
+    ],
+    "CHEM112_34": [
+        "CHEM112_34",
+        "General Chemistry",
+        "Brown,Stephen",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "CHERNOFF RM206B"
+        ],
+        "CHEM112 W Tuesday 11:30-12:30 Brown,Stephen",
+        "CHEM112 W Thursday 11:30-12:30 Brown,Stephen",
+        "CHEM112 W Friday 11:30-12:30 Brown,Stephen",
+        "CHEM112 E Tuesday 8:30-11:30 Brown,Stephen"
+    ],
+    "CHEM112_35": [
+        "CHEM112_35",
+        "General Chemistry",
+        "Brown,Stephen",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "CHERNOFF RM206B"
+        ],
+        "CHEM112 W Tuesday 11:30-12:30 Brown,Stephen",
+        "CHEM112 W Thursday 11:30-12:30 Brown,Stephen",
+        "CHEM112 W Friday 11:30-12:30 Brown,Stephen",
+        "CHEM112 E Friday 8:30-11:30 Brown,Stephen"
+    ],
+    "CHEM112_36": [
+        "CHEM112_36",
+        "General Chemistry",
+        "Brown,Stephen",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "CHERNOFF RM211"
+        ],
+        "CHEM112 W Tuesday 11:30-12:30 Brown,Stephen",
+        "CHEM112 W Thursday 11:30-12:30 Brown,Stephen",
+        "CHEM112 W Friday 11:30-12:30 Brown,Stephen",
+        "CHEM112 E Wednesday 11:30-14:30 Brown,Stephen"
+    ],
+    "CHEM112_37": [
+        "CHEM112_37",
+        "General Chemistry",
+        "Brown,Stephen",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "CHERNOFF RM206B"
+        ],
+        "CHEM112 W Tuesday 11:30-12:30 Brown,Stephen",
+        "CHEM112 W Thursday 11:30-12:30 Brown,Stephen",
+        "CHEM112 W Friday 11:30-12:30 Brown,Stephen",
+        "CHEM112 E Wednesday 11:30-14:30 Brown,Stephen"
+    ],
+    "CHEM112_38": [
+        "CHEM112_38",
+        "General Chemistry",
+        "Brown,Stephen",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "CHERNOFF RM213"
+        ],
+        "CHEM112 W Tuesday 11:30-12:30 Brown,Stephen",
+        "CHEM112 W Thursday 11:30-12:30 Brown,Stephen",
+        "CHEM112 W Friday 11:30-12:30 Brown,Stephen",
+        "CHEM112 E Wednesday 11:30-14:30 Brown,Stephen"
+    ],
+    "CHEM112_39": [
+        "CHEM112_39",
+        "General Chemistry",
+        "Brown,Stephen",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "CHERNOFF RM206B"
+        ],
+        "CHEM112 W Tuesday 11:30-12:30 Brown,Stephen",
+        "CHEM112 W Thursday 11:30-12:30 Brown,Stephen",
+        "CHEM112 W Friday 11:30-12:30 Brown,Stephen",
+        "CHEM112 E Wednesday 11:30-14:30 Brown,Stephen"
+    ],
+    "CHEM112_40": [
+        "CHEM112_40",
+        "General Chemistry",
+        "Brown,Stephen",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "CHERNOFF RM206B"
+        ],
+        "CHEM112 W Tuesday 11:30-12:30 Brown,Stephen",
+        "CHEM112 W Thursday 11:30-12:30 Brown,Stephen",
+        "CHEM112 W Friday 11:30-12:30 Brown,Stephen",
+        "CHEM112 E Thursday 8:30-11:30 Brown,Stephen"
+    ],
+    "CHEM117_1": [
+        "CHEM117",
+        "General Chemistry Laboratory",
+        "Staff",
+        [
+            "CHERNOFF RM206B"
+        ],
+        "CHEM117 E Wednesday 11:30-14:30 Staff"
+    ],
+
+    "CHEM211_1": [
+        "CHEM211_1",
+        "Main Group Chemistry",
+        "Wang,Peng",
+        [
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF RM118",
+            "Law Building RM2"
+        ],
+        "CHEM211 E Monday 9:30-10:30 Wang,Peng",
+        "CHEM211 E Wednesday 8:30-9:30 Wang,Peng",
+        "CHEM211 E Thursday 10:30-11:30 Wang,Peng",
+        "CHEM211 E Thursday 14:30-17:30 Wang,Peng",
+        "CHEM211 E Thursday 13:30-14:30 Wang,Peng"
+    ],
+    "CHEM211_2": [
+        "CHEM211_2",
+        "Main Group Chemistry",
+        "Wang,Peng",
+        [
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF RM118",
+            "DUNNING RM27"
+        ],
+        "CHEM211 E Monday 9:30-10:30 Wang,Peng",
+        "CHEM211 E Wednesday 8:30-9:30 Wang,Peng",
+        "CHEM211 E Thursday 10:30-11:30 Wang,Peng",
+        "CHEM211 E Thursday 14:30-17:30 Wang,Peng",
+        "CHEM211 E Wednesday 12:30-13:30 Wang,Peng"
+    ],
+    "CHEM211_3": [
+        "CHEM211_3",
+        "Main Group Chemistry",
+        "Wang,Peng",
+        [
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF RM118",
+            "MCLAUGHLIN RM306"
+        ],
+        "CHEM211 E Monday 9:30-10:30 Wang,Peng",
+        "CHEM211 E Wednesday 8:30-9:30 Wang,Peng",
+        "CHEM211 E Thursday 10:30-11:30 Wang,Peng",
+        "CHEM211 E Thursday 14:30-17:30 Wang,Peng",
+        "CHEM211 E Thursday 13:30-14:30 Wang,Peng"
+    ],
+    "CHEM211_4": [
+        "CHEM211_4",
+        "Main Group Chemistry",
+        "Wang,Peng",
+        [
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF RM118",
+            "Law Building RM4"
+        ],
+        "CHEM211 E Monday 9:30-10:30 Wang,Peng",
+        "CHEM211 E Wednesday 8:30-9:30 Wang,Peng",
+        "CHEM211 E Thursday 10:30-11:30 Wang,Peng",
+        "CHEM211 E Thursday 14:30-17:30 Wang,Peng",
+        "CHEM211 E Wednesday 12:30-13:30 Wang,Peng"
+    ],
+    "CHEM211_5": [
+        "CHEM211_5",
+        "Main Group Chemistry",
+        "Wang,Peng",
+        [
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF RM118",
+            "Law Building RM2"
+        ],
+        "CHEM211 E Monday 9:30-10:30 Wang,Peng",
+        "CHEM211 E Wednesday 8:30-9:30 Wang,Peng",
+        "CHEM211 E Thursday 10:30-11:30 Wang,Peng",
+        "CHEM211 E Wednesday 14:30-17:30 Wang,Peng",
+        "CHEM211 E Thursday 13:30-14:30 Wang,Peng"
+    ],
+    "CHEM211_6": [
+        "CHEM211_6",
+        "Main Group Chemistry",
+        "Wang,Peng",
+        [
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF RM118",
+            "DUNNING RM27"
+        ],
+        "CHEM211 E Monday 9:30-10:30 Wang,Peng",
+        "CHEM211 E Wednesday 8:30-9:30 Wang,Peng",
+        "CHEM211 E Thursday 10:30-11:30 Wang,Peng",
+        "CHEM211 E Wednesday 14:30-17:30 Wang,Peng",
+        "CHEM211 E Wednesday 12:30-13:30 Wang,Peng"
+    ],
+    "CHEM211_7": [
+        "CHEM211_7",
+        "Main Group Chemistry",
+        "Wang,Peng",
+        [
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF RM118",
+            "MCLAUGHLIN RM306"
+        ],
+        "CHEM211 E Monday 9:30-10:30 Wang,Peng",
+        "CHEM211 E Wednesday 8:30-9:30 Wang,Peng",
+        "CHEM211 E Thursday 10:30-11:30 Wang,Peng",
+        "CHEM211 E Wednesday 14:30-17:30 Wang,Peng",
+        "CHEM211 E Thursday 13:30-14:30 Wang,Peng"
+    ],
+    "CHEM211_8": [
+        "CHEM211_8",
+        "Main Group Chemistry",
+        "Wang,Peng",
+        [
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF RM118",
+            "Law Building RM4"
+        ],
+        "CHEM211 E Monday 9:30-10:30 Wang,Peng",
+        "CHEM211 E Wednesday 8:30-9:30 Wang,Peng",
+        "CHEM211 E Thursday 10:30-11:30 Wang,Peng",
+        "CHEM211 E Wednesday 14:30-17:30 Wang,Peng",
+        "CHEM211 E Wednesday 12:30-13:30 Wang,Peng"
+    ],
+    "CHEM211_9": [
+        "CHEM211_9",
+        "Main Group Chemistry",
+        "Wang,Peng",
+        [
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF RM118",
+            "Law Building RM2"
+        ],
+        "CHEM211 E Monday 9:30-10:30 Wang,Peng",
+        "CHEM211 E Wednesday 8:30-9:30 Wang,Peng",
+        "CHEM211 E Thursday 10:30-11:30 Wang,Peng",
+        "CHEM211 E Tuesday 14:30-17:30 Wang,Peng",
+        "CHEM211 E Thursday 13:30-14:30 Wang,Peng"
+    ],
+    "CHEM211_10": [
+        "CHEM211_10",
+        "Main Group Chemistry",
+        "Wang,Peng",
+        [
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF RM118",
+            "DUNNING RM27"
+        ],
+        "CHEM211 E Monday 9:30-10:30 Wang,Peng",
+        "CHEM211 E Wednesday 8:30-9:30 Wang,Peng",
+        "CHEM211 E Thursday 10:30-11:30 Wang,Peng",
+        "CHEM211 E Tuesday 14:30-17:30 Wang,Peng",
+        "CHEM211 E Wednesday 12:30-13:30 Wang,Peng"
+    ],
+    "CHEM211_11": [
+        "CHEM211_11",
+        "Main Group Chemistry",
+        "Wang,Peng",
+        [
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF RM118",
+            "MCLAUGHLIN RM306"
+        ],
+        "CHEM211 E Monday 9:30-10:30 Wang,Peng",
+        "CHEM211 E Wednesday 8:30-9:30 Wang,Peng",
+        "CHEM211 E Thursday 10:30-11:30 Wang,Peng",
+        "CHEM211 E Tuesday 14:30-17:30 Wang,Peng",
+        "CHEM211 E Thursday 13:30-14:30 Wang,Peng"
+    ],
+    "CHEM211_12": [
+        "CHEM211_12",
+        "Main Group Chemistry",
+        "Wang,Peng",
+        [
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF RM118",
+            "Law Building RM4"
+        ],
+        "CHEM211 E Monday 9:30-10:30 Wang,Peng",
+        "CHEM211 E Wednesday 8:30-9:30 Wang,Peng",
+        "CHEM211 E Thursday 10:30-11:30 Wang,Peng",
+        "CHEM211 E Tuesday 14:30-17:30 Wang,Peng",
+        "CHEM211 E Wednesday 12:30-13:30 Wang,Peng"
+    ],
+    "CHEM212_1": [
+        "CHEM212_1",
+        "Principles of Chemical Reactivity",
+        "Evans,P.",
+        [
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF RM210B",
+            "JEFFERY RM225"
+        ],
+        "CHEM212 E Tuesday 9:30-10:30 Evans,P.",
+        "CHEM212 E Thursday 8:30-9:30 Evans,P.",
+        "CHEM212 E Friday 10:30-11:30 Evans,P.",
+        "CHEM212 E Thursday 14:30-17:30 Evans,P.",
+        "CHEM212 E Tuesday 13:30-14:30 Evans,P."
+    ],
+    "CHEM212_2": [
+        "CHEM212_2",
+        "Principles of Chemical Reactivity",
+        "Evans,P.",
+        [
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF RM210B",
+            "JEFFERY RM225"
+        ],
+        "CHEM212 E Tuesday 9:30-10:30 Evans,P.",
+        "CHEM212 E Thursday 8:30-9:30 Evans,P.",
+        "CHEM212 E Friday 10:30-11:30 Evans,P.",
+        "CHEM212 E Thursday 14:30-17:30 Evans,P.",
+        "CHEM212 E Thursday 12:30-13:30 Evans,P."
+    ],
+    "CHEM212_3": [
+        "CHEM212_3",
+        "Principles of Chemical Reactivity",
+        "Evans,P.",
+        [
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF RM210B",
+            "GOODWIN RM254"
+        ],
+        "CHEM212 E Tuesday 9:30-10:30 Evans,P.",
+        "CHEM212 E Thursday 8:30-9:30 Evans,P.",
+        "CHEM212 E Friday 10:30-11:30 Evans,P.",
+        "CHEM212 E Thursday 14:30-17:30 Evans,P.",
+        "CHEM212 E Tuesday 13:30-14:30 Evans,P."
+    ],
+    "CHEM212_4": [
+        "CHEM212_4",
+        "Principles of Chemical Reactivity",
+        "Evans,P.",
+        [
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF RM210B",
+            "GOODWIN RM254"
+        ],
+        "CHEM212 E Tuesday 9:30-10:30 Evans,P.",
+        "CHEM212 E Thursday 8:30-9:30 Evans,P.",
+        "CHEM212 E Friday 10:30-11:30 Evans,P.",
+        "CHEM212 E Thursday 14:30-17:30 Evans,P.",
+        "CHEM212 E Thursday 12:30-13:30 Evans,P."
+    ],
+    "CHEM212_5": [
+        "CHEM212_5",
+        "Principles of Chemical Reactivity",
+        "Evans,P.",
+        [
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF RM210B",
+            "JEFFERY RM225"
+        ],
+        "CHEM212 E Tuesday 9:30-10:30 Evans,P.",
+        "CHEM212 E Thursday 8:30-9:30 Evans,P.",
+        "CHEM212 E Friday 10:30-11:30 Evans,P.",
+        "CHEM212 E Monday 11:30-14:30 Evans,P.",
+        "CHEM212 E Tuesday 13:30-14:30 Evans,P."
+    ],
+    "CHEM212_6": [
+        "CHEM212_6",
+        "Principles of Chemical Reactivity",
+        "Evans,P.",
+        [
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF RM210B",
+            "JEFFERY RM225"
+        ],
+        "CHEM212 E Tuesday 9:30-10:30 Evans,P.",
+        "CHEM212 E Thursday 8:30-9:30 Evans,P.",
+        "CHEM212 E Friday 10:30-11:30 Evans,P.",
+        "CHEM212 E Monday 11:30-14:30 Evans,P.",
+        "CHEM212 E Thursday 12:30-13:30 Evans,P."
+    ],
+    "CHEM212_7": [
+        "CHEM212_7",
+        "Principles of Chemical Reactivity",
+        "Evans,P.",
+        [
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF RM210B",
+            "GOODWIN RM254"
+        ],
+        "CHEM212 E Tuesday 9:30-10:30 Evans,P.",
+        "CHEM212 E Thursday 8:30-9:30 Evans,P.",
+        "CHEM212 E Friday 10:30-11:30 Evans,P.",
+        "CHEM212 E Monday 11:30-14:30 Evans,P.",
+        "CHEM212 E Tuesday 13:30-14:30 Evans,P."
+    ],
+    "CHEM212_8": [
+        "CHEM212_8",
+        "Principles of Chemical Reactivity",
+        "Evans,P.",
+        [
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF RM210B",
+            "GOODWIN RM254"
+        ],
+        "CHEM212 E Tuesday 9:30-10:30 Evans,P.",
+        "CHEM212 E Thursday 8:30-9:30 Evans,P.",
+        "CHEM212 E Friday 10:30-11:30 Evans,P.",
+        "CHEM212 E Monday 11:30-14:30 Evans,P.",
+        "CHEM212 E Thursday 12:30-13:30 Evans,P."
+    ],
+    "CHEM212_9": [
+        "CHEM212_9",
+        "Principles of Chemical Reactivity",
+        "Evans,P.",
+        [
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF RM210B",
+            "JEFFERY RM225"
+        ],
+        "CHEM212 E Tuesday 9:30-10:30 Evans,P.",
+        "CHEM212 E Thursday 8:30-9:30 Evans,P.",
+        "CHEM212 E Friday 10:30-11:30 Evans,P.",
+        "CHEM212 E Tuesday 14:30-17:30 Evans,P.",
+        "CHEM212 E Tuesday 13:30-14:30 Evans,P."
+    ],
+    "CHEM212_10": [
+        "CHEM212_10",
+        "Principles of Chemical Reactivity",
+        "Evans,P.",
+        [
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF RM210B",
+            "JEFFERY RM225"
+        ],
+        "CHEM212 E Tuesday 9:30-10:30 Evans,P.",
+        "CHEM212 E Thursday 8:30-9:30 Evans,P.",
+        "CHEM212 E Friday 10:30-11:30 Evans,P.",
+        "CHEM212 E Tuesday 14:30-17:30 Evans,P.",
+        "CHEM212 E Thursday 12:30-13:30 Evans,P."
+    ],
+    "CHEM212_11": [
+        "CHEM212_11",
+        "Principles of Chemical Reactivity",
+        "Evans,P.",
+        [
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF RM210B",
+            "GOODWIN RM254"
+        ],
+        "CHEM212 E Tuesday 9:30-10:30 Evans,P.",
+        "CHEM212 E Thursday 8:30-9:30 Evans,P.",
+        "CHEM212 E Friday 10:30-11:30 Evans,P.",
+        "CHEM212 E Tuesday 14:30-17:30 Evans,P.",
+        "CHEM212 E Tuesday 13:30-14:30 Evans,P."
+    ],
+    "CHEM212_12": [
+        "CHEM212_12",
+        "Principles of Chemical Reactivity",
+        "Evans,P.",
+        [
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF RM210B",
+            "GOODWIN RM254"
+        ],
+        "CHEM212 E Tuesday 9:30-10:30 Evans,P.",
+        "CHEM212 E Thursday 8:30-9:30 Evans,P.",
+        "CHEM212 E Friday 10:30-11:30 Evans,P.",
+        "CHEM212 E Tuesday 14:30-17:30 Evans,P.",
+        "CHEM212 E Thursday 12:30-13:30 Evans,P."
+    ],
+    "CHEM213_1": [
+        "CHEM213_1",
+        "Introduction to Chemical Analysis",
+        "Beauchemin,Diane",
+        [
+            "MACINTOSH-CORRY RM B201",
+            "MACINTOSH-CORRY RM B201",
+            "MACINTOSH-CORRY RM B201",
+            "CHERNOFF RM210A",
+            "STIRLING RM401"
+        ],
+        "CHEM213 E Monday 10:30-11:30 Beauchemin,Diane",
+        "CHEM213 E Wednesday 9:30-10:30 Beauchemin,Diane",
+        "CHEM213 E Friday 8:30-9:30 Beauchemin,Diane",
+        "CHEM213 E Tuesday 14:30-17:30 Beauchemin,Diane",
+        "CHEM213 E Wednesday 11:30-12:30 Beauchemin,Diane"
+    ],
+    "CHEM213_2": [
+        "CHEM213_2",
+        "Introduction to Chemical Analysis",
+        "Beauchemin,Diane",
+        [
+            "MACINTOSH-CORRY RM B201",
+            "MACINTOSH-CORRY RM B201",
+            "MACINTOSH-CORRY RM B201",
+            "CHERNOFF RM210A",
+            "MACINTOSH-CORRY RM D214"
+        ],
+        "CHEM213 E Monday 10:30-11:30 Beauchemin,Diane",
+        "CHEM213 E Wednesday 9:30-10:30 Beauchemin,Diane",
+        "CHEM213 E Friday 8:30-9:30 Beauchemin,Diane",
+        "CHEM213 E Tuesday 14:30-17:30 Beauchemin,Diane",
+        "CHEM213 E Wednesday 11:30-12:30 Beauchemin,Diane"
+    ],
+    "CHEM213_3": [
+        "CHEM213_3",
+        "Introduction to Chemical Analysis",
+        "Beauchemin,Diane",
+        [
+            "MACINTOSH-CORRY RM B201",
+            "MACINTOSH-CORRY RM B201",
+            "MACINTOSH-CORRY RM B201",
+            "CHERNOFF RM210A",
+            "STIRLING RM401"
+        ],
+        "CHEM213 E Monday 10:30-11:30 Beauchemin,Diane",
+        "CHEM213 E Wednesday 9:30-10:30 Beauchemin,Diane",
+        "CHEM213 E Friday 8:30-9:30 Beauchemin,Diane",
+        "CHEM213 E Monday 11:30-14:30 Beauchemin,Diane",
+        "CHEM213 E Wednesday 11:30-12:30 Beauchemin,Diane"
+    ],
+    "CHEM213_4": [
+        "CHEM213_4",
+        "Introduction to Chemical Analysis",
+        "Beauchemin,Diane",
+        [
+            "MACINTOSH-CORRY RM B201",
+            "MACINTOSH-CORRY RM B201",
+            "MACINTOSH-CORRY RM B201",
+            "CHERNOFF RM210A",
+            "MACINTOSH-CORRY RM D214"
+        ],
+        "CHEM213 E Monday 10:30-11:30 Beauchemin,Diane",
+        "CHEM213 E Wednesday 9:30-10:30 Beauchemin,Diane",
+        "CHEM213 E Friday 8:30-9:30 Beauchemin,Diane",
+        "CHEM213 E Monday 11:30-14:30 Beauchemin,Diane",
+        "CHEM213 E Wednesday 11:30-12:30 Beauchemin,Diane"
+    ],
+    "CHEM213_5": [
+        "CHEM213_5",
+        "Introduction to Chemical Analysis",
+        "Beauchemin,Diane",
+        [
+            "MACINTOSH-CORRY RM B201",
+            "MACINTOSH-CORRY RM B201",
+            "MACINTOSH-CORRY RM B201",
+            "CHERNOFF RM210A",
+            "STIRLING RM401"
+        ],
+        "CHEM213 E Monday 10:30-11:30 Beauchemin,Diane",
+        "CHEM213 E Wednesday 9:30-10:30 Beauchemin,Diane",
+        "CHEM213 E Friday 8:30-9:30 Beauchemin,Diane",
+        "CHEM213 E Thursday 14:30-17:30 Beauchemin,Diane",
+        "CHEM213 E Wednesday 11:30-12:30 Beauchemin,Diane"
+    ],
+    "CHEM213_6": [
+        "CHEM213_6",
+        "Introduction to Chemical Analysis",
+        "Beauchemin,Diane",
+        [
+            "MACINTOSH-CORRY RM B201",
+            "MACINTOSH-CORRY RM B201",
+            "MACINTOSH-CORRY RM B201",
+            "CHERNOFF RM210A",
+            "MACINTOSH-CORRY RM D214"
+        ],
+        "CHEM213 E Monday 10:30-11:30 Beauchemin,Diane",
+        "CHEM213 E Wednesday 9:30-10:30 Beauchemin,Diane",
+        "CHEM213 E Friday 8:30-9:30 Beauchemin,Diane",
+        "CHEM213 E Thursday 14:30-17:30 Beauchemin,Diane",
+        "CHEM213 E Wednesday 11:30-12:30 Beauchemin,Diane"
+    ],
+    "CHEM281_1": [
+        "CHEM281",
+        "General Organic Chemistry I (with Virtual Laboratory)",
+        "Carran,John",
+        [
+            "DUNNING AUD",
+            "DUNNING AUD",
+            "DUNNING AUD"
+        ],
+        "CHEM281 E Tuesday 9:30-10:30 Carran,John",
+        "CHEM281 E Thursday 8:30-9:30 Carran,John",
+        "CHEM281 E Friday 10:30-11:30 Carran,John"
+    ],
+    "CHEM281_2": [
+        "CHEM281",
+        "General Organic Chemistry I (with Virtual Laboratory)",
+        "Carran,John",
+        [
+            "DUNNING AUD",
+            "DUNNING AUD",
+            "DUNNING AUD"
+        ],
+        "CHEM281 E Monday 15:30-16:30 Carran,John",
+        "CHEM281 E Wednesday 14:30-15:30 Carran,John",
+        "CHEM281 E Thursday 16:30-17:30 Carran,John"
+    ],
+    "CHEM311_1": [
+        "CHEM311",
+        "Mechanistic Organic Chemistry",
+        "Zechel,David",
+        [
+            "DUPUIS RM217",
+            "DUPUIS RM217",
+            "DUPUIS RM217",
+            "ONTARIO RM209"
+        ],
+        "CHEM311 E Monday 8:30-9:30 Zechel,David",
+        "CHEM311 E Tuesday 10:30-11:30 Zechel,David",
+        "CHEM311 E Thursday 9:30-10:30 Zechel,David",
+        "CHEM311 E Friday 11:30-12:30 Zechel,David"
+    ],
+    "CHEM311_2": [
+        "CHEM311",
+        "Mechanistic Organic Chemistry",
+        "Zechel,David",
+        [
+            "DUPUIS RM217",
+            "DUPUIS RM217",
+            "DUPUIS RM217",
+            "ONTARIO RM209"
+        ],
+        "CHEM311 E Monday 8:30-9:30 Zechel,David",
+        "CHEM311 E Tuesday 10:30-11:30 Zechel,David",
+        "CHEM311 E Thursday 9:30-10:30 Zechel,David",
+        "CHEM311 E Friday 12:30-13:30 Zechel,David"
+    ],
+    "CHEM312_1": [
+        "CHEM312",
+        "Transition Metal Chemistry",
+        "Wang,Peng",
+        [
+            "KINGSTON RM101",
+            "KINGSTON RM101",
+            "KINGSTON RM101",
+            "GOODWIN RM254"
+        ],
+        "CHEM312 E Tuesday 9:30-10:30 Wang,Peng",
+        "CHEM312 E Thursday 8:30-9:30 Wang,Peng",
+        "CHEM312 E Friday 10:30-11:30 Wang,Peng",
+        "CHEM312 E Wednesday 12:30-13:30 Wang,Peng"
+    ],
+    "CHEM312_2": [
+        "CHEM312",
+        "Transition Metal Chemistry",
+        "Wang,Peng",
+        [
+            "KINGSTON RM101",
+            "KINGSTON RM101",
+            "KINGSTON RM101",
+            "JEFFERY RM101"
+        ],
+        "CHEM312 E Tuesday 9:30-10:30 Wang,Peng",
+        "CHEM312 E Thursday 8:30-9:30 Wang,Peng",
+        "CHEM312 E Friday 10:30-11:30 Wang,Peng",
+        "CHEM312 E Friday 13:30-14:30 Wang,Peng"
+    ],
+    "CHEM313_1": [
+        "CHEM313",
+        "Quantum Mechanics",
+        "Carrington,Tucker",
+        [
+            "JEFFERY RM127",
+            "JEFFERY RM127",
+            "JEFFERY RM127",
+            "STIRLING RM401"
+        ],
+        "CHEM313 E Tuesday 8:30-9:30 Carrington,Tucker",
+        "CHEM313 E Wednesday 10:30-11:30 Carrington,Tucker",
+        "CHEM313 E Friday 9:30-10:30 Carrington,Tucker",
+        "CHEM313 E Wednesday 8:30-9:30 Carrington,Tucker"
+    ],
+    "CHEM313_2": [
+        "CHEM313",
+        "Quantum Mechanics",
+        "Carrington,Tucker",
+        [
+            "JEFFERY RM127",
+            "JEFFERY RM127",
+            "JEFFERY RM127",
+            "STIRLING RM414"
+        ],
+        "CHEM313 E Tuesday 8:30-9:30 Carrington,Tucker",
+        "CHEM313 E Wednesday 10:30-11:30 Carrington,Tucker",
+        "CHEM313 E Friday 9:30-10:30 Carrington,Tucker",
+        "CHEM313 E Friday 14:30-15:30 Carrington,Tucker"
+    ],
+    "CHEM397_1": [
+        "CHEM397",
+        "Experimental Chemistry",
+        "Staff",
+        [
+            "CHERNOFF RM122",
+            "CHERNOFF RM122",
+            "CHERNOFF RM117"
+        ],
+        "CHEM397 E Tuesday 11:30-14:30 Staff",
+        "CHEM397 E Thursday 11:30-14:30 Staff",
+        "CHEM397 E Wednesday 13:30-14:30 Staff"
+    ],
+    "CHEM397_2": [
+        "CHEM397",
+        "Experimental Chemistry",
+        "Staff",
+        [
+            "CHERNOFF RM122",
+            "CHERNOFF RM122",
+            "CHERNOFF RM117"
+        ],
+        "CHEM397 E Tuesday 14:30-17:30 Staff",
+        "CHEM397 E Thursday 14:30-17:30 Staff",
+        "CHEM397 E Wednesday 13:30-14:30 Staff"
+    ],
+    "CHEM398_1": [
+        "CHEM398",
+        "Experimental Chemistry I",
+        "Staff",
+        [
+            "CHERNOFF RM122",
+            "CHERNOFF RM122",
+            "CHERNOFF RM117"
+        ],
+        "CHEM398 E Tuesday 11:30-14:30 Staff",
+        "CHEM398 E Thursday 11:30-14:30 Staff",
+        "CHEM398 E Wednesday 13:30-14:30 Staff"
+    ],
+    "CHEM398_2": [
+        "CHEM398",
+        "Experimental Chemistry I",
+        "Staff",
+        [
+            "CHERNOFF RM122",
+            "CHERNOFF RM122",
+            "CHERNOFF RM117"
+        ],
+        "CHEM398 E Tuesday 14:30-17:30 Staff",
+        "CHEM398 E Thursday 14:30-17:30 Staff",
+        "CHEM398 E Wednesday 13:30-14:30 Staff"
+    ],
+    "CHEM411_1": [
+        "CHEM411",
+        "Advanced Analytical Chemistry",
+        "She,Zhe",
+        [
+            "CHERNOFF RM202",
+            "CHERNOFF RM202",
+            "CHERNOFF RM202"
+        ],
+        "CHEM411 E Monday 12:30-13:30 She,Zhe",
+        "CHEM411 E Tuesday 10:30-11:30 She,Zhe",
+        "CHEM411 E Thursday 9:30-10:30 She,Zhe"
+    ],
+    "CHEM416_1": [
+        "CHEM416",
+        "Advanced Biological and Bioanalytical Chemistry",
+        "Capicciotti,Chantelle Jae",
+        [
+            "BOTTER RM B148",
+            "BOTTER RM B148",
+            "BOTTER RM B148"
+        ],
+        "CHEM416 E Tuesday 9:30-10:30 Capicciotti,Chantelle Jae",
+        "CHEM416 E Thursday 8:30-9:30 Capicciotti,Chantelle Jae",
+        "CHEM416 E Friday 10:30-11:30 Capicciotti,Chantelle Jae"
+    ],
+    "CHEM423_1": [
+        "CHEM423",
+        "Topics in Inorganic and Organometallic Chemistry",
+        "Lee,Lucia Myongwon",
+        [
+            "JEFFERY RM225",
+            "JEFFERY RM225",
+            "JEFFERY RM225"
+        ],
+        "CHEM423 E Tuesday 14:30-15:30 Lee,Lucia Myongwon",
+        "CHEM423 E Wednesday 16:30-17:30 Lee,Lucia Myongwon",
+        "CHEM423 E Friday 15:30-16:30 Lee,Lucia Myongwon"
+    ],
+
+    "PHYS104_1": [
+        "PHYS104",
+        "Fundamental Physics",
+        "Martin,Ryan D",
+        [
+            "STIRLING AUD",
+            "STIRLING AUD",
+            "STIRLING AUD",
+            "STIRLING RM401"
+        ],
+        "PHYS104 E Monday 11:30-12:30 Martin,Ryan D",
+        "PHYS104 E Tuesday 13:30-14:30 Martin,Ryan D",
+        "PHYS104 E Thursday 12:30-13:30 Martin,Ryan D",
+        "PHYS104 E Monday 14:30-17:30 Martin,Ryan D"
+    ],
+    "PHYS104_2": [
+        "PHYS104",
+        "Fundamental Physics",
+        "Martin,Ryan D",
+        [
+            "STIRLING AUD",
+            "STIRLING AUD",
+            "STIRLING AUD",
+            "STIRLING RM401"
+        ],
+        "PHYS104 E Monday 11:30-12:30 Martin,Ryan D",
+        "PHYS104 E Tuesday 13:30-14:30 Martin,Ryan D",
+        "PHYS104 E Thursday 12:30-13:30 Martin,Ryan D",
+        "PHYS104 E Wednesday 14:30-17:30 Martin,Ryan D"
+    ],
+    "PHYS104_3": [
+        "PHYS104",
+        "Fundamental Physics",
+        "Martin,Ryan D",
+        [
+            "STIRLING AUD",
+            "STIRLING AUD",
+            "STIRLING AUD",
+            "STIRLING RM401"
+        ],
+        "PHYS104 E Monday 11:30-12:30 Martin,Ryan D",
+        "PHYS104 E Tuesday 13:30-14:30 Martin,Ryan D",
+        "PHYS104 E Thursday 12:30-13:30 Martin,Ryan D",
+        "PHYS104 E Tuesday 14:30-17:30 Martin,Ryan D"
+    ],
+    "PHYS106_1": [
+        "PHYS106",
+        "General Physics",
+        "Martin,Ryan D",
+        [
+            "STIRLING AUD",
+            "STIRLING AUD",
+            "STIRLING AUD",
+            "STIRLING RM401"
+        ],
+        "PHYS106 E Monday 11:30-12:30 Martin,Ryan D",
+        "PHYS106 E Tuesday 13:30-14:30 Martin,Ryan D",
+        "PHYS106 E Thursday 12:30-13:30 Martin,Ryan D",
+        "PHYS106 E Monday 14:30-17:30 Martin,Ryan D"
+    ],
+    "PHYS106_2": [
+        "PHYS106",
+        "General Physics",
+        "Martin,Ryan D",
+        [
+            "STIRLING AUD",
+            "STIRLING AUD",
+            "STIRLING AUD",
+            "STIRLING RM401"
+        ],
+        "PHYS106 E Monday 11:30-12:30 Martin,Ryan D",
+        "PHYS106 E Tuesday 13:30-14:30 Martin,Ryan D",
+        "PHYS106 E Thursday 12:30-13:30 Martin,Ryan D",
+        "PHYS106 E Wednesday 14:30-17:30 Martin,Ryan D"
+    ],
+    "PHYS106_3": [
+        "PHYS106",
+        "General Physics",
+        "Martin,Ryan D",
+        [
+            "STIRLING AUD",
+            "STIRLING AUD",
+            "STIRLING AUD",
+            "STIRLING RM401"
+        ],
+        "PHYS106 E Monday 11:30-12:30 Martin,Ryan D",
+        "PHYS106 E Tuesday 13:30-14:30 Martin,Ryan D",
+        "PHYS106 E Thursday 12:30-13:30 Martin,Ryan D",
+        "PHYS106 E Tuesday 14:30-17:30 Martin,Ryan D"
+    ],
+    "PHYS119_1": [
+        "PHYS119",
+        "Introductory Physics Laboratory",
+        "Staff",
+        [
+            "STIRLING RM409"
+        ],
+        "PHYS119 E Monday 14:30-17:30 Staff"
+    ],
+    "PHYS119_2": [
+        "PHYS119",
+        "Introductory Physics Laboratory",
+        "Staff",
+        [
+            "STIRLING RM409"
+        ],
+        "PHYS119 E Tuesday 14:30-17:30 Staff"
+    ],
+    "PHYS119_3": [
+        "PHYS119",
+        "Introductory Physics Laboratory",
+        "Staff",
+        [
+            "STIRLING RM409"
+        ],
+        "PHYS119 E Thursday 14:30-17:30 Staff"
+    ],
+    "PHYS206_1": [
+        "PHYS206",
+        "Dynamics",
+        "Sadavoy,Sarah",
+        [
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "GOODWIN RM254"
+        ],
+        "PHYS206 E Tuesday 8:30-9:30 Sadavoy,Sarah",
+        "PHYS206 E Wednesday 10:30-11:30 Sadavoy,Sarah",
+        "PHYS206 E Friday 9:30-10:30 Sadavoy,Sarah",
+        "PHYS206 E Wednesday 16:30-17:30 Sadavoy,Sarah"
+    ],
+    "PHYS206_2": [
+        "PHYS206",
+        "Dynamics",
+        "Sadavoy,Sarah",
+        [
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "NICOL RM232"
+        ],
+        "PHYS206 E Tuesday 8:30-9:30 Sadavoy,Sarah",
+        "PHYS206 E Wednesday 10:30-11:30 Sadavoy,Sarah",
+        "PHYS206 E Friday 9:30-10:30 Sadavoy,Sarah",
+        "PHYS206 E Wednesday 16:30-17:30 Sadavoy,Sarah"
+    ],
+    "PHYS213_1": [
+        "PHYS213",
+        "Computational Methods in Physics",
+        "Giroux,Guillaume",
+        [
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "ELLIS RM319"
+        ],
+        "PHYS213 E Monday 11:30-12:30 Giroux,Guillaume",
+        "PHYS213 E Tuesday 13:30-14:30 Giroux,Guillaume",
+        "PHYS213 E Tuesday 14:30-16:30 Giroux,Guillaume"
+    ],
+    "PHYS213_2": [
+        "PHYS213",
+        "Computational Methods in Physics",
+        "Giroux,Guillaume",
+        [
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "ELLIS RM319"
+        ],
+        "PHYS213 E Monday 11:30-12:30 Giroux,Guillaume",
+        "PHYS213 E Tuesday 13:30-14:30 Giroux,Guillaume",
+        "PHYS213 E Wednesday 14:30-16:30 Giroux,Guillaume"
+    ],
+    "PHYS242_1": [
+        "PHYS242",
+        "Relativity and Quanta",
+        "Chen,Mark Chiaping",
+        [
+            "STIRLING RM C",
+            "STIRLING RM C",
+            "STIRLING RM C",
+            "RICHARDSON LAB RM104"
+        ],
+        "PHYS242 E Monday 10:30-11:30 Chen,Mark Chiaping",
+        "PHYS242 E Wednesday 9:30-10:30 Chen,Mark Chiaping",
+        "PHYS242 E Friday 8:30-9:30 Chen,Mark Chiaping",
+        "PHYS242 E Monday 15:30-16:30 Chen,Mark Chiaping"
+    ],
+    "PHYS242_2": [
+        "PHYS242",
+        "Relativity and Quanta",
+        "Chen,Mark Chiaping",
+        [
+            "STIRLING RM C",
+            "STIRLING RM C",
+            "STIRLING RM C",
+            "CHERNOFF RM117"
+        ],
+        "PHYS242 E Monday 10:30-11:30 Chen,Mark Chiaping",
+        "PHYS242 E Wednesday 9:30-10:30 Chen,Mark Chiaping",
+        "PHYS242 E Friday 8:30-9:30 Chen,Mark Chiaping",
+        "PHYS242 E Monday 15:30-16:30 Chen,Mark Chiaping"
+    ],
+    "PHYS316_1": [
+        "PHYS316",
+        "Methods in Mathematical Physics I",
+        "Vincent,Aaron C",
+        [
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM B"
+        ],
+        "PHYS316 E Monday 10:30-11:30 Vincent,Aaron C",
+        "PHYS316 E Wednesday 9:30-10:30 Vincent,Aaron C",
+        "PHYS316 E Thursday 16:30-17:30 Vincent,Aaron C",
+        "PHYS316 E Monday 17:30-18:30 Vincent,Aaron C"
+    ],
+    "PHYS321_1": [
+        "PHYS321",
+        "Advanced Mechanics",
+        "Vincent,Aaron C",
+        [
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM B"
+        ],
+        "PHYS321 E Tuesday 16:30-17:30 Vincent,Aaron C",
+        "PHYS321 E Wednesday 14:30-15:30 Vincent,Aaron C",
+        "PHYS321 E Thursday 14:30-15:30 Vincent,Aaron C",
+        "PHYS321 E Thursday 17:30-18:30 Vincent,Aaron C"
+    ],
+    "PHYS334_1": [
+        "PHYS334",
+        "Math Methods For Engrg & Phys",
+        "Knobel,Robert G",
+        [
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM404",
+            "STIRLING RM B"
+        ],
+        "PHYS334 E Monday 8:30-9:30 Knobel,Robert G",
+        "PHYS334 E Tuesday 10:30-11:30 Knobel,Robert G",
+        "PHYS334 E Thursday 9:30-10:30 Knobel,Robert G",
+        "PHYS334 E Monday 11:30-14:30 Knobel,Robert G",
+        "PHYS334 E Tuesday 15:30-16:30 Knobel,Robert G"
+    ],
+    "PHYS334_2": [
+        "PHYS334",
+        "Math Methods For Engrg & Phys",
+        "Knobel,Robert G",
+        [
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM404",
+            "STIRLING RM B"
+        ],
+        "PHYS334 E Monday 8:30-9:30 Knobel,Robert G",
+        "PHYS334 E Tuesday 10:30-11:30 Knobel,Robert G",
+        "PHYS334 E Thursday 9:30-10:30 Knobel,Robert G",
+        "PHYS334 E Tuesday 11:30-14:30 Knobel,Robert G",
+        "PHYS334 E Tuesday 15:30-16:30 Knobel,Robert G"
+    ],
+    "PHYS334_3": [
+        "PHYS334",
+        "Math Methods For Engrg & Phys",
+        "Knobel,Robert G",
+        [
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM404",
+            "STIRLING RM B"
+        ],
+        "PHYS334 E Monday 8:30-9:30 Knobel,Robert G",
+        "PHYS334 E Tuesday 10:30-11:30 Knobel,Robert G",
+        "PHYS334 E Thursday 9:30-10:30 Knobel,Robert G",
+        "PHYS334 E Wednesday 8:30-11:30 Knobel,Robert G",
+        "PHYS334 E Tuesday 15:30-16:30 Knobel,Robert G"
+    ],
+    "PHYS344_1": [
+        "PHYS344",
+        "Intro to Quantum Mechanics",
+        "Bramante,Joseph Andrew",
+        [
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM A"
+        ],
+        "PHYS344 E Tuesday 9:30-10:30 Bramante,Joseph Andrew",
+        "PHYS344 E Thursday 8:30-9:30 Bramante,Joseph Andrew",
+        "PHYS344 E Friday 10:30-11:30 Bramante,Joseph Andrew",
+        "PHYS344 E Friday 4:30-5:30 Bramante,Joseph Andrew"
+    ],
+    "PHYS350_1": [
+        "PHYS350",
+        "General Laboratory",
+        "Park,Nahee",
+        [
+            "STIRLING RM401",
+            "STIRLING RM404"
+        ],
+        "PHYS350 E Monday 9:30-10:30 Park,Nahee",
+        "PHYS350 E Monday 14:30-17:30 Park,Nahee"
+    ],
+    "PHYS435_1": [
+        "PHYS435",
+        "Stellar Structure and Evolution",
+        "Staff",
+        [
+            "STIRLING RM401",
+            "STIRLING RM401",
+            "STIRLING RM401"
+        ],
+        "PHYS435 E Monday 10:30-11:30 Staff",
+        "PHYS435 E Wednesday 9:30-10:30 Staff",
+        "PHYS435 E Friday 8:30-9:30 Staff"
+    ],
+    "PHYS472_1": [
+        "PHYS472",
+        "Statistical Mechanics",
+        "van Anders,Greg",
+        [
+            "ELLIS RM226",
+            "ELLIS RM226"
+        ],
+        "PHYS472 E Monday 11:30-13:30 van Anders,Greg",
+        "PHYS472 E Tuesday 9:30-11:30 van Anders,Greg"
+    ],
+    "PHYS490_1": [
+        "PHYS490",
+        "Nuclear and Particle Physics",
+        "Bramante,Joseph Andrew",
+        [
+            "STIRLING RM A",
+            "STIRLING RM A",
+            "STIRLING RM A",
+            "STIRLING RM414"
+        ],
+        "PHYS490 E Tuesday 11:30-12:30 Bramante,Joseph Andrew",
+        "PHYS490 E Wednesday 13:30-14:30 Bramante,Joseph Andrew",
+        "PHYS490 E Friday 12:30-13:30 Bramante,Joseph Andrew",
+        "PHYS490 E Tuesday 13:30-14:30 Bramante,Joseph Andrew"
+    ],
+    "PHYS491_1": [
+        "PHYS491",
+        "Physics of Nuclear Reactors",
+        "Staff",
+        [
+            "STIRLING RM414",
+            "STIRLING RM414",
+            "STIRLING RM414",
+            "STIRLING RM414"
+        ],
+        "PHYS491 E Monday 9:30-10:30 Staff",
+        "PHYS491 E Wednesday 8:30-9:30 Staff",
+        "PHYS491 E Thursday 10:30-11:30 Staff",
+        "PHYS491 E Wednesday 11:30-12:30 Staff"
+    ]
+}

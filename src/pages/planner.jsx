@@ -27,7 +27,6 @@ export default function Planner() {
                         <div className='text-center text-2xl font-bold mb-2 lg:mt-0 mt-2'>Courses Taken</div>
                         <TakenGrid coursesTaken={coursesTaken} setCoursesTaken={setCoursesTaken} />
                     </div>
-                    <div className='m-4 md-custom:ml-0 p-0 md-custom:w-[30%] w-full border flex flex-col'>
                         <SelectPlan coursesTaken={coursesTaken} setCoursesTaken={setCoursesTaken} />
                     </div>
                 </div>

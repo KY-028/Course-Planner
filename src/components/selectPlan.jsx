@@ -44,15 +44,15 @@ export default function SelectPlan() {
             return false;
         }
     };
-    const validateResponse = (response, planType, fieldType) => {
+    const validateResponse = (response, fieldType) => {
         const title = response.title?.toLowerCase() || '';
-        const planTypeLower = planType.toLowerCase();
         const fieldTypeLower = fieldType.toLowerCase();
         
         // Extract the expected type from the field (e.g., "Major", "Minor", "Specialization")
-        const expectedType = fieldTypeLower.split('[')[0].trim();
+        const expectedType = fieldTypeLower.split(' ')[0].trim();
         
         // Check if the title contains the expected type
+        console.log(title, expectedType);
         if (!title.includes(expectedType)) {
             return false;
         }
@@ -79,10 +79,9 @@ export default function SelectPlan() {
         try {
             const response = await axios.get(`${apiUrl}/backend/coursePlan?url=${encodeURIComponent(url)}`);
             
-            const planType = PLAN_OPTIONS.find(opt => opt.value === selectedPlan).label;
             const fieldType = PLAN_OPTIONS.find(opt => opt.value === selectedPlan).fields[idx];
             
-            if (!validateResponse(response.data, planType, fieldType)) {
+            if (!validateResponse(response.data, fieldType)) {
                 const newErrors = [...errors];
                 newErrors[idx] = `Invalid plan type. Expected ${fieldType.split(' ')[0].trim()}`;
                 setErrors(newErrors);
