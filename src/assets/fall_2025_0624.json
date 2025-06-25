@@ -540,7 +540,19 @@
         ],
         "CISC500 E Friday 12:30-14:30 Givigi,Sidney"
     ],
-
+    "COGS100_1": [
+        "COGS100",
+        "Intro to Cognitive Science",
+        "Lamb,Carolyn",
+        [
+            "HUMPHREY AUD",
+            "HUMPHREY AUD",
+            "HUMPHREY AUD"
+        ],
+        "COGS100 E Monday 13:30-14:30 Lamb,Carolyn",
+        "COGS100 E Wednesday 12:30-13:30 Lamb,Carolyn",
+        "COGS100 E Friday 11:30-12:30 Lamb,Carolyn"
+    ],
     "MATH110_1": [
         "MATH110",
         "Linear Algebra",
@@ -729,15 +741,15 @@
     "MATH126_1": [
         "MATH126",
         "Diff. and Integ. Calc",
-        "aylor,Peter D",
+        "Taylor,Peter D",
         [
             "STIRLING RM A",
             "STIRLING RM A",
             "STIRLING RM A"
         ],
-        "MATH126 E Tuesday 14:30-15:30 aylor,Peter D",
-        "MATH126 E Wednesday 16:30-17:30 aylor,Peter D",
-        "MATH126 E Friday 15:30-16:30 aylor,Peter D"
+        "MATH126 E Tuesday 14:30-15:30 Taylor,Peter D",
+        "MATH126 E Wednesday 16:30-17:30 Taylor,Peter D",
+        "MATH126 E Friday 15:30-16:30 Taylor,Peter D"
     ],
     "MATH126_2": [
         "MATH126",

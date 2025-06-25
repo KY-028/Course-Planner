@@ -7,13 +7,13 @@ import emailjs from '@emailjs/browser'
 
 
 // Error Modal Component
-function ErrorModal({ isOpen, onClose }) {
+function ErrorModal({ isOpen, onClose, term }) {
     const [courseCode, setCourseCode] = useState('');
     const [sectionNumber, setSectionNumber] = useState('');
     const [errorTypes, setErrorTypes] = useState([]);
     const [additionalInfo, setAdditionalInfo] = useState('');
 
-    const errorTypeOptions = ['Wrong time', 'Wrong prof', 'Wrong title', 'Other'];
+    const errorTypeOptions = ['Wrong time', 'Wrong prof', 'Mismatching selection & display', 'Other'];
 
     const handleErrorTypeChange = (errorType) => {
         setErrorTypes(prev => {
@@ -30,6 +30,7 @@ function ErrorModal({ isOpen, onClose }) {
         
         // Create form data for emailjs
         const formData = {
+            term: term,
             course_code: courseCode,
             section_number: sectionNumber,
             error_type: errorTypes.join(', '),
@@ -469,7 +470,7 @@ function Selection({ isLoading, onUpdate, courseData, changeCourseData, courses,
                     </div>
                 )}
             </div>)}
-            <ErrorModal isOpen={isErrorModalOpen} onClose={closeErrorModal} />
+            <ErrorModal isOpen={isErrorModalOpen} onClose={closeErrorModal} term={term} />
         </div>
     );
 }
