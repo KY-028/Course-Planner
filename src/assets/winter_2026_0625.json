@@ -1,0 +1,556 @@
+{
+    "CISC101_1": [
+        "CISC101",
+        "Intro to Computer Programming",
+        "Hossain,Anwar",
+        [
+            "WALTER LIGHT RM205"
+        ],
+        "CISC101 E Monday 16:30-17:30 Hossain,Anwar"
+    ],
+    "CISC102_1": [
+        "CISC102",
+        "Discrete Structures I",
+        "Abbas,Hazem",
+        [
+            "KINES & HLTH RM100",
+            "KINES & HLTH RM100",
+            "KINES & HLTH RM100"
+        ],
+        "CISC102 E Monday 9:30-10:30 Abbas,Hazem",
+        "CISC102 E Wednesday 8:30-9:30 Abbas,Hazem",
+        "CISC102 E Thursday 10:30-11:30 Abbas,Hazem"
+    ],
+    "CISC121_1": [
+        "CISC121",
+        "Intro to Comp Sci I",
+        "Staff",
+        [
+            "CONVOCATION HALL",
+            "CONVOCATION HALL",
+            "CONVOCATION HALL"
+        ],
+        "CISC121 E Monday 15:30-16:30 Staff",
+        "CISC121 E Wednesday 14:30-15:30 Staff",
+        "CISC121 E Thursday 16:30-17:30 Staff"
+    ],
+    "CISC121_2": [
+        "CISC121",
+        "Intro to Comp Sci I",
+        "Staff",
+        [
+            "KINES & HLTH RM100",
+            "KINES & HLTH RM100",
+            "KINES & HLTH RM100"
+        ],
+        "CISC121 E Monday 16:30-17:30 Staff",
+        "CISC121 E Wednesday 15:30-16:30 Staff",
+        "CISC121 E Friday 14:30-15:30 Staff"
+    ],
+    "CISC124_1": [
+        "CISC124",
+        "Intro to Comp Sci II",
+        "Mohammad,Samir",
+        [
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF AUD"
+        ],
+        "CISC124 E Tuesday 8:30-9:30 Mohammad,Samir",
+        "CISC124 E Wednesday 10:30-11:30 Mohammad,Samir",
+        "CISC124 E Friday 9:30-10:30 Mohammad,Samir"
+    ],
+    "CISC151_1": [
+        "CISC151",
+        "Elements of Computing with Data Analytics",
+        "Abbas,Hazem",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101"
+        ],
+        "CISC151 W Monday 11:30-12:30 Abbas,Hazem",
+        "CISC151 W Tuesday 13:30-14:30 Abbas,Hazem",
+        "CISC151 W Thursday 12:30-13:30 Abbas,Hazem"
+    ],
+    "CISC151_2": [
+        "CISC151",
+        "Elements of Computing with Data Analytics",
+        "Abbas,Hazem",
+        [
+            "DUPUIS RM215",
+            "DUPUIS RM215",
+            "DUPUIS RM215"
+        ],
+        "CISC151 E Monday 15:30-16:30 Abbas,Hazem",
+        "CISC151 E Wednesday 14:30-15:30 Abbas,Hazem",
+        "CISC151 E Thursday 16:30-17:30 Abbas,Hazem"
+    ],
+    "CISC203_1": [
+        "CISC203",
+        "Discrete Structures II",
+        "Meger,Erin",
+        [
+            "KINGSTON RM101"
+        ],
+        "CISC203 E Tuesday 18:30-21:30 Meger,Erin"
+    ],
+    "CISC204_1": [
+        "CISC204",
+        "Logic for Comp Sci",
+        "Lu,Rongxing",
+        [
+            "DUPUIS RM215",
+            "DUPUIS RM215",
+            "DUPUIS RM215"
+        ],
+        "CISC204 E Monday 10:30-11:30 Lu,Rongxing",
+        "CISC204 E Wednesday 9:30-10:30 Lu,Rongxing",
+        "CISC204 E Friday 8:30-9:30 Lu,Rongxing"
+    ],
+    "CISC220_1": [
+        "CISC220",
+        "System-Level Programming",
+        "Staff",
+        [
+            "MILLER RM105",
+            "MILLER RM105",
+            "MILLER RM105"
+        ],
+        "CISC220 E Tuesday 11:30-12:30 Staff",
+        "CISC220 E Wednesday 13:30-14:30 Staff",
+        "CISC220 E Friday 12:30-13:30 Staff"
+    ],
+    "CISC221_1": [
+        "CISC221",
+        "Computer Architecture",
+        "ElSawy,Hesham",
+        [
+            "DUPUIS AUD",
+            "DUPUIS AUD",
+            "DUPUIS AUD"
+        ],
+        "CISC221 E Monday 9:30-10:30 ElSawy,Hesham",
+        "CISC221 E Wednesday 8:30-9:30 ElSawy,Hesham",
+        "CISC221 E Thursday 10:30-11:30 ElSawy,Hesham"
+    ],
+    "CISC223_1": [
+        "CISC223",
+        "Software Specifications",
+        "Salomaa,Kai T",
+        [
+            "DUPUIS AUD",
+            "DUPUIS AUD",
+            "DUPUIS AUD"
+        ],
+        "CISC223 E Tuesday 9:30-10:30 Salomaa,Kai T",
+        "CISC223 E Thursday 8:30-9:30 Salomaa,Kai T",
+        "CISC223 E Friday 10:30-11:30 Salomaa,Kai T"
+    ],
+    "CISC223_2": [
+        "CISC223",
+        "Software Specifications",
+        "Choudhury,Salimur",
+        [
+            "DUPUIS AUD",
+            "DUPUIS AUD",
+            "DUPUIS AUD"
+        ],
+        "CISC223 E Monday 12:30-13:30 Choudhury,Salimur",
+        "CISC223 E Wednesday 11:30-12:30 Choudhury,Salimur",
+        "CISC223 E Thursday 13:30-14:30 Choudhury,Salimur"
+    ],
+    "CISC226_1": [
+        "CISC226",
+        "Game Design",
+        "Lamb,Carolyn",
+        [
+            "STIRLING RM C",
+            "STIRLING RM C",
+            "STIRLING RM C"
+        ],
+        "CISC226 E Monday 9:30-10:30 Lamb,Carolyn",
+        "CISC226 E Wednesday 8:30-9:30 Lamb,Carolyn",
+        "CISC226 E Thursday 10:30-11:30 Lamb,Carolyn"
+    ],
+    "CISC235_1": [
+        "CISC235",
+        "Data Structures",
+        "Tian,Yuan",
+        [
+            "KINES & HLTH RM100",
+            "KINES & HLTH RM100",
+            "KINES & HLTH RM100"
+        ],
+        "CISC235 E Monday 13:30-14:30 Tian,Yuan",
+        "CISC235 E Wednesday 12:30-13:30 Tian,Yuan",
+        "CISC235 E Friday 11:30-12:30 Tian,Yuan"
+    ],
+    "CISC235_2": [
+        "CISC235",
+        "Data Structures",
+        "Mohammad,Samir",
+        [
+            "KINES & HLTH RM100",
+            "KINES & HLTH RM100",
+            "KINES & HLTH RM100"
+        ],
+        "CISC235 E Monday 15:30-16:30 Mohammad,Samir",
+        "CISC235 E Wednesday 14:30-15:30 Mohammad,Samir",
+        "CISC235 E Thursday 16:30-17:30 Mohammad,Samir"
+    ],
+    "CISC271_1": [
+        "CISC271",
+        "Linear Methods for Artificial Intelligence",
+        "Ellis,Randy E",
+        [
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF AUD"
+        ],
+        "CISC271 E Monday 15:30-16:30 Ellis,Randy E",
+        "CISC271 E Wednesday 14:30-15:30 Ellis,Randy E",
+        "CISC271 E Thursday 16:30-17:30 Ellis,Randy E"
+    ],
+    "CISC322_1": [
+        "CISC322",
+        "Software Architecture",
+        "Adams,Bram Mark",
+        [
+            "DUPUIS AUD",
+            "DUPUIS AUD",
+            "DUPUIS AUD",
+            "DUPUIS RM217"
+        ],
+        "CISC322 E Monday 13:30-14:30 Adams,Bram Mark",
+        "CISC322 E Wednesday 12:30-13:30 Adams,Bram Mark",
+        "CISC322 E Friday 11:30-12:30 Adams,Bram Mark",
+        "CISC322 E Tuesday 11:30-13:30 Adams,Bram Mark"
+    ],
+    "CISC322_2": [
+        "CISC322",
+        "Software Architecture",
+        "Adams,Bram Mark",
+        [
+            "DUPUIS AUD",
+            "DUPUIS AUD",
+            "DUPUIS AUD",
+            "DUPUIS RM215"
+        ],
+        "CISC322 E Monday 13:30-14:30 Adams,Bram Mark",
+        "CISC322 E Wednesday 12:30-13:30 Adams,Bram Mark",
+        "CISC322 E Friday 11:30-12:30 Adams,Bram Mark",
+        "CISC322 E Wednesday 15:30-17:30 Adams,Bram Mark"
+    ],
+    "CISC324_1": [
+        "CISC324",
+        "Operating Systems",
+        "Hossain,Anwar",
+        [
+            "WALTER LIGHT RM205",
+            "WALTER LIGHT RM205",
+            "WALTER LIGHT RM205"
+        ],
+        "CISC324 E Monday 10:30-11:30 Hossain,Anwar",
+        "CISC324 E Wednesday 9:30-10:30 Hossain,Anwar",
+        "CISC324 E Friday 8:30-9:30 Hossain,Anwar"
+    ],
+    "CISC325_1": [
+        "CISC325",
+        "Human-Computer Interaction",
+        "Nabil,Sara",
+        [
+            "ELLIS AUD",
+            "ELLIS RM333"
+        ],
+        "CISC325 E Tuesday 15:30-16:30 Nabil,Sara",
+        "CISC325 E Friday 15:30-17:30 Nabil,Sara"
+    ],
+    "CISC326_1": [
+        "CISC326",
+        "Game Architecture",
+        "Adams,Bram Mark",
+        [
+            "DUPUIS AUD",
+            "DUPUIS AUD",
+            "DUPUIS AUD",
+            "DUPUIS RM217"
+        ],
+        "CISC326 E Monday 13:30-14:30 Adams,Bram Mark",
+        "CISC326 E Wednesday 12:30-13:30 Adams,Bram Mark",
+        "CISC326 E Friday 11:30-12:30 Adams,Bram Mark",
+        "CISC326 E Tuesday 11:30-13:30 Adams,Bram Mark"
+    ],
+    "CISC326_2": [
+        "CISC326",
+        "Game Architecture",
+        "Adams,Bram Mark",
+        [
+            "DUPUIS AUD",
+            "DUPUIS AUD",
+            "DUPUIS AUD",
+            "DUPUIS RM215"
+        ],
+        "CISC326 E Monday 13:30-14:30 Adams,Bram Mark",
+        "CISC326 E Wednesday 12:30-13:30 Adams,Bram Mark",
+        "CISC326 E Friday 11:30-12:30 Adams,Bram Mark",
+        "CISC326 E Wednesday 15:30-17:30 Adams,Bram Mark"
+    ],
+    "CISC332_1": [
+        "CISC332",
+        "Database Management Systems",
+        "Staff",
+        [
+            "DUNNING AUD",
+            "DUNNING AUD",
+            "DUNNING AUD"
+        ],
+        "CISC332 E Monday 10:30-11:30 Staff",
+        "CISC332 E Wednesday 9:30-10:30 Staff",
+        "CISC332 E Friday 8:30-9:30 Staff"
+    ],
+    "CISC335_1": [
+        "CISC335",
+        "Computer Networks",
+        "Chen,Yuanzhu",
+        [
+            "Law Building RM1",
+            "Law Building RM1",
+            "Law Building RM1"
+        ],
+        "CISC335 E Monday 11:30-12:30 Chen,Yuanzhu",
+        "CISC335 E Tuesday 13:30-14:30 Chen,Yuanzhu",
+        "CISC335 E Thursday 12:30-13:30 Chen,Yuanzhu"
+    ],
+    "CISC351_1": [
+        "CISC351",
+        "Advanced Data Analytics",
+        "Tian,Yuan",
+        [
+            "JEFFERY RM127",
+            "JEFFERY RM127",
+            "JEFFERY RM127"
+        ],
+        "CISC351 E Monday 9:30-10:30 Tian,Yuan",
+        "CISC351 E Wednesday 8:30-9:30 Tian,Yuan",
+        "CISC351 E Thursday 10:30-11:30 Tian,Yuan"
+    ],
+    "CISC352_1": [
+        "CISC352",
+        "Artificial Intelligence",
+        "Muise,Christian",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI 1101"
+        ],
+        "CISC352 E Monday 12:30-13:30 Muise,Christian",
+        "CISC352 E Wednesday 11:30-12:30 Muise,Christian",
+        "CISC352 E Thursday 13:30-14:30 Muise,Christian"
+    ],
+    "CISC360_1": [
+        "CISC360",
+        "Programming Paradigms",
+        "Staff",
+        [
+            "STIRLING RM B",
+            "STIRLING RM B",
+            "STIRLING RM B"
+        ],
+        "CISC360 E Tuesday 9:30-10:30 Staff",
+        "CISC360 E Thursday 8:30-9:30 Staff",
+        "CISC360 E Friday 10:30-11:30 Staff"
+    ],
+    "CISC365_1": [
+        "CISC365",
+        "Algorithms I",
+        "Staff",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI 1101"
+        ],
+        "CISC365 E Monday 15:30-16:30 Staff",
+        "CISC365 E Wednesday 14:30-15:30 Staff",
+        "CISC365 E Thursday 16:30-17:30 Staff"
+    ],
+    "CISC423_1": [
+        "CISC423",
+        "Software Requirements",
+        "Staff",
+        [
+            "MACINTOSH-CORRY RM B201",
+            "MACINTOSH-CORRY RM B201",
+            "MACINTOSH-CORRY RM B201"
+        ],
+        "CISC423 E Monday 12:30-13:30 Staff",
+        "CISC423 E Wednesday 11:30-12:30 Staff",
+        "CISC423 E Thursday 13:30-14:30 Staff"
+    ],
+    "CISC437_1": [
+        "CISC437",
+        "Performance Analysis",
+        "Zou,Ying",
+        [
+            "CONVOCATION HALL",
+            "CONVOCATION HALL",
+            "CONVOCATION HALL"
+        ],
+        "CISC437 E Tuesday 12:30-13:30 Zou,Ying",
+        "CISC437 E Thursday 11:30-12:30 Zou,Ying",
+        "CISC437 E Friday 11:30-12:30 Zou,Ying"
+    ],
+    "CISC454_1": [
+        "CISC454",
+        "Computer Graphics",
+        "Stewart,James A",
+        [
+            "KINGSTON RM201",
+            "KINGSTON RM201",
+            "KINGSTON RM201"
+        ],
+        "CISC454 E Monday 9:30-10:30 Stewart,James A",
+        "CISC454 E Wednesday 8:30-9:30 Stewart,James A",
+        "CISC454 E Thursday 10:30-11:30 Stewart,James A"
+    ],
+    "CISC455_1": [
+        "CISC455",
+        "Evolutionary Optimization and Learning",
+        "Hu,Ting",
+        [
+            "KINES & HLTH RM100",
+            "KINES & HLTH RM100",
+            "KINES & HLTH RM100"
+        ],
+        "CISC455 E Monday 12:30-13:30 Hu,Ting",
+        "CISC455 E Wednesday 11:30-12:30 Hu,Ting",
+        "CISC455 E Thursday 13:30-14:30 Hu,Ting"
+    ],
+    "CISC468_1": [
+        "CISC468",
+        "Cryptography",
+        "Alaca,Furkan",
+        [
+            "MACINTOSH-CORRY RM D216",
+            "MACINTOSH-CORRY RM D216",
+            "MACINTOSH-CORRY RM D216"
+        ],
+        "CISC468 E Monday 9:30-10:30 Alaca,Furkan",
+        "CISC468 E Wednesday 8:30-9:30 Alaca,Furkan",
+        "CISC468 E Thursday 10:30-11:30 Alaca,Furkan"
+    ],
+    "CISC474_1": [
+        "CISC474",
+        "Reinforcement Learning",
+        "Givigi,Sidney",
+        [
+            "CHERNOFF RM117",
+            "CHERNOFF RM117",
+            "CHERNOFF RM117"
+        ],
+        "CISC474 E Tuesday 14:30-15:30 Givigi,Sidney",
+        "CISC474 E Wednesday 16:30-17:30 Givigi,Sidney",
+        "CISC474 E Friday 15:30-16:30 Givigi,Sidney"
+    ],
+    "CISC497_1": [
+        "CISC497",
+        "Social, Ethical and Legal Issues in Computing",
+        "Stinson,Catherine",
+        [
+            "STIRLING RM A",
+            "JEFFERY RM116"
+        ],
+        "CISC497 E Friday 10:00-11:30 Stinson,Catherine",
+        "CISC497 E Thursday 11:30-13:00 Stinson,Catherine"
+    ],
+    "CISC497_2": [
+        "CISC497",
+        "Social, Ethical and Legal Issues in Computing",
+        "Stinson,Catherine",
+        [
+            "STIRLING RM A",
+            "ONTARIO RM207"
+        ],
+        "CISC497 E Friday 10:00-11:30 Stinson,Catherine",
+        "CISC497 E Thursday 11:30-13:00 Stinson,Catherine"
+    ],
+    "CISC497_3": [
+        "CISC497",
+        "Social, Ethical and Legal Issues in Computing",
+        "Stinson,Catherine",
+        [
+            "STIRLING RM A",
+            "KINES & HLTH RM106"
+        ],
+        "CISC497 E Friday 10:00-11:30 Stinson,Catherine",
+        "CISC497 E Thursday 11:30-13:00 Stinson,Catherine"
+    ],
+    "CISC497_4": [
+        "CISC497",
+        "Social, Ethical and Legal Issues in Computing",
+        "Stinson,Catherine",
+        [
+            "STIRLING RM A",
+            "JEFFERY RM115"
+        ],
+        "CISC497 E Friday 10:00-11:30 Stinson,Catherine",
+        "CISC497 E Thursday 11:30-13:00 Stinson,Catherine"
+    ],
+    "CISC498_1": [
+        "CISC498",
+        "Information Technology Project",
+        "Hossain,Anwar",
+        [
+            "GOODWIN RM254"
+        ],
+        "CISC498 E Tuesday 14:30-17:30 Hossain,Anwar"
+    ],
+    "CISC499_1": [
+        "CISC499",
+        "Advanced Undergraduate Project",
+        "Givigi,Sidney",
+        [
+            "JEFFERY RM319",
+            "JEFFERY RM319",
+            "JEFFERY RM319"
+        ],
+        "CISC499 E Monday 8:30-9:30 Givigi,Sidney",
+        "CISC499 E Tuesday 10:30-11:30 Givigi,Sidney",
+        "CISC499 E Thursday 9:30-10:30 Givigi,Sidney"
+    ],
+    "CISC500_1": [
+        "CISC500",
+        "Undergraduate Thesis",
+        "Givigi,Sidney",
+        [
+            "MACINTOSH-CORRY RM A416"
+        ],
+        "CISC500 E Friday 12:30-14:30 Givigi,Sidney"
+    ],
+    "COGS100_1": [
+        "COGS100",
+        "Intro to Cognitive Science",
+        "Zulkernine,Farhana",
+        [
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF AUD"
+        ],
+        "COGS100 E Tuesday 11:30-12:30 Zulkernine,Farhana",
+        "COGS100 E Wednesday 13:30-14:30 Zulkernine,Farhana",
+        "COGS100 E Friday 12:30-13:30 Zulkernine,Farhana"
+    ],
+    "COGS201_1": [
+        "COGS201",
+        "Cognition and Computation",
+        "Lamb,Carolyn",
+        [
+            "CONVOCATION HALL",
+            "CONVOCATION HALL",
+            "CONVOCATION HALL"
+        ],
+        "COGS201 E Monday 11:30-12:30 Lamb,Carolyn",
+        "COGS201 E Tuesday 13:30-14:30 Lamb,Carolyn",
+        "COGS201 E Thursday 12:30-13:30 Lamb,Carolyn"
+    ]
+}

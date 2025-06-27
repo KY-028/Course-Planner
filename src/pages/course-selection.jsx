@@ -4,13 +4,25 @@ import Calendar from '/src/components/calendar';
 import Nav from '/src/components/nav';
 import DonateBanner from '/src/components/donatebanner'
 import Selection from '/src/components/selections';
-import fallJSON from '/src/assets/fall_2024_0710.json';
-import winterJSON from '/src/assets/winter_2025_0710.json';
+import fallJSON from '/src/assets/fall_2025_0624.json';
+import winterJSON from '/src/assets/winter_2026_0625.json';
 import axios from 'axios'
 import { useContext } from 'react';
 import { AuthContext } from '../context/authContext';
 import { generateNewCourse, generateOptions } from '../components/courseFunctions';
 import UpdateManager from '../components/updatemanager';
+
+// Loading Modal Component
+function LoadingModal() {
+    return (
+        <div className="fixed inset-0 bg-gray-600 bg-opacity-75 flex items-center justify-center p-4 z-50">
+            <div className="bg-white rounded-lg shadow-xl p-8 flex flex-col items-center">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mb-4"></div>
+                <p className="text-lg font-semibold text-gray-700">Loading...</p>
+            </div>
+        </div>
+    );
+}
 
 export default function Courses() {
     const { currentUser } = useContext(AuthContext);
@@ -53,6 +65,7 @@ export default function Courses() {
     */
     useEffect(() => {
         if (!currentUser) {
+            alert("You are not logged in. All data entered will not be remembered.");
             setIsLoading(false);  // Immediately allow interaction if not logged in
             return;
         }
@@ -60,6 +73,11 @@ export default function Courses() {
         fetchUserCourses()
     }, [currentUser]);
 
+    useEffect(() => {
+        if (err) {
+            alert(err);
+        }
+    }, [err]);
 
     /**
      * try to obtain the user ID, if not found, stop the function
@@ -191,6 +209,7 @@ export default function Courses() {
     return (
 
         <div className='grid xl:grid-cols-sidebar-lg lg:grid-cols-sidebar min-h-screen overflow-y-auto'>
+            {isLoading && <LoadingModal />}
             <div className='relative lg:block hidden '>
                 <div className='absolute top-0 left-0'>
                     <LeftMenu activeTab="courses" />

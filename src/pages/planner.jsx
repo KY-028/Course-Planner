@@ -1,14 +1,47 @@
 import { Link } from "react-router-dom";
+import { useState } from 'react';
+import LeftMenu from '/src/components/leftMenu';
+import Nav from '/src/components/nav';
+import DonateBanner from '/src/components/donatebanner';
+import TakenGrid from '/src/components/takenGrid';
+import SelectPlan from '/src/components/selectPlan';
 
 export default function Planner() {
+
+    const [coursesTaken, setCoursesTaken] = useState(Array(60).fill(null));
+
     return (
+        // <div className='grid xl:grid-cols-sidebar-lg lg:grid-cols-sidebar min-h-screen overflow-y-auto'>
+        //     <div className='relative lg:block hidden '>
+        //         <div className='absolute top-0 left-0'>
+        //             <LeftMenu activeTab="planner" />
+        //         </div>
+        //     </div>
+
+        //     <div className='flex flex-col w-full'>
+        //         <Nav activeTab="planner" />
+        //         <DonateBanner />
+                
+        //         <div className='w-full flex md-custom:flex-row flex-col-reverse gap-3'>
+        //             <div className='m-4 p-0 md-custom:w-[70%] w-full'>
+        //                 <div className='text-center text-2xl font-bold mb-2 lg:mt-0 mt-2'>Courses Taken</div>
+        //                 <TakenGrid coursesTaken={coursesTaken} setCoursesTaken={setCoursesTaken} />
+        //             </div>
+        //             <div className='m-4 md-custom:ml-0 p-0 md-custom:w-[30%] w-full flex flex-col'>
+        //                 <SelectPlan coursesTaken={coursesTaken} setCoursesTaken={setCoursesTaken} />
+        //             </div>
+        //         </div>
+        //     </div>
+
+        // </div>
+
         <div className="w-full">
             <div className="flex bg-white h-screen">
                 <div className="flex items-center text-center lg:text-left px-8 md:px-12 lg:w-1/2">
                     <div>
                         <span className="text-2xl font-semibold text-gray-800 md:text-4xl">⏰ Coming<span className="ml-2 text-blue-600">Soon</span> ⏰</span>
                         <h1 className="py-5 text-5xl font-semibold text-gray-800 md:text-6xl">Plan Req<span className="text-blue-600"> Planner</span></h1>
-                        <p className="mt-2 text-sm text-gray-500 md:text-lg"><Link to="/" className="text-blue-600">CoursePlanner</Link> is the best free online website to generate cool and stylish timetable. This Plan Req Planner Feature is currently under construction. But please come back to see its deployment in July!</p>
+                        <p className="mt-2 text-sm text-gray-500 md:text-lg"><Link to="/" className="text-blue-600">CoursePlanner</Link> is the best free online website to generate cool and stylish timetable. This Plan Req Planner Feature is currently under construction. But please come back to see its deployment in July (For real this time)!</p>
                         <div className="flex space-x-3 justify-center lg:justify-start mt-6">
                             <Link to="/course-selection" className="flex bg-blue-500 lg:h-12 h-8 w-fit px-0.5  py-2 font-semibold text-white items-center rounded whitespace-nowrap">
                                 <svg fill="#FFFFFF" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
