@@ -10,7 +10,7 @@ const Home = () => {
 
             <div className="flex flex-col lg:flex-row justify-center items-center h-screen text-white"
                 style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-                <div className="text-center lg:text-left lg:flex-1 p-3 lg:ml-20">
+                <div className="text-center lg:text-left lg:flex-1 p-3 pt-0 lg:ml-20">
                     <h1 className=" invisible lg:visible lg:max-w-screen-sm-custom text-xl lg:text-4xl font-bold overflow-hidden border-r-2 border-white lg:whitespace-nowrap"
                         style={{
                             animation: `typing 1.5s steps(60, end), blink-caret .75s step-end infinite`,
@@ -27,7 +27,7 @@ const Home = () => {
                             animation: `fadeIn 1s ease-out forwards`,
                             animationDelay: '1.5s'
                         }}>
-                        Streamline Your Course Selection and Graduation Path at Queen's<br />Made with ❤️ by Queen's students.
+                        Streamline Your Course Selection and Graduation Path at Queen's<br />Made with ❤️ by Queen's students.<br /> <br />2025-2026 Courses are here!
                     </p>
                     <Link to="/signup" className="mt-10 text-sm lg:text-xl px-8 py-3 bg-blue-500 text-white rounded-xl inline-block transition duration-300 hover:bg-blue-600 hover:scale-105"
                         style={{

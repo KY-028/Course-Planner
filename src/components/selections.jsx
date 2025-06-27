@@ -3,6 +3,146 @@ import { AuthContext } from '../context/authContext';
 import { generateNewCourse, generateOptions } from './courseFunctions';
 import Modal from './modal';
 import UpdateManager from './updatemanager'
+import emailjs from '@emailjs/browser'
+
+
+// Error Modal Component
+function ErrorModal({ isOpen, onClose, term }) {
+    const [courseCode, setCourseCode] = useState('');
+    const [sectionNumber, setSectionNumber] = useState('');
+    const [errorTypes, setErrorTypes] = useState([]);
+    const [additionalInfo, setAdditionalInfo] = useState('');
+
+    const errorTypeOptions = ['Wrong time', 'Wrong prof', 'Mismatching selection & display', 'Other'];
+
+    const handleErrorTypeChange = (errorType) => {
+        setErrorTypes(prev => {
+            if (prev.includes(errorType)) {
+                return prev.filter(type => type !== errorType);
+            } else {
+                return [...prev, errorType];
+            }
+        });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+        // Create form data for emailjs
+        const formData = {
+            term: term,
+            course_code: courseCode,
+            section_number: sectionNumber,
+            error_type: errorTypes.join(', '),
+            additional_info: additionalInfo
+        };
+        
+        // Send email using emailjs
+        emailjs.send('service_cfmmnlp', 'template_9nmrebs', formData, '2qeaMXLo7xFUpCTe0')
+            .then(
+                (result) => {
+                    alert("We've received your error report!");
+                },
+                (error) => {
+                    alert(`There was an error: ${error.text}`);
+                },
+            )
+        
+        // Reset form and close modal
+        setCourseCode('');
+        setSectionNumber('');
+        setErrorTypes([]);
+        setAdditionalInfo('');
+        onClose();
+    };
+
+    if (!isOpen) return null;
+
+    return (
+        <div className="fixed inset-0 bg-gray-600 bg-opacity-75 flex items-center justify-center p-4" style={{ zIndex: 10000000 }}>
+            <div className="bg-white rounded-lg shadow-xl p-6 w-full max-w-md">
+                <div className="flex justify-between items-center mb-4">
+                    <h2 className="text-xl font-bold">Report an Error</h2>
+                    <button onClick={onClose} className="text-gray-500 hover:text-gray-800">&#x2715;</button>
+                </div>
+                
+                <form onSubmit={handleSubmit}>
+                    <div className="grid grid-cols-2 gap-2 mb-4">
+                        <div>
+                            <input
+                                type="text"
+                                placeholder="Course Code"
+                                className="w-full p-2 border border-gray-300 rounded"
+                                value={courseCode}
+                                onChange={(e) => setCourseCode(e.target.value.toUpperCase())}
+                                maxLength={8}
+                                required
+                            />
+                            <label className="text-sm text-gray-500">e.g. CISC121</label>
+                        </div>
+                        <div>
+                            <input
+                                type="number"
+                                placeholder="Section #"
+                                className="w-full p-2 border border-gray-300 rounded"
+                                value={sectionNumber}
+                                onChange={(e) => setSectionNumber(e.target.value)}
+                                min="1"
+                                max="99"
+                                required
+                            />
+                            <label className="text-sm text-gray-500">Section number</label>
+                        </div>
+                    </div>
+                    
+                    <div className="mb-4">
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Error Type(s):</label>
+                        <div className="space-y-2">
+                            {errorTypeOptions.map((option) => (
+                                <label key={option} className="flex items-center">
+                                    <input
+                                        type="checkbox"
+                                        className="mr-2"
+                                        checked={errorTypes.includes(option)}
+                                        onChange={() => handleErrorTypeChange(option)}
+                                    />
+                                    <span className="text-sm">{option}</span>
+                                </label>
+                            ))}
+                        </div>
+                    </div>
+                    
+                    <div className="mb-4">
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Additional Information:</label>
+                        <textarea
+                            className="w-full p-2 border border-gray-300 rounded h-20 resize-none"
+                            placeholder="Please provide details about the error..."
+                            value={additionalInfo}
+                            onChange={(e) => setAdditionalInfo(e.target.value)}
+                        />
+                    </div>
+                    
+                    <div className="flex justify-end gap-2">
+                        <button
+                            type="button"
+                            onClick={onClose}
+                            className="px-4 py-2 text-gray-600 border border-gray-300 rounded hover:bg-gray-50"
+                        >
+                            Cancel
+                        </button>
+                        <button
+                            type="submit"
+                            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                            disabled={errorTypes.length === 0}
+                        >
+                            Submit Report
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    );
+}
 
 function Toggle({ message, isToggled, toggleSwitch }) {
     return (
@@ -42,7 +182,7 @@ function Course({ id, name, title, options, selectedOption, onSelectChange, onRe
     );
 }
 
-function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChangeCounter, term, original }) {
+function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChangeCounter, term, original, setInputValue }) {
 
     const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -61,6 +201,7 @@ function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChan
         // Generate the appropriate format to add to our list of courses for <Selection />
         const newCourse = generateNewCourse(id, courseData);
         setCourses([...courses, newCourse]);
+        setInputValue(prev => (prev + "\n" + id).trim());
         setIsModalOpen(false);
     };
 
@@ -68,6 +209,7 @@ function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChan
         const newData = { ...courseData, [newCourse.id]: newCourse.correctformat };
         changeCourseData(newData);
         setCourses([...courses, newCourse]);
+        setInputValue(prev => (prev + "\n" + newCourse.id).trim());
 
         // Update the options for all related courses
         const baseCourseName = newCourse.id.split('_')[0];
@@ -83,17 +225,22 @@ function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChan
 
         // Send a POST request to add a custom course into the database
 
-        const data = {
-            "user_id": currentUser.id,
-            "term": term,
-            "course_id": newCourse.id,
-            "course_info": { [newCourse.id]: newCourse.correctformat }
+        if (currentUser) {
+            const data = {
+                "user_id": currentUser.id,
+                "term": term,
+                "course_id": newCourse.id,
+                "course_info": { [newCourse.id]: newCourse.correctformat }
+            }
+
+            UpdateManager.addUpdate({
+                endpoint: `${apiUrl}/backend/customCourses/`,
+                data: data
+            });
+        } else {
+            console.warn("Cannot add custom course: User not logged in.");
         }
 
-        UpdateManager.addUpdate({
-            endpoint: `${apiUrl}/backend/customCourses/`,
-            data: data
-        });
 
     }
 
@@ -146,16 +293,20 @@ function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChan
                 delete newCourseData[id];
                 changeCourseData(newCourseData);
 
-                const data = {
-                    user_id: currentUser.id,
-                    term: term,
-                    course_id: id
+                if (currentUser) {
+                    const data = {
+                        user_id: currentUser.id,
+                        term: term,
+                        course_id: id
+                    }
+    
+                    UpdateManager.addUpdate({
+                        endpoint: `${apiUrl}/backend/customCourses/delete`,
+                        data: data
+                    });
+                } else {
+                    console.warn("Cannot remove custom course: User not logged in.");
                 }
-
-                UpdateManager.addUpdate({
-                    endpoint: `${apiUrl}/backend/customCourses/delete`,
-                    data: data
-                });
 
             }
         }
@@ -209,6 +360,7 @@ function Selection({ isLoading, onUpdate, courseData, changeCourseData, courses,
     const [isToggled, setIsToggled] = useState(false); // Manage toggle state here
     const [changeCounter, setChangeCounter] = useState(0);
     const [courseCount, setCourseCount] = useState(courses.length);
+    const [isErrorModalOpen, setIsErrorModalOpen] = useState(false);
 
     // Update course count whenever courses change
     useEffect(() => {
@@ -234,6 +386,13 @@ function Selection({ isLoading, onUpdate, courseData, changeCourseData, courses,
         setIsToggled(!isToggled);
     };
 
+    const openErrorModal = () => {
+        setIsErrorModalOpen(true);
+    };
+
+    const closeErrorModal = () => {
+        setIsErrorModalOpen(false);
+    };
 
     const handleInputChange = (e) => {
         setInputValue(e.target.value);
@@ -246,10 +405,15 @@ function Selection({ isLoading, onUpdate, courseData, changeCourseData, courses,
         const ids = inputValue.split('\n').map(id => id.trim().toUpperCase());  // Split input by new lines and trim
         const allCourseDetails = [];
         const notFoundIds = [];
+        // First, remove any courses that are no longer in the input
+        setCourses(prevCourses => prevCourses.filter(course => ids.includes(course.id)));
 
         ids.forEach(id => {
             if (id in courseData) {
                 allCourseDetails.push(id);
+                if (!courses.some(course => course.id === id)) {
+                    setCourses(prevCourses => [...prevCourses, generateNewCourse(id, courseData)]);
+                }
             } else {
                 notFoundIds.push(id);  // Collect IDs not found
             }
@@ -263,10 +427,16 @@ function Selection({ isLoading, onUpdate, courseData, changeCourseData, courses,
         <div className='ml-6 m-4 mt-0 mb-8'>
             <div className='text-center text-2xl font-bold mb-2 lg:mt-0 mt-2'>{term} Term</div>
             {!isToggled && <>
-                <div className='w-full h-full flex items-center justify-begin'>
+                <div className='w-full h-full flex items-center justify-between'>
                     <Toggle message="Entry Mode" isToggled={isToggled} toggleSwitch={toggleSwitch} />
+                    <button 
+                        onClick={openErrorModal} 
+                        className="text-blue-600 hover:text-blue-800 text-sm font-medium underline"
+                    >
+                        Spotted a mistake in course information?
+                    </button>
                 </div>
-                <CourseGrid courseData={courseData} courses={courses} setCourses={setCourses} setChangeCounter={setChangeCounter} changeCourseData={changeCourseData} term={term} original={original} />
+                <CourseGrid courseData={courseData} courses={courses} setCourses={setCourses} setChangeCounter={setChangeCounter} changeCourseData={changeCourseData} term={term} original={original} setInputValue={setInputValue}/>
                 {conflicts.length > 0 && (
                     <div className="mt-1 p-2 mx-1 bg-red-100 border border-red-400 text-red-700">
                         <p>The following Courses have Conflicts:</p>
@@ -300,6 +470,7 @@ function Selection({ isLoading, onUpdate, courseData, changeCourseData, courses,
                     </div>
                 )}
             </div>)}
+            <ErrorModal isOpen={isErrorModalOpen} onClose={closeErrorModal} term={term} />
         </div>
     );
 }

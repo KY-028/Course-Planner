@@ -62,7 +62,11 @@ export default function Nav({ activeTab }) {
             {/* The Normal Screen Size */}
             <div className="z-40 lg:flex hidden justify-between items-center w-full h-16 px-4 py-10 bg-white">
                 <div className="flex-1"></div> {/* This div is just to center the title with flex */}
-                <div className="flex-1 flex justify-center items-center text-2xl font-bold text-dark-blue  whitespace-nowrap">Course Selection Planner</div>
+                {activeTab === "planner" ? (
+                    <div className="flex-1 flex justify-center items-center text-2xl font-bold text-dark-blue  whitespace-nowrap">Plan Requirements Visualizer</div>
+                ) : (
+                    <div className="flex-1 flex justify-center items-center text-2xl font-bold text-dark-blue  whitespace-nowrap">Course Selection Planner</div>
+                )}
                 <div className="flex-1 flex flex-col items-end text-black">
                     {currentUser && currentUser.username ? (
                         <span>Username: {currentUser.username}</span>
