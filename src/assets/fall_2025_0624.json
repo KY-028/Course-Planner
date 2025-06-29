@@ -2783,12 +2783,12 @@
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
-            "CHERNOFF RM211"
+            "CHERNOFF RM206B"
         ],
         "CHEM112 W Monday 8:30-9:30 Wu,Gang",
         "CHEM112 W Tuesday 10:30-11:30 Wu,Gang",
         "CHEM112 W Thursday 9:30-10:30 Wu,Gang",
-        "CHEM112 E Friday 14:30-17:30 Wu,Gang"
+        "CHEM112 E Monday 14:30-17:30 Wu,Gang"
     ],
     "CHEM112_2": [
         "CHEM112_2",
@@ -2803,7 +2803,7 @@
         "CHEM112 W Monday 8:30-9:30 Wu,Gang",
         "CHEM112 W Tuesday 10:30-11:30 Wu,Gang",
         "CHEM112 W Thursday 9:30-10:30 Wu,Gang",
-        "CHEM112 E Friday 14:30-17:30 Wu,Gang"
+        "CHEM112 E Monday 14:30-17:30 Wu,Gang"
     ],
     "CHEM112_3": [
         "CHEM112_3",
@@ -3008,12 +3008,12 @@
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
-            "CHERNOFF RM206B"
+            "CHERNOFF RM213"
         ],
         "CHEM112 W Monday 8:30-9:30 Wu,Gang",
         "CHEM112 W Tuesday 10:30-11:30 Wu,Gang",
         "CHEM112 W Thursday 9:30-10:30 Wu,Gang",
-        "CHEM112 E Monday 14:30-17:30 Wu,Gang"
+        "CHEM112 E Friday 14:30-17:30 Wu,Gang"
     ],
     "CHEM112_17": [
         "CHEM112_17",
@@ -3023,12 +3023,12 @@
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
-            "CHERNOFF RM213"
+            "CHERNOFF RM206B"
         ],
         "CHEM112 W Monday 8:30-9:30 Wu,Gang",
         "CHEM112 W Tuesday 10:30-11:30 Wu,Gang",
         "CHEM112 W Thursday 9:30-10:30 Wu,Gang",
-        "CHEM112 E Monday 14:30-17:30 Wu,Gang"
+        "CHEM112 E Friday 14:30-17:30 Wu,Gang"
     ],
     "CHEM112_18": [
         "CHEM112_18",
@@ -3038,7 +3038,7 @@
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
-            "CHERNOFF RM206B"
+            "CHERNOFF RM211"
         ],
         "CHEM112 W Monday 8:30-9:30 Wu,Gang",
         "CHEM112 W Tuesday 10:30-11:30 Wu,Gang",
@@ -3058,7 +3058,7 @@
         "CHEM112 E Monday 11:30-12:30 Heidar-Zadeh,Farnaz",
         "CHEM112 E Tuesday 13:30-14:30 Heidar-Zadeh,Farnaz",
         "CHEM112 E Thursday 12:30-13:30 Heidar-Zadeh,Farnaz",
-        "CHEM112 E Friday 14:30-17:30 Heidar-Zadeh,Farnaz"
+        "CHEM112 E Tuesday 8:30-11:30 Heidar-Zadeh,Farnaz"
     ],
     "CHEM112_20": [
         "CHEM112_20",
@@ -3068,12 +3068,12 @@
             "BIOSCI 1101",
             "BIOSCI 1101",
             "BIOSCI 1101",
-            "CHERNOFF RM211"
+            "CHERNOFF RM213"
         ],
         "CHEM112 E Monday 11:30-12:30 Heidar-Zadeh,Farnaz",
         "CHEM112 E Tuesday 13:30-14:30 Heidar-Zadeh,Farnaz",
         "CHEM112 E Thursday 12:30-13:30 Heidar-Zadeh,Farnaz",
-        "CHEM112 E Thursday 14:30-17:30 Heidar-Zadeh,Farnaz"
+        "CHEM112 E Tuesday 8:30-11:30 Heidar-Zadeh,Farnaz"
     ],
     "CHEM112_21": [
         "CHEM112_21",
@@ -3083,12 +3083,12 @@
             "BIOSCI 1101",
             "BIOSCI 1101",
             "BIOSCI 1101",
-            "CHERNOFF RM211"
+            "CHERNOFF RM206B"
         ],
         "CHEM112 E Monday 11:30-12:30 Heidar-Zadeh,Farnaz",
         "CHEM112 E Tuesday 13:30-14:30 Heidar-Zadeh,Farnaz",
         "CHEM112 E Thursday 12:30-13:30 Heidar-Zadeh,Farnaz",
-        "CHEM112 E Wednesday 8:30-11:30 Heidar-Zadeh,Farnaz"
+        "CHEM112 E Tuesday 8:30-11:30 Heidar-Zadeh,Farnaz"
     ],
     "CHEM112_22": [
         "CHEM112_22",
@@ -3103,7 +3103,7 @@
         "CHEM112 E Monday 11:30-12:30 Heidar-Zadeh,Farnaz",
         "CHEM112 E Tuesday 13:30-14:30 Heidar-Zadeh,Farnaz",
         "CHEM112 E Thursday 12:30-13:30 Heidar-Zadeh,Farnaz",
-        "CHEM112 E Friday 8:30-11:30 Heidar-Zadeh,Farnaz"
+        "CHEM112 E Tuesday 8:30-11:30 Heidar-Zadeh,Farnaz"
     ],
     "CHEM112_23": [
         "CHEM112_23",
@@ -3118,7 +3118,7 @@
         "CHEM112 E Monday 11:30-12:30 Heidar-Zadeh,Farnaz",
         "CHEM112 E Tuesday 13:30-14:30 Heidar-Zadeh,Farnaz",
         "CHEM112 E Thursday 12:30-13:30 Heidar-Zadeh,Farnaz",
-        "CHEM112 E Friday 8:30-11:30 Heidar-Zadeh,Farnaz"
+        "CHEM112 E Thursday 8:30-11:30 Heidar-Zadeh,Farnaz"
     ],
     "CHEM112_24": [
         "CHEM112_24",
@@ -3133,7 +3133,7 @@
         "CHEM112 E Monday 11:30-12:30 Heidar-Zadeh,Farnaz",
         "CHEM112 E Tuesday 13:30-14:30 Heidar-Zadeh,Farnaz",
         "CHEM112 E Thursday 12:30-13:30 Heidar-Zadeh,Farnaz",
-        "CHEM112 E Friday 8:30-11:30 Heidar-Zadeh,Farnaz"
+        "CHEM112 E Thursday 8:30-11:30 Heidar-Zadeh,Farnaz"
     ],
     "CHEM112_25": [
         "CHEM112_25",
@@ -3143,7 +3143,7 @@
             "BIOSCI 1101",
             "BIOSCI 1101",
             "BIOSCI 1101",
-            "CHERNOFF RM213"
+            "CHERNOFF RM206B"
         ],
         "CHEM112 E Monday 11:30-12:30 Heidar-Zadeh,Farnaz",
         "CHEM112 E Tuesday 13:30-14:30 Heidar-Zadeh,Farnaz",
@@ -3158,7 +3158,7 @@
             "BIOSCI 1101",
             "BIOSCI 1101",
             "BIOSCI 1101",
-            "CHERNOFF RM206B"
+            "CHERNOFF RM211"
         ],
         "CHEM112 E Monday 11:30-12:30 Heidar-Zadeh,Farnaz",
         "CHEM112 E Tuesday 13:30-14:30 Heidar-Zadeh,Farnaz",
@@ -3178,7 +3178,7 @@
         "CHEM112 E Monday 11:30-12:30 Heidar-Zadeh,Farnaz",
         "CHEM112 E Tuesday 13:30-14:30 Heidar-Zadeh,Farnaz",
         "CHEM112 E Thursday 12:30-13:30 Heidar-Zadeh,Farnaz",
-        "CHEM112 E Wednesday 8:30-11:30 Heidar-Zadeh,Farnaz"
+        "CHEM112 E Friday 8:30-11:30 Heidar-Zadeh,Farnaz"
     ],
     "CHEM112_28": [
         "CHEM112_28",
@@ -3193,7 +3193,7 @@
         "CHEM112 E Monday 11:30-12:30 Heidar-Zadeh,Farnaz",
         "CHEM112 E Tuesday 13:30-14:30 Heidar-Zadeh,Farnaz",
         "CHEM112 E Thursday 12:30-13:30 Heidar-Zadeh,Farnaz",
-        "CHEM112 E Wednesday 8:30-11:30 Heidar-Zadeh,Farnaz"
+        "CHEM112 E Friday 8:30-11:30 Heidar-Zadeh,Farnaz"
     ],
     "CHEM112_29": [
         "CHEM112_29",
@@ -3203,15 +3203,30 @@
             "BIOSCI 1101",
             "BIOSCI 1101",
             "BIOSCI 1101",
-            "CHERNOFF RM213"
+            "CHERNOFF RM206B"
         ],
         "CHEM112 E Monday 11:30-12:30 Heidar-Zadeh,Farnaz",
         "CHEM112 E Tuesday 13:30-14:30 Heidar-Zadeh,Farnaz",
         "CHEM112 E Thursday 12:30-13:30 Heidar-Zadeh,Farnaz",
-        "CHEM112 E Tuesday 8:30-11:30 Heidar-Zadeh,Farnaz"
+        "CHEM112 E Friday 8:30-11:30 Heidar-Zadeh,Farnaz"
     ],
     "CHEM112_30": [
         "CHEM112_30",
+        "General Chemistry",
+        "Heidar-Zadeh,Farnaz",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "CHERNOFF RM211"
+        ],
+        "CHEM112 E Monday 11:30-12:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Tuesday 13:30-14:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Thursday 12:30-13:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Friday 8:30-11:30 Heidar-Zadeh,Farnaz"
+    ],
+    "CHEM112_31": [
+        "CHEM112_31",
         "General Chemistry",
         "Brown,Stephen",
         [
@@ -3223,10 +3238,10 @@
         "CHEM112 W Tuesday 11:30-12:30 Brown,Stephen",
         "CHEM112 W Thursday 11:30-12:30 Brown,Stephen",
         "CHEM112 W Friday 11:30-12:30 Brown,Stephen",
-        "CHEM112 E Thursday 8:30-11:30 Brown,Stephen"
+        "CHEM112 E Thursday 14:30-17:30 Brown,Stephen"
     ],
-    "CHEM112_31": [
-        "CHEM112_31",
+    "CHEM112_32": [
+        "CHEM112_32",
         "General Chemistry",
         "Brown,Stephen",
         [
@@ -3238,22 +3253,7 @@
         "CHEM112 W Tuesday 11:30-12:30 Brown,Stephen",
         "CHEM112 W Thursday 11:30-12:30 Brown,Stephen",
         "CHEM112 W Friday 11:30-12:30 Brown,Stephen",
-        "CHEM112 E Tuesday 8:30-11:30 Brown,Stephen"
-    ],
-    "CHEM112_32": [
-        "CHEM112_32",
-        "General Chemistry",
-        "Brown,Stephen",
-        [
-            "DUNCAN MCARTHUR RM B101",
-            "DUNCAN MCARTHUR RM B101",
-            "DUNCAN MCARTHUR RM B101",
-            "CHERNOFF RM211"
-        ],
-        "CHEM112 W Tuesday 11:30-12:30 Brown,Stephen",
-        "CHEM112 W Thursday 11:30-12:30 Brown,Stephen",
-        "CHEM112 W Friday 11:30-12:30 Brown,Stephen",
-        "CHEM112 E Tuesday 8:30-11:30 Brown,Stephen"
+        "CHEM112 E Friday 14:30-17:30 Brown,Stephen"
     ],
     "CHEM112_33": [
         "CHEM112_33",
@@ -3278,12 +3278,12 @@
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
-            "CHERNOFF RM206B"
+            "CHERNOFF RM213"
         ],
         "CHEM112 W Tuesday 11:30-12:30 Brown,Stephen",
         "CHEM112 W Thursday 11:30-12:30 Brown,Stephen",
         "CHEM112 W Friday 11:30-12:30 Brown,Stephen",
-        "CHEM112 E Tuesday 8:30-11:30 Brown,Stephen"
+        "CHEM112 E Wednesday 8:30-11:30 Brown,Stephen"
     ],
     "CHEM112_35": [
         "CHEM112_35",
@@ -3298,7 +3298,7 @@
         "CHEM112 W Tuesday 11:30-12:30 Brown,Stephen",
         "CHEM112 W Thursday 11:30-12:30 Brown,Stephen",
         "CHEM112 W Friday 11:30-12:30 Brown,Stephen",
-        "CHEM112 E Friday 8:30-11:30 Brown,Stephen"
+        "CHEM112 E Wednesday 8:30-11:30 Brown,Stephen"
     ],
     "CHEM112_36": [
         "CHEM112_36",
@@ -3313,7 +3313,7 @@
         "CHEM112 W Tuesday 11:30-12:30 Brown,Stephen",
         "CHEM112 W Thursday 11:30-12:30 Brown,Stephen",
         "CHEM112 W Friday 11:30-12:30 Brown,Stephen",
-        "CHEM112 E Wednesday 11:30-14:30 Brown,Stephen"
+        "CHEM112 E Wednesday 8:30-11:30 Brown,Stephen"
     ],
     "CHEM112_37": [
         "CHEM112_37",
@@ -3368,12 +3368,12 @@
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
-            "CHERNOFF RM206B"
+            "CHERNOFF RM211"
         ],
         "CHEM112 W Tuesday 11:30-12:30 Brown,Stephen",
         "CHEM112 W Thursday 11:30-12:30 Brown,Stephen",
         "CHEM112 W Friday 11:30-12:30 Brown,Stephen",
-        "CHEM112 E Thursday 8:30-11:30 Brown,Stephen"
+        "CHEM112 E Wednesday 11:30-14:30 Brown,Stephen"
     ],
     "CHEM117_1": [
         "CHEM117",
@@ -4466,5 +4466,300 @@
         "PHYS491 E Wednesday 8:30-9:30 Staff",
         "PHYS491 E Thursday 10:30-11:30 Staff",
         "PHYS491 E Wednesday 11:30-12:30 Staff"
+    ],
+    "ECON110_1": [
+        "ECON110",
+        "Principles of Economics",
+        "Lapham,Beverly",
+        [
+            "DUPUIS AUD",
+            "DUPUIS AUD",
+            "DUPUIS AUD"
+        ],
+        "ECON110 E Monday 16:30-17:30 Lapham,Beverly",
+        "ECON110 E Wednesday 15:30-16:30 Lapham,Beverly",
+        "ECON110 E Friday 14:30-15:30 Lapham,Beverly"
+    ],
+    "ECON110_2": [
+        "ECON110",
+        "Principles of Economics",
+        "Lapham,Beverly",
+        [
+            "CHERNOFF AUD",
+            "CHERNOFF AUD",
+            "CHERNOFF AUD"
+        ],
+        "ECON110 E Monday 11:30-12:30 Lapham,Beverly",
+        "ECON110 E Tuesday 13:30-14:30 Lapham,Beverly",
+        "ECON110 E Thursday 12:30-13:30 Lapham,Beverly"
+    ],
+    "ECON111_1": [
+        "ECON111",
+        "Introductory Microeconomics",
+        "Berkok,Ugurhan",
+        [
+            "DUNNING AUD"
+        ],
+        "ECON111 E Monday 18:30-21:30 Berkok,Ugurhan"
+    ],
+    "ECON212_1": [
+        "ECON212",
+        "Microeconomic Theory I",
+        "Xu,Ming",
+        [
+            "Law Building RM1",
+            "Law Building RM1"
+        ],
+        "ECON212 E Wednesday 13:00-14:30 Xu,Ming",
+        "ECON212 E Friday 11:30-13:00 Xu,Ming"
+    ],
+    "ECON212_2": [
+        "ECON212",
+        "Microeconomic Theory I",
+        "Xu,Ming",
+        [
+            "KINES & HLTH RM100",
+            "KINES & HLTH RM100"
+        ],
+        "ECON212 E Monday 13:00-14:30 Xu,Ming",
+        "ECON212 E Wednesday 11:30-13:00 Xu,Ming"
+    ],
+    "ECON222_1": [
+        "ECON222",
+        "Macroeconomic Theory I",
+        "Lloyd-Ellis,Huw",
+        [
+            "DUNNING RM14",
+            "DUNNING RM14"
+        ],
+        "ECON222 E Wednesday 16:00-17:30 Lloyd-Ellis,Huw",
+        "ECON222 E Friday 14:30-16:00 Lloyd-Ellis,Huw"
+    ],
+    "ECON222_2": [
+        "ECON222",
+        "Macroeconomic Theory I",
+        "Staff",
+        [
+            "Law Building RM1",
+            "Law Building RM1"
+        ],
+        "ECON222 E Tuesday 16:00-17:30 Staff",
+        "ECON222 E Thursday 14:30-16:00 Staff"
+    ],
+    "ECON231_1": [
+        "ECON231",
+        "Emergence of the Modern Industrial Economy",
+        "Keay,Ian",
+        [
+            "DUNNING RM14",
+            "DUNNING RM14"
+        ],
+        "ECON231 E Monday 16:00-17:30 Keay,Ian",
+        "ECON231 E Wednesday 14:30-16:00 Keay,Ian"
+    ],
+    "ECON241_1": [
+        "ECON241",
+        "Economic Aspects of Selected Social Issues",
+        "de Souza,Raymond",
+        [
+            "MACINTOSH-CORRY RM B201",
+            "MACINTOSH-CORRY RM B201"
+        ],
+        "ECON241 E Tuesday 10:00-11:30 de Souza,Raymond",
+        "ECON241 E Wednesday 16:00-17:30 de Souza,Raymond"
+    ],
+    "ECON244_1": [
+        "ECON244",
+        "Economics of Indigenous Communities",
+        "Hageman,Anya",
+        [
+            "MILLER RM105",
+            "ELLIS RM321"
+        ],
+        "ECON244 E Tuesday 14:30-16:00 Hageman,Anya",
+        "ECON244 E Friday 16:00-17:30 Hageman,Anya"
+    ],
+    "ECON251_1": [
+        "ECON251",
+        "Econometrics I",
+        "Lehrer,Steven F",
+        [
+            "STIRLING RM A",
+            "STIRLING RM A"
+        ],
+        "ECON251 E Monday 16:00-17:30 Lehrer,Steven F",
+        "ECON251 E Wednesday 14:30-16:00 Lehrer,Steven F"
+    ],
+    "ECON255_1": [
+        "ECON255",
+        "Intro to Mathematical Economics",
+        "Wang,Ruqu",
+        [
+            "CONVOCATION HALL",
+            "CONVOCATION HALL"
+        ],
+        "ECON255 E Wednesday 10:00-11:30 Wang,Ruqu",
+        "ECON255 E Friday 8:30-10:00 Wang,Ruqu"
+    ],
+    "ECON256_1": [
+        "ECON256",
+        "Math for Economics and Business",
+        "Zabojnik,Jan",
+        [
+            "DUNNING RM14",
+            "DUNNING RM14"
+        ],
+        "ECON256 E Monday 8:30-10:00 Zabojnik,Jan",
+        "ECON256 E Thursday 10:00-11:30 Zabojnik,Jan"
+    ],
+    "ECON310_1": [
+        "ECON310",
+        "Microeconomic Theory II",
+        "Sun,Hongfei",
+        [
+            "Law Building RM1",
+            "Law Building RM1"
+        ],
+        "ECON310 E Monday 14:30-16:00 Sun,Hongfei",
+        "ECON310 E Thursday 16:00-17:30 Sun,Hongfei"
+    ],
+    "ECON320_1": [
+        "ECON320",
+        "Macroeconomic Theory II",
+        "Staff",
+        [
+            "KINGSTON RM200",
+            "KINGSTON RM200"
+        ],
+        "ECON320 E Monday 10:00-11:30 Staff",
+        "ECON320 E Wednesday 8:30-10:00 Staff"
+    ],
+    "ECON322_1": [
+        "ECON322",
+        "Financial Markets and Risk Management",
+        "Koeppl,Thorsten",
+        [
+            "Law Building RM1",
+            "Law Building RM1"
+        ],
+        "ECON322 E Tuesday 14:30-16:00 Koeppl,Thorsten",
+        "ECON322 E Friday 16:00-17:30 Koeppl,Thorsten"
+    ],
+    "ECON351_1": [
+        "ECON351",
+        "Introductory Econometrics",
+        "Lehrer,Steven F",
+        [
+            "STIRLING RM A",
+            "STIRLING RM A"
+        ],
+        "ECON351 E Monday 16:00-17:30 Lehrer,Steven F",
+        "ECON351 E Wednesday 14:30-16:00 Lehrer,Steven F"
+    ],
+    "ECON354_1": [
+        "ECON354",
+        "Computational Methods in Economics and Finance",
+        "Staff",
+        [
+            "WALTER LIGHT RM210"
+        ],
+        "ECON354 E Friday 11:30-14:30 Staff"
+    ],
+    "ECON360_1": [
+        "ECON360",
+        "Labour Economics",
+        "Liu,Sitian",
+        [
+            "DUPUIS RM217",
+            "DUPUIS RM217"
+        ],
+        "ECON360 E Tuesday 11:30-13:00 Liu,Sitian",
+        "ECON360 E Friday 13:00-14:30 Liu,Sitian"
+    ],
+    "ECON370_1": [
+        "ECON370",
+        "Urban and Regional Economics",
+        "Head,Allen C",
+        [
+            "BOTTER RM B139",
+            "BOTTER RM B139"
+        ],
+        "ECON370 E Monday 14:30-16:00 Head,Allen C",
+        "ECON370 E Thursday 16:00-17:30 Head,Allen C"
+    ],
+    "ECON423_1": [
+        "ECON423",
+        "Topics in Financial Economics",
+        "Zabojnik,Jan",
+        [
+            "MACINTOSH-CORRY RM D216",
+            "MACINTOSH-CORRY RM D216"
+        ],
+        "ECON423 E Tuesday 11:30-13:00 Zabojnik,Jan",
+        "ECON423 E Friday 13:00-14:30 Zabojnik,Jan"
+    ],
+    "ECON435_1": [
+        "ECON435",
+        "Dev Economics",
+        "Lloyd-Ellis,Huw",
+        [
+            "KINES & HLTH RM101",
+            "KINES & HLTH RM101"
+        ],
+        "ECON435 E Tuesday 10:00-11:30 Lloyd-Ellis,Huw",
+        "ECON435 E Thursday 8:30-10:00 Lloyd-Ellis,Huw"
+    ],
+    "ECON437_1": [
+        "ECON437",
+        "Cost-Benefit Analysis",
+        "Kashi,Bahman",
+        [
+            "JOHN WATSON RM217",
+            "JOHN WATSON RM217"
+        ],
+        "ECON437 E Tuesday 10:00-11:30 Kashi,Bahman",
+        "ECON437 E Thursday 8:30-10:00 Kashi,Bahman"
+    ],
+    "ECON440_1": [
+        "ECON440",
+        "Public Economics",
+        "Abbott,Brant",
+        [
+            "Law Building RM4",
+            "Law Building RM4"
+        ],
+        "ECON440 E Monday 14:30-16:00 Abbott,Brant",
+        "ECON440 E Thursday 16:00-17:30 Abbott,Brant"
+    ],
+    "ECON452_1": [
+        "ECON452",
+        "Applied Econometrics",
+        "iu,Sitian",
+        [
+            "KINGSTON RM200",
+            "KINGSTON RM200"
+        ],
+        "ECON452 E Monday 8:30-10:00 iu,Sitian",
+        "ECON452 E Thursday 10:00-11:30 iu,Sitian"
+    ],
+    "ECON482_1": [
+        "ECON482",
+        "Seminar in Microeconomics III",
+        "Staff",
+        [
+            "MACINTOSH-CORRY RM A416"
+        ],
+        "ECON482 E Tuesday 11:30-14:30 Staff"
+    ],
+    "ECON484_1": [
+        "ECON484",
+        "Seminar in Microeconomics V",
+        "Chan,Mons",
+        [
+            "MACINTOSH-CORRY RM A416",
+            "MACINTOSH-CORRY RM A416"
+        ],
+        "ECON484 E Monday 11:30-13:00 Chan,Mons",
+        "ECON484 E Thursday 13:00-14:30 Chan,Mons"
     ]
 }
