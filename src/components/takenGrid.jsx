@@ -51,8 +51,8 @@ export default function TakenGrid({ coursesTaken, setCoursesTaken }) {
                 const currentCourse = newCourses[index] || {};
                 newCourses[index] = {
                     ...currentCourse, // Keep existing code
-                    title: null, // Explicitly set to null on error
-                    units: null  // Explicitly set to null on error
+                    title: null,
+                    units: null
                 };
                 return newCourses;
             });
@@ -110,10 +110,11 @@ export default function TakenGrid({ coursesTaken, setCoursesTaken }) {
     const handleSubmit = async (index) => {
         if (inputValue.trim()) {
             const formattedCode = formatCourseCode(inputValue);
+            console.log('Adding course:', formattedCode, 'at index:', index);
             // Update the coursesTaken with the code immediately, details will be fetched
             setCoursesTaken(prevCourses => {
                 const newCourses = [...prevCourses];
-                newCourses[index] = { code: formattedCode, title: null, units: null }; // Initialize with null details
+                newCourses[index] = { code: formattedCode, title: null, units: null, planreq: null }; // Initialize with null details
                 return newCourses;
             });
             
@@ -215,6 +216,29 @@ export default function TakenGrid({ coursesTaken, setCoursesTaken }) {
                                 {coursesTaken[index]?.title && (
                                     <div className="lg:text-xs sm:text-xxs text-xxxs text-gray-600 truncate">
                                         {loadingIndices.has(index) ? 'Loading...' : coursesTaken[index].title}
+                                    </div>
+                                )}
+                                {coursesTaken[index]?.planreq && (
+                                    <div className="lg:text-xs sm:text-xxs text-xxxs text-blue-600 truncate">
+                                        {/* Shorten planreq display: e.g., major-1. CoreA => major-1A */}
+                                        {coursesTaken[index].planreq.split(',').map((req, i) => {
+                                            // Match pattern like 'major-3. SupportingA' or 'major-1. CoreB'
+                                            const match = req.trim().match(/^(.*?-)([0-9]+)\.\s*[A-Za-z]+([A-Z])$/);
+                                            if (match) {
+                                                // e.g., major-3. SupportingA => major-3A
+                                                return (
+                                                    <span key={i}>
+                                                        {match[1]}{match[2]}{match[3]}
+                                                        {i < coursesTaken[index].planreq.split(',').length - 1 ? ', ' : ''}
+                                                    </span>
+                                                );
+                                            } else {
+                                                // fallback: just show the trimmed req
+                                                return (
+                                                    <span key={i}>{req.trim()}{i < coursesTaken[index].planreq.split(',').length - 1 ? ', ' : ''}</span>
+                                                );
+                                            }
+                                        })}
                                     </div>
                                 )}
                             </div>
