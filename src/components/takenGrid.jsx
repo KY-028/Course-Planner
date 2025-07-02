@@ -42,6 +42,7 @@ export default function TakenGrid({ coursesTaken, setCoursesTaken }) {
                     title: details?.title || null,
                     units: details?.units || null
                 };
+                
                 return newCourses;
             });
         } catch (error) {
