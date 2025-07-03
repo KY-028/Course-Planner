@@ -29,13 +29,13 @@ const FIELD_TYPE_TO_KEY = {
 };
 
 export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
-    // Select Degree Plan Combination
+    // Select Degree Plan Combination (number)
     const [selectedPlan, setSelectedPlan] = useState(PLAN_OPTIONS[0].value);
-    // Search or Paste Academic Calendar Link Text Field
+    // Search or Paste Academic Calendar Link Text Field (list of strings)
     const [fields, setFields] = useState(Array(PLAN_OPTIONS[0].fields.length).fill(''));
-    // Locked Text Field
+    // Locked Text Field (list of booleans)
     const [locked, setLocked] = useState(Array(PLAN_OPTIONS[0].fields.length).fill(false));
-    // Response from API
+    // Response from API (list of objects)
     const [responses, setResponses] = useState(Array(PLAN_OPTIONS[0].fields.length).fill(null));
     // Error Message
     const [errors, setErrors] = useState(Array(PLAN_OPTIONS[0].fields.length).fill(null));
@@ -54,7 +54,10 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
     const [plansFilling, setPlansFilling] = useState({});
     
     // Track selected sub-plans for each plan
-    const [selectedSubPlans, setSelectedSubPlans] = useState({});
+    const [selectedSubPlans, setSelectedSubPlans] = useState(Array(PLAN_OPTIONS[0].fields.length).fill(null));
+
+    // Track section names for each plan
+    const [sectionNames, setSectionNames] = useState(Array(PLAN_OPTIONS[0].fields.length).fill([]));
     
     // Monitor coursesTaken changes and automatically assign courses to requirements
     useEffect(() => {
@@ -81,14 +84,7 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
 
     // Monitor selectedSubPlans changes and recalculate assignments
     useEffect(() => {
-        if (Object.keys(selectedSubPlans).length > 0 && coursesTaken && setCoursesTaken && responses.length > 0) {
-            const validPlans = responses.filter(response => response !== null);
-            if (validPlans.length > 0) {
-                const result = recomputePlanAssignments(coursesTaken, validPlans);
-                setCoursesTaken(result.coursesTaken);
-                setPlansFilling(result.plansFilling);
-            }
-        }
+        // TODO: Implement this
     }, [selectedSubPlans]);
 
     const handlePlanChange = (e) => {
@@ -100,8 +96,9 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
         setResponses(Array(plan.fields.length).fill(null));
         setErrors(Array(plan.fields.length).fill(null));
         setPlansFilling({}); // Will be re-established on plan lock
-        setSelectedSubPlans({}); // Clear selected sub-plans
+        setSelectedSubPlans([]); // Clear selected sub-plans
         setCoursesTaken(clearPlanReq(coursesTaken));
+        updateSectionNames(Array(plan.fields.length).fill(null), Array(plan.fields.length).fill(false));
     };
 
     // Helper to get plan type for a field
@@ -184,21 +181,57 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
         const newErrors = [...errors];
         newErrors[idx] = null;
         setErrors(newErrors);
+
         // Clear any selected sub-plans for this plan
         setSelectedSubPlans(prev => {
-            const newSelected = { ...prev };
-            delete newSelected[idx];
+            const newSelected = [...prev];
+            newSelected[idx] = null;
             return newSelected;
         });
+
         // Establish plansFilling for the newly locked plan
         let mergedPlansFilling = {};
         newResponses.forEach((planData, i) => {
             if (planData && newLocked[i]) {
                 const planPrefix = getPlanPrefix(i, planData);
                 Object.assign(mergedPlansFilling, establishPlansFilling(planData, planPrefix));
+                mergedPlansFilling[`${planPrefix}electives`] = {
+                    unitsRequired: planData.electives || 0,
+                    unitsCompleted: 0,
+                    courses: []
+                };
+                
+                // Add all section keys except title, electives, units to sectionNames
+                const sectionKeys = Object.keys(planData).filter(k => k !== 'title' && k !== 'electives' && k !== 'units');
+                setSectionNames(prev => {
+                    const newSectionNames = [...prev];
+                    newSectionNames[i] = sectionKeys;
+                    // Check if "electives" exists in sectionKeys and rename it to "Electives"
+                    const electivesIndex = newSectionNames[i].findIndex(section => 
+                        section.toLowerCase() === 'electives'
+                    );
+                    if (electivesIndex !== -1) {
+                        newSectionNames[i][electivesIndex] = "Electives";
+                    } else {
+                        newSectionNames[i].push("Electives");
+                    }
+                    return newSectionNames;
+                });
             }
         });
-        setPlansFilling(mergedPlansFilling);
+        console.log(sectionNames);
+        // Check if all the section units add up to the total units
+        const totalUnits = responses[idx]?.units || 0;
+        let required = 0;
+        Object.entries(mergedPlansFilling).forEach(([key, value]) => {
+            required += key.unitsRequired || 0;
+        });
+        if (required === totalUnits) {
+            setPlansFilling(mergedPlansFilling);
+        } else {
+            console.alert("Your plan was not parsed successfully. Please contact the developer.");
+        }
+        updateSectionNames(newResponses, newLocked);
     };
 
     const handleFieldChange = (idx, value) => {
@@ -213,6 +246,7 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
             return false;
         }
     };
+
     const validateResponse = (response, fieldType) => {
         const title = response.title?.toLowerCase() || '';
         const fieldTypeLower = fieldType.toLowerCase();
@@ -240,7 +274,7 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
 
         if (!validateUrl(url)) {
             const newErrors = [...errors];
-            newErrors[idx] = "Please enter a valid URL";
+            newErrors[idx] = "Please enter a valid URL or plan name.";
             setErrors(newErrors);
             return;
         }
@@ -271,8 +305,8 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
 
             // Clear any selected sub-plans for this plan
             setSelectedSubPlans(prev => {
-                const newSelected = { ...prev };
-                delete newSelected[idx];
+                const newSelected = [...prev];
+                newSelected[idx] = null;
                 return newSelected;
             });
 
@@ -286,6 +320,7 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
                 }
             });
             setPlansFilling(mergedPlansFilling);
+            updateSectionNames(newResponses, newLocked);
         } catch (error) {
             const newErrors = [...errors];
             newErrors[idx] = error.response?.data?.message || "An error occurred while fetching the plan";
@@ -308,8 +343,8 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
         setErrors(newErrors);
         // Clear selected sub-plans for this plan
         setSelectedSubPlans(prev => {
-            const newSelected = { ...prev };
-            delete newSelected[idx];
+            const newSelected = [...prev];
+            newSelected[idx] = null;
             return newSelected;
         });
         // Rebuild plansFilling for remaining locked plans
@@ -321,6 +356,7 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
             }
         });
         setPlansFilling(mergedPlansFilling);
+        updateSectionNames(newResponses, newLocked);
     };
 
     const handleKeyDown = (e, idx) => {
@@ -329,7 +365,7 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
             if (showDropdown[idx] && searchResults[idx] && searchResults[idx].length > 0) {
                 handlePlanSelect(idx, searchResults[idx][0]);
             } else {
-            handleLock(idx);
+                handleLock(idx);
             }
         }
     };
@@ -347,162 +383,15 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
     // Helper: Check if a plan has sub-plans that need selection
     function hasUnselectedSubPlans(idx) {
         if (!responses[idx]) return false;
-        const planPrefix = getPlanPrefix(idx, responses[idx]);
-        // Look for keys that contain sub-plan patterns
-        const hasSubPlans = Object.keys(plansFilling).some(key => 
-            key.startsWith(planPrefix) && key.includes('-major-') && key.includes('a')
-        );
-        return hasSubPlans && !selectedSubPlans[idx];
-    }
-
-    // Helper: Calculate total units completed and required for a plan
-    function getPlanProgress(idx) {
-        if (!responses[idx]) return { completed: 0, required: 0 };
-        const planPrefix = getPlanPrefix(idx, responses[idx]);
-        let completed = 0;
-        let required = 0;
-        
-        // If there's a selected sub-plan, only count that sub-plan's requirements
-        if (selectedSubPlans[idx]) {
-            const subPlanKey = selectedSubPlans[idx];
-            Object.entries(plansFilling).forEach(([key, value]) => {
-                if (key.startsWith(planPrefix + subPlanKey)) {
-                    completed += value.unitsCompleted || 0;
-                    required += value.unitsRequired || 0;
-                }
-            });
-        } else {
-            // Otherwise, count all requirements for this plan
-            Object.entries(plansFilling).forEach(([key, value]) => {
-                if (key.startsWith(planPrefix)) {
-                    completed += value.unitsCompleted || 0;
-                    required += value.unitsRequired || 0;
-                }
-            });
-        }
-        return { completed, required };
-    }
-
-    // Helper: Calculate section progress for a plan
-    function getSectionProgress(idx, sectionKey) {
-        if (!responses[idx]) return { completed: 0, required: 0 };
-        const planPrefix = getPlanPrefix(idx, responses[idx]);
-        let completed = 0;
-        let required = 0;
-        
-        // If there's a selected sub-plan and this section is the sub-plan section
-        if (selectedSubPlans[idx] && sectionKey.toLowerCase().includes('sub-plans')) {
-            // Only count the selected sub-plan's requirements
-            const subPlanKey = selectedSubPlans[idx];
-            Object.entries(plansFilling).forEach(([key, value]) => {
-                if (key.startsWith(planPrefix + subPlanKey)) {
-                    completed += value.unitsCompleted || 0;
-                    required += value.unitsRequired || 0;
-                }
-            });
-        } else {
-            // Normal section calculation
-            Object.entries(plansFilling).forEach(([key, value]) => {
-                // Section keys are like: major-1CoreA, major-1OptionB, etc.
-                if (key.startsWith(planPrefix + sectionKey)) {
-                    completed += value.unitsCompleted || 0;
-                    required += value.unitsRequired || 0;
-                }
-            });
-        }
-        return { completed, required };
-    }
-
-    // Helper: Calculate electives progress for a plan
-    function getElectivesProgress(idx) {
-        if (!responses[idx]) return { completed: 0, required: 0 };
-        // Electives are not in plansFilling, so sum units for courses assigned to 'Electives' for this plan
-        let completed = 0;
-        // Only count electives for this plan (if multi-plan, could be ambiguous)
-        coursesTaken.forEach(course => {
-            if (course && course.planreq && course.planreq.split(',').map(s => s.trim()).includes('Electives') && !course.isExcess) {
-                completed += course.units || 0;
+        // go through each major section in responses[idx], find if any subsection has a plan
+        const planKeys = Object.keys(responses[idx]).filter(k => k.toLowerCase().includes('major'));
+        for (const planKey of planKeys) {
+            const plan = responses[idx][planKey];
+            if (plan && plan.subsections) {
+                return selectedSubPlans[idx] === null;
             }
-        });
-        // Required is from plan JSON
-        const required = responses[idx].electives || 0;
-        return { completed, required };
-    }
-
-    // Helper: Calculate section required units from plan JSON
-    function getSectionRequired(idx, sectionKey) {
-        if (!responses[idx]) return 0;
-        const section = responses[idx][sectionKey];
-        if (section && typeof section === 'object' && section.sectionunits) {
-            return section.sectionunits;
         }
-        return 0;
-    }
-
-    // Helper: Calculate electives required units from plan JSON, with adjustment if needed
-    function getElectivesRequired(idx) {
-        if (!responses[idx]) return 0;
-        const totalUnits = responses[idx].units || 0;
-        const coreUnits = getSectionRequired(idx, Object.keys(responses[idx]).find(k => k.toLowerCase().includes('core')));
-        const subPlanUnits = getSectionRequired(idx, Object.keys(responses[idx]).find(k => k.toLowerCase().includes('sub-plans')));
-        let electives = responses[idx].electives || 0;
-        // Adjust electives if core+subplan > total
-        if (coreUnits + subPlanUnits > totalUnits) {
-            electives = 0;
-        } else if (coreUnits + subPlanUnits + electives > totalUnits) {
-            electives = totalUnits - coreUnits - subPlanUnits;
-        }
-        return electives;
-    }
-
-    // Helper: Calculate section completed units
-    function getSectionCompleted(idx, sectionKey) {
-        if (!responses[idx]) return 0;
-        const planPrefix = getPlanPrefix(idx, responses[idx]);
-        let completed = 0;
-        Object.entries(plansFilling).forEach(([key, value]) => {
-            if (key.startsWith(planPrefix + sectionKey)) {
-                completed += value.unitsCompleted || 0;
-            }
-        });
-        return completed;
-    }
-
-    // Helper: Calculate sub-plan completed units
-    function getSubPlanCompleted(idx) {
-        if (!responses[idx]) return 0;
-        const planPrefix = getPlanPrefix(idx, responses[idx]);
-        let completed = 0;
-        Object.entries(plansFilling).forEach(([key, value]) => {
-            if (key.startsWith(planPrefix) && key.includes('Sub-Plans')) {
-                completed += value.unitsCompleted || 0;
-            }
-        });
-        return completed;
-    }
-
-    // Helper: Calculate electives completed units
-    function getElectivesCompleted(idx) {
-        if (!responses[idx]) return 0;
-        let completed = 0;
-        coursesTaken.forEach(course => {
-            if (course && course.planreq && course.planreq.split(',').map(s => s.trim()).includes('Electives') && !course.isExcess) {
-                completed += course.units || 0;
-            }
-        });
-        return completed;
-    }
-
-    // Helper: Calculate total completed units for the plan
-    function getPlanCompleted(idx) {
-        return getSectionCompleted(idx, Object.keys(responses[idx]).find(k => k.toLowerCase().includes('core')))
-            + getSectionCompleted(idx, Object.keys(responses[idx]).find(k => k.toLowerCase().includes('sub-plans')))
-            + getElectivesCompleted(idx);
-    }
-
-    // Helper: Get total required units for the plan
-    function getPlanRequired(idx) {
-        return responses[idx]?.units || 0;
+        return false;
     }
 
     // Helper: Get the relevant requirement keys for a plan and section
@@ -557,6 +446,7 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
     // Helper: Calculate total completed and required units for the plan (from plansFilling)
     function getPlanProgressFromFilling(idx) {
         if (!responses[idx]) return { completed: 0, required: 0 };
+        // Check if all the section units add up to the total units
         const coreKey = Object.keys(responses[idx]).find(k => k.toLowerCase().includes('core'));
         const subPlanKey = Object.keys(responses[idx]).find(k => k.toLowerCase().includes('sub-plans'));
         const core = getSectionProgressFromFilling(idx, coreKey);
@@ -575,24 +465,7 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
                 const planPrefix = getPlanPrefix(i, planData);
                 // If a sub-plan is selected, only include that sub-plan's requirements for the sub-plan section
                 if (selectedSubPlans[i]) {
-                    // Find the sub-plan section key
-                    const subPlanKey = Object.keys(planData).find(k => k.toLowerCase().includes('sub-plans'));
-                    // Add core section
-                    Object.entries(planData).forEach(([sectionKey, sectionData]) => {
-                        if (sectionKey.toLowerCase().includes('core')) {
-                            Object.assign(merged, establishPlansFilling({ [sectionKey]: sectionData }, planPrefix));
-                        }
-                    });
-                    // Add only the selected sub-plan
-                    if (subPlanKey) {
-                        const subPlanSection = planData[subPlanKey];
-                        if (subPlanSection && subPlanSection.subsections) {
-                            const selectedSub = subPlanSection.subsections.find(sub => sub.id === selectedSubPlans[i]);
-                            if (selectedSub) {
-                                Object.assign(merged, establishPlansFilling({ [subPlanKey]: { ...subPlanSection, subsections: [selectedSub] } }, planPrefix));
-                            }
-                        }
-                    }
+
                 } else {
                     // No sub-plan selected: only include core and the top-level sub-plan section (not its nested sub-plans)
                     Object.entries(planData).forEach(([sectionKey, sectionData]) => {
@@ -614,40 +487,48 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
 
     // Call reconstructPlansFilling whenever responses, selectedSubPlans, or unlocking/locking changes
     useEffect(() => {
-        reconstructPlansFilling();
+        // TODO: Implement reconstructPlansFilling
     }, [responses, selectedSubPlans]);
 
-    // Component to display plan details in a formatted way
-    const PlanDetailsDisplay = ({ planData, level = 0, plansFilling = {}, coursesTaken = [], planIndex = 0 }) => {
-        const [expandedSections, setExpandedSections] = useState({});
-        const [selectedOptions, setSelectedOptions] = useState({});
+    // Helper: Update sectionNames for all plans
+    function updateSectionNames(responsesArr, lockedArr) {
+        const newSectionNames = [];
+        responsesArr.forEach((planData, i) => {
+            if (planData && lockedArr[i]) {
+                let sectionKeys = Object.keys(planData).filter(k => k !== 'title' && k !== 'electives' && k !== 'units');
+                // Ensure 'Electives' is always present and last
+                const electivesIndex = sectionKeys.findIndex(section => section.toLowerCase() === 'electives');
+                if (electivesIndex !== -1) {
+                    sectionKeys[electivesIndex] = 'Electives';
+                } else {
+                    sectionKeys.push('Electives');
+                }
+                newSectionNames[i] = sectionKeys;
+            } else {
+                newSectionNames[i] = [];
+            }
+        });
+        setSectionNames(newSectionNames);
+    }
 
-        const toggleSection = (sectionId) => {
-            setExpandedSections(prev => ({
-                ...prev,
-                [sectionId]: !prev[sectionId]
-            }));
-        };
+    // Component to display plan details in a formatted way
+    const PlanDetailsDisplay = ({ planData, plansFilling = {}, coursesTaken = [], planIndex = 0 }) => {
+        const [selectedOptions, setSelectedOptions] = useState({});
 
         const handleOptionChange = (sectionId, value) => {
             setSelectedOptions(prev => ({
                 ...prev,
                 [sectionId]: value
             }));
-            
-            // Update selected sub-plans state
-            if (value) {
-                setSelectedSubPlans(prev => ({
-                    ...prev,
-                    [planIndex]: value
-                }));
-            } else {
-                setSelectedSubPlans(prev => {
-                    const newSelected = { ...prev };
-                    delete newSelected[planIndex];
-                    return newSelected;
-                });
-            }
+        
+            // Update selected sub-plans state (as an array)
+            setSelectedSubPlans(prev => {
+                const arr = [...prev];
+                arr[planIndex] = value || null;
+                return arr;
+            });
+        
+            // TODO: Add logic to update plansFilling, etc.
         };
 
         const renderSection = (sectionKey, sectionData, sectionLevel = 0, parentPath = '') => {
@@ -662,7 +543,7 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
                 return (
                     <div key={sectionId} className={`${indentClass} space-y-2`}>
                         <div className="font-semibold text-gray-800">
-                            {sectionData.title || sectionKey}
+                            {sectionData.title}
                         </div>
                         {sectionData.subsections.map((subsection, idx) => (
                             <div key={`${sectionId}-${idx}`} className="">
@@ -826,7 +707,7 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
                     {hasPlan && (
                         <div>
                             <select
-                                value={selectedOptions[subsectionId] || ''}
+                                value={selectedSubPlans[planIndex] || ''}
                                 onChange={(e) => handleOptionChange(subsectionId, e.target.value)}
                                 className="border border-gray-300 rounded px-2 py-1 text-sm"
                             >
@@ -838,7 +719,7 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
                                 ))}
                             </select>
                             
-                            {selectedOptions[subsectionId] && (
+                            {selectedSubPlans[planIndex] && (
                                 <div className="mt-2">
                                     {renderSection(
                                         selectedOptions[subsectionId],
@@ -948,7 +829,7 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
                         {responses[idx] && (
                             <>
                             <div className='mt-2 p-3 bg-gray-100 rounded-lg flex flex-row items-center gap-6'>
-                                {/* Left: Circular Progress */}
+                                {/* Left: Circular Progress for the plan */}
                                 <div className='flex items-center justify-center'>
                                         {(() => {
                                             const { completed, required } = getPlanProgressFromFilling(idx);

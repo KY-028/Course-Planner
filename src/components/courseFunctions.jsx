@@ -248,7 +248,10 @@ export function fillPlanReq(newCourse, coursesTaken, plans, plansFilling, origin
 
 // Helper function to get plan prefix (e.g., "major1-", "minor-")
 export function getPlanPrefix(planIndex, plan) {
-    if (!plan || !plan.title) return `plan${planIndex}-`;
+    if (!plan || !plan.title) {
+        console.alert("An unexpected error occurred. Please refresh and restart.");
+        return;
+    }
     
     const title = plan.title.toLowerCase();
     if (title.includes('major')) {
@@ -264,6 +267,7 @@ export function getPlanPrefix(planIndex, plan) {
     if (title.includes('specialization')) return 'specialization-';
     if (title.includes('joint')) return 'joint-';
     
+    console.error("An unexpected error occurred. Please refresh and restart.");
     return `plan${planIndex}-`;
 }
 
@@ -415,36 +419,35 @@ export function calculateSectionUnits(section) {
     return 0;
 }
 
+function processSection(sectionKey, sectionData, plansFillingMap, parentPrefix = '', planPrefix = '') {
+    if (!sectionData.subsections) return;
+    if (sectionData.plan) {
+        // remove the old prefix and add the ones for the specific plan
+
+    }
+    // for every subsection in the section, create a requirementId and add it to the plansFillingMap
+    sectionData.subsections.forEach((subsection) => {
+        const requirementId = `${parentPrefix}${sectionKey}${subsection.id}`;
+        const unitsRequired = calculateSectionUnits(subsection);
+        plansFillingMap[requirementId] = {
+            unitsRequired,
+            unitsCompleted: 0,
+            courses: []
+        };
+    });
+}
+
 // Recursively build plansFilling for a plan object
 export function establishPlansFilling(planData, planPrefix = '') {
     const plansFillingMap = {};
 
-    function processSection(sectionKey, sectionData, parentPrefix = '') {
-        if (!sectionData.subsections) return;
-        sectionData.subsections.forEach((subsection) => {
-            const requirementId = `${parentPrefix}${planPrefix}${sectionKey}${subsection.id}`;
-            const unitsRequired = calculateSectionUnits(subsection);
-            plansFillingMap[requirementId] = {
-                unitsRequired,
-                unitsCompleted: 0,
-                courses: []
-            };
-            // Process nested plans if they exist
-            if (subsection.plan) {
-                Object.entries(subsection.plan).forEach(([planKey, planObj]) => {
-                    // Use planKey as part of the prefix for uniqueness
-                    processSection(planKey, planObj, `${requirementId}-`);
-                });
-            }
-        });
-    }
-
-    // Process all sections
+    // Process all sections (sectionKey = name, sectionData = object)
     Object.entries(planData).forEach(([sectionKey, sectionData]) => {
         if (!['title', 'electives', 'units'].includes(sectionKey)) {
-            processSection(sectionKey, sectionData);
+            processSection(sectionKey, sectionData, plansFillingMap, planPrefix);
         }
     });
+
     return plansFillingMap;
 }
 
