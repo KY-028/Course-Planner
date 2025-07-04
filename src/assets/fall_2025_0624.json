@@ -1248,6 +1248,7 @@
         "STAT463 E Wednesday 8:30-9:30 Levit,Boris",
         "STAT463 E Thursday 10:30-11:30 Levit,Boris"
     ],
+    
     "BIOL102_1": [
         "BIOL102_1",
         "Fundamentals of Biology: Molecular and Cell Biology",
@@ -1255,11 +1256,11 @@
         [
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
-            "BIOSCI RM2326"
+            "BIOSCI RM2325"
         ],
         "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
         "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
-        "BIOL102 E Tuesday 14:30-16:00 Regan,Sharon"
+        "BIOL102 E Tuesday 16:00-17:30 Regan,Sharon"
     ],
     "BIOL102_2": [
         "BIOL102_2",
@@ -1268,11 +1269,11 @@
         [
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
-            "BIOSCI RM2319"
+            "BIOSCI RM2325"
         ],
         "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
         "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
-        "BIOL102 E Tuesday 16:00-17:30 Regan,Sharon"
+        "BIOL102 E Thursday 16:00-17:30 Regan,Sharon"
     ],
     "BIOL102_3": [
         "BIOL102_3",
@@ -1285,49 +1286,10 @@
         ],
         "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
         "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
-        "BIOL102 E Tuesday 16:00-17:30 Regan,Sharon"
+        "BIOL102 E Thursday 16:00-17:30 Regan,Sharon"
     ],
     "BIOL102_4": [
         "BIOL102_4",
-        "Fundamentals of Biology: Molecular and Cell Biology",
-        "Regan,Sharon",
-        [
-            "DUNCAN MCARTHUR RM B101",
-            "DUNCAN MCARTHUR RM B101",
-            "BIOSCI RM2326"
-        ],
-        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
-        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
-        "BIOL102 E Tuesday 16:00-17:30 Regan,Sharon"
-    ],
-    "BIOL102_5": [
-        "BIOL102_5",
-        "Fundamentals of Biology: Molecular and Cell Biology",
-        "Regan,Sharon",
-        [
-            "DUNCAN MCARTHUR RM B101",
-            "DUNCAN MCARTHUR RM B101",
-            "BIOSCI RM2325"
-        ],
-        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
-        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
-        "BIOL102 E Tuesday 16:00-17:30 Regan,Sharon"
-    ],
-    "BIOL102_6": [
-        "BIOL102_6",
-        "Fundamentals of Biology: Molecular and Cell Biology",
-        "Regan,Sharon",
-        [
-            "DUNCAN MCARTHUR RM B101",
-            "DUNCAN MCARTHUR RM B101",
-            "BIOSCI RM2325"
-        ],
-        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
-        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
-        "BIOL102 E Wednesday 8:30-10:00 Regan,Sharon"
-    ],
-    "BIOL102_7": [
-        "BIOL102_7",
         "Fundamentals of Biology: Molecular and Cell Biology",
         "Regan,Sharon",
         [
@@ -1337,7 +1299,46 @@
         ],
         "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
         "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
-        "BIOL102 E Wednesday 8:30-10:00 Regan,Sharon"
+        "BIOL102 E Thursday 16:00-17:30 Regan,Sharon"
+    ],
+    "BIOL102_5": [
+        "BIOL102_5",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2319"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Thursday 14:30-16:00 Regan,Sharon"
+    ],
+    "BIOL102_6": [
+        "BIOL102_6",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2326"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Thursday 14:30-16:00 Regan,Sharon"
+    ],
+    "BIOL102_7": [
+        "BIOL102_7",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2325"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Thursday 14:30-16:00 Regan,Sharon"
     ],
     "BIOL102_8": [
         "BIOL102_8",
@@ -1350,49 +1351,10 @@
         ],
         "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
         "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
-        "BIOL102 E Wednesday 8:30-10:00 Regan,Sharon"
+        "BIOL102 E Thursday 14:30-16:00 Regan,Sharon"
     ],
     "BIOL102_9": [
         "BIOL102_9",
-        "Fundamentals of Biology: Molecular and Cell Biology",
-        "Regan,Sharon",
-        [
-            "DUNCAN MCARTHUR RM B101",
-            "DUNCAN MCARTHUR RM B101",
-            "BIOSCI RM2319"
-        ],
-        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
-        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
-        "BIOL102 E Wednesday 10:00-11:30 Regan,Sharon"
-    ],
-    "BIOL102_10": [
-        "BIOL102_10",
-        "Fundamentals of Biology: Molecular and Cell Biology",
-        "Regan,Sharon",
-        [
-            "DUNCAN MCARTHUR RM B101",
-            "DUNCAN MCARTHUR RM B101",
-            "BIOSCI RM2320"
-        ],
-        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
-        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
-        "BIOL102 E Wednesday 10:00-11:30 Regan,Sharon"
-    ],
-    "BIOL102_11": [
-        "BIOL102_11",
-        "Fundamentals of Biology: Molecular and Cell Biology",
-        "Regan,Sharon",
-        [
-            "DUNCAN MCARTHUR RM B101",
-            "DUNCAN MCARTHUR RM B101",
-            "BIOSCI RM2325"
-        ],
-        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
-        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
-        "BIOL102 E Wednesday 10:00-11:30 Regan,Sharon"
-    ],
-    "BIOL102_12": [
-        "BIOL102_12",
         "Fundamentals of Biology: Molecular and Cell Biology",
         "Regan,Sharon",
         [
@@ -1402,7 +1364,46 @@
         ],
         "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
         "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
-        "BIOL102 E Wednesday 10:00-11:30 Regan,Sharon"
+        "BIOL102 E Wednesday 16:00-17:30 Regan,Sharon"
+    ],
+    "BIOL102_10": [
+        "BIOL102_10",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2325"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Wednesday 16:00-17:30 Regan,Sharon"
+    ],
+    "BIOL102_11": [
+        "BIOL102_11",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2320"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Wednesday 16:00-17:30 Regan,Sharon"
+    ],
+    "BIOL102_12": [
+        "BIOL102_12",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2319"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Wednesday 16:00-17:30 Regan,Sharon"
     ],
     "BIOL102_13": [
         "BIOL102_13",
@@ -1411,7 +1412,7 @@
         [
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
-            "BIOSCI RM2319"
+            "BIOSCI RM2326"
         ],
         "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
         "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
@@ -1424,7 +1425,7 @@
         [
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
-            "BIOSCI RM2320"
+            "BIOSCI RM2325"
         ],
         "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
         "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
@@ -1437,7 +1438,7 @@
         [
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
-            "BIOSCI RM2325"
+            "BIOSCI RM2320"
         ],
         "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
         "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
@@ -1450,7 +1451,7 @@
         [
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
-            "BIOSCI RM2326"
+            "BIOSCI RM2319"
         ],
         "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
         "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
@@ -1463,40 +1464,14 @@
         [
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
-            "BIOSCI RM2319"
+            "BIOSCI RM2326"
         ],
         "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
         "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
-        "BIOL102 E Wednesday 16:00-17:30 Regan,Sharon"
+        "BIOL102 E Thursday 16:00-17:30 Regan,Sharon"
     ],
     "BIOL102_18": [
         "BIOL102_18",
-        "Fundamentals of Biology: Molecular and Cell Biology",
-        "Regan,Sharon",
-        [
-            "DUNCAN MCARTHUR RM B101",
-            "DUNCAN MCARTHUR RM B101",
-            "BIOSCI RM2320"
-        ],
-        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
-        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
-        "BIOL102 E Wednesday 16:00-17:30 Regan,Sharon"
-    ],
-    "BIOL102_19": [
-        "BIOL102_19",
-        "Fundamentals of Biology: Molecular and Cell Biology",
-        "Regan,Sharon",
-        [
-            "DUNCAN MCARTHUR RM B101",
-            "DUNCAN MCARTHUR RM B101",
-            "BIOSCI RM2325"
-        ],
-        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
-        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
-        "BIOL102 E Wednesday 16:00-17:30 Regan,Sharon"
-    ],
-    "BIOL102_20": [
-        "BIOL102_20",
         "Fundamentals of Biology: Molecular and Cell Biology",
         "Regan,Sharon",
         [
@@ -1506,10 +1481,23 @@
         ],
         "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
         "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
-        "BIOL102 E Wednesday 16:00-17:30 Regan,Sharon"
+        "BIOL102 E Tuesday 16:00-17:30 Regan,Sharon"
     ],
-    "BIOL102_21": [
-        "BIOL102_21",
+    "BIOL102_19": [
+        "BIOL102_19",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2320"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Tuesday 16:00-17:30 Regan,Sharon"
+    ],
+    "BIOL102_20": [
+        "BIOL102_20",
         "Fundamentals of Biology: Molecular and Cell Biology",
         "Regan,Sharon",
         [
@@ -1519,7 +1507,20 @@
         ],
         "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
         "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
-        "BIOL102 E Thursday 8:30-10:00 Regan,Sharon"
+        "BIOL102 E Tuesday 16:00-17:30 Regan,Sharon"
+    ],
+    "BIOL102_21": [
+        "BIOL102_21",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "BIOSCI RM2326"
+        ],
+        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
+        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
+        "BIOL102 E Tuesday 14:30-16:00 Regan,Sharon"
     ],
     "BIOL102_22": [
         "BIOL102_22",
@@ -1532,7 +1533,7 @@
         ],
         "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
         "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
-        "BIOL102 E Thursday 8:30-10:00 Regan,Sharon"
+        "BIOL102 E Monday 16:00-17:30 Regan,Sharon"
     ],
     "BIOL102_23": [
         "BIOL102_23",
@@ -1541,11 +1542,11 @@
         [
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
-            "BIOSCI RM2325"
+            "BIOSCI RM2319"
         ],
         "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
         "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
-        "BIOL102 E Thursday 8:30-10:00 Regan,Sharon"
+        "BIOL102 E Monday 16:00-17:30 Regan,Sharon"
     ],
     "BIOL102_24": [
         "BIOL102_24",
@@ -1558,7 +1559,7 @@
         ],
         "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
         "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
-        "BIOL102 E Thursday 8:30-10:00 Regan,Sharon"
+        "BIOL102 E Monday 14:30-16:00 Regan,Sharon"
     ],
     "BIOL102_25": [
         "BIOL102_25",
@@ -1567,11 +1568,11 @@
         [
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
-            "BIOSCI RM2319"
+            "BIOSCI RM2325"
         ],
         "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
         "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
-        "BIOL102 E Thursday 10:00-11:30 Regan,Sharon"
+        "BIOL102 E Monday 14:30-16:00 Regan,Sharon"
     ],
     "BIOL102_26": [
         "BIOL102_26",
@@ -1584,7 +1585,7 @@
         ],
         "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
         "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
-        "BIOL102 E Thursday 10:00-11:30 Regan,Sharon"
+        "BIOL102 E Monday 14:30-16:00 Regan,Sharon"
     ],
     "BIOL102_27": [
         "BIOL102_27",
@@ -1593,118 +1594,40 @@
         [
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
-            "BIOSCI RM2325"
+            "BIOSCI RM2319"
         ],
         "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
         "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
-        "BIOL102 E Thursday 10:00-11:30 Regan,Sharon"
+        "BIOL102 E Monday 14:30-16:00 Regan,Sharon"
     ],
     "BIOL102_28": [
         "BIOL102_28",
         "Fundamentals of Biology: Molecular and Cell Biology",
         "Regan,Sharon",
         [
-            "DUNCAN MCARTHUR RM B101",
-            "DUNCAN MCARTHUR RM B101",
-            "BIOSCI RM2325"
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2320"
         ],
-        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
-        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
-        "BIOL102 E Thursday 14:30-16:00 Regan,Sharon"
+        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
+        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
+        "BIOL102 E Monday 8:30-10:00 Regan,Sharon"
     ],
     "BIOL102_29": [
         "BIOL102_29",
         "Fundamentals of Biology: Molecular and Cell Biology",
         "Regan,Sharon",
         [
-            "DUNCAN MCARTHUR RM B101",
-            "DUNCAN MCARTHUR RM B101",
-            "BIOSCI RM2319"
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2320"
         ],
-        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
-        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
-        "BIOL102 E Thursday 14:30-16:00 Regan,Sharon"
+        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
+        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
+        "BIOL102 E Thursday 10:00-11:30 Regan,Sharon"
     ],
     "BIOL102_30": [
         "BIOL102_30",
-        "Fundamentals of Biology: Molecular and Cell Biology",
-        "Regan,Sharon",
-        [
-            "DUNCAN MCARTHUR RM B101",
-            "DUNCAN MCARTHUR RM B101",
-            "BIOSCI RM2319"
-        ],
-        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
-        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
-        "BIOL102 E Thursday 14:30-16:00 Regan,Sharon"
-    ],
-    "BIOL102_31": [
-        "BIOL102_31",
-        "Fundamentals of Biology: Molecular and Cell Biology",
-        "Regan,Sharon",
-        [
-            "DUNCAN MCARTHUR RM B101",
-            "DUNCAN MCARTHUR RM B101",
-            "BIOSCI RM2319"
-        ],
-        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
-        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
-        "BIOL102 E Thursday 16:00-17:30 Regan,Sharon"
-    ],
-    "BIOL102_32": [
-        "BIOL102_32",
-        "Fundamentals of Biology: Molecular and Cell Biology",
-        "Regan,Sharon",
-        [
-            "DUNCAN MCARTHUR RM B101",
-            "DUNCAN MCARTHUR RM B101",
-            "BIOSCI RM2320"
-        ],
-        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
-        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
-        "BIOL102 E Thursday 16:00-17:30 Regan,Sharon"
-    ],
-    "BIOL102_33": [
-        "BIOL102_33",
-        "Fundamentals of Biology: Molecular and Cell Biology",
-        "Regan,Sharon",
-        [
-            "DUNCAN MCARTHUR RM B101",
-            "DUNCAN MCARTHUR RM B101",
-            "BIOSCI RM2325"
-        ],
-        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
-        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
-        "BIOL102 E Thursday 16:00-17:30 Regan,Sharon"
-    ],
-    "BIOL102_34": [
-        "BIOL102_34",
-        "Fundamentals of Biology: Molecular and Cell Biology",
-        "Regan,Sharon",
-        [
-            "DUNCAN MCARTHUR RM B101",
-            "DUNCAN MCARTHUR RM B101",
-            "BIOSCI RM2326"
-        ],
-        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
-        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
-        "BIOL102 E Thursday 16:00-17:30 Regan,Sharon"
-    ],
-    "BIOL102_35": [
-        "BIOL102_35",
-        "Fundamentals of Biology: Molecular and Cell Biology",
-        "Regan,Sharon",
-        [
-            "DUNCAN MCARTHUR RM B101",
-            "DUNCAN MCARTHUR RM B101",
-            "BIOSCI RM2319"
-        ],
-        "BIOL102 W Wednesday 9:30-10:30 Regan,Sharon",
-        "BIOL102 W Friday 8:30-9:30 Regan,Sharon",
-        "BIOL102 E Thursday 14:30-16:00 Regan,Sharon"
-    ],
-    "BIOL102_36": [
-        "BIOL102_36",
         "Fundamentals of Biology: Molecular and Cell Biology",
         "Regan,Sharon",
         [
@@ -1714,7 +1637,85 @@
         ],
         "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
         "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
-        "BIOL102 E Monday 8:30-10:00 Regan,Sharon"
+        "BIOL102 E Monday 10:00-11:30 Regan,Sharon"
+    ],
+    "BIOL102_31": [
+        "BIOL102_31",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2320"
+        ],
+        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
+        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
+        "BIOL102 E Monday 10:00-11:30 Regan,Sharon"
+    ],
+    "BIOL102_32": [
+        "BIOL102_32",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2319"
+        ],
+        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
+        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
+        "BIOL102 E Tuesday 10:00-11:30 Regan,Sharon"
+    ],
+    "BIOL102_33": [
+        "BIOL102_33",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2325"
+        ],
+        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
+        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
+        "BIOL102 E Tuesday 10:00-11:30 Regan,Sharon"
+    ],
+    "BIOL102_34": [
+        "BIOL102_34",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2319"
+        ],
+        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
+        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
+        "BIOL102 E Tuesday 14:30-16:00 Regan,Sharon"
+    ],
+    "BIOL102_35": [
+        "BIOL102_35",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2320"
+        ],
+        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
+        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
+        "BIOL102 E Tuesday 14:30-16:00 Regan,Sharon"
+    ],
+    "BIOL102_36": [
+        "BIOL102_36",
+        "Fundamentals of Biology: Molecular and Cell Biology",
+        "Regan,Sharon",
+        [
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI RM2325"
+        ],
+        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
+        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
+        "BIOL102 E Tuesday 14:30-16:00 Regan,Sharon"
     ],
     "BIOL102_37": [
         "BIOL102_37",
@@ -1727,7 +1728,7 @@
         ],
         "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
         "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
-        "BIOL102 E Monday 8:30-10:00 Regan,Sharon"
+        "BIOL102 E Thursday 10:00-11:30 Regan,Sharon"
     ],
     "BIOL102_38": [
         "BIOL102_38",
@@ -1736,11 +1737,11 @@
         [
             "BIOSCI 1101",
             "BIOSCI 1101",
-            "BIOSCI RM2326"
+            "BIOSCI RM2325"
         ],
         "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
         "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
-        "BIOL102 E Monday 8:30-10:00 Regan,Sharon"
+        "BIOL102 E Monday 16:00-17:30 Regan,Sharon"
     ],
     "BIOL102_39": [
         "BIOL102_39",
@@ -1749,11 +1750,11 @@
         [
             "BIOSCI 1101",
             "BIOSCI 1101",
-            "BIOSCI RM2319"
+            "BIOSCI RM2326"
         ],
         "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
         "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
-        "BIOL102 E Monday 10:00-11:30 Regan,Sharon"
+        "BIOL102 E Monday 16:00-17:30 Regan,Sharon"
     ],
     "BIOL102_40": [
         "BIOL102_40",
@@ -1762,140 +1763,140 @@
         [
             "BIOSCI 1101",
             "BIOSCI 1101",
-            "BIOSCI RM2325"
+            "BIOSCI RM2319"
         ],
         "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
         "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
-        "BIOL102 E Monday 10:00-11:30 Regan,Sharon"
+        "BIOL102 E Monday 8:30-10:00 Regan,Sharon"
     ],
     "BIOL102_41": [
         "BIOL102_41",
         "Fundamentals of Biology: Molecular and Cell Biology",
         "Regan,Sharon",
         [
-            "BIOSCI 1101",
-            "BIOSCI 1101",
-            "BIOSCI RM2326"
+            "DUNNING AUD",
+            "DUNNING AUD",
+            "BIOSCI RM2325"
         ],
-        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
-        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
-        "BIOL102 E Monday 10:00-11:30 Regan,Sharon"
+        "BIOL102 E Monday 14:30-15:30 Regan,Sharon",
+        "BIOL102 E Thursday 15:30-16:30 Regan,Sharon",
+        "BIOL102 E Monday 8:30-10:00 Regan,Sharon"
     ],
     "BIOL102_42": [
         "BIOL102_42",
         "Fundamentals of Biology: Molecular and Cell Biology",
         "Regan,Sharon",
         [
-            "BIOSCI 1101",
-            "BIOSCI 1101",
-            "BIOSCI RM2319"
+            "DUNNING AUD",
+            "DUNNING AUD",
+            "BIOSCI RM2326"
         ],
-        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
-        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
-        "BIOL102 E Monday 14:30-16:00 Regan,Sharon"
+        "BIOL102 E Monday 14:30-15:30 Regan,Sharon",
+        "BIOL102 E Thursday 15:30-16:30 Regan,Sharon",
+        "BIOL102 E Monday 8:30-10:00 Regan,Sharon"
     ],
     "BIOL102_43": [
         "BIOL102_43",
         "Fundamentals of Biology: Molecular and Cell Biology",
         "Regan,Sharon",
         [
-            "BIOSCI 1101",
-            "BIOSCI 1101",
+            "DUNNING AUD",
+            "DUNNING AUD",
             "BIOSCI RM2325"
         ],
-        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
-        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
-        "BIOL102 E Monday 14:30-16:00 Regan,Sharon"
+        "BIOL102 E Monday 14:30-15:30 Regan,Sharon",
+        "BIOL102 E Thursday 15:30-16:30 Regan,Sharon",
+        "BIOL102 E Monday 10:00-11:30 Regan,Sharon"
     ],
     "BIOL102_44": [
         "BIOL102_44",
         "Fundamentals of Biology: Molecular and Cell Biology",
         "Regan,Sharon",
         [
-            "BIOSCI 1101",
-            "BIOSCI 1101",
+            "DUNNING AUD",
+            "DUNNING AUD",
             "BIOSCI RM2326"
         ],
-        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
-        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
-        "BIOL102 E Monday 14:30-16:00 Regan,Sharon"
+        "BIOL102 E Monday 14:30-15:30 Regan,Sharon",
+        "BIOL102 E Thursday 15:30-16:30 Regan,Sharon",
+        "BIOL102 E Monday 10:00-11:30 Regan,Sharon"
     ],
     "BIOL102_45": [
         "BIOL102_45",
         "Fundamentals of Biology: Molecular and Cell Biology",
         "Regan,Sharon",
         [
-            "BIOSCI 1101",
-            "BIOSCI 1101",
+            "DUNNING AUD",
+            "DUNNING AUD",
             "BIOSCI RM2319"
         ],
-        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
-        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
-        "BIOL102 E Monday 16:00-17:30 Regan,Sharon"
+        "BIOL102 E Monday 14:30-15:30 Regan,Sharon",
+        "BIOL102 E Thursday 15:30-16:30 Regan,Sharon",
+        "BIOL102 E Wednesday 10:00-11:30 Regan,Sharon"
     ],
     "BIOL102_46": [
         "BIOL102_46",
         "Fundamentals of Biology: Molecular and Cell Biology",
         "Regan,Sharon",
         [
-            "BIOSCI 1101",
-            "BIOSCI 1101",
-            "BIOSCI RM2325"
+            "DUNNING AUD",
+            "DUNNING AUD",
+            "BIOSCI RM2320"
         ],
-        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
-        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
-        "BIOL102 E Monday 16:00-17:30 Regan,Sharon"
+        "BIOL102 E Monday 14:30-15:30 Regan,Sharon",
+        "BIOL102 E Thursday 15:30-16:30 Regan,Sharon",
+        "BIOL102 E Wednesday 10:00-11:30 Regan,Sharon"
     ],
     "BIOL102_47": [
         "BIOL102_47",
         "Fundamentals of Biology: Molecular and Cell Biology",
         "Regan,Sharon",
         [
-            "BIOSCI 1101",
-            "BIOSCI 1101",
-            "BIOSCI RM2326"
+            "DUNNING AUD",
+            "DUNNING AUD",
+            "BIOSCI RM2325"
         ],
-        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
-        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
-        "BIOL102 E Monday 16:00-17:30 Regan,Sharon"
+        "BIOL102 E Monday 14:30-15:30 Regan,Sharon",
+        "BIOL102 E Thursday 15:30-16:30 Regan,Sharon",
+        "BIOL102 E Wednesday 10:00-11:30 Regan,Sharon"
     ],
     "BIOL102_48": [
         "BIOL102_48",
         "Fundamentals of Biology: Molecular and Cell Biology",
         "Regan,Sharon",
         [
-            "BIOSCI 1101",
-            "BIOSCI 1101",
-            "BIOSCI RM2319"
+            "DUNNING AUD",
+            "DUNNING AUD",
+            "BIOSCI RM2326"
         ],
-        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
-        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
-        "BIOL102 E Tuesday 8:30-10:00 Regan,Sharon"
+        "BIOL102 E Monday 14:30-15:30 Regan,Sharon",
+        "BIOL102 E Thursday 15:30-16:30 Regan,Sharon",
+        "BIOL102 E Wednesday 10:00-11:30 Regan,Sharon"
     ],
     "BIOL102_49": [
         "BIOL102_49",
         "Fundamentals of Biology: Molecular and Cell Biology",
         "Regan,Sharon",
         [
-            "BIOSCI 1101",
-            "BIOSCI 1101",
-            "BIOSCI RM2325"
+            "DUNNING AUD",
+            "DUNNING AUD",
+            "BIOSCI RM2319"
         ],
-        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
-        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
-        "BIOL102 E Tuesday 8:30-10:00 Regan,Sharon"
+        "BIOL102 E Monday 14:30-15:30 Regan,Sharon",
+        "BIOL102 E Thursday 15:30-16:30 Regan,Sharon",
+        "BIOL102 E Thursday 8:30-10:00 Regan,Sharon"
     ],
     "BIOL102_50": [
         "BIOL102_50",
         "Fundamentals of Biology: Molecular and Cell Biology",
         "Regan,Sharon",
         [
-            "BIOSCI 1101",
-            "BIOSCI 1101",
-            "BIOSCI RM2326"
+            "DUNNING AUD",
+            "DUNNING AUD",
+            "BIOSCI RM2319"
         ],
-        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
-        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
+        "BIOL102 E Monday 14:30-15:30 Regan,Sharon",
+        "BIOL102 E Thursday 15:30-16:30 Regan,Sharon",
         "BIOL102 E Tuesday 8:30-10:00 Regan,Sharon"
     ],
     "BIOL102_51": [
@@ -1903,39 +1904,39 @@
         "Fundamentals of Biology: Molecular and Cell Biology",
         "Regan,Sharon",
         [
-            "BIOSCI 1101",
-            "BIOSCI 1101",
+            "DUNNING AUD",
+            "DUNNING AUD",
             "BIOSCI RM2320"
         ],
-        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
-        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
-        "BIOL102 E Tuesday 14:30-16:00 Regan,Sharon"
+        "BIOL102 E Monday 14:30-15:30 Regan,Sharon",
+        "BIOL102 E Thursday 15:30-16:30 Regan,Sharon",
+        "BIOL102 E Tuesday 8:30-10:00 Regan,Sharon"
     ],
     "BIOL102_52": [
         "BIOL102_52",
         "Fundamentals of Biology: Molecular and Cell Biology",
         "Regan,Sharon",
         [
-            "BIOSCI 1101",
-            "BIOSCI 1101",
+            "DUNNING AUD",
+            "DUNNING AUD",
             "BIOSCI RM2325"
         ],
-        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
-        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
-        "BIOL102 E Tuesday 14:30-16:00 Regan,Sharon"
+        "BIOL102 E Monday 14:30-15:30 Regan,Sharon",
+        "BIOL102 E Thursday 15:30-16:30 Regan,Sharon",
+        "BIOL102 E Tuesday 8:30-10:00 Regan,Sharon"
     ],
     "BIOL102_53": [
         "BIOL102_53",
         "Fundamentals of Biology: Molecular and Cell Biology",
         "Regan,Sharon",
         [
-            "BIOSCI 1101",
-            "BIOSCI 1101",
-            "BIOSCI RM2320"
+            "DUNNING AUD",
+            "DUNNING AUD",
+            "BIOSCI RM2326"
         ],
-        "BIOL102 E Wednesday 12:30-13:30 Regan,Sharon",
-        "BIOL102 E Friday 11:30-12:30 Regan,Sharon",
-        "BIOL102 E Thursday 14:30-16:00 Regan,Sharon"
+        "BIOL102 E Monday 14:30-15:30 Regan,Sharon",
+        "BIOL102 E Thursday 15:30-16:30 Regan,Sharon",
+        "BIOL102 E Tuesday 8:30-10:00 Regan,Sharon"
     ],
     "BIOL102_54": [
         "BIOL102_54",
@@ -1948,7 +1949,7 @@
         ],
         "BIOL102 E Monday 14:30-15:30 Regan,Sharon",
         "BIOL102 E Thursday 15:30-16:30 Regan,Sharon",
-        "BIOL102 E Monday 8:30-10:00 Regan,Sharon"
+        "BIOL102 E Thursday 8:30-10:00 Regan,Sharon"
     ],
     "BIOL102_55": [
         "BIOL102_55",
@@ -1961,75 +1962,10 @@
         ],
         "BIOL102 E Monday 14:30-15:30 Regan,Sharon",
         "BIOL102 E Thursday 15:30-16:30 Regan,Sharon",
-        "BIOL102 E Monday 10:00-11:30 Regan,Sharon"
+        "BIOL102 E Wednesday 8:30-10:00 Regan,Sharon"
     ],
     "BIOL102_56": [
         "BIOL102_56",
-        "Fundamentals of Biology: Molecular and Cell Biology",
-        "Regan,Sharon",
-        [
-            "DUNNING AUD",
-            "DUNNING AUD",
-            "BIOSCI RM2320"
-        ],
-        "BIOL102 E Monday 14:30-15:30 Regan,Sharon",
-        "BIOL102 E Thursday 15:30-16:30 Regan,Sharon",
-        "BIOL102 E Monday 14:30-16:00 Regan,Sharon"
-    ],
-    "BIOL102_57": [
-        "BIOL102_57",
-        "Fundamentals of Biology: Molecular and Cell Biology",
-        "Regan,Sharon",
-        [
-            "DUNNING AUD",
-            "DUNNING AUD",
-            "BIOSCI RM2320"
-        ],
-        "BIOL102 E Monday 14:30-15:30 Regan,Sharon",
-        "BIOL102 E Thursday 15:30-16:30 Regan,Sharon",
-        "BIOL102 E Monday 16:00-17:30 Regan,Sharon"
-    ],
-    "BIOL102_58": [
-        "BIOL102_58",
-        "Fundamentals of Biology: Molecular and Cell Biology",
-        "Regan,Sharon",
-        [
-            "DUNNING AUD",
-            "DUNNING AUD",
-            "BIOSCI RM2320"
-        ],
-        "BIOL102 E Monday 14:30-15:30 Regan,Sharon",
-        "BIOL102 E Thursday 15:30-16:30 Regan,Sharon",
-        "BIOL102 E Tuesday 8:30-10:00 Regan,Sharon"
-    ],
-    "BIOL102_59": [
-        "BIOL102_59",
-        "Fundamentals of Biology: Molecular and Cell Biology",
-        "Regan,Sharon",
-        [
-            "DUNNING AUD",
-            "DUNNING AUD",
-            "BIOSCI RM2319"
-        ],
-        "BIOL102 E Monday 14:30-15:30 Regan,Sharon",
-        "BIOL102 E Thursday 15:30-16:30 Regan,Sharon",
-        "BIOL102 E Tuesday 10:00-11:30 Regan,Sharon"
-    ],
-    "BIOL102_60": [
-        "BIOL102_60",
-        "Fundamentals of Biology: Molecular and Cell Biology",
-        "Regan,Sharon",
-        [
-            "DUNNING AUD",
-            "DUNNING AUD",
-            "BIOSCI RM2320"
-        ],
-        "BIOL102 E Monday 14:30-15:30 Regan,Sharon",
-        "BIOL102 E Thursday 15:30-16:30 Regan,Sharon",
-        "BIOL102 E Tuesday 10:00-11:30 Regan,Sharon"
-    ],
-    "BIOL102_61": [
-        "BIOL102_61",
         "Fundamentals of Biology: Molecular and Cell Biology",
         "Regan,Sharon",
         [
@@ -2039,33 +1975,20 @@
         ],
         "BIOL102 E Monday 14:30-15:30 Regan,Sharon",
         "BIOL102 E Thursday 15:30-16:30 Regan,Sharon",
-        "BIOL102 E Tuesday 10:00-11:30 Regan,Sharon"
+        "BIOL102 E Thursday 8:30-10:00 Regan,Sharon"
     ],
-    "BIOL102_62": [
-        "BIOL102_62",
+    "BIOL102_57": [
+        "BIOL102_57",
         "Fundamentals of Biology: Molecular and Cell Biology",
         "Regan,Sharon",
         [
             "DUNNING AUD",
             "DUNNING AUD",
-            "BIOSCI RM2319"
+            "BIOSCI RM2326"
         ],
         "BIOL102 E Monday 14:30-15:30 Regan,Sharon",
         "BIOL102 E Thursday 15:30-16:30 Regan,Sharon",
-        "BIOL102 E Tuesday 14:30-16:00 Regan,Sharon"
-    ],
-    "BIOL102_63": [
-        "BIOL102_63",
-        "Fundamentals of Biology: Molecular and Cell Biology",
-        "Regan,Sharon",
-        [
-            "DUNNING AUD",
-            "DUNNING AUD",
-            "BIOSCI RM2320"
-        ],
-        "BIOL102 E Monday 14:30-15:30 Regan,Sharon",
-        "BIOL102 E Thursday 15:30-16:30 Regan,Sharon",
-        "BIOL102 E Thursday 14:30-16:00 Regan,Sharon"
+        "BIOL102 E Thursday 8:30-10:00 Regan,Sharon"
     ],
     "BIOL205_1": [
         "BIOL205_1",
