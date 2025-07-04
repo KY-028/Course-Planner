@@ -553,6 +553,17 @@
         "COGS201 E Tuesday 13:30-14:30 Lamb,Carolyn",
         "COGS201 E Thursday 12:30-13:30 Lamb,Carolyn"
     ],
+    "COCA201_1": [
+        "COCA201",
+        "Intro. to Computing and the Creative Arts",
+        "Nabil,Sara",
+        [
+            "ELLIS RM333",
+            "ELLIS RM333"
+        ],
+        "COCA201 U Monday 16:00-17:30 Nabil,Sara",
+        "COCA201 U Wednesday 14:30-16:00 Nabil,Sara"
+    ],
     "MATH110_1": [
         "MATH110",
         "Linear Algebra",
