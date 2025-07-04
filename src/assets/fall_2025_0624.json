@@ -553,6 +553,19 @@
         "COGS100 E Wednesday 12:30-13:30 Lamb,Carolyn",
         "COGS100 E Friday 11:30-12:30 Lamb,Carolyn"
     ],
+    "ARIN100_1": [
+        "ARIN100",
+        "Fund. of Artificial Intelligence",
+        "Lamb,Carolyn",
+        [
+            "KINES & HLTH RM100",
+            "KINES & HLTH RM100",
+            "KINES & HLTH RM100"
+        ],
+        "ARIN100 E Monday 9:30-10:30 Lamb,Carolyn",
+        "ARIN100 E Wednesday 8:30-9:30 Lamb,Carolyn",
+        "ARIN100 E Thursday 10:30-11:30 Lamb,Carolyn"
+    ],
     "MATH110_1": [
         "MATH110",
         "Linear Algebra",
