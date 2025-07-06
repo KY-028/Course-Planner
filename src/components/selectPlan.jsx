@@ -51,12 +51,16 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
 
     // Debug purposes
     useEffect(() => {
-        console.log('plansFilling:', plansFilling);
         console.log('customAssignments:', customAssignments);
     }, [customAssignments]);
 
+    useEffect(() => {
+        console.log('plansFilling changed:', plansFilling);
+    }, [plansFilling]);
+
     // Monitor coursesTaken changes and automatically assign courses to requirements
     useEffect(() => {
+        console.log('coursesTaken changed:', coursesTaken);
         if (coursesTaken && responses.length > 0) {
             // Filter out null responses to get valid plans
             const validPlans = responses.filter(response => response !== null);
