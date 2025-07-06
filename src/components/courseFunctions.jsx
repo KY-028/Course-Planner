@@ -49,7 +49,7 @@ export const validateUrl = (url) => {
 export function getPlanPrefix(planIndex, plan, selectedPlanCombo) {
 
     if (!plan || !plan.title) {
-        console.alert("An unexpected error occurred. Please refresh and restart.");
+        alert("An unexpected error occurred. Please refresh and restart.");
         return;
     }
 
@@ -76,8 +76,76 @@ export function getPlanPrefix(planIndex, plan, selectedPlanCombo) {
         return 'major-';
     }
 
-    console.error("An unexpected error occurred. Please refresh and restart.");
+    alert("An unexpected error occurred. Please refresh and restart.");
     return `plan${planIndex}-`;
+}
+
+// Utility to robustly calculate units for a section/subsection
+export function calculateSectionUnits(section) {
+    if (!section) return 0;
+    // Check if title contains a float number (e.g., "Complete 6.00 units from the following:")
+    const floatMatch = section.title && section.title.match(/(\d+\.\d+)\s*units?/i);
+    if (floatMatch) {
+        return parseFloat(floatMatch[1]);
+    }
+
+    // Special case: If title is "Complete one of the following Sub-Plans:"
+    if (section.title && section.title.toLowerCase().includes('complete one of the following sub-plans')) {
+        if (section.plan) {
+            // Find the minimum planunits from all plan options
+            let minUnits = Infinity;
+            for (const planObj of Object.values(section.plan)) {
+                if (planObj && typeof planObj.planunits === 'number') {
+                    minUnits = Math.min(minUnits, planObj.planunits);
+                }
+            }
+            return minUnits === Infinity ? 0 : minUnits;
+        }
+        return 0;
+    }
+
+    // If no float in title and not a sub-plan case, sum up all course units
+    if (section.courses && Array.isArray(section.courses)) {
+        return section.courses.reduce((sum, course) => sum + (course.units || 0), 0);
+    }
+    return 0;
+}
+
+export function processSection(sectionKey, sectionData, plansFillingMap, parentPrefix = '', subplan = '') {
+    if (!sectionData.subsections) return;
+    // for every subsection in the section, create a requirementId and add it to the plansFillingMap
+    sectionData.subsections.forEach((subsection) => {
+        const requirementId = `${parentPrefix}${sectionKey}${subsection.id}`;
+        const unitsRequired = calculateSectionUnits(subsection);
+        plansFillingMap[requirementId] = {
+            unitsRequired,
+            unitsCompleted: 0,
+            courses: []
+        };
+    });
+}
+
+// Recursively build plansFilling for a plan object
+export function establishPlansFilling(planData, planPrefix = '') {
+    const plansFillingMap = {};
+
+    // Process all sections (sectionKey = name, sectionData = object)
+    Object.entries(planData).forEach(([sectionKey, sectionData]) => {
+        if (!['title', 'electives', 'units'].includes(sectionKey)) {
+            processSection(sectionKey, sectionData, plansFillingMap, planPrefix);
+        }
+    });
+
+    return plansFillingMap;
+}
+
+export function clearPlanReq(coursesTaken) {
+    return coursesTaken.map(course => {
+        if (course === null) {
+            return null; // Preserve null values for empty slots
+        }
+        return { ...course, planreq: null };
+    });
 }
 
 // coursesTaken is an array of courses
@@ -290,6 +358,72 @@ export function fillPlanReq(newCourse, coursesTaken, plans, plansFilling, select
     return { coursesTaken: updatedCoursesTaken, plansFilling: updatedPlansFilling };
 }
 
+// Recompute plansFilling and all course assignments from scratch
+export function recomputePlanAssignments(coursesTaken, plans, selectedPlanCombo, customAssignments) {
+
+    // 1. Build fresh plansFilling from all locked plans
+    let plansFilling = {};
+    plans.forEach((plan, i) => {
+        if (plan) {
+            const planPrefix = getPlanPrefix(i, plan, selectedPlanCombo);
+            Object.assign(plansFilling, establishPlansFilling(plan, planPrefix));
+            plansFilling[`${planPrefix}Electives`] = {
+                unitsRequired: plan.electives || 0,
+                unitsCompleted: 0,
+                courses: []
+            };
+        }
+    });
+    // 2. Start with all courses unassigned (except isExcess)
+    let updatedCoursesTaken = coursesTaken.filter(course => !course?.isExcess).map(course => course ? { ...course, planreq: null } : null);
+    // 3. First assign all custom assigned courses (e.g., from customAssignments)
+    if (customAssignments && Array.isArray(customAssignments)) {
+        for (const customCourse of customAssignments) {
+            if (!customCourse || typeof customCourse.index !== "number" || !customCourse.course) continue;
+            const { code, planreq, units } = customCourse.course;
+            // Find the course in updatedCoursesTaken by index (safer than by code)
+            if (updatedCoursesTaken[customCourse.index]) {
+                updatedCoursesTaken[customCourse.index] = {
+                    ...updatedCoursesTaken[customCourse.index],
+                    planreq: planreq || null
+                };
+            }
+            // Fill the planreq in plansFilling
+            if (planreq) {
+                const requirementId = planreq;
+                if (!plansFilling[requirementId]) {
+                    plansFilling[requirementId] = {
+                        unitsRequired: 0,
+                        unitsCompleted: 0,
+                        courses: []
+                    };
+                }
+                // Only add if not already present
+                if (!plansFilling[requirementId].courses.includes(code)) {
+                    plansFilling[requirementId].courses.push(code);
+                    plansFilling[requirementId].unitsCompleted += (parseFloat(units) || 0);
+                }
+            }
+        }
+    }
+
+    // 3. Assign all courses (including combinations)
+    for (let i = 0; i < updatedCoursesTaken.length; i++) {
+        const course = updatedCoursesTaken[i];
+        // Skip if course is null or already has a planreq assigned
+        if (!course || !course.code || course.planreq !== null) continue;
+        // Use the latest state for each assignment, pass original coursesTaken for excess check
+        const result = fillPlanReq(course, updatedCoursesTaken, plans, plansFilling, selectedPlanCombo, coursesTaken);
+        updatedCoursesTaken = result.coursesTaken;
+        plansFilling = result.plansFilling;
+    }
+    // 4. Add back all isExcess courses
+    const excessCourses = coursesTaken.filter(course => course?.isExcess);
+    updatedCoursesTaken = [...updatedCoursesTaken, ...excessCourses];
+    return { coursesTaken: updatedCoursesTaken, plansFilling };
+}
+
+
 // Enhanced function to process all courses and assign them to plans
 export function processAllCourses(coursesTaken, plans, plansFilling, selectedPlanCombo) {
     if (!coursesTaken || !plans || plans.length === 0) {
@@ -396,105 +530,4 @@ function crossReferenceSupportingSections(coursesTaken, plans, plansFilling, sel
     }
 
     return { coursesTaken: updatedCoursesTaken, plansFilling: updatedPlansFilling };
-}
-
-export function clearPlanReq(coursesTaken) {
-    return coursesTaken.map(course => {
-        if (course === null) {
-            return null; // Preserve null values for empty slots
-        }
-        return { ...course, planreq: null };
-    });
-}
-
-// Utility to robustly calculate units for a section/subsection
-export function calculateSectionUnits(section) {
-    if (!section) return 0;
-    // Check if title contains a float number (e.g., "Complete 6.00 units from the following:")
-    const floatMatch = section.title && section.title.match(/(\d+\.\d+)\s*units?/i);
-    if (floatMatch) {
-        return parseFloat(floatMatch[1]);
-    }
-
-    // Special case: If title is "Complete one of the following Sub-Plans:"
-    if (section.title && section.title.toLowerCase().includes('complete one of the following sub-plans')) {
-        if (section.plan) {
-            // Find the minimum planunits from all plan options
-            let minUnits = Infinity;
-            for (const planObj of Object.values(section.plan)) {
-                if (planObj && typeof planObj.planunits === 'number') {
-                    minUnits = Math.min(minUnits, planObj.planunits);
-                }
-            }
-            return minUnits === Infinity ? 0 : minUnits;
-        }
-        return 0;
-    }
-
-    // If no float in title and not a sub-plan case, sum up all course units
-    if (section.courses && Array.isArray(section.courses)) {
-        return section.courses.reduce((sum, course) => sum + (course.units || 0), 0);
-    }
-    return 0;
-}
-
-function processSection(sectionKey, sectionData, plansFillingMap, parentPrefix = '', subplan = '') {
-    if (!sectionData.subsections) return;
-    // for every subsection in the section, create a requirementId and add it to the plansFillingMap
-    sectionData.subsections.forEach((subsection) => {
-        const requirementId = `${parentPrefix}${sectionKey}${subsection.id}`;
-        const unitsRequired = calculateSectionUnits(subsection);
-        plansFillingMap[requirementId] = {
-            unitsRequired,
-            unitsCompleted: 0,
-            courses: []
-        };
-    });
-}
-
-// Recursively build plansFilling for a plan object
-export function establishPlansFilling(planData, planPrefix = '') {
-    const plansFillingMap = {};
-
-    // Process all sections (sectionKey = name, sectionData = object)
-    Object.entries(planData).forEach(([sectionKey, sectionData]) => {
-        if (!['title', 'electives', 'units'].includes(sectionKey)) {
-            processSection(sectionKey, sectionData, plansFillingMap, planPrefix);
-        }
-    });
-
-    return plansFillingMap;
-}
-
-// Recompute plansFilling and all course assignments from scratch
-export function recomputePlanAssignments(coursesTaken, plans, selectedPlanCombo) {
-
-    // 1. Build fresh plansFilling from all locked plans
-    let plansFilling = {};
-    plans.forEach((plan, i) => {
-        if (plan) {
-            const planPrefix = getPlanPrefix(i, plan, selectedPlanCombo);
-            Object.assign(plansFilling, establishPlansFilling(plan, planPrefix));
-            plansFilling[`${planPrefix}Electives`] = {
-                unitsRequired: plan.electives || 0,
-                unitsCompleted: 0,
-                courses: []
-            };
-        }
-    });
-    // 2. Start with all courses unassigned (except isExcess)
-    let updatedCoursesTaken = coursesTaken.filter(course => !course?.isExcess).map(course => course ? { ...course, planreq: null } : null);
-    // 3. Assign all courses (including combinations)
-    for (let i = 0; i < updatedCoursesTaken.length; i++) {
-        const course = updatedCoursesTaken[i];
-        if (!course || !course.code) continue;
-        // Use the latest state for each assignment, pass original coursesTaken for excess check
-        const result = fillPlanReq(course, updatedCoursesTaken, plans, plansFilling, selectedPlanCombo, coursesTaken);
-        updatedCoursesTaken = result.coursesTaken;
-        plansFilling = result.plansFilling;
-    }
-    // 4. Add back all isExcess courses
-    const excessCourses = coursesTaken.filter(course => course?.isExcess);
-    updatedCoursesTaken = [...updatedCoursesTaken, ...excessCourses];
-    return { coursesTaken: updatedCoursesTaken, plansFilling };
 }
