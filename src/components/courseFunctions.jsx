@@ -343,7 +343,27 @@ export function fillPlanReq(newCourse, coursesTaken, plans, plansFilling, select
 
     // If no assignment found in any plan, assign as "Electives"
     if (assignedRequirements.length === 0) {
-        assignedRequirements.push("Electives");
+        // Find the plan prefix for the first plan (or fallback)
+        let planPrefix = '';
+        if (plans && plans.length > 0) {
+            planPrefix = getPlanPrefix(0, plans[0], selectedPlanCombo) || '';
+        }
+        const electivesRequirementId = `${planPrefix}Electives`;
+        assignedRequirements.push(electivesRequirementId);
+        // Add to plansFilling if not already present
+        if (!updatedPlansFilling[electivesRequirementId]) {
+            updatedPlansFilling[electivesRequirementId] = {
+                unitsRequired: (plans[0] && plans[0].electives) || 0,
+                unitsCompleted: 0,
+                courses: []
+            };
+        }
+        // Add course to electives if not already present
+        if (!updatedPlansFilling[electivesRequirementId].courses.includes(courseCode)) {
+            updatedPlansFilling[electivesRequirementId].courses.push(courseCode);
+            updatedPlansFilling[electivesRequirementId].unitsCompleted += parseFloat(newCourse.units) || 0;
+
+        }
     }
 
     // Update the course with the assigned requirement(s)
