@@ -6898,7 +6898,61 @@
                   "title": "MUSC",
                   "units": null
                 }
-              ]
+              ],
+              "plan": {
+                "i. Computing and Art (COAR-O) (39.00)": {
+                  "title": "Computing and Art (COAR-O) (39.00)",
+                  "electives": 0,
+                  "planunits": 0,
+                  "completedunits": 0,
+                  "units": 39,
+                  "1. Core": {
+
+                  },
+                  "2. Option": {
+                    
+                  }
+                },
+                "ii. Computing and Drama (CODR-O) (39.00)": {
+                  "title": "Computing and Drama (CODR-O) (39.00)",
+                  "electives": 0,
+                  "planunits": 0,
+                  "completedunits": 0,
+                  "units": 39,
+                  "1. Core": {
+
+                  },
+                  "2. Option": {
+                    
+                  }
+                },
+                "iii. Computing and Film (COFI-O) (39.00)": {
+                  "title": "Computing and Film (COFI-O) (39.00)",
+                  "electives": 0,
+                  "planunits": 0,
+                  "completedunits": 0,
+                  "units": 39,
+                  "1. Core": {
+
+                  },
+                  "2. Option": {
+                    
+                  }
+                },
+                "iv. Computing and Music (COMU-O) (39.00)": {
+                  "title": "Computing and Music (COMU-O) (39.00)",
+                  "electives": 0,
+                  "planunits": 0,
+                  "completedunits": 0,
+                  "units": 39,
+                  "1. Core": {
+
+                  },
+                  "2. Option": {
+                    
+                  }
+                }
+              }
             }
           ],
           "sectionunits": 39,

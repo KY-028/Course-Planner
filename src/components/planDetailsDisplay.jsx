@@ -1,0 +1,439 @@
+import { useState, useEffect, useRef } from 'react';
+import { FaTimes } from 'react-icons/fa';
+import { getPlanPrefix } from './courseFunctions';
+import CompleteIcon from '/complete.svg';
+
+// Component to display plan details in a formatted way
+export default function PlanDetailsDisplay({ planData, sectionNames, plansFilling, coursesTaken, planIndex, setCoursesTaken, setPlansFilling, selectedPlanCombo, selectedSubPlans, setSelectedSubPlans }) {
+    const [selectedOptions, setSelectedOptions] = useState({});
+    const [showElectiveAssignment, setShowElectiveAssignment] = useState(null);
+    const [assignmentPosition, setAssignmentPosition] = useState({ x: 0, y: 0 });
+
+    const handleOptionChange = (sectionId, value) => {
+        setSelectedOptions(prev => ({
+            ...prev,
+            [sectionId]: value
+        }));
+
+        // Update selected sub-plans state (as an array)
+        setSelectedSubPlans(prev => {
+            const arr = [...prev];
+            arr[planIndex] = value || null;
+            return arr;
+        });
+
+        // TODO: Add logic to update plansFilling, etc.
+        setPlansFilling(prev => {
+            const newPlansFilling = { ...prev };
+            delete newPlansFilling[`${planPrefix}`];
+            newPlansFilling[sectionId] = value;
+            return newPlansFilling;
+        });
+    };
+
+    // Handle elective course click to show assignment options
+    const handleElectiveClick = (course, event) => {
+        const rect = event.currentTarget.getBoundingClientRect();
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
+
+        // Calculate position, ensuring the window doesn't go off-screen
+        let x = rect.left;
+        let y = rect.bottom + 5;
+
+        // Adjust horizontal position if needed
+        if (x + 400 > windowWidth) { // 400px is approximate width of the window
+            x = windowWidth - 420;
+        }
+
+        // Adjust vertical position if needed
+        if (y + 300 > windowHeight) { // 300px is max height of the window
+            y = rect.top - 305;
+        }
+
+        setAssignmentPosition({ x, y });
+        setShowElectiveAssignment(course);
+    };
+
+    // Handle assigning a course to a requirement
+    const handleAssignCourseToRequirement = (courseCode, requirementId) => {
+        // Find the course in coursesTaken
+        const courseIndex = coursesTaken.findIndex(c => c && c.code === courseCode);
+        if (courseIndex === -1) return;
+
+        // Update the course's planreq
+        const updatedCourse = {
+            ...coursesTaken[courseIndex],
+            planreq: requirementId
+        };
+
+        // Update coursesTaken
+        const newCoursesTaken = [...coursesTaken];
+        newCoursesTaken[courseIndex] = updatedCourse;
+        setCoursesTaken(newCoursesTaken);
+
+        // Update plansFilling - add the course to the requirement
+        const newPlansFilling = { ...plansFilling };
+        if (!newPlansFilling[requirementId]) {
+            newPlansFilling[requirementId] = {
+                unitsRequired: 0,
+                unitsCompleted: 0,
+                courses: []
+            };
+        }
+
+        // Add course to the requirement if not already present
+        if (!newPlansFilling[requirementId].courses.includes(courseCode)) {
+            newPlansFilling[requirementId].courses.push(courseCode);
+            // Update units completed (assuming 3 units per course - adjust as needed)
+            newPlansFilling[requirementId].unitsCompleted += (updatedCourse.units || 3);
+        }
+
+        setPlansFilling(newPlansFilling);
+        setShowElectiveAssignment(null);
+    };
+
+    // Get plan prefix for this plan
+    const planPrefix = getPlanPrefix(planIndex, planData, selectedPlanCombo);
+
+    // Get all requirements for this plan that start with the plan prefix
+    const planRequirements = Object.entries(plansFilling)
+        .filter(([key]) => key.startsWith(planPrefix))
+        .map(([key, value]) => {
+            // Format the title more nicely
+            let title = key.replace(planPrefix, '');
+            // Add spaces before capital letters
+            title = title.replace(/([A-Z])/g, ' $1').trim();
+            // Capitalize first letter
+            title = title.charAt(0).toUpperCase() + title.slice(1);
+
+            return {
+                id: key,
+                title: title,
+                unitsRequired: value.unitsRequired,
+                unitsCompleted: value.unitsCompleted,
+                courses: value.courses || []
+            };
+        });
+
+    // Handle click outside to close assignment window
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (showElectiveAssignment && !event.target.closest('.assignment-window')) {
+                setShowElectiveAssignment(null);
+            }
+        };
+
+        if (showElectiveAssignment) {
+            document.addEventListener('mousedown', handleClickOutside);
+            return () => document.removeEventListener('mousedown', handleClickOutside);
+        }
+    }, [showElectiveAssignment]);
+
+    const renderSection = (sectionKey, sectionData, sectionLevel = 0, parentPath = '') => {
+        if (!sectionData || typeof sectionData !== 'object') return null;
+
+        const indentClass = `ml-${sectionLevel * 2}`;
+        const currentPath = parentPath ? `${parentPath}-${sectionKey}` : sectionKey;
+        const sectionId = `${currentPath}-${sectionLevel}`;
+
+        // Handle subsections
+        if (sectionData.subsections) {
+            return (
+                <div key={sectionId} className={`${indentClass} space-y-2`}>
+                    <div className="font-semibold text-gray-800">
+                        {sectionKey}
+                    </div>
+                    {sectionData.subsections.map((subsection, idx) => (
+                        <div key={`${sectionId}-${idx}`} className="">
+                            {renderSubsection(subsection, sectionLevel + 1, currentPath, sectionKey)}
+                        </div>
+                    ))}
+                </div>
+            );
+        }
+
+        return null;
+    };
+
+    const renderSubsection = (subsection, level = 0, parentPath = '', sectionKey = '') => {
+        const currentPath = parentPath ? `${parentPath}-${subsection.id}` : subsection.id;
+        const subsectionId = `${currentPath}-${level}`;
+        const hasCourses = subsection.courses && subsection.courses.length > 0;
+        const hasPlan = subsection.plan && Object.keys(subsection.plan).length > 0;
+        const hasRequirement = subsection.requirement && (Array.isArray(subsection.requirement) ? subsection.requirement.length > 0 : subsection.requirement);
+
+        // Compute the plan prefix for this plan
+        const planPrefix = getPlanPrefix(planIndex, planData, selectedPlanCombo);
+
+        // Compute requirementId as in plansFilling
+        const requirementId = `${planPrefix}${sectionKey}${subsection.id}`;
+        // Only use the key for this plan's prefix
+        const assignedCourses = plansFilling[requirementId]?.courses?.length > 0
+            ? plansFilling[requirementId].courses.map(code => {
+                const courseObj = coursesTaken.find(c => c && c.code === code);
+                return courseObj ? courseObj : { code };
+            })
+            : [];
+        const unitsCompleted = plansFilling[requirementId]?.unitsCompleted || 0;
+        const unitsRequired = plansFilling[requirementId]?.unitsRequired || 0;
+        const isComplete = unitsCompleted >= unitsRequired && unitsRequired > 0;
+        const percent = unitsRequired > 0 ? Math.min(100, Math.round((unitsCompleted / unitsRequired) * 100)) : 0;
+        const circleCirc = 2 * Math.PI * 18;
+        const circleOffset = unitsRequired > 0 ? circleCirc * (1 - unitsCompleted / unitsRequired) : circleCirc;
+
+        // Hover state for floating window
+        const [showHover, setShowHover] = useState(false);
+        const hoverTimeout = useRef();
+        const handleMouseEnter = () => {
+            clearTimeout(hoverTimeout.current);
+            setShowHover(true);
+        };
+        const handleMouseLeave = () => {
+            hoverTimeout.current = setTimeout(() => setShowHover(false), 150);
+        };
+        // Remove course from requirement handler
+        const handleRemoveCourse = (courseCode) => {
+            // Remove this course from this requirement, and move to Electives
+            // Find the course in coursesTaken and update its planreq
+            const idx = coursesTaken.findIndex(c => c && c.code === courseCode && (!c.isExcess));
+            if (idx !== -1) {
+                // Remove this requirementId from planreq, add 'Electives' if not present
+                let planreqArr = coursesTaken[idx].planreq ? coursesTaken[idx].planreq.split(',').map(s => s.trim()) : [];
+                planreqArr = planreqArr.filter(req => req !== requirementId);
+                if (!planreqArr.includes('Electives')) planreqArr.push('Electives');
+                const updatedCourse = { ...coursesTaken[idx], planreq: planreqArr.join(', ') };
+                // Update state (this will trigger recomputePlanAssignments)
+                const newCourses = [...coursesTaken];
+                newCourses[idx] = updatedCourse;
+                setCoursesTaken(newCourses);
+            }
+        };
+
+        return (
+            <div key={subsectionId} className={`space-y-2`}>
+                <div className="flex items-start gap-1">
+                    {/* Progress circle column - only show if not a plan selection */}
+                    {!hasPlan && (
+                        <div
+                            className="w-16 min-w-[48px] h-12 flex-shrink-0 flex items-center justify-center relative group"
+                            onMouseEnter={handleMouseEnter}
+                            onMouseLeave={handleMouseLeave}
+                            style={{ cursor: 'pointer', marginLeft: 0 }}
+                        >
+                            {/* Progress Circle */}
+                            {isComplete ? (
+                                <div className="w-9 h-9 flex items-center justify-center bg-white rounded-full border-2 border-green-400 ">
+                                    <img src={CompleteIcon} alt="Complete" className="w-7 h-7" />
+                                </div>
+                            ) : (
+                                <svg width="36" height="36" viewBox="0 0 36 36" style={{ display: 'block', overflow: 'visible' }}>
+                                    <circle cx="18" cy="18" r="18" stroke="#e5e7eb" strokeWidth="4" fill="none" />
+                                    <circle cx="18" cy="18" r="18" stroke="#3498f6" strokeWidth="4" fill="none" strokeDasharray={circleCirc} strokeDashoffset={circleOffset} style={{ transition: 'stroke-dashoffset 0.5s' }} />
+                                    <text x="50%" y="50%" textAnchor="middle" dy="0.3em" fontSize="11" fill="#333">{unitsCompleted}/{unitsRequired}</text>
+                                </svg>
+                            )}
+                            {/* Floating window on hover */}
+                            {showHover && assignedCourses.length > 0 && (
+                                <div
+                                    className="absolute left-16 top-0 z-50 bg-white border border-gray-300 rounded shadow-lg p-2 min-w-[140px] flex flex-col gap-1"
+                                    onMouseEnter={handleMouseEnter}
+                                    onMouseLeave={handleMouseLeave}
+                                    style={{ pointerEvents: 'auto' }}
+                                >
+                                    <div className="font-semibold text-xs mb-1">Assigned Courses:</div>
+                                    {assignedCourses.map((c, idx) => (
+                                        <div key={c.code} className="flex items-center gap-1 text-xs">
+                                            <span>{c.code}</span>
+                                            <button className="text-red-500 hover:text-red-700 ml-1" onClick={() => handleRemoveCourse(c.code)}><FaTimes size={10} /></button>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    )}
+
+                    {/* Requirement title and content */}
+                    <div className="flex-1">
+                        <span className="font-medium text-gray-700">
+                            {subsection.title}
+                        </span>
+
+                        {/* Render courses and requirements */}
+                        {(hasCourses || hasRequirement) && (
+                            <div className="space-t-1">
+                                {/* Render courses first */}
+                                {hasCourses && subsection.courses.map((course, idx) => (
+                                    <div key={`course-${idx}`} className="text-sm text-gray-600">
+                                        {course.code === 'Combination' ? (
+                                            <div className="">
+                                                <span className="font-medium text-gray-500">Combination:</span>
+                                                {course.courses.map((subCourse, subIdx) => (
+                                                    <div key={subIdx} className="ml-4 text-gray-600">
+                                                        {subCourse.code} - {subCourse.title}
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        ) : (
+                                            <div className="">
+                                                {course.code} - {course.title}
+                                            </div>
+                                        )}
+                                    </div>
+                                ))}
+
+                                {/* Render requirements */}
+                                {hasRequirement && (
+                                    <div className="text-sm text-gray-600">
+                                        {Array.isArray(subsection.requirement) ? (
+                                            subsection.requirement.map((req, idx) => (
+                                                <div key={`req-${idx}`} className="text-gray-600">
+                                                    {req}
+                                                </div>
+                                            ))
+                                        ) : (
+                                            <div className="text-gray-600 font-medium">
+                                                {subsection.requirement}
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
+                            </div>
+                        )}
+
+                        {/* Render plan options if exists */}
+                        {hasPlan && (
+                            <div>
+                                <select
+                                    value={selectedSubPlans[planIndex] || ''}
+                                    onChange={(e) => handleOptionChange(subsectionId, e.target.value)}
+                                    className="border border-gray-300 rounded px-2 py-1 text-sm"
+                                >
+                                    <option value="">Select an option...</option>
+                                    {Object.entries(subsection.plan).map(([optionKey, optionData]) => (
+                                        <option key={optionKey} value={optionKey}>
+                                            {optionData.title}
+                                        </option>
+                                    ))}
+                                </select>
+
+                                {selectedSubPlans[planIndex] && (
+                                    <div className="mt-2">
+                                        {renderSection(
+                                            selectedOptions[subsectionId],
+                                            subsection.plan[selectedOptions[subsectionId]],
+                                            level + 1,
+                                            currentPath
+                                        )}
+                                    </div>
+                                )}
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </div>
+        );
+    };
+
+    return (
+        <div className="bg-gray-50 p-4 rounded-lg space-y-4">
+            {sectionNames[planIndex].map((sectionKey, sectionIdx) => {
+                return renderSection(sectionKey, planData[sectionKey]);
+            })}
+            {planData.electives && (
+                <div className={`space-y-2 mt-4`}>
+                    <div className="font-semibold text-gray-800">
+                        Electives
+                    </div>
+                    {(() => {
+                        const electiveCourses = coursesTaken.filter(course => course !== null && (!course.planreq || course.planreq === 'Electives' || course.planreq === null));
+
+                        if (electiveCourses.length === 0) {
+                            return (
+                                <div className="text-sm text-gray-500 italic">
+                                    No elective courses available
+                                </div>
+                            );
+                        }
+
+                        return electiveCourses.map((course, idx) => (
+                            <button
+                                key={`course-${idx}`}
+                                onClick={(e) => handleElectiveClick(course, e)}
+                                className="text-sm text-blue-600 hover:text-blue-800 hover:bg-blue-50 px-2 py-1 rounded transition-colors duration-150 text-left w-full"
+                            >
+                                {course.code} - {course.title}
+                            </button>
+                        ));
+                    })()}
+                </div>
+            )}
+
+            {/* Floating assignment window */}
+            {showElectiveAssignment && (
+                <div
+                    className="fixed z-50 bg-white border border-gray-300 rounded-lg shadow-xl p-4 max-w-md assignment-window"
+                    style={{
+                        left: assignmentPosition.x,
+                        top: assignmentPosition.y,
+                        maxHeight: '300px',
+                        overflowY: 'auto'
+                    }}
+                >
+                    <div className="flex justify-between items-center mb-3">
+                        <h4 className="font-semibold text-gray-800">
+                            Assign {showElectiveAssignment.code} to:
+                        </h4>
+                        <button
+                            onClick={() => setShowElectiveAssignment(null)}
+                            className="text-gray-500 hover:text-gray-700 text-lg font-bold"
+                        >
+                            ×
+                        </button>
+                    </div>
+
+                    <div className="space-y-2">
+                        {planRequirements.length === 0 ? (
+                            <div className="text-gray-500 text-sm italic">
+                                No plan requirements available for assignment
+                            </div>
+                        ) : (
+                            planRequirements.map((requirement) => {
+                                const isComplete = requirement.unitsCompleted >= requirement.unitsRequired;
+                                const isNearlyComplete = requirement.unitsCompleted >= requirement.unitsRequired * 0.8;
+
+                                return (
+                                    <button
+                                        key={requirement.id}
+                                        onClick={() => handleAssignCourseToRequirement(showElectiveAssignment.code, requirement.id)}
+                                        className={`w-full text-left p-2 rounded border transition-colors ${isComplete
+                                            ? 'bg-green-50 border-green-300 hover:bg-green-100'
+                                            : isNearlyComplete
+                                                ? 'bg-yellow-50 border-yellow-300 hover:bg-yellow-100'
+                                                : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50'
+                                            }`}
+                                    >
+                                        <div className={`font-medium ${isComplete ? 'text-green-800' : 'text-gray-800'
+                                            }`}>
+                                            {requirement.title}
+                                            {isComplete && <span className="ml-2 text-green-600">✓ Complete</span>}
+                                        </div>
+                                        <div className={`text-sm ${isComplete ? 'text-green-600' : 'text-gray-600'
+                                            }`}>
+                                            {requirement.unitsCompleted}/{requirement.unitsRequired} units
+                                        </div>
+                                        {/* {requirement.courses.length > 0 && (
+                                            <div className="text-xs text-gray-500 mt-1">
+                                                Courses: {requirement.courses.join(', ')}
+                                            </div>
+                                        )} */}
+                                    </button>
+                                );
+                            })
+                        )}
+                    </div>
+                </div>
+            )}
+        </div>
+    );
+};
