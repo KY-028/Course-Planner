@@ -46,37 +46,34 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
     // Track section names for each plan
     const [sectionNames, setSectionNames] = useState(Array(PLAN_OPTIONS[0].fields.length).fill([]));
 
-    // Track custom course assignments by index for each plan
+    // Track custom course assignments array of course objects
     const [customAssignments, setCustomAssignments] = useState([]);
 
     // Debug purposes
     useEffect(() => {
-        console.log('sectionNames updated:', sectionNames);
         console.log('plansFilling:', plansFilling);
-        console.log('responses:', responses);
-    }, [sectionNames]);
-
-    useEffect(() => {
-        console.log('selectedPlanData for that plan:', selectedPlanData);
-    }, [detailsModalOpen]);
+        console.log('customAssignments:', customAssignments);
+    }, [customAssignments]);
 
     // Monitor coursesTaken changes and automatically assign courses to requirements
     useEffect(() => {
-        if (coursesTaken && setCoursesTaken && responses.length > 0) {
+        if (coursesTaken && responses.length > 0) {
             // Filter out null responses to get valid plans
             const validPlans = responses.filter(response => response !== null);
             if (validPlans.length > 0) {
-                const result = recomputePlanAssignments(coursesTaken, validPlans, selectedPlanCombo);
+                const result = recomputePlanAssignments(coursesTaken, validPlans, selectedPlanCombo, customAssignments);
                 // Only update state if changed
-                const hasChanges = JSON.stringify(result.coursesTaken) !== JSON.stringify(coursesTaken) ||
-                    JSON.stringify(result.plansFilling) !== JSON.stringify(plansFilling);
-                if (hasChanges) {
+                const hasCoursesChanged = JSON.stringify(result.coursesTaken) !== JSON.stringify(coursesTaken);
+                const hasPlansChanged = JSON.stringify(result.plansFilling) !== JSON.stringify(plansFilling);
+                if (hasCoursesChanged) {
                     setCoursesTaken(result.coursesTaken);
+                }
+                if (hasPlansChanged) {
                     setPlansFilling(result.plansFilling);
                 }
             }
         }
-    }, [coursesTaken, setCoursesTaken, plansFilling]);
+    }, [coursesTaken, responses, selectedSubPlans]);
 
     // When plan combination drop down is changed
     const handlePlanChange = (e) => {
@@ -148,6 +145,17 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
 
     // When user selects a plan from dropdown
     const handlePlanSelect = (idx, planObj) => {
+        // Prevent duplicate plan selection
+        const isDuplicate = responses.some((resp, i) =>
+            i !== idx &&
+            resp &&
+            resp.title === planObj.result.title &&
+            resp.year === planObj.result.year
+        );
+        if (isDuplicate) {
+            alert("You have already selected this plan for another slot. Please choose a different plan.");
+            return;
+        }
         setFields(prev => {
             const arr = [...prev];
             arr[idx] = planObj.link;
@@ -243,6 +251,19 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
         }
         try {
             const response = await axios.get(`${apiUrl}/backend/coursePlan?url=${encodeURIComponent(url)}`);
+            // Prevent duplicate plan selection
+            const isDuplicate = responses.some((resp, i) =>
+                i !== idx &&
+                resp &&
+                resp.title === response.data.title &&
+                resp.year === response.data.year
+            );
+            if (isDuplicate) {
+                const newErrors = [...errors];
+                newErrors[idx] = "You have already selected this plan for another slot. Please choose a different plan.";
+                setErrors(newErrors);
+                return;
+            }
             const fieldType = PLAN_OPTIONS.find(opt => opt.value === selectedPlanCombo).fields[idx];
             if (!validateResponse(response.data, fieldType)) {
                 const newErrors = [...errors];
@@ -329,6 +350,7 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
             }
         });
         setPlansFilling(mergedPlansFilling);
+        setCoursesTaken(clearPlanReq(coursesTaken)); // Clear courses taken plan requirement assignments
         updateSectionNames(newResponses, newLocked);
     };
 
@@ -611,6 +633,7 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
                                 return (
                                     <PlanDetailsDisplay
                                         planData={selectedPlanData}
+                                        planPrefix={getPlanPrefix(planIndex, selectedPlanData, selectedPlanCombo)}
                                         sectionNames={sectionNames}
                                         plansFilling={plansFilling}
                                         coursesTaken={coursesTaken}
@@ -620,6 +643,7 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
                                         selectedPlanCombo={selectedPlanCombo}
                                         selectedSubPlans={selectedSubPlans}
                                         setSelectedSubPlans={setSelectedSubPlans}
+                                        setCustomAssignments={setCustomAssignments}
                                     />
                                 );
                             })()}
