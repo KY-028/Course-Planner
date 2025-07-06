@@ -2839,7 +2839,7 @@
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
-            "CHERNOFF RM206B"
+            "CHERNOFF RM213"
         ],
         "CHEM112 W Monday 8:30-9:30 Wu,Gang",
         "CHEM112 W Tuesday 10:30-11:30 Wu,Gang",
@@ -2854,7 +2854,7 @@
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
-            "CHERNOFF RM213"
+            "CHERNOFF RM206B"
         ],
         "CHEM112 W Monday 8:30-9:30 Wu,Gang",
         "CHEM112 W Tuesday 10:30-11:30 Wu,Gang",
@@ -2869,7 +2869,7 @@
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
-            "CHERNOFF RM206B"
+            "CHERNOFF RM211"
         ],
         "CHEM112 W Monday 8:30-9:30 Wu,Gang",
         "CHEM112 W Tuesday 10:30-11:30 Wu,Gang",
@@ -2884,12 +2884,12 @@
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
-            "CHERNOFF RM211"
+            "CHERNOFF RM206B"
         ],
         "CHEM112 W Monday 8:30-9:30 Wu,Gang",
         "CHEM112 W Tuesday 10:30-11:30 Wu,Gang",
         "CHEM112 W Thursday 9:30-10:30 Wu,Gang",
-        "CHEM112 E Wednesday 14:30-17:30 Wu,Gang"
+        "CHEM112 E Thursday 14:30-17:30 Wu,Gang"
     ],
     "CHEM112_13": [
         "CHEM112_13",
@@ -2899,7 +2899,7 @@
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
-            "CHERNOFF RM206B"
+            "CHERNOFF RM213"
         ],
         "CHEM112 W Monday 8:30-9:30 Wu,Gang",
         "CHEM112 W Tuesday 10:30-11:30 Wu,Gang",
@@ -2914,7 +2914,7 @@
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
-            "CHERNOFF RM213"
+            "CHERNOFF RM206B"
         ],
         "CHEM112 W Monday 8:30-9:30 Wu,Gang",
         "CHEM112 W Tuesday 10:30-11:30 Wu,Gang",
@@ -2929,12 +2929,12 @@
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
-            "CHERNOFF RM206B"
+            "CHERNOFF RM213"
         ],
         "CHEM112 W Monday 8:30-9:30 Wu,Gang",
         "CHEM112 W Tuesday 10:30-11:30 Wu,Gang",
         "CHEM112 W Thursday 9:30-10:30 Wu,Gang",
-        "CHEM112 E Thursday 14:30-17:30 Wu,Gang"
+        "CHEM112 E Friday 14:30-17:30 Wu,Gang"
     ],
     "CHEM112_16": [
         "CHEM112_16",
@@ -2944,7 +2944,7 @@
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
-            "CHERNOFF RM213"
+            "CHERNOFF RM206B"
         ],
         "CHEM112 W Monday 8:30-9:30 Wu,Gang",
         "CHEM112 W Tuesday 10:30-11:30 Wu,Gang",
@@ -2959,7 +2959,7 @@
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
             "DUNCAN MCARTHUR RM B101",
-            "CHERNOFF RM206B"
+            "CHERNOFF RM211"
         ],
         "CHEM112 W Monday 8:30-9:30 Wu,Gang",
         "CHEM112 W Tuesday 10:30-11:30 Wu,Gang",
@@ -2969,17 +2969,17 @@
     "CHEM112_18": [
         "CHEM112_18",
         "General Chemistry",
-        "Wu,Gang",
+        "Heidar-Zadeh,Farnaz",
         [
-            "DUNCAN MCARTHUR RM B101",
-            "DUNCAN MCARTHUR RM B101",
-            "DUNCAN MCARTHUR RM B101",
-            "CHERNOFF RM211"
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "BIOSCI 1101",
+            "CHERNOFF RM206B"
         ],
-        "CHEM112 W Monday 8:30-9:30 Wu,Gang",
-        "CHEM112 W Tuesday 10:30-11:30 Wu,Gang",
-        "CHEM112 W Thursday 9:30-10:30 Wu,Gang",
-        "CHEM112 E Friday 14:30-17:30 Wu,Gang"
+        "CHEM112 E Monday 11:30-12:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Tuesday 13:30-14:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Thursday 12:30-13:30 Heidar-Zadeh,Farnaz",
+        "CHEM112 E Tuesday 8:30-11:30 Heidar-Zadeh,Farnaz"
     ],
     "CHEM112_19": [
         "CHEM112_19",
@@ -2989,7 +2989,7 @@
             "BIOSCI 1101",
             "BIOSCI 1101",
             "BIOSCI 1101",
-            "CHERNOFF RM206B"
+            "CHERNOFF RM213"
         ],
         "CHEM112 E Monday 11:30-12:30 Heidar-Zadeh,Farnaz",
         "CHEM112 E Tuesday 13:30-14:30 Heidar-Zadeh,Farnaz",
@@ -3004,7 +3004,7 @@
             "BIOSCI 1101",
             "BIOSCI 1101",
             "BIOSCI 1101",
-            "CHERNOFF RM213"
+            "CHERNOFF RM206B"
         ],
         "CHEM112 E Monday 11:30-12:30 Heidar-Zadeh,Farnaz",
         "CHEM112 E Tuesday 13:30-14:30 Heidar-Zadeh,Farnaz",
@@ -3019,7 +3019,7 @@
             "BIOSCI 1101",
             "BIOSCI 1101",
             "BIOSCI 1101",
-            "CHERNOFF RM206B"
+            "CHERNOFF RM211"
         ],
         "CHEM112 E Monday 11:30-12:30 Heidar-Zadeh,Farnaz",
         "CHEM112 E Tuesday 13:30-14:30 Heidar-Zadeh,Farnaz",
@@ -3034,12 +3034,12 @@
             "BIOSCI 1101",
             "BIOSCI 1101",
             "BIOSCI 1101",
-            "CHERNOFF RM211"
+            "CHERNOFF RM206B"
         ],
         "CHEM112 E Monday 11:30-12:30 Heidar-Zadeh,Farnaz",
         "CHEM112 E Tuesday 13:30-14:30 Heidar-Zadeh,Farnaz",
         "CHEM112 E Thursday 12:30-13:30 Heidar-Zadeh,Farnaz",
-        "CHEM112 E Tuesday 8:30-11:30 Heidar-Zadeh,Farnaz"
+        "CHEM112 E Thursday 8:30-11:30 Heidar-Zadeh,Farnaz"
     ],
     "CHEM112_23": [
         "CHEM112_23",
@@ -3049,7 +3049,7 @@
             "BIOSCI 1101",
             "BIOSCI 1101",
             "BIOSCI 1101",
-            "CHERNOFF RM206B"
+            "CHERNOFF RM213"
         ],
         "CHEM112 E Monday 11:30-12:30 Heidar-Zadeh,Farnaz",
         "CHEM112 E Tuesday 13:30-14:30 Heidar-Zadeh,Farnaz",
@@ -3064,7 +3064,7 @@
             "BIOSCI 1101",
             "BIOSCI 1101",
             "BIOSCI 1101",
-            "CHERNOFF RM213"
+            "CHERNOFF RM206B"
         ],
         "CHEM112 E Monday 11:30-12:30 Heidar-Zadeh,Farnaz",
         "CHEM112 E Tuesday 13:30-14:30 Heidar-Zadeh,Farnaz",
@@ -3079,7 +3079,7 @@
             "BIOSCI 1101",
             "BIOSCI 1101",
             "BIOSCI 1101",
-            "CHERNOFF RM206B"
+            "CHERNOFF RM211"
         ],
         "CHEM112 E Monday 11:30-12:30 Heidar-Zadeh,Farnaz",
         "CHEM112 E Tuesday 13:30-14:30 Heidar-Zadeh,Farnaz",
@@ -3094,12 +3094,12 @@
             "BIOSCI 1101",
             "BIOSCI 1101",
             "BIOSCI 1101",
-            "CHERNOFF RM211"
+            "CHERNOFF RM206B"
         ],
         "CHEM112 E Monday 11:30-12:30 Heidar-Zadeh,Farnaz",
         "CHEM112 E Tuesday 13:30-14:30 Heidar-Zadeh,Farnaz",
         "CHEM112 E Thursday 12:30-13:30 Heidar-Zadeh,Farnaz",
-        "CHEM112 E Thursday 8:30-11:30 Heidar-Zadeh,Farnaz"
+        "CHEM112 E Friday 8:30-11:30 Heidar-Zadeh,Farnaz"
     ],
     "CHEM112_27": [
         "CHEM112_27",
@@ -3109,7 +3109,7 @@
             "BIOSCI 1101",
             "BIOSCI 1101",
             "BIOSCI 1101",
-            "CHERNOFF RM206B"
+            "CHERNOFF RM213"
         ],
         "CHEM112 E Monday 11:30-12:30 Heidar-Zadeh,Farnaz",
         "CHEM112 E Tuesday 13:30-14:30 Heidar-Zadeh,Farnaz",
@@ -3124,7 +3124,7 @@
             "BIOSCI 1101",
             "BIOSCI 1101",
             "BIOSCI 1101",
-            "CHERNOFF RM213"
+            "CHERNOFF RM206B"
         ],
         "CHEM112 E Monday 11:30-12:30 Heidar-Zadeh,Farnaz",
         "CHEM112 E Tuesday 13:30-14:30 Heidar-Zadeh,Farnaz",
@@ -3139,7 +3139,7 @@
             "BIOSCI 1101",
             "BIOSCI 1101",
             "BIOSCI 1101",
-            "CHERNOFF RM206B"
+            "CHERNOFF RM211"
         ],
         "CHEM112 E Monday 11:30-12:30 Heidar-Zadeh,Farnaz",
         "CHEM112 E Tuesday 13:30-14:30 Heidar-Zadeh,Farnaz",
@@ -3149,17 +3149,17 @@
     "CHEM112_30": [
         "CHEM112_30",
         "General Chemistry",
-        "Heidar-Zadeh,Farnaz",
+        "Brown,Stephen",
         [
-            "BIOSCI 1101",
-            "BIOSCI 1101",
-            "BIOSCI 1101",
-            "CHERNOFF RM211"
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "DUNCAN MCARTHUR RM B101",
+            "CHERNOFF RM206B"
         ],
-        "CHEM112 E Monday 11:30-12:30 Heidar-Zadeh,Farnaz",
-        "CHEM112 E Tuesday 13:30-14:30 Heidar-Zadeh,Farnaz",
-        "CHEM112 E Thursday 12:30-13:30 Heidar-Zadeh,Farnaz",
-        "CHEM112 E Friday 8:30-11:30 Heidar-Zadeh,Farnaz"
+        "CHEM112 W Tuesday 11:30-12:30 Brown,Stephen",
+        "CHEM112 W Thursday 11:30-12:30 Brown,Stephen",
+        "CHEM112 W Friday 11:30-12:30 Brown,Stephen",
+        "CHEM112 E Wednesday 14:30-17:30 Brown,Stephen"
     ],
     "CHEM112_31": [
         "CHEM112_31",
