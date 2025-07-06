@@ -36,9 +36,53 @@ export function generateNewCourse(id, courseData) {
 
 }
 
+export const validateUrl = (url) => {
+    try {
+        new URL(url);
+        return true;
+    } catch {
+        return false;
+    }
+};
+
+// Helper function to get plan prefix (e.g., "major1-", "minor-")
+export function getPlanPrefix(planIndex, plan, selectedPlanCombo) {
+
+    if (!plan || !plan.title) {
+        console.alert("An unexpected error occurred. Please refresh and restart.");
+        return;
+    }
+
+    // Handle different plan types based on the selected plan combination
+    if (selectedPlanCombo === 1) { // Double Major
+        if (planIndex === 0) return 'major1-';
+        if (planIndex === 1) return 'major2-';
+    } else if (selectedPlanCombo === 2) { // Major + Minor
+        if (planIndex === 0) return 'major-';
+        if (planIndex === 1) return 'minor-';
+    } else if (selectedPlanCombo === 3) { // Major + Double Minor
+        if (planIndex === 0) return 'major-';
+        if (planIndex === 1) return 'minor1-';
+        if (planIndex === 2) return 'minor2-';
+    } else if (selectedPlanCombo === 4) { // Specialization
+        return 'specialization-';
+    } else if (selectedPlanCombo === 5) { // Specialization + Minor
+        if (planIndex === 0) return 'specialization-';
+        if (planIndex === 1) return 'minor-';
+    } else if (selectedPlanCombo === 6) { // Joint Major
+        if (planIndex === 0) return 'joint1-';
+        if (planIndex === 1) return 'joint2-';
+    } else if (selectedPlanCombo === 7) { // Major Only (Old Plan)
+        return 'major-';
+    }
+
+    console.error("An unexpected error occurred. Please refresh and restart.");
+    return `plan${planIndex}-`;
+}
+
 // coursesTaken is an array of courses
 // plans is an array of plans (objects)
-export function fillPlanReq(newCourse, coursesTaken, plans, plansFilling, originalCoursesTaken = null) {
+export function fillPlanReq(newCourse, coursesTaken, plans, plansFilling, selectedPlanCombo, originalCoursesTaken = null) {
     if (!newCourse || !newCourse.code || !plans || plans.length === 0) {
         return { coursesTaken, plansFilling };
     }
@@ -208,7 +252,7 @@ export function fillPlanReq(newCourse, coursesTaken, plans, plansFilling, origin
     for (let planIndex = 0; planIndex < plans.length; planIndex++) {
         const plan = plans[planIndex];
         if (!plan) continue;
-        const planPrefix = getPlanPrefix(planIndex, plan);
+        const planPrefix = getPlanPrefix(planIndex, plan, selectedPlanCombo);
         if (assignInPlan(plan, planPrefix, null)) {
             assigned = true;
             break; // Only assign to the first match in the first plan
@@ -220,7 +264,7 @@ export function fillPlanReq(newCourse, coursesTaken, plans, plansFilling, origin
         for (let planIndex = 0; planIndex < plans.length; planIndex++) {
             const plan = plans[planIndex];
             if (!plan) continue;
-            const planPrefix = getPlanPrefix(planIndex, plan);
+            const planPrefix = getPlanPrefix(planIndex, plan, selectedPlanCombo);
             // Skip the plan where the first assignment was made
             if (planPrefix === firstAssignmentPlanPrefix) continue;
             // If first assignment was to supporting, check only core/option (non-supporting) in other plans
@@ -246,33 +290,8 @@ export function fillPlanReq(newCourse, coursesTaken, plans, plansFilling, origin
     return { coursesTaken: updatedCoursesTaken, plansFilling: updatedPlansFilling };
 }
 
-// Helper function to get plan prefix (e.g., "major1-", "minor-")
-export function getPlanPrefix(planIndex, plan) {
-    if (!plan || !plan.title) {
-        console.alert("An unexpected error occurred. Please refresh and restart.");
-        return;
-    }
-    
-    const title = plan.title.toLowerCase();
-    if (title.includes('major')) {
-        if (title.includes('1') || title.includes('first')) return 'major1-';
-        if (title.includes('2') || title.includes('second')) return 'major2-';
-        return 'major-';
-    }
-    if (title.includes('minor')) {
-        if (title.includes('1') || title.includes('first')) return 'minor1-';
-        if (title.includes('2') || title.includes('second')) return 'minor2-';
-        return 'minor-';
-    }
-    if (title.includes('specialization')) return 'specialization-';
-    if (title.includes('joint')) return 'joint-';
-    
-    console.error("An unexpected error occurred. Please refresh and restart.");
-    return `plan${planIndex}-`;
-}
-
 // Enhanced function to process all courses and assign them to plans
-export function processAllCourses(coursesTaken, plans, plansFilling) {
+export function processAllCourses(coursesTaken, plans, plansFilling, selectedPlanCombo) {
     if (!coursesTaken || !plans || plans.length === 0) {
         return { coursesTaken, plansFilling };
     }
@@ -288,7 +307,7 @@ export function processAllCourses(coursesTaken, plans, plansFilling) {
             continue;
         }
 
-        const result = fillPlanReq(course, updatedCoursesTaken, plans, updatedPlansFilling);
+        const result = fillPlanReq(course, updatedCoursesTaken, plans, updatedPlansFilling, selectedPlanCombo);
         updatedCoursesTaken = result.coursesTaken;
         updatedPlansFilling = result.plansFilling;
         hasChanges = true;
@@ -296,7 +315,7 @@ export function processAllCourses(coursesTaken, plans, plansFilling) {
 
     // If we made changes, we need to do a second pass to check for supporting section cross-references
     if (hasChanges) {
-        const crossReferenceResult = crossReferenceSupportingSections(updatedCoursesTaken, plans, updatedPlansFilling);
+        const crossReferenceResult = crossReferenceSupportingSections(updatedCoursesTaken, plans, updatedPlansFilling, selectedPlanCombo);
         updatedCoursesTaken = crossReferenceResult.coursesTaken;
         updatedPlansFilling = crossReferenceResult.plansFilling;
     }
@@ -305,7 +324,7 @@ export function processAllCourses(coursesTaken, plans, plansFilling) {
 }
 
 // Function to cross-reference supporting sections across plans
-function crossReferenceSupportingSections(coursesTaken, plans, plansFilling) {
+function crossReferenceSupportingSections(coursesTaken, plans, plansFilling, selectedPlanCombo) {
     let updatedCoursesTaken = [...coursesTaken];
     let updatedPlansFilling = { ...plansFilling };
     let hasChanges = false;
@@ -328,11 +347,11 @@ function crossReferenceSupportingSections(coursesTaken, plans, plansFilling) {
             const plan = plans[planIndex];
             if (!plan) continue;
 
-            const planPrefix = getPlanPrefix(planIndex, plan);
-            
+            const planPrefix = getPlanPrefix(planIndex, plan, selectedPlanCombo);
+
             // Look for supporting sections in this plan
-            const supportingSections = Object.keys(plan).filter(key => 
-                key.toLowerCase().includes('supporting') && 
+            const supportingSections = Object.keys(plan).filter(key =>
+                key.toLowerCase().includes('supporting') &&
                 !['title', 'electives', 'units'].includes(key)
             );
 
@@ -342,11 +361,11 @@ function crossReferenceSupportingSections(coursesTaken, plans, plansFilling) {
 
                 for (const subsection of sectionData.subsections) {
                     const requirementId = `${planPrefix}${supportingSection}${subsection.id}`;
-                    
+
                     // Check if this requirement needs more courses
-                    if (updatedPlansFilling[requirementId] && 
+                    if (updatedPlansFilling[requirementId] &&
                         updatedPlansFilling[requirementId].unitsCompleted < updatedPlansFilling[requirementId].unitsRequired) {
-                        
+
                         // Check if our course matches this supporting requirement
                         if (subsection.courses) {
                             for (const reqCourse of subsection.courses) {
@@ -354,17 +373,17 @@ function crossReferenceSupportingSections(coursesTaken, plans, plansFilling) {
                                     // Add this course to the supporting requirement
                                     updatedPlansFilling[requirementId].courses.push(courseCode);
                                     updatedPlansFilling[requirementId].unitsCompleted += (reqCourse.units || 0);
-                                    
+
                                     // Update the course's planreq to include both assignments
-                                    const newPlanreq = currentPlanreq ? 
-                                        `${currentPlanreq}, ${requirementId}` : 
+                                    const newPlanreq = currentPlanreq ?
+                                        `${currentPlanreq}, ${requirementId}` :
                                         requirementId;
-                                    
+
                                     updatedCoursesTaken[courseIndex] = {
                                         ...updatedCoursesTaken[courseIndex],
                                         planreq: newPlanreq
                                     };
-                                    
+
                                     hasChanges = true;
                                     break;
                                 }
@@ -419,12 +438,8 @@ export function calculateSectionUnits(section) {
     return 0;
 }
 
-function processSection(sectionKey, sectionData, plansFillingMap, parentPrefix = '', planPrefix = '') {
+function processSection(sectionKey, sectionData, plansFillingMap, parentPrefix = '', subplan = '') {
     if (!sectionData.subsections) return;
-    if (sectionData.plan) {
-        // remove the old prefix and add the ones for the specific plan
-
-    }
     // for every subsection in the section, create a requirementId and add it to the plansFillingMap
     sectionData.subsections.forEach((subsection) => {
         const requirementId = `${parentPrefix}${sectionKey}${subsection.id}`;
@@ -452,13 +467,19 @@ export function establishPlansFilling(planData, planPrefix = '') {
 }
 
 // Recompute plansFilling and all course assignments from scratch
-export function recomputePlanAssignments(coursesTaken, plans) {
+export function recomputePlanAssignments(coursesTaken, plans, selectedPlanCombo) {
+
     // 1. Build fresh plansFilling from all locked plans
     let plansFilling = {};
     plans.forEach((plan, i) => {
         if (plan) {
-            const planPrefix = getPlanPrefix(i, plan);
+            const planPrefix = getPlanPrefix(i, plan, selectedPlanCombo);
             Object.assign(plansFilling, establishPlansFilling(plan, planPrefix));
+            plansFilling[`${planPrefix}Electives`] = {
+                unitsRequired: plan.electives || 0,
+                unitsCompleted: 0,
+                courses: []
+            };
         }
     });
     // 2. Start with all courses unassigned (except isExcess)
@@ -468,7 +489,7 @@ export function recomputePlanAssignments(coursesTaken, plans) {
         const course = updatedCoursesTaken[i];
         if (!course || !course.code) continue;
         // Use the latest state for each assignment, pass original coursesTaken for excess check
-        const result = fillPlanReq(course, updatedCoursesTaken, plans, plansFilling, coursesTaken);
+        const result = fillPlanReq(course, updatedCoursesTaken, plans, plansFilling, selectedPlanCombo, coursesTaken);
         updatedCoursesTaken = result.coursesTaken;
         plansFilling = result.plansFilling;
     }
