@@ -421,6 +421,12 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
                 required += sectionProgress.required;
             }
         }
+        // Add electives section
+        const electivesKey = `${getPlanPrefix(idx, responses[idx], selectedPlanCombo)}Electives`;
+        if (plansFilling[electivesKey]) {
+            completed += plansFilling[electivesKey].unitsCompleted || 0;
+            required += plansFilling[electivesKey].unitsRequired || 0;
+        }
         // Use the plan's total required units as the required value
         required = responses[idx]?.units || required;
         return { completed, required };
@@ -557,6 +563,7 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
                                     <div className='flex items-center justify-center'>
                                         {(() => {
                                             const { completed, required } = getPlanProgressFromFilling(idx);
+                                            console.log(`Plan ${idx} progress:`, completed, required);
                                             const circ = 2 * Math.PI * 28;
                                             const percent = required > 0 ? Math.min(1, completed / required) : 0;
                                             const offset = circ * (1 - percent);
