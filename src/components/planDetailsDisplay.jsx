@@ -227,7 +227,7 @@ export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames,
                         Electives
                     </div>
                     {(() => {
-                        const electiveCourses = coursesTaken.filter(course => course !== null && (!course.planreq || course.planreq === 'Electives' || course.planreq === null));
+                        const electiveCourses = coursesTaken.filter(course => course !== null && (!course.planreq || course.planreq.includes('Electives') || course.planreq === null));
 
                         if (electiveCourses.length === 0) {
                             return (
