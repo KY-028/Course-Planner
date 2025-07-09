@@ -370,7 +370,6 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
     };
 
     const openDetailsModal = (planData) => {
-        console.log(planData);
         setSelectedPlanData(planData);
         setDetailsModalOpen(true);
     };
@@ -563,7 +562,6 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
                                     <div className='flex items-center justify-center'>
                                         {(() => {
                                             const { completed, required } = getPlanProgressFromFilling(idx);
-                                            console.log(`Plan ${idx} progress:`, completed, required);
                                             const circ = 2 * Math.PI * 28;
                                             const percent = required > 0 ? Math.min(1, completed / required) : 0;
                                             const offset = circ * (1 - percent);
