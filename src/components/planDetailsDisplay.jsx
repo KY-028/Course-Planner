@@ -86,8 +86,38 @@ export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames,
         setShowElectiveAssignment(course);
     };
 
+    // Check if a course fits a requirement
+    const courseFitsRequirement = (course, requirementId) => {
+        // Check if the course is already assigned to this requirement
+        let requirement = requirementId.split("-");
+        let id = requirement[1].charAt(requirement[1].length - 1);
+        let subsection = requirement[1].slice(0, -1);
+        console.log(requirement, id, subsection);
+        if (requirement[1] && id) {
+            // Go through each key in planData and see if subsection is part of it
+            for (const key in planData) {
+                if (planData[key].subsections && key.includes(subsection)) {
+                    console.log("Checking subsection:", subsection, "in planData key:", key);
+                    for (const item of planData[key].subsections) {
+                        if (item.id && item.id === id) {
+                            console.log("Found matching subsection with id:", id);
+                            // Check if the course code is in the subsection's courses
+                            if (item.courses && item.courses.some(c => c.code === course.code)) {
+                                console.log("I found the course in the subsection:", subsection, "requirement", id);
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+        } else {
+            return false;
+        }
+    };
+
     // Handle assigning a course to a requirement
     const handleAssignCourseToRequirement = (courseCode, requirementId) => {
+        console.log("Button clicked to assign course:", courseCode, "to requirement:", requirementId);
         // Find the course in coursesTaken
         const courseIndex = coursesTaken.findIndex(c => c && c.code === courseCode);
         if (courseIndex === -1) return;
@@ -109,9 +139,23 @@ export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames,
                 entry => entry.index === courseIndex
             );
             if (!alreadyExists) {
+                console.log("Already exists:", updatedCourse);
                 return [...prev, { index: courseIndex, course: updatedCourse }];
+            } else {
+                // If already exists
+                // First check if this course is supposed to be a requirement for that section
+                if (courseFitsRequirement(updatedCourse, requirementId)) {
+                    // If it fits, remove this course from custom assignments
+                    return prev.filter(entry => entry.index !== courseIndex);
+                } else {
+                    return prev.map(entry => {
+                        if (entry.index === courseIndex) {
+                            return { ...entry, course: updatedCourse };
+                        }
+                        return entry;
+                    });
+                }
             }
-            return prev;
         });
 
         // Update plansFilling - add the course to the requirement
