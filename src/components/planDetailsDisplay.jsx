@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { FaTimes } from 'react-icons/fa';
-import { getPlanPrefix, processSection } from './courseFunctions';
+import { getPlanPrefix, processSection, clearPlanReq } from './courseFunctions';
 import CompleteIcon from '/complete.svg';
 
 // Component to display plan details in a formatted way
@@ -9,57 +9,64 @@ export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames,
     const [showElectiveAssignment, setShowElectiveAssignment] = useState(null);
     const [assignmentPosition, setAssignmentPosition] = useState({ x: 0, y: 0 });
 
-    const handleOptionChange = (sectionId, value) => {
+    const handleOptionChange = (planIndex, value) => {
 
         const prevSubPlan = selectedSubPlans[planIndex];
 
         // Update selected sub-plans state (as an array)
         setSelectedSubPlans(prev => {
             const arr = [...prev];
-            arr[planIndex] = value || null;
+            if (value === "") {
+                arr[planIndex] = null;
+            } else {
+                arr[planIndex] = value || null;
+            }
             return arr;
         });
 
         // TODO: Add logic to update plansFilling, etc.
         setPlansFilling(prev => {
             const newPlansFilling = { ...prev };
-
-            // Remove all keys from the previous subplan selection
-            if (prevSubPlan) {
-                Object.keys(newPlansFilling).forEach(key => {
-                    if (key.startsWith(`${planPrefix}${sectionId}-${prevSubPlan}`)) {
-                        delete newPlansFilling[key];
+            let planName = "";
+            // Find the section that has a subplan
+            for (const name of sectionNames[planIndex]) {
+                if (planData[name] && planData[name].subsections) {
+                    for (const subsec of planData[name].subsections) {
+                        if (subsec.plan) {
+                            planName = name + subsec.id;
+                        }
                     }
-                });
+                }
             }
 
-            if (value) {
-                // Find the section with subplans
-                Object.keys(planData).forEach(key => {
-                    if (planData[key].subsections) {
-                        planData[key].subsections.forEach(subsection => {
-                            if (subsection.plan) {
+            // Find the section with subplans
+            Object.keys(planData).forEach(key => {
+                if (planData[key].subsections) {
+                    planData[key].subsections.forEach(subsection => {
+                        if (subsection.plan) {
+                            // Delete everything that begins with
+                            Object.keys(newPlansFilling).forEach(k => {
+                                if (k.startsWith(`${planPrefix}${key}`)) {
+                                    console.log("Deleting starts with ", `${planPrefix}${key}`)
+                                    delete newPlansFilling[k];
+                                }
+                            });
+                            if (value) {
                                 processSection(`${planPrefix}${key}${subsection.id}-${value}`, subsection.plan[value], newPlansFilling);
-                                // Delete the old prefix if it exists
-                                delete newPlansFilling[`${planPrefix}${key}${subsection.id}`];
+                            } else {
+                                console.log("Value is none");
+                                processSection(`${planPrefix}${key}`, planData[key], newPlansFilling);
+                                console.log("Processed plansFilling:", newPlansFilling);
                             }
-                        });
-                    }
-                });
-            } else {
-                Object.keys(planData).forEach(key => {
-                    if (planData[key].subsections) {
-                        planData[key].subsections.forEach(subsection => {
-                            if (subsection.plan) {
-                                processSection(`${planPrefix}${key}${subsection.id}`, subsection, newPlansFilling);
-
-                            }
-                        });
-                    }
-                });
-            }
+                        }
+                    });
+                }
+            });
             return newPlansFilling;
         });
+
+        // This should retrigger plan assignments
+        setCoursesTaken(clearPlanReq(coursesTaken));
     };
 
     // Handle elective course click to show assignment options

@@ -65,7 +65,7 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
             // Filter out null responses to get valid plans
             const validPlans = responses.filter(response => response !== null);
             if (validPlans.length > 0) {
-                const result = recomputePlanAssignments(coursesTaken, validPlans, selectedPlanCombo, customAssignments);
+                const result = recomputePlanAssignments(coursesTaken, validPlans, selectedPlanCombo, customAssignments, plansFilling, selectedSubPlans, setCoursesTaken);
                 // Only update state if changed
                 const hasCoursesChanged = JSON.stringify(result.coursesTaken) !== JSON.stringify(coursesTaken);
                 const hasPlansChanged = JSON.stringify(result.plansFilling) !== JSON.stringify(plansFilling);
@@ -77,7 +77,7 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
                 }
             }
         }
-    }, [coursesTaken, responses, selectedSubPlans]);
+    }, [coursesTaken, responses]);
 
     // When plan combination drop down is changed
     const handlePlanChange = (e) => {
@@ -202,7 +202,6 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
                 };
             }
         });
-        console.log('mergedPlansFilling:', mergedPlansFilling);
         const totalUnits = newResponses[idx]?.units || 0;
         let required = 0;
         // Check if the plan is valid for this index
