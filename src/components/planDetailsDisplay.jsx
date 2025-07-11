@@ -53,6 +53,8 @@ export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames,
                             });
                             if (value) {
                                 processSection(`${planPrefix}${key}${subsection.id}-${value}`, subsection.plan[value], newPlansFilling);
+                                processSection(`${planPrefix}${key}`, planData[key], newPlansFilling);
+                                delete newPlansFilling[`${planPrefix}${key}${subsection.id}`]
                             } else {
                                 console.log("Value is none");
                                 processSection(`${planPrefix}${key}`, planData[key], newPlansFilling);
@@ -129,10 +131,43 @@ export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames,
         const courseIndex = coursesTaken.findIndex(c => c && c.code === courseCode);
         if (courseIndex === -1) return;
 
+        // // if selectedPlanCombo is 1, we need to assign this course as elective of other plan
+        // const planPrefix = requirementId.split('-')[0]; // e.g., "major1
+        let secondReqId = "";
+        // if (selectedPlanCombo === 1) {
+        //     if (planPrefix === 'major1-') {
+        //         // Add to major2 electives
+        //         if (plansFilling[`${planPrefix.replace('major1', 'major2')}-Electives`]) {
+        //             console.log("Found major2 electives in plansFilling, now checking", coursesTaken[courseIndex].planreq);
+        //             if (coursesTaken[courseIndex.planReq]) {
+        //                 secondReqId = coursesTaken[courseIndex].planreq.split(', ').filter(req => !req.includes('Electives'));
+        //             } else {
+        //                 secondReqId = `${planPrefix.replace('major1', 'major2')}-Electives`;
+        //             }
+        //         } else {
+        //             secondReqId = "";
+        //         }
+
+        //     } else if (planPrefix === 'major2-') {
+        //         // Add to major1 electives
+        //         if (plansFilling[`${planPrefix.replace('major2', 'major1')}-Electives`]) {
+        //                                 console.log("Found major2 electives in plansFilling, now checking", coursesTaken[courseIndex].planreq);
+        //             if (coursesTaken[courseIndex].planreq) {
+        //                 secondReqId = coursesTaken[courseIndex].planreq.split(', ').filter(req => !req.includes('Electives'));
+        //             } else {
+        //                 secondReqId = `${planPrefix.replace('major2', 'major1')}-Electives`;
+        //             }
+        //         } else {
+        //             secondReqId = "";
+        //         }
+
+        //     }
+        // }
+
         // Update the course's planreq
         const updatedCourse = {
             ...coursesTaken[courseIndex],
-            planreq: requirementId
+            planreq: requirementId + (secondReqId ? `,${secondReqId}` : '')
         };
 
         // Update coursesTaken
@@ -181,6 +216,11 @@ export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames,
             // Update units completed (assuming 3 units per course - adjust as needed)
             newPlansFilling[requirementId].unitsCompleted += (updatedCourse.units || 3);
         }
+        // // If this is a double major, also add to the second requirement
+        // if (selectedPlanCombo === 1 && secondReqId && !newPlansFilling[secondReqId]) {
+        //     newPlansFilling[secondReqId].courses.push(courseCode);
+        //     newPlansFilling[secondReqId].unitsCompleted += (updatedCourse.units || 3);
+        // }
 
         setPlansFilling(newPlansFilling);
         setShowElectiveAssignment(null);

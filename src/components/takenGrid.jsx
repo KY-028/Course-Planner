@@ -14,7 +14,7 @@ export default function TakenGrid({ coursesTaken, setCoursesTaken }) {
     const findDuplicates = (courses) => {
         const duplicates = new Set();
         const seen = new Set();
-        
+
         courses.forEach((course, index) => {
             if (course && course.code) {
                 if (seen.has(course.code)) {
@@ -23,7 +23,7 @@ export default function TakenGrid({ coursesTaken, setCoursesTaken }) {
                 seen.add(course.code);
             }
         });
-        
+
         return duplicates;
     };
 
@@ -40,9 +40,9 @@ export default function TakenGrid({ coursesTaken, setCoursesTaken }) {
                 newCourses[index] = {
                     ...currentCourse, // Keep existing code
                     title: details?.title || null,
-                    units: details?.units || null
+                    units: details?.units || 3.0, // Default to 3.0 if not provided
                 };
-                
+
                 return newCourses;
             });
         } catch (error) {
@@ -84,11 +84,11 @@ export default function TakenGrid({ coursesTaken, setCoursesTaken }) {
     const formatCourseCode = (code) => {
         // Remove any existing spaces
         code = code.replace(/\s+/g, '');
-        
+
         // Find where the numbers start
         const numberIndex = code.search(/\d/);
         if (numberIndex === -1) return code.toUpperCase();
-        
+
         // Insert space before the numbers
         return (code.slice(0, numberIndex) + ' ' + code.slice(numberIndex)).toUpperCase();
     };
@@ -98,7 +98,7 @@ export default function TakenGrid({ coursesTaken, setCoursesTaken }) {
         const start = input.selectionStart;
         const end = input.selectionEnd;
         const value = e.target.value.toUpperCase();
-        
+
         if (value.length <= 8) {
             setInputValue(value);
             // Restore cursor position after state update
@@ -118,7 +118,7 @@ export default function TakenGrid({ coursesTaken, setCoursesTaken }) {
                 newCourses[index] = { code: formattedCode, title: null, units: null, planreq: null }; // Initialize with null details
                 return newCourses;
             });
-            
+
             // Fetch course details after setting the basic course info
             await fetchCourseDetails(formattedCode, index);
         } else {
@@ -157,7 +157,7 @@ export default function TakenGrid({ coursesTaken, setCoursesTaken }) {
             {/* Headers */}
             <div className="grid grid-cols-5 rounded-t-lg overflow-hidden border border-gray-200">
                 {headers.map((header, index) => (
-                    <div 
+                    <div
                         key={index}
                         className="p-2 text-center font-medium border-l border-r border-gray-200 border-t border-b-0 border-solid sm:text-base text-xxs"
                     >
@@ -169,7 +169,7 @@ export default function TakenGrid({ coursesTaken, setCoursesTaken }) {
             {/* Grid */}
             <div className="w-full grid grid-cols-5 rounded-b-lg overflow-hidden border border-gray-200">
                 {[...Array(60)].map((_, index) => (
-                    <div 
+                    <div
                         key={index}
                         className={`bg-gray-100 hover:bg-gray-200 cursor-pointer xl-custom:px-2 lg:px-1 sm:px-2 px-1 xl:h-18 md-custom:h-16 sm:h-14 h-14 flex items-center justify-center border-l border-r border-gray-200 border-t border-b-0 border-solid relative ${duplicates.has(index) ? 'bg-red-100 hover:bg-red-200' : ''}`}
                     >
@@ -195,7 +195,7 @@ export default function TakenGrid({ coursesTaken, setCoursesTaken }) {
                                 </button>
                             </div>
                         ) : coursesTaken[index] ? (
-                            <div 
+                            <div
                                 className="flex flex-col w-full cursor-pointer"
                                 onClick={() => startEditing(index)}
                             >
@@ -207,9 +207,9 @@ export default function TakenGrid({ coursesTaken, setCoursesTaken }) {
                                                 <span className="xl:text-base lg:text-small sm:text-sm text-xxs xl:mr-2 mr-0.5">{coursesTaken[index].units}</span>
                                             </>
                                         )}
-                                        <img 
-                                            src={penIcon} 
-                                            alt="edit" 
+                                        <img
+                                            src={penIcon}
+                                            alt="edit"
                                             className="xl:w-4 xl:h-4 lg:w-3 lg:h-3 sm:w-4 sm:h-4 w-3 h-3"
                                         />
                                     </div>
@@ -244,7 +244,7 @@ export default function TakenGrid({ coursesTaken, setCoursesTaken }) {
                                 )}
                             </div>
                         ) : (
-                            <div 
+                            <div
                                 className="flex items-center justify-center w-full cursor-pointer"
                                 onClick={() => startEditing(index)}
                             >
