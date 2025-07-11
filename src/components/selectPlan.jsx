@@ -65,10 +65,26 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
             // Filter out null responses to get valid plans
             const validPlans = responses.filter(response => response !== null);
             if (validPlans.length > 0) {
-                const result = recomputePlanAssignments(coursesTaken, validPlans, selectedPlanCombo, customAssignments, plansFilling, selectedSubPlans, setCoursesTaken);
+                const result = recomputePlanAssignments(coursesTaken, validPlans, selectedPlanCombo, customAssignments, setCustomAssignments, plansFilling, selectedSubPlans, setCoursesTaken);
+                // Remove courses from plansFilling that are not in coursesTaken
+                const coursesTakenIds = new Set(coursesTaken.filter(c => c != null).map(c => c.id));
+                const cleanedPlansFilling = {};
+                Object.entries(result.plansFilling).forEach(([key, value]) => {
+                    cleanedPlansFilling[key] = {
+                        ...value,
+                        courses: value.courses.filter(course => !coursesTakenIds.has(course))
+                    };
+                });
+                result.plansFilling = cleanedPlansFilling;
+
+                // Remove customAssignments that are not in coursesTaken
+                setCustomAssignments(prevAssignments => {
+                    return prevAssignments.filter(course => !coursesTakenIds.has(course.id));
+                });
                 // Only update state if changed
                 const hasCoursesChanged = JSON.stringify(result.coursesTaken) !== JSON.stringify(coursesTaken);
                 const hasPlansChanged = JSON.stringify(result.plansFilling) !== JSON.stringify(plansFilling);
+
                 if (hasCoursesChanged) {
                     setCoursesTaken(result.coursesTaken);
                 }
@@ -593,6 +609,14 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
                                                                         <img src="/info.svg" alt="info" className="w-4 h-4 text-gray-400 cursor-help" />
                                                                         <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10">
                                                                             Select a sub-plan by clicking in Details
+                                                                        </div>
+                                                                    </div>
+                                                                )}
+                                                                {sectionKey === "Electives" && progress.required < responses[idx].electives && (
+                                                                    <div className="relative group">
+                                                                        <img src="/info.svg" alt="info" className="w-4 h-4 text-gray-400 cursor-help" />
+                                                                        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10">
+                                                                            Amount lowered due to excess in units in other sections.
                                                                         </div>
                                                                     </div>
                                                                 )}
