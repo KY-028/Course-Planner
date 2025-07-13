@@ -225,7 +225,8 @@ export function fillPlanReq(newCourse, coursesTaken, plans, plansFilling, select
                                         // Handle excess units
                                         if (excessUnits > 0) {
                                             // Lower electives requirement by excess units
-                                            updatedPlansFilling[`${planPrefix}Electives`].unitsRequired -= excessUnits;
+                                            // updatedPlansFilling[`${planPrefix}Electives`].unitsRequired -= excessUnits;
+                                            // Don't need to be handled anymore in this logic
                                         }
                                     });
                                     assignedRequirements.push(requirementId);
@@ -265,7 +266,7 @@ export function fillPlanReq(newCourse, coursesTaken, plans, plansFilling, select
                             }
                             // Handle excess units: add a new excess course object
                             if (excessUnits > 0) {
-                                updatedPlansFilling[`${planPrefix}Electives`].unitsRequired -= excessUnits;
+                                // updatedPlansFilling[`${planPrefix}Electives`].unitsRequired -= excessUnits;
                                 // updatedPlansFilling[`${requirementLabel}`].unitsRequired += excessUnits;
                             }
                             assignedRequirements.push(requirementId);
@@ -334,7 +335,7 @@ export function fillPlanReq(newCourse, coursesTaken, plans, plansFilling, select
                                                         // Handle excess units
                                                         if (excessUnits > 0) {
                                                             // Lower electives requirement by excess units
-                                                            updatedPlansFilling[`${planPrefix}Electives`].unitsRequired -= excessUnits;
+                                                            // updatedPlansFilling[`${planPrefix}Electives`].unitsRequired -= excessUnits;
                                                         }
                                                     });
                                                     assignedRequirements.push(planReqId);
@@ -374,7 +375,7 @@ export function fillPlanReq(newCourse, coursesTaken, plans, plansFilling, select
                                             }
                                             // Handle excess units: add a new excess course object
                                             if (excessUnits > 0) {
-                                                updatedPlansFilling[`${planPrefix}Electives`].unitsRequired -= excessUnits;
+                                                // updatedPlansFilling[`${planPrefix}Electives`].unitsRequired -= excessUnits;
                                             }
                                             assignedRequirements.push(planReqId);
                                             if (!firstAssignmentType) {
@@ -423,68 +424,12 @@ export function fillPlanReq(newCourse, coursesTaken, plans, plansFilling, select
 
     // If no assignment found in any plan, assign as "Electives"
     if (assignedRequirements.length === 0) {
-        // Find the plan prefix for the first plan (or fallback)
-        let planPrefix = '';
-        if (plans && plans.length > 0) {
-            planPrefix = getPlanPrefix(0, plans[0], selectedPlanCombo) || '';
-        }
-        const electivesRequirementId = `${planPrefix}Electives`;
-        assignedRequirements.push(electivesRequirementId);
+        assignedRequirements.push("Unassigned/Electives");
         // Add course to electives if not already present
-        if (!updatedPlansFilling[electivesRequirementId].courses.includes(courseCode)) {
-            updatedPlansFilling[electivesRequirementId].courses.push(courseCode);
-            updatedPlansFilling[electivesRequirementId].unitsCompleted += parseFloat(newCourse.units) || 0;
+        if (!updatedPlansFilling["Unassigned/Electives"].courses.includes(courseCode)) {
+            updatedPlansFilling["Unassigned/Electives"].courses.push(courseCode);
+            updatedPlansFilling["Unassigned/Electives"].unitsCompleted += parseFloat(newCourse.units) || 0;
         }
-
-        //     // --- Double Major: Add to both electives if not assigned anywhere ---
-        //     if (selectedPlanCombo === 1 && plans.length > 1) {
-        //         const planPrefix2 = getPlanPrefix(1, plans[1], selectedPlanCombo) || '';
-        //         const electivesRequirementId2 = `${planPrefix2}Electives`;
-        //         // Only add if not already present and the electives section exists
-        //         if (
-        //             updatedPlansFilling[electivesRequirementId2] &&
-        //             !updatedPlansFilling[electivesRequirementId2].courses.includes(courseCode)
-        //         ) {
-        //             updatedPlansFilling[electivesRequirementId2].courses.push(courseCode);
-        //             updatedPlansFilling[electivesRequirementId2].unitsCompleted += parseFloat(newCourse.units) || 0;
-        //             // Also add to assignedRequirements for completeness
-        //             assignedRequirements.push(electivesRequirementId2);
-        //         }
-        //     }
-        // } else if (assignedRequirements.length === 1) {
-        //     // Find out which plan this requirement belongs to
-        //     const requirementId = assignedRequirements[0];
-        //     const planPrefix = requirementId.split('-')[0]; // e.g., "major1"
-        //     console.log("Trying to find out which plan this requirement belongs to:", requirementId, "with prefix", planPrefix);
-        //     // Add the requirement to the other plans' electives if selectedPlanCombo is 1 and not already present
-        //     if (selectedPlanCombo === 1 && plans.length > 1) {
-        //         console.log("We're here", planPrefix);
-        //         if (planPrefix === 'major1') {
-        //             // Add to major2 electives
-        //             const electivesRequirementId2 = `${planPrefix.replace('major1', 'major2')}-Electives`;
-        //             console.log("Adding to major2 electives:", electivesRequirementId2);
-        //             if (
-        //                 updatedPlansFilling[electivesRequirementId2] &&
-        //                 !updatedPlansFilling[electivesRequirementId2].courses.includes(courseCode)
-        //             ) {
-        //                 updatedPlansFilling[electivesRequirementId2].courses.push(courseCode);
-        //                 updatedPlansFilling[electivesRequirementId2].unitsCompleted += parseFloat(newCourse.units) || 0;
-        //                 assignedRequirements.push(electivesRequirementId2);
-        //                 console.log("assignedRequirements after adding to major2 electives:", assignedRequirements);
-        //             }
-        //         } else if (planPrefix === 'major2') {
-        //             // Add to major1 electives
-        //             const electivesRequirementId1 = `${planPrefix.replace('major2', 'major1')}-Electives`;
-        //             if (
-        //                 updatedPlansFilling[electivesRequirementId1] &&
-        //                 !updatedPlansFilling[electivesRequirementId1].courses.includes(courseCode)
-        //             ) {
-        //                 updatedPlansFilling[electivesRequirementId1].courses.push(courseCode);
-        //                 updatedPlansFilling[electivesRequirementId1].unitsCompleted += parseFloat(newCourse.units) || 0;
-        //                 assignedRequirements.push(electivesRequirementId1);
-        //             }
-        //         }
-        //     }
 
     }
 
@@ -512,16 +457,16 @@ export function recomputePlanAssignments(coursesTaken, plans, selectedPlanCombo,
     );
 
     // Reset electives requirements to their original values from plans
-    for (let planIndex = 0; planIndex < plans.length; planIndex++) {
-        const plan = plans[planIndex];
-        if (!plan) continue;
-        const planPrefix = getPlanPrefix(planIndex, plan, selectedPlanCombo);
-        const electivesKey = `${planPrefix}Electives`;
-        if (plansFilling[electivesKey]) {
-            // Reset to original electives value from the plan
-            plansFilling[electivesKey].unitsRequired = plan.electives || 0;
-        }
-    }
+    // for (let planIndex = 0; planIndex < plans.length; planIndex++) {
+    //     const plan = plans[planIndex];
+    //     if (!plan) continue;
+    //     const planPrefix = getPlanPrefix(planIndex, plan, selectedPlanCombo);
+    //     const electivesKey = `${planPrefix}Electives`;
+    //     if (plansFilling[electivesKey]) {
+    //         // Reset to original electives value from the plan
+    //         plansFilling[electivesKey].unitsRequired = plan.electives || 0;
+    //     }
+    // }
 
     // 2. Start with all courses unassigned
     let updatedCoursesTaken = coursesTaken.map(course => course ? { ...course, planreq: null } : null);
@@ -540,7 +485,7 @@ export function recomputePlanAssignments(coursesTaken, plans, selectedPlanCombo,
             // Fill the planreq in plansFilling
             if (planreq) {
                 const requirementId = planreq;
-                // If this plan req has been removed, this course should now be an elective and remove the custom assignment
+                // If this plan req has been removed, this course should now be reassigned and remove the custom assignment
                 if (!plansFilling[requirementId]) {
                     setCoursesTaken(prev =>
                         prev.map((c, idx) =>

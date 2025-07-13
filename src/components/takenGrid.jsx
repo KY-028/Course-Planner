@@ -204,7 +204,7 @@ export default function TakenGrid({ coursesTaken, setCoursesTaken }) {
                                     <div className="flex items-center">
                                         {coursesTaken[index]?.units && (
                                             <>
-                                                <span className="xl:text-base lg:text-small sm:text-sm text-xxs xl:mr-2 mr-0.5">{coursesTaken[index].units}</span>
+                                                <span className="xl:text-base lg:text-small sm:text-sm text-xxs xl:mr-2 mr-0.5">{parseFloat(coursesTaken[index].units).toFixed(1)}</span>
                                             </>
                                         )}
                                         <img
@@ -224,12 +224,13 @@ export default function TakenGrid({ coursesTaken, setCoursesTaken }) {
                                         {/* Shorten planreq display: e.g., major-1. CoreA => major-1A */}
                                         {coursesTaken[index].planreq.split(',').map((req, i) => {
                                             // Match pattern like 'major-3. SupportingA' or 'major-1. CoreB'
-                                            const match = req.trim().match(/^(.*?-)([0-9]+)\.\s*[A-Za-z]+([A-Z])$/);
+                                            const match = req.trim().match(/^(.*?-)([0-9]+)\.\s*[A-Za-z\-]+([A-Z])([\-\.].*)?/);
+
                                             if (match) {
                                                 // e.g., major-3. SupportingA => major-3A
                                                 return (
                                                     <span key={i}>
-                                                        {match[1]}{match[2]}{match[3]}
+                                                        {match[1]}{match[2]}{match[3]}{match[4] || ''}
                                                         {i < coursesTaken[index].planreq.split(',').length - 1 ? ', ' : ''}
                                                     </span>
                                                 );

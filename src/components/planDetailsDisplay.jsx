@@ -131,43 +131,10 @@ export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames,
         const courseIndex = coursesTaken.findIndex(c => c && c.code === courseCode);
         if (courseIndex === -1) return;
 
-        // // if selectedPlanCombo is 1, we need to assign this course as elective of other plan
-        // const planPrefix = requirementId.split('-')[0]; // e.g., "major1
-        let secondReqId = "";
-        // if (selectedPlanCombo === 1) {
-        //     if (planPrefix === 'major1-') {
-        //         // Add to major2 electives
-        //         if (plansFilling[`${planPrefix.replace('major1', 'major2')}-Electives`]) {
-        //             console.log("Found major2 electives in plansFilling, now checking", coursesTaken[courseIndex].planreq);
-        //             if (coursesTaken[courseIndex.planReq]) {
-        //                 secondReqId = coursesTaken[courseIndex].planreq.split(', ').filter(req => !req.includes('Electives'));
-        //             } else {
-        //                 secondReqId = `${planPrefix.replace('major1', 'major2')}-Electives`;
-        //             }
-        //         } else {
-        //             secondReqId = "";
-        //         }
-
-        //     } else if (planPrefix === 'major2-') {
-        //         // Add to major1 electives
-        //         if (plansFilling[`${planPrefix.replace('major2', 'major1')}-Electives`]) {
-        //                                 console.log("Found major2 electives in plansFilling, now checking", coursesTaken[courseIndex].planreq);
-        //             if (coursesTaken[courseIndex].planreq) {
-        //                 secondReqId = coursesTaken[courseIndex].planreq.split(', ').filter(req => !req.includes('Electives'));
-        //             } else {
-        //                 secondReqId = `${planPrefix.replace('major2', 'major1')}-Electives`;
-        //             }
-        //         } else {
-        //             secondReqId = "";
-        //         }
-
-        //     }
-        // }
-
         // Update the course's planreq
         const updatedCourse = {
             ...coursesTaken[courseIndex],
-            planreq: requirementId + (secondReqId ? `,${secondReqId}` : '')
+            planreq: requirementId
         };
 
         // Update coursesTaken
@@ -312,10 +279,10 @@ export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames,
             {sectionNames[planIndex].map((sectionKey, sectionIdx) => {
                 return renderSection(sectionKey, planData[sectionKey]);
             })}
-            {planData.electives && (
+            {plansFilling["Unassigned/Electives"] && (
                 <div className={`space-y-2 mt-4`}>
                     <div className="font-semibold text-gray-800">
-                        Electives
+                        Unassigned/Electives
                     </div>
                     {(() => {
                         const electiveCourses = coursesTaken.filter(course => course !== null && (!course.planreq || course.planreq.includes('Electives') || course.planreq === null));
@@ -470,7 +437,7 @@ function PlanSubsection({
         // Remove this requirementId from planreq, add 'Electives' if not present
         let planreqArr = coursesTaken[idx].planreq ? coursesTaken[idx].planreq.split(',').map(s => s.trim()) : [];
         planreqArr = planreqArr.filter(req => req !== requirementId);
-        if (!planreqArr.includes(`${planPrefix}Electives`)) planreqArr.push(`${planPrefix}Electives`);
+        if (!planreqArr.includes(`Unassigned/Electives`) && planreqArr.length === 0) planreqArr.push(`Unassigned/Electives`);
         const updatedCourse = { ...coursesTaken[idx], planreq: planreqArr.join(', ') };
 
         // Update coursesTaken
@@ -481,16 +448,25 @@ function PlanSubsection({
         // Update customAssignments
         setCustomAssignments(prev => {
             const alreadyCustom = prev.some(entry => entry.index === idx);
-            if (alreadyCustom) {
+            // If already custom, and planreqArr includes `Unassigned/Electives`, remove it
+            if (alreadyCustom && planreqArr.includes(`Unassigned/Electives`)) {
                 // Remove from customAssignments
                 return prev.filter(entry => entry.index !== idx);
+            } else if (planreqArr.length !== 0) {
+                // Some other requirement is present, update it
+                return prev.map(entry => {
+                    if (entry.index === idx) {
+                        return { ...entry, course: updatedCourse };
+                    }
+                    return entry;
+                });
             } else {
-                // Add as elective assignment
+                // Not custom yet, and only an elective, add it
                 return [
                     ...prev,
                     {
                         index: idx,
-                        course: { ...updatedCourse, planreq: `${planPrefix}Electives` }
+                        course: { ...updatedCourse, planreq: `Unassigned/Electives` }
                     }
                 ];
             }

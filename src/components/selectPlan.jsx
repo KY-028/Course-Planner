@@ -3,7 +3,6 @@ import { FaCheck, FaTimes } from 'react-icons/fa';
 import axios from 'axios';
 import { validateUrl, clearPlanReq, establishPlansFilling, getPlanPrefix, recomputePlanAssignments } from '/src/components/courseFunctions';
 import planResultsData from '../assets/coursePlanResults.json';
-import CompleteIcon from '/complete.svg';
 import PlanDetailsDisplay from '/src/components/planDetailsDisplay.jsx';
 
 const PLAN_OPTIONS = [
@@ -211,13 +210,18 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
             if (planData && newLocked[i]) {
                 const planPrefix = getPlanPrefix(i, planData, selectedPlanCombo);
                 Object.assign(mergedPlansFilling, establishPlansFilling(planData, planPrefix));
-                mergedPlansFilling[`${planPrefix}Electives`] = {
-                    unitsRequired: planData.electives || 0,
-                    unitsCompleted: 0,
-                    courses: []
-                };
+                // mergedPlansFilling[`${planPrefix}Electives`] = {
+                //     unitsRequired: planData.electives || 0,
+                //     unitsCompleted: 0,
+                //     courses: []
+                // };
             }
         });
+        mergedPlansFilling["Unassigned/Electives"] = {
+            unitsRequired: 0,
+            unitsCompleted: 0,
+            courses: []
+        }
         const totalUnits = newResponses[idx]?.units || 0;
         let required = 0;
         // Check if the plan is valid for this index
@@ -227,7 +231,7 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
                 required += value.unitsRequired || 0;
             }
         });
-        if (required === totalUnits) {
+        if (required === totalUnits - (newResponses[idx]?.electives || 0)) {
             setPlansFilling(mergedPlansFilling);
         } else {
             alert("Your plan was not parsed successfully. Please contact the developer.");
@@ -317,6 +321,11 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
                     };
                 }
             });
+            mergedPlansFilling["Unassigned/Electives"] = {
+                unitsRequired: 0,
+                unitsCompleted: 0,
+                courses: []
+            }
             const totalUnits = newResponses[idx]?.units || 0;
             let required = 0;
             Object.entries(mergedPlansFilling).forEach(([key, value]) => {
@@ -361,13 +370,18 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
                 const planPrefix = getPlanPrefix(i, planData, selectedPlanCombo);
                 Object.assign(mergedPlansFilling, establishPlansFilling(planData, planPrefix));
                 // Add electives for this plan
-                mergedPlansFilling[`${planPrefix}Electives`] = {
-                    unitsRequired: planData.electives || 0,
-                    unitsCompleted: 0,
-                    courses: []
-                };
+                // mergedPlansFilling[`${planPrefix}Electives`] = {
+                //     unitsRequired: planData.electives || 0,
+                //     unitsCompleted: 0,
+                //     courses: []
+                // };
             }
         });
+        mergedPlansFilling["Unassigned/Electives"] = {
+            unitsRequired: 0,
+            unitsCompleted: 0,
+            courses: []
+        }
         setPlansFilling(mergedPlansFilling);
         setCoursesTaken(clearPlanReq(coursesTaken)); // Clear courses taken plan requirement assignments
         updateSectionNames(newResponses, newLocked);
@@ -436,10 +450,8 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
             }
         }
         // Add electives section
-        const electivesKey = `${getPlanPrefix(idx, responses[idx], selectedPlanCombo)}Electives`;
-        if (plansFilling[electivesKey]) {
-            completed += plansFilling[electivesKey].unitsCompleted || 0;
-            required += plansFilling[electivesKey].unitsRequired || 0;
+        if (!PLAN_OPTIONS[selectedPlanCombo - 1].fields[idx].includes('Minor') && plansFilling["Unassigned/Electives"]) {
+            completed += plansFilling["Unassigned/Electives"].unitsCompleted || 0;
         }
         // Use the plan's total required units as the required value
         required = responses[idx]?.units || required;
@@ -480,13 +492,8 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
         responsesArr.forEach((planData, i) => {
             if (planData && lockedArr[i]) {
                 let sectionKeys = Object.keys(planData).filter(k => k !== 'title' && k !== 'electives' && k !== 'units');
-                // Ensure 'Electives' is always present and last
-                const electivesIndex = sectionKeys.findIndex(section => section.toLowerCase() === 'electives');
-                if (electivesIndex !== -1) {
-                    sectionKeys[electivesIndex] = 'Electives';
-                } else {
-                    sectionKeys.push('Electives');
-                }
+                // Ensure 'Unassigned/Electives' is always present and last
+                sectionKeys.push('Unassigned/Electives');
                 newSectionNames[i] = sectionKeys;
             } else {
                 newSectionNames[i] = [];
@@ -598,25 +605,32 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
                                                         const progress = getSectionProgressFromFilling(idx, sectionKey);
                                                         return (
                                                             <div className='flex flex-row items-center gap-2' key={sectionKey}>
-                                                                <span className='font-semibold'>
-                                                                    {sectionKey}
-                                                                </span>
-                                                                <span className='text-gray-700'>
-                                                                    {progress.completed}/{progress.required}
-                                                                </span>
+                                                                {sectionKey !== 'Unassigned/Electives' && (
+                                                                    <>
+                                                                        <span className='font-semibold'>
+                                                                            {sectionKey}
+                                                                        </span>
+                                                                        <span className='text-gray-700'>
+                                                                            {progress.completed}/{progress.required}
+                                                                        </span>
+                                                                    </>
+                                                                )
+                                                                }
+                                                                {sectionKey === 'Unassigned/Electives' && !PLAN_OPTIONS[selectedPlanCombo - 1].fields[idx].includes('Minor') && (
+                                                                    <>
+                                                                        <span className='font-semibold'>
+                                                                            {sectionKey}
+                                                                        </span>
+                                                                        <span className='text-gray-700'>
+                                                                            {plansFilling["Unassigned/Electives"].unitsCompleted} Units
+                                                                        </span>
+                                                                    </>
+                                                                )}
                                                                 {hasUnselectedSubPlans(idx, sectionKey) && (
                                                                     <div className="relative group">
                                                                         <img src="/info.svg" alt="info" className="w-4 h-4 text-gray-400 cursor-help" />
                                                                         <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10">
                                                                             Select a sub-plan by clicking in Details
-                                                                        </div>
-                                                                    </div>
-                                                                )}
-                                                                {sectionKey === "Electives" && progress.required < responses[idx].electives && (
-                                                                    <div className="relative group">
-                                                                        <img src="/info.svg" alt="info" className="w-4 h-4 text-gray-400 cursor-help" />
-                                                                        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10">
-                                                                            Amount lowered due to excess in units in other sections.
                                                                         </div>
                                                                     </div>
                                                                 )}
