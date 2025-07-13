@@ -131,38 +131,35 @@ export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames,
         const courseIndex = coursesTaken.findIndex(c => c && c.code === courseCode);
         if (courseIndex === -1) return;
 
+        // Find if course already has an assignment
+        let existingAssignment = coursesTaken[courseIndex].planreq
+            ? coursesTaken[courseIndex].planreq.split(',').map(s => s.trim()).filter(req => req !== 'Unassigned/Electives')
+            : [];
+        existingAssignment.push(requirementId);
+        console.log("New existing assignment for course:", existingAssignment);
+
         // Update the course's planreq
         const updatedCourse = {
             ...coursesTaken[courseIndex],
-            planreq: requirementId
+            planreq: existingAssignment ? existingAssignment.join(', ') : requirementId
         };
-
-        // Update coursesTaken
-        const newCoursesTaken = [...coursesTaken];
-        newCoursesTaken[courseIndex] = updatedCourse;
-        setCoursesTaken(newCoursesTaken);
 
         // Add this course to the custom assignments
         setCustomAssignments(prev => {
             const alreadyExists = prev.some(
                 entry => entry.index === courseIndex
             );
-            if (!alreadyExists) {
-                console.log("Already exists:", updatedCourse);
+            if (!alreadyExists || existingAssignment.length >= 2) {
+                // If course doesn't exist in custom assignments or multiple requirements involved, add it
                 return [...prev, { index: courseIndex, course: updatedCourse }];
             } else {
-                // If already exists
+                // If course already exists in custom assignments,
                 // First check if this course is supposed to be a requirement for that section
                 if (courseFitsRequirement(updatedCourse, requirementId)) {
                     // If it fits, remove this course from custom assignments
                     return prev.filter(entry => entry.index !== courseIndex);
                 } else {
-                    return prev.map(entry => {
-                        if (entry.index === courseIndex) {
-                            return { ...entry, course: updatedCourse };
-                        }
-                        return entry;
-                    });
+                    return [...prev, { index: courseIndex, course: updatedCourse }]
                 }
             }
         });
@@ -181,13 +178,18 @@ export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames,
         if (!newPlansFilling[requirementId].courses.includes(courseCode)) {
             newPlansFilling[requirementId].courses.push(courseCode);
             // Update units completed (assuming 3 units per course - adjust as needed)
-            newPlansFilling[requirementId].unitsCompleted += (updatedCourse.units || 3);
+            newPlansFilling[requirementId].unitsCompleted += (parseFloat(updatedCourse.units) || 3);
         }
         // // If this is a double major, also add to the second requirement
         // if (selectedPlanCombo === 1 && secondReqId && !newPlansFilling[secondReqId]) {
         //     newPlansFilling[secondReqId].courses.push(courseCode);
         //     newPlansFilling[secondReqId].unitsCompleted += (updatedCourse.units || 3);
         // }
+
+        // Update coursesTaken
+        const newCoursesTaken = [...coursesTaken];
+        newCoursesTaken[courseIndex] = updatedCourse;
+        setCoursesTaken(newCoursesTaken);
 
         setPlansFilling(newPlansFilling);
         setShowElectiveAssignment(null);
@@ -307,6 +309,37 @@ export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames,
                     })()}
                 </div>
             )}
+            <div className={`space-y-2 mt-4`}>
+                <div className="font-semibold text-gray-800">
+                    Courses Assigned to Other Plans
+                </div>
+                {(() => {
+                    const otherCourses = coursesTaken.filter(course => course !== null
+                        && course.planreq !== 'Unassigned/Electives'
+                        && course.planreq && !course.planreq.includes(planPrefix));
+
+                    if (otherCourses.length === 0) {
+                        return (
+                            <div className="text-sm text-gray-500 italic">
+                                No courses from other plan(s)
+                            </div>
+                        );
+                    }
+
+                    return otherCourses.map((course, idx) => {
+                        const courseWithAdditional = { ...course, additional: ' more requirements' };
+                        return (
+                            <button
+                                key={`course-${idx}`}
+                                onClick={(e) => handleElectiveClick(courseWithAdditional, e)}
+                                className="text-sm text-blue-600 hover:text-blue-800 hover:bg-blue-50 px-2 py-1 rounded transition-colors duration-150 text-left w-full"
+                            >
+                                {courseWithAdditional.code} - {courseWithAdditional.title}
+                            </button>
+                        );
+                    });
+                })()}
+            </div>
 
             {/* Floating assignment window */}
             {showElectiveAssignment && (
@@ -321,7 +354,7 @@ export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames,
                 >
                     <div className="flex justify-between items-center mb-3">
                         <h4 className="font-semibold text-gray-800">
-                            Assign {showElectiveAssignment.code} to:
+                            Assign {showElectiveAssignment.code} to{showElectiveAssignment.additional || ''}:
                         </h4>
                         <button
                             onClick={() => setShowElectiveAssignment(null)}
@@ -361,11 +394,6 @@ export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames,
                                             }`}>
                                             {requirement.unitsCompleted}/{requirement.unitsRequired} units
                                         </div>
-                                        {/* {requirement.courses.length > 0 && (
-                                            <div className="text-xs text-gray-500 mt-1">
-                                                Courses: {requirement.courses.join(', ')}
-                                            </div>
-                                        )} */}
                                     </button>
                                 );
                             })
@@ -449,10 +477,10 @@ function PlanSubsection({
         setCustomAssignments(prev => {
             const alreadyCustom = prev.some(entry => entry.index === idx);
             // If already custom, and planreqArr includes `Unassigned/Electives`, remove it
-            if (alreadyCustom && planreqArr.includes(`Unassigned/Electives`)) {
+            if (alreadyCustom && planreqArr.length === 1 && planreqArr.includes(`Unassigned/Electives`)) {
                 // Remove from customAssignments
                 return prev.filter(entry => entry.index !== idx);
-            } else if (planreqArr.length !== 0) {
+            } else if (planreqArr.length !== 1) {
                 // Some other requirement is present, update it
                 return prev.map(entry => {
                     if (entry.index === idx) {
@@ -519,15 +547,20 @@ function PlanSubsection({
                     <span className="font-medium text-gray-700">
                         {subsection.title}
                     </span>
+                    {/* Render subtitle if exists */}
+                    {subsection.subtitle && (
+                        <div className="text-sm text-gray-500">
+                            {subsection.subtitle}
+                        </div>
+                    )}
 
                     {/* Render courses and requirements */}
                     {(hasCourses || hasRequirement) && (
                         <div className="space-t-1">
-                            {/* Render courses first */}
                             {hasCourses && subsection.courses.map((course, idx) => (
                                 <div key={`course-${idx}`} className="text-sm text-gray-600">
                                     {course.code === 'Combination' ? (
-                                        <div className="">
+                                        <div>
                                             <span className="font-medium text-gray-500">Combination:</span>
                                             {course.courses.map((subCourse, subIdx) => (
                                                 <div key={subIdx} className="ml-4 text-gray-600">
@@ -535,15 +568,22 @@ function PlanSubsection({
                                                 </div>
                                             ))}
                                         </div>
+                                    ) : course.code === 'One of' ? (
+                                        <div>
+                                            <span className="font-medium text-gray-500">One of:</span>
+                                            {course.courses.map((subCourse, subIdx) => (
+                                                <div key={subIdx} className="ml-4 text-gray-600">
+                                                    {subCourse.code} - {subCourse.title}
+                                                </div>
+                                            ))}
+                                        </div>
                                     ) : (
-                                        <div className="">
+                                        <div>
                                             {course.code} - {course.title}
                                         </div>
                                     )}
                                 </div>
                             ))}
-
-                            {/* Render requirements */}
                             {hasRequirement && (
                                 <div className="text-sm text-gray-600">
                                     {Array.isArray(subsection.requirement) ? (

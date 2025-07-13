@@ -66,19 +66,22 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
             if (validPlans.length > 0) {
                 const result = recomputePlanAssignments(coursesTaken, validPlans, selectedPlanCombo, customAssignments, setCustomAssignments, plansFilling, selectedSubPlans, setCoursesTaken);
                 // Remove courses from plansFilling that are not in coursesTaken
-                const coursesTakenIds = new Set(coursesTaken.filter(c => c != null).map(c => c.id));
+                const coursesTakenCodes = new Set(coursesTaken.filter(c => c != null).map(c => c.code));
+                console.log("-------------------");
+                console.log('coursesTakenCodes:', coursesTakenCodes);
                 const cleanedPlansFilling = {};
                 Object.entries(result.plansFilling).forEach(([key, value]) => {
                     cleanedPlansFilling[key] = {
                         ...value,
-                        courses: value.courses.filter(course => !coursesTakenIds.has(course))
+                        courses: value.courses.filter(course => !coursesTakenCodes.has(course.code))
                     };
                 });
+                console.log('cleanedPlansFilling:', cleanedPlansFilling);
                 result.plansFilling = cleanedPlansFilling;
 
                 // Remove customAssignments that are not in coursesTaken
                 setCustomAssignments(prevAssignments => {
-                    return prevAssignments.filter(course => !coursesTakenIds.has(course.id));
+                    return prevAssignments.filter(course => !coursesTakenCodes.has(course.code));
                 });
                 // Only update state if changed
                 const hasCoursesChanged = JSON.stringify(result.coursesTaken) !== JSON.stringify(coursesTaken);
@@ -234,6 +237,7 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
         if (required === totalUnits - (newResponses[idx]?.electives || 0)) {
             setPlansFilling(mergedPlansFilling);
         } else {
+            console.log("Plan requirements do not match total units. Required:", required, "Total Units:", totalUnits);
             alert("Your plan was not parsed successfully. Please contact the developer.");
         }
         updateSectionNames(newResponses, newLocked);
@@ -328,12 +332,16 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
             }
             const totalUnits = newResponses[idx]?.units || 0;
             let required = 0;
+            const planPrefix = getPlanPrefix(idx, newResponses[idx], selectedPlanCombo);
             Object.entries(mergedPlansFilling).forEach(([key, value]) => {
-                required += value.unitsRequired || 0;
+                if (key.startsWith(planPrefix)) {
+                    required += value.unitsRequired || 0;
+                }
             });
             if (required === totalUnits) {
                 setPlansFilling(mergedPlansFilling);
             } else {
+                console.log("Plan requirements do not match total units. Required:", required, "Total Units:", totalUnits);
                 alert("Your plan was not parsed successfully. Please contact the developer.");
             }
             updateSectionNames(newResponses, newLocked);
@@ -450,9 +458,11 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
             }
         }
         // Add electives section
-        if (!PLAN_OPTIONS[selectedPlanCombo - 1].fields[idx].includes('Minor') && plansFilling["Unassigned/Electives"]) {
-            completed += plansFilling["Unassigned/Electives"].unitsCompleted || 0;
-        }
+        const planPrefix = getPlanPrefix(idx, responses[idx], selectedPlanCombo);
+        const otherUnitsCompleted = coursesTaken
+            .filter(course => course && (!course.planreq || !course.planreq.includes(planPrefix)))
+            .reduce((sum, course) => sum + (parseFloat(course.units) || 0), 0);
+        completed += otherUnitsCompleted;
         // Use the plan's total required units as the required value
         required = responses[idx]?.units || required;
         return { completed, required };
@@ -584,14 +594,15 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
                                     <div className='flex items-center justify-center'>
                                         {(() => {
                                             const { completed, required } = getPlanProgressFromFilling(idx);
-                                            const circ = 2 * Math.PI * 28;
+                                            const radius = 32; // bigger than 28
+                                            const circ = 2 * Math.PI * radius;
                                             const percent = required > 0 ? Math.min(1, completed / required) : 0;
                                             const offset = circ * (1 - percent);
                                             return (
-                                                <svg width="64" height="64" viewBox="0 0 64 64">
-                                                    <circle cx="32" cy="32" r="28" stroke="#e5e7eb" strokeWidth="8" fill="none" />
-                                                    <circle cx="32" cy="32" r="28" stroke="#65A8F6" strokeWidth="8" fill="none" strokeDasharray={circ} strokeDashoffset={offset} style={{ transition: 'stroke-dashoffset 0.5s' }} />
-                                                    <text x="50%" y="50%" textAnchor="middle" dy="0.3em" fontSize="16" fill="#333">{completed}/{required}</text>
+                                                <svg width="72" height="72" viewBox="0 0 72 72">
+                                                    <circle cx="36" cy="36" r={radius} stroke="#e5e7eb" strokeWidth="8" fill="none" />
+                                                    <circle cx="36" cy="36" r={radius} stroke="#65A8F6" strokeWidth="8" fill="none" strokeDasharray={circ} strokeDashoffset={offset} style={{ transition: 'stroke-dashoffset 0.5s' }} />
+                                                    <text x="50%" y="50%" textAnchor="middle" dy="0.3em" fontSize="14" fill="#333">{completed}/{required}</text>
                                                 </svg>
                                             );
                                         })()}
@@ -614,17 +625,24 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
                                                                             {progress.completed}/{progress.required}
                                                                         </span>
                                                                     </>
-                                                                )
-                                                                }
+                                                                )}
                                                                 {sectionKey === 'Unassigned/Electives' && !PLAN_OPTIONS[selectedPlanCombo - 1].fields[idx].includes('Minor') && (
-                                                                    <>
-                                                                        <span className='font-semibold'>
-                                                                            {sectionKey}
-                                                                        </span>
-                                                                        <span className='text-gray-700'>
-                                                                            {plansFilling["Unassigned/Electives"].unitsCompleted} Units
-                                                                        </span>
-                                                                    </>
+                                                                    (() => {
+                                                                        const planPrefix = getPlanPrefix(idx, responses[idx], selectedPlanCombo);
+                                                                        const otherUnitsCompleted = coursesTaken
+                                                                            .filter(course => course && (!course.planreq || !course.planreq.includes(planPrefix)))
+                                                                            .reduce((sum, course) => sum + (parseFloat(course.units) || 0), 0);
+                                                                        return (
+                                                                            <>
+                                                                                <span className='font-semibold'>
+                                                                                    Electives/Other Plans
+                                                                                </span>
+                                                                                <span className='text-gray-700'>
+                                                                                    {otherUnitsCompleted} Units
+                                                                                </span>
+                                                                            </>
+                                                                        );
+                                                                    })()
                                                                 )}
                                                                 {hasUnselectedSubPlans(idx, sectionKey) && (
                                                                     <div className="relative group">
