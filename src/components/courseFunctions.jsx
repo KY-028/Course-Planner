@@ -198,7 +198,7 @@ export function fillPlanReq(newCourse, coursesTaken, plans, plansFilling, select
                                     // For each course in the combination
                                     comboCodes.forEach(code => {
                                         const comboCourseObj = course.courses.find(c => c.code === code);
-                                        const courseUnits = parsefloat(comboCourseObj?.units) || 0;
+                                        const courseUnits = parseFloat(comboCourseObj?.units) || 0;
                                         let excessUnits = updatedPlansFilling[requirementId]?.unitsCompleted + courseUnits - unitsRequired || 0;
                                         // Assign to requirement
                                         if (!updatedPlansFilling[requirementId]) {
@@ -308,7 +308,7 @@ export function fillPlanReq(newCourse, coursesTaken, plans, plansFilling, select
                                                     // For each course in the combination
                                                     comboCodes.forEach(code => {
                                                         const comboCourseObj = course.courses.find(c => c.code === code);
-                                                        const courseUnits = parsefloat(comboCourseObj?.units) || 0;
+                                                        const courseUnits = parseFloat(comboCourseObj?.units) || 0;
                                                         let excessUnits = updatedPlansFilling[planReqId]?.unitsCompleted + courseUnits - unitsRequired || 0;
                                                         // Assign to requirement
                                                         if (!updatedPlansFilling[planReqId]) {
