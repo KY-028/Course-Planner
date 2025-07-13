@@ -47,7 +47,6 @@ export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames,
                             // Delete everything that begins with
                             Object.keys(newPlansFilling).forEach(k => {
                                 if (k.startsWith(`${planPrefix}${key}`)) {
-                                    console.log("Deleting starts with ", `${planPrefix}${key}`)
                                     delete newPlansFilling[k];
                                 }
                             });
@@ -56,9 +55,7 @@ export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames,
                                 processSection(`${planPrefix}${key}`, planData[key], newPlansFilling);
                                 delete newPlansFilling[`${planPrefix}${key}${subsection.id}`]
                             } else {
-                                console.log("Value is none");
                                 processSection(`${planPrefix}${key}`, planData[key], newPlansFilling);
-                                console.log("Processed plansFilling:", newPlansFilling);
                             }
                         }
                     });
@@ -101,18 +98,14 @@ export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames,
         let requirement = requirementId.split("-");
         let id = requirement[1].charAt(requirement[1].length - 1);
         let subsection = requirement[1].slice(0, -1);
-        console.log(requirement, id, subsection);
         if (requirement[1] && id) {
             // Go through each key in planData and see if subsection is part of it
             for (const key in planData) {
                 if (planData[key].subsections && key.includes(subsection)) {
-                    console.log("Checking subsection:", subsection, "in planData key:", key);
                     for (const item of planData[key].subsections) {
                         if (item.id && item.id === id) {
-                            console.log("Found matching subsection with id:", id);
                             // Check if the course code is in the subsection's courses
                             if (item.courses && item.courses.some(c => c.code === course.code)) {
-                                console.log("I found the course in the subsection:", subsection, "requirement", id);
                                 return true;
                             }
                         }
@@ -136,7 +129,6 @@ export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames,
             ? coursesTaken[courseIndex].planreq.split(',').map(s => s.trim()).filter(req => req !== 'Unassigned/Electives')
             : [];
         existingAssignment.push(requirementId);
-        console.log("New existing assignment for course:", existingAssignment);
 
         // Update the course's planreq
         const updatedCourse = {

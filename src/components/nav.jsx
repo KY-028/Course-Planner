@@ -18,12 +18,10 @@ export default function Nav({ activeTab }) {
         try {
             await UpdateManager.waitForAllUpdates(); // Wait for all pending updates to complete
             // Proceed with logout
-            console.log("All updates completed, proceeding with logout.");
             await logout()
             closeModal();
             nav('/login');
         } catch (error) {
-            console.log(error);
             alert("Please give us a few seconds to store your changes before logging out.")
         }
     };

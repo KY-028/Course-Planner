@@ -16,7 +16,6 @@ const LeftMenu = ({ activeTab }) => {
         try {
             await UpdateManager.waitForAllUpdates(); // Wait for all pending updates to complete
             // Proceed with logout
-            console.log("All updates completed, proceeding with logout.");
             await logout()
             closeModal();
             nav('/login');

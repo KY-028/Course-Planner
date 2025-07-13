@@ -72,7 +72,9 @@ export function getPlanPrefix(planIndex, plan, selectedPlanCombo) {
     } else if (selectedPlanCombo === 6) { // Joint Major
         if (planIndex === 0) return 'joint1-';
         if (planIndex === 1) return 'joint2-';
-    } else if (selectedPlanCombo === 7) { // Major Only (Old Plan)
+    } else if (selectedPlanCombo === 7) {
+        return 'general-';
+    } else if (selectedPlanCombo === 8) { // Major Only (Old Plan)
         return 'major-';
     }
 

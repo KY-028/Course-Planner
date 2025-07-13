@@ -68,7 +68,6 @@ export default function TakenGrid({ coursesTaken, setCoursesTaken }) {
 
     // Load course details for existing courses on mount
     useEffect(() => {
-        console.log(coursesTaken);
         const loadExistingCourseDetails = async () => {
             for (let i = 0; i < coursesTaken.length; i++) {
                 // Only fetch if course object exists and details are missing
@@ -111,7 +110,6 @@ export default function TakenGrid({ coursesTaken, setCoursesTaken }) {
     const handleSubmit = async (index) => {
         if (inputValue.trim()) {
             const formattedCode = formatCourseCode(inputValue);
-            console.log('Adding course:', formattedCode, 'at index:', index);
             // Update the coursesTaken with the code immediately, details will be fetched
             setCoursesTaken(prevCourses => {
                 const newCourses = [...prevCourses];

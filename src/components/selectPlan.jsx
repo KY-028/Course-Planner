@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useContext } from 'react';
+import { AuthContext } from '../context/authContext';
 import { FaCheck, FaTimes } from 'react-icons/fa';
 import axios from 'axios';
 import { validateUrl, clearPlanReq, establishPlansFilling, getPlanPrefix, recomputePlanAssignments } from '/src/components/courseFunctions';
@@ -12,7 +13,8 @@ const PLAN_OPTIONS = [
     { label: 'Specialization', value: 4, fields: ['Specialization [Search or Paste Academic Calendar Link]'] },
     { label: 'Specialization + Minor', value: 5, fields: ['Specialization [Search or Paste Academic Calendar Link]', 'Minor [Search or Paste Academic Calendar Link]'] },
     { label: 'Joint Major', value: 6, fields: ['Joint Major 1 [Search or Paste Academic Calendar Link]', 'Joint Major 2 [Search or Paste Academic Calendar Link]'], 'Minor': 'Minor [Search or Paste Academic Calendar Link]' },
-    { label: 'Major Only (Old Plan)', value: 7, fields: ['Major [Search or Paste Academic Calendar Link]'] },
+    { label: 'General Degree', value: 7, fields: ['General [Search or Paste Academic Calendar Link]'] },
+    { label: 'Major Only (Old Plan)', value: 8, fields: ['Major [Search or Paste Academic Calendar Link]'] },
 ];
 
 export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
@@ -48,18 +50,72 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
     // Track custom course assignments array of course objects
     const [customAssignments, setCustomAssignments] = useState([]);
 
-    // Debug purposes
-    useEffect(() => {
-        console.log('customAssignments:', customAssignments);
-    }, [customAssignments]);
+    // When lauched, load data
+    const { currentUser } = useContext(AuthContext);
+    const [isLoading, setIsLoading] = useState(true);
 
+    // Load user's existing information from database
     useEffect(() => {
-        console.log('plansFilling changed:', plansFilling);
-    }, [plansFilling]);
+        if (!currentUser) {
+            alert("You are not logged in. The save button will not work.");
+            setIsLoading(false);
+            return;
+        }
+        setIsLoading(true);
+        loadUserData();
+    }, []);
+
+    const loadUserData = async () => {
+        try {
+            const userId = currentUser ? currentUser.id : null;
+            if (!userId) {
+                console.log("User has not logged in");
+                return;
+            }
+
+            const response = await axios.get(`${apiUrl}/backend/users/plans/${userId}`);
+            const data = response.data;
+            setSelectedPlanCombo(data.selectedPlanCombo || PLAN_OPTIONS[0].value);
+            setFields(data.fields || Array(PLAN_OPTIONS[0].fields.length).fill(''));
+            // TBD: Fetch responses or load from loaded json
+            // Build responses array by matching each field's link in planResultsData
+            setResponses(
+                (data.fields || Array(PLAN_OPTIONS[0].fields.length).fill('')).map((field, idx) => {
+                    if (!field || !field.trim()) return null;
+                    // Determine plan type for this field
+                    const planType = (() => {
+                        const plan = PLAN_OPTIONS.find(opt => opt.value === (data.selectedPlanCombo || PLAN_OPTIONS[0].value));
+                        if (!plan) return 'Major';
+                        const fieldStr = plan.fields[idx] || '';
+                        if (fieldStr.toLowerCase().includes('specialization')) return 'Specialization';
+                        if (fieldStr.toLowerCase().includes('minor')) return 'Minor';
+                        if (fieldStr.toLowerCase().includes('joint')) return 'Joint Major';
+                        if (fieldStr.toLowerCase().includes('major')) return 'Major';
+                        if (fieldStr.toLowerCase().includes('general')) return 'General';
+                        return 'Major';
+                    })();
+                    // Search for matching plan in planResultsData
+                    const plans = planResultsData[planType] || [];
+                    const match = plans.find(planObj => planObj.link === field.trim());
+                    return match ? match.result : null;
+                })
+            );
+            setPlansFilling(data.plansFilling || {});
+            setSelectedSubPlans(data.selectedSubPlans || Array(PLAN_OPTIONS[0].fields.length).fill(null));
+            setSectionNames(data.sectionNames || Array(PLAN_OPTIONS[0].fields.length).fill([]));
+            setCustomAssignments(data.customAssignments || []);
+            setCoursesTaken(data.coursesTaken || Array(60).fill(null));
+        } catch (error) {
+            console.error("Error loading user data:", error);
+            alert("An error occurred while loading your data:", error.message);
+        } finally {
+            setIsLoading(false);
+        }
+    }
+
 
     // Monitor coursesTaken changes and automatically assign courses to requirements
     useEffect(() => {
-        console.log('coursesTaken changed:', coursesTaken);
         if (coursesTaken && responses.length > 0) {
             // Filter out null responses to get valid plans
             const validPlans = responses.filter(response => response !== null);
@@ -67,8 +123,6 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
                 const result = recomputePlanAssignments(coursesTaken, validPlans, selectedPlanCombo, customAssignments, setCustomAssignments, plansFilling, selectedSubPlans, setCoursesTaken);
                 // Remove courses from plansFilling that are not in coursesTaken
                 const coursesTakenCodes = new Set(coursesTaken.filter(c => c != null).map(c => c.code));
-                console.log("-------------------");
-                console.log('coursesTakenCodes:', coursesTakenCodes);
                 const cleanedPlansFilling = {};
                 Object.entries(result.plansFilling).forEach(([key, value]) => {
                     cleanedPlansFilling[key] = {
@@ -76,7 +130,6 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
                         courses: value.courses.filter(course => !coursesTakenCodes.has(course.code))
                     };
                 });
-                console.log('cleanedPlansFilling:', cleanedPlansFilling);
                 result.plansFilling = cleanedPlansFilling;
 
                 // Remove customAssignments that are not in coursesTaken
@@ -124,6 +177,7 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
         if (field.toLowerCase().includes('minor')) return 'Minor';
         if (field.toLowerCase().includes('joint')) return 'Joint Major';
         if (field.toLowerCase().includes('major')) return 'Major';
+        if (field.toLowerCase().includes('general')) return 'General';
         return 'Major';
     }
 
@@ -237,7 +291,7 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
         if (required === totalUnits - (newResponses[idx]?.electives || 0)) {
             setPlansFilling(mergedPlansFilling);
         } else {
-            console.log("Plan requirements do not match total units. Required:", required, "Total Units:", totalUnits);
+            console.error("Plan requirements do not match total units due to unexpected calendar formatting. Required:", required, "Total Units:", totalUnits);
             alert("Your plan was not parsed successfully. Please contact the developer.");
         }
         updateSectionNames(newResponses, newLocked);
@@ -341,7 +395,7 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
             if (required === totalUnits) {
                 setPlansFilling(mergedPlansFilling);
             } else {
-                console.log("Plan requirements do not match total units. Required:", required, "Total Units:", totalUnits);
+                console.error("Plan requirements do not match total units. Required:", required, "Total Units:", totalUnits);
                 alert("Your plan was not parsed successfully. Please contact the developer.");
             }
             updateSectionNames(newResponses, newLocked);
