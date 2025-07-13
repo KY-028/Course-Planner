@@ -480,7 +480,7 @@ function PlanSubsection({
             if (alreadyCustom && planreqArr.length === 1 && planreqArr.includes(`Unassigned/Electives`)) {
                 // Remove from customAssignments
                 return prev.filter(entry => entry.index !== idx);
-            } else if (planreqArr.length !== 1) {
+            } else if (planreqArr.length !== 0) {
                 // Some other requirement is present, update it
                 return prev.map(entry => {
                     if (entry.index === idx) {
@@ -534,6 +534,7 @@ function PlanSubsection({
                                 {assignedCourses.map((c, idx) => (
                                     <div key={c.code} className="flex items-center gap-1 text-xs">
                                         <span>{c.code}</span>
+                                        <span>{c.units}</span>
                                         <button className="text-red-500 hover:text-red-700 ml-1" onClick={() => handleRemoveCourse(c.code)}><FaTimes size={10} /></button>
                                     </div>
                                 ))}
@@ -563,7 +564,7 @@ function PlanSubsection({
                                         <div>
                                             <span className="font-medium text-gray-500">Combination:</span>
                                             {course.courses.map((subCourse, subIdx) => (
-                                                <div key={subIdx} className="ml-4 text-gray-600">
+                                                <div key={subIdx} className={`ml-4 text-gray-600 ${coursesTaken.some(c => c && c.code === subCourse.code) ? 'line-through' : ''}`}>
                                                     {subCourse.code} - {subCourse.title}
                                                 </div>
                                             ))}
@@ -572,13 +573,13 @@ function PlanSubsection({
                                         <div>
                                             <span className="font-medium text-gray-500">One of:</span>
                                             {course.courses.map((subCourse, subIdx) => (
-                                                <div key={subIdx} className="ml-4 text-gray-600">
+                                                <div key={subIdx} className={`ml-4 text-gray-600 ${coursesTaken.some(c => c && c.code === subCourse.code) ? 'line-through' : ''}`}>
                                                     {subCourse.code} - {subCourse.title}
                                                 </div>
                                             ))}
                                         </div>
                                     ) : (
-                                        <div>
+                                        <div className={`${coursesTaken.some(c => c && c.code === course.code) ? 'line-through' : ''}`}>
                                             {course.code} - {course.title}
                                         </div>
                                     )}

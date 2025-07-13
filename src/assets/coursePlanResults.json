@@ -2990,523 +2990,532 @@
             {
               "id": "C",
               "title": "Complete 15.00 units from one of the following options:",
-              "courses": []
+              "courses": [],
+              "plan": {
+                "i. Research Option:": {
+                  "title": "i. Research Option:",
+                  "electives": 0,
+                  "planunits": 0,
+                  "completedunits": 0,
+                  "units": 15,
+                  "subsections": [
+                    {
+                      "id": "a",
+                      "title": "Complete the following:",
+                      "courses": [
+                        {
+                          "code": "BIOL 537",
+                          "title": "Research in Biology",
+                          "units": 12
+                        }
+                      ]
+                    },
+                    {
+                      "id": "b",
+                      "title": "Complete 3.00 units from the following course lists:",
+                      "courses": [
+                        {
+                          "code": "BIOL 315",
+                          "title": "Plants and Human Culture",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 334",
+                          "title": "Comparative Biochemistry",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 339",
+                          "title": "Animal Physiology",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 341",
+                          "title": "Plant Physiology",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 343",
+                          "title": "Data Analysis for Biologists",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 401",
+                          "title": "Experimental Approaches to Animal Physiology",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 402",
+                          "title": "Experiments in Plant Physiology",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 403",
+                          "title": "Experimental Techniques in Biology",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 404",
+                          "title": "Techniques in Molecular Biology",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 409",
+                          "title": "Bioremediation",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 430",
+                          "title": "Molecular Genetics of Development",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 432",
+                          "title": "Computation and Big Data in Biology",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 441",
+                          "title": "Molecular Genetics",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 502",
+                          "title": "Selected Topics in Biotechnology",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 503",
+                          "title": "Plant Biotechnology",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 504",
+                          "title": "Selected Topics in Ecology and Evolution",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 505",
+                          "title": "Cell Signaling in Development and Disease",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 506",
+                          "title": "Selected Topics in Integrative Biology",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 507",
+                          "title": "Ethics of Biotechnology",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 508",
+                          "title": "Selected Topics in Cell Biology",
+                          "units": 3
+                        },
+                        {
+                          "code": "APSC 400",
+                          "title": "Technology, Engineering & Management (TEAM) 1",
+                          "units": 7
+                        },
+                        {
+                          "code": "BCHM 315",
+                          "title": "Proteins and Enzymes",
+                          "units": 3
+                        },
+                        {
+                          "code": "BCHM 316",
+                          "title": "Metabolism",
+                          "units": 3
+                        },
+                        {
+                          "code": "BCHM 370",
+                          "title": "Genetics and Genomics",
+                          "units": 3
+                        },
+                        {
+                          "code": "BCHM 410",
+                          "title": "Protein Structure and Function",
+                          "units": 3
+                        },
+                        {
+                          "code": "BCHM 411",
+                          "title": "Advanced Molecular Biology",
+                          "units": 3
+                        },
+                        {
+                          "code": "BCHM 432",
+                          "title": "The Molecular Basis of Cellular Function",
+                          "units": 3
+                        },
+                        {
+                          "code": "CHEE 229",
+                          "title": "Cell Based Engineering Principles 1",
+                          "units": 4
+                        },
+                        {
+                          "code": "CHEE 342",
+                          "title": "Environmental Biotechnology 1",
+                          "units": 3.5
+                        },
+                        {
+                          "code": "CHEE 380",
+                          "title": "Biochemical Engineering 1",
+                          "units": 3.5
+                        },
+                        {
+                          "code": "CHEE 400",
+                          "title": "Technology, Engineering & Management (TEAM) 1",
+                          "units": 7
+                        },
+                        {
+                          "code": "CHEE 440",
+                          "title": "Pharmaceutical Technology 1",
+                          "units": 3.5
+                        },
+                        {
+                          "code": "CHEE 484",
+                          "title": "Bioremediation 1",
+                          "units": 3.5
+                        },
+                        {
+                          "code": "DDHT 459",
+                          "title": "Principles of Drug Discovery",
+                          "units": 3
+                        },
+                        {
+                          "code": "DDHT 460",
+                          "title": "Principles of Drug Development",
+                          "units": 3
+                        },
+                        {
+                          "code": "MICR 221",
+                          "title": "Fundamental Microbiology",
+                          "units": 3
+                        },
+                        {
+                          "code": "MICR 270",
+                          "title": "Infection, Immunity and Inflammation",
+                          "units": 3
+                        },
+                        {
+                          "code": "MICR 271",
+                          "title": "Introduction to Microbiology",
+                          "units": 3
+                        },
+                        {
+                          "code": "MICR 320",
+                          "title": "Microbes in Health and Disease",
+                          "units": 3
+                        },
+                        {
+                          "code": "MICR 360",
+                          "title": "Immunology",
+                          "units": 3
+                        },
+                        {
+                          "code": "MICR 386",
+                          "title": "Fundamentals of Immunology in Health and Disease",
+                          "units": 3
+                        },
+                        {
+                          "code": "MICR 451",
+                          "title": "Viral Pathogenesis",
+                          "units": 3
+                        },
+                        {
+                          "code": "MICR 461",
+                          "title": "Advanced Immunology",
+                          "units": 3
+                        },
+                        {
+                          "code": "PHAR 370",
+                          "title": "Fundamentals of Pharmacology and Therapeutics",
+                          "units": 3
+                        },
+                        {
+                          "code": "PHAR 416",
+                          "title": "Xenobiotic Disposition and Toxicity",
+                          "units": 3
+                        },
+                        {
+                          "code": "PHAR 450",
+                          "title": "Principles of General Pharmacology II",
+                          "units": 3
+                        },
+                        {
+                          "code": "PHAR 480",
+                          "title": "Drug Discovery and Development",
+                          "units": 3
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "ii. Course Option:": {
+                  "title": "ii. Course Option:",
+                  "electives": 0,
+                  "planunits": 0,
+                  "units": 15,
+                  "subsections": [
+                    {
+                      "id": "a",
+                      "title": "Complete 3.00 units from the following:",
+                      "courses": [],
+                      "requirement": [
+                        "BIOL at the 500-level (except BIOL 538, BIOL 539, BIOL 540)"
+                      ]
+                    },
+                    {
+                      "id": "b",
+                      "title": "Complete 12.00 units from the following course lists:",
+                      "courses": [
+                        {
+                          "code": "BIOL 315",
+                          "title": "Plants and Human Culture",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 334",
+                          "title": "Comparative Biochemistry",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 339",
+                          "title": "Animal Physiology",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 341",
+                          "title": "Plant Physiology",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 343",
+                          "title": "Data Analysis for Biologists",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 401",
+                          "title": "Experimental Approaches to Animal Physiology",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 402",
+                          "title": "Experiments in Plant Physiology",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 403",
+                          "title": "Experimental Techniques in Biology",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 404",
+                          "title": "Techniques in Molecular Biology",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 409",
+                          "title": "Bioremediation",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 430",
+                          "title": "Molecular Genetics of Development",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 432",
+                          "title": "Computation and Big Data in Biology",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 441",
+                          "title": "Molecular Genetics",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 502",
+                          "title": "Selected Topics in Biotechnology",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 503",
+                          "title": "Plant Biotechnology",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 504",
+                          "title": "Selected Topics in Ecology and Evolution",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 505",
+                          "title": "Cell Signaling in Development and Disease",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 506",
+                          "title": "Selected Topics in Integrative Biology",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 507",
+                          "title": "Ethics of Biotechnology",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 508",
+                          "title": "Selected Topics in Cell Biology",
+                          "units": 3
+                        },
+                        {
+                          "code": "APSC 400",
+                          "title": "Technology, Engineering & Management (TEAM) 1",
+                          "units": 7
+                        },
+                        {
+                          "code": "BCHM 315",
+                          "title": "Proteins and Enzymes",
+                          "units": 3
+                        },
+                        {
+                          "code": "BCHM 316",
+                          "title": "Metabolism",
+                          "units": 3
+                        },
+                        {
+                          "code": "BCHM 370",
+                          "title": "Genetics and Genomics",
+                          "units": 3
+                        },
+                        {
+                          "code": "BCHM 410",
+                          "title": "Protein Structure and Function",
+                          "units": 3
+                        },
+                        {
+                          "code": "BCHM 411",
+                          "title": "Advanced Molecular Biology",
+                          "units": 3
+                        },
+                        {
+                          "code": "BCHM 432",
+                          "title": "The Molecular Basis of Cellular Function",
+                          "units": 3
+                        },
+                        {
+                          "code": "CHEE 229",
+                          "title": "Cell Based Engineering Principles 1",
+                          "units": 4
+                        },
+                        {
+                          "code": "CHEE 342",
+                          "title": "Environmental Biotechnology 1",
+                          "units": 3.5
+                        },
+                        {
+                          "code": "CHEE 380",
+                          "title": "Biochemical Engineering 1",
+                          "units": 3.5
+                        },
+                        {
+                          "code": "CHEE 400",
+                          "title": "Technology, Engineering & Management (TEAM) 1",
+                          "units": 7
+                        },
+                        {
+                          "code": "CHEE 440",
+                          "title": "Pharmaceutical Technology 1",
+                          "units": 3.5
+                        },
+                        {
+                          "code": "CHEE 484",
+                          "title": "Bioremediation 1",
+                          "units": 3.5
+                        },
+                        {
+                          "code": "DDHT 459",
+                          "title": "Principles of Drug Discovery",
+                          "units": 3
+                        },
+                        {
+                          "code": "DDHT 460",
+                          "title": "Principles of Drug Development",
+                          "units": 3
+                        },
+                        {
+                          "code": "MICR 221",
+                          "title": "Fundamental Microbiology",
+                          "units": 3
+                        },
+                        {
+                          "code": "MICR 270",
+                          "title": "Infection, Immunity and Inflammation",
+                          "units": 3
+                        },
+                        {
+                          "code": "MICR 271",
+                          "title": "Introduction to Microbiology",
+                          "units": 3
+                        },
+                        {
+                          "code": "MICR 320",
+                          "title": "Microbes in Health and Disease",
+                          "units": 3
+                        },
+                        {
+                          "code": "MICR 360",
+                          "title": "Immunology",
+                          "units": 3
+                        },
+                        {
+                          "code": "MICR 386",
+                          "title": "Fundamentals of Immunology in Health and Disease",
+                          "units": 3
+                        },
+                        {
+                          "code": "MICR 451",
+                          "title": "Viral Pathogenesis",
+                          "units": 3
+                        },
+                        {
+                          "code": "MICR 461",
+                          "title": "Advanced Immunology",
+                          "units": 3
+                        },
+                        {
+                          "code": "PHAR 370",
+                          "title": "Fundamentals of Pharmacology and Therapeutics",
+                          "units": 3
+                        },
+                        {
+                          "code": "PHAR 416",
+                          "title": "Xenobiotic Disposition and Toxicity",
+                          "units": 3
+                        },
+                        {
+                          "code": "PHAR 450",
+                          "title": "Principles of General Pharmacology II",
+                          "units": 3
+                        },
+                        {
+                          "code": "PHAR 480",
+                          "title": "Drug Discovery and Development",
+                          "units": 3
+                        }
+                      ]
+                    }
+                  ],
+                  "sectionunits": 15,
+                  "completedunits": 0
+                }
+              }
             }
           ],
           "sectionunits": 27,
-          "completedunits": 0
-        },
-        "i. Research Option:": {
-          "subsections": [
-            {
-              "id": "a",
-              "title": "Complete the following:",
-              "courses": [
-                {
-                  "code": "BIOL 537",
-                  "title": "Research in Biology",
-                  "units": 12
-                }
-              ]
-            },
-            {
-              "id": "b",
-              "title": "Complete 3.00 units from the following course lists:",
-              "courses": [
-                {
-                  "code": "BIOL 315",
-                  "title": "Plants and Human Culture",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 334",
-                  "title": "Comparative Biochemistry",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 339",
-                  "title": "Animal Physiology",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 341",
-                  "title": "Plant Physiology",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 343",
-                  "title": "Data Analysis for Biologists",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 401",
-                  "title": "Experimental Approaches to Animal Physiology",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 402",
-                  "title": "Experiments in Plant Physiology",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 403",
-                  "title": "Experimental Techniques in Biology",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 404",
-                  "title": "Techniques in Molecular Biology",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 409",
-                  "title": "Bioremediation",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 430",
-                  "title": "Molecular Genetics of Development",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 432",
-                  "title": "Computation and Big Data in Biology",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 441",
-                  "title": "Molecular Genetics",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 502",
-                  "title": "Selected Topics in Biotechnology",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 503",
-                  "title": "Plant Biotechnology",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 504",
-                  "title": "Selected Topics in Ecology and Evolution",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 505",
-                  "title": "Cell Signaling in Development and Disease",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 506",
-                  "title": "Selected Topics in Integrative Biology",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 507",
-                  "title": "Ethics of Biotechnology",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 508",
-                  "title": "Selected Topics in Cell Biology",
-                  "units": 3
-                },
-                {
-                  "code": "APSC 400",
-                  "title": "Technology, Engineering & Management (TEAM) 1",
-                  "units": 7
-                },
-                {
-                  "code": "BCHM 315",
-                  "title": "Proteins and Enzymes",
-                  "units": 3
-                },
-                {
-                  "code": "BCHM 316",
-                  "title": "Metabolism",
-                  "units": 3
-                },
-                {
-                  "code": "BCHM 370",
-                  "title": "Genetics and Genomics",
-                  "units": 3
-                },
-                {
-                  "code": "BCHM 410",
-                  "title": "Protein Structure and Function",
-                  "units": 3
-                },
-                {
-                  "code": "BCHM 411",
-                  "title": "Advanced Molecular Biology",
-                  "units": 3
-                },
-                {
-                  "code": "BCHM 432",
-                  "title": "The Molecular Basis of Cellular Function",
-                  "units": 3
-                },
-                {
-                  "code": "CHEE 229",
-                  "title": "Cell Based Engineering Principles 1",
-                  "units": 4
-                },
-                {
-                  "code": "CHEE 342",
-                  "title": "Environmental Biotechnology 1",
-                  "units": 3.5
-                },
-                {
-                  "code": "CHEE 380",
-                  "title": "Biochemical Engineering 1",
-                  "units": 3.5
-                },
-                {
-                  "code": "CHEE 400",
-                  "title": "Technology, Engineering & Management (TEAM) 1",
-                  "units": 7
-                },
-                {
-                  "code": "CHEE 440",
-                  "title": "Pharmaceutical Technology 1",
-                  "units": 3.5
-                },
-                {
-                  "code": "CHEE 484",
-                  "title": "Bioremediation 1",
-                  "units": 3.5
-                },
-                {
-                  "code": "DDHT 459",
-                  "title": "Principles of Drug Discovery",
-                  "units": 3
-                },
-                {
-                  "code": "DDHT 460",
-                  "title": "Principles of Drug Development",
-                  "units": 3
-                },
-                {
-                  "code": "MICR 221",
-                  "title": "Fundamental Microbiology",
-                  "units": 3
-                },
-                {
-                  "code": "MICR 270",
-                  "title": "Infection, Immunity and Inflammation",
-                  "units": 3
-                },
-                {
-                  "code": "MICR 271",
-                  "title": "Introduction to Microbiology",
-                  "units": 3
-                },
-                {
-                  "code": "MICR 320",
-                  "title": "Microbes in Health and Disease",
-                  "units": 3
-                },
-                {
-                  "code": "MICR 360",
-                  "title": "Immunology",
-                  "units": 3
-                },
-                {
-                  "code": "MICR 386",
-                  "title": "Fundamentals of Immunology in Health and Disease",
-                  "units": 3
-                },
-                {
-                  "code": "MICR 451",
-                  "title": "Viral Pathogenesis",
-                  "units": 3
-                },
-                {
-                  "code": "MICR 461",
-                  "title": "Advanced Immunology",
-                  "units": 3
-                },
-                {
-                  "code": "PHAR 370",
-                  "title": "Fundamentals of Pharmacology and Therapeutics",
-                  "units": 3
-                },
-                {
-                  "code": "PHAR 416",
-                  "title": "Xenobiotic Disposition and Toxicity",
-                  "units": 3
-                },
-                {
-                  "code": "PHAR 450",
-                  "title": "Principles of General Pharmacology II",
-                  "units": 3
-                },
-                {
-                  "code": "PHAR 480",
-                  "title": "Drug Discovery and Development",
-                  "units": 3
-                }
-              ]
-            }
-          ],
-          "sectionunits": 15,
-          "completedunits": 0
-        },
-        "ii. Course Option:": {
-          "subsections": [
-            {
-              "id": "a",
-              "title": "Complete 3.00 units from the following:",
-              "courses": [],
-              "requirement": [
-                "BIOL at the 500-level (except BIOL 538, BIOL 539, BIOL 540)"
-              ]
-            },
-            {
-              "id": "b",
-              "title": "Complete 12.00 units from the following course lists:",
-              "courses": [
-                {
-                  "code": "BIOL 315",
-                  "title": "Plants and Human Culture",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 334",
-                  "title": "Comparative Biochemistry",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 339",
-                  "title": "Animal Physiology",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 341",
-                  "title": "Plant Physiology",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 343",
-                  "title": "Data Analysis for Biologists",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 401",
-                  "title": "Experimental Approaches to Animal Physiology",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 402",
-                  "title": "Experiments in Plant Physiology",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 403",
-                  "title": "Experimental Techniques in Biology",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 404",
-                  "title": "Techniques in Molecular Biology",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 409",
-                  "title": "Bioremediation",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 430",
-                  "title": "Molecular Genetics of Development",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 432",
-                  "title": "Computation and Big Data in Biology",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 441",
-                  "title": "Molecular Genetics",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 502",
-                  "title": "Selected Topics in Biotechnology",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 503",
-                  "title": "Plant Biotechnology",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 504",
-                  "title": "Selected Topics in Ecology and Evolution",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 505",
-                  "title": "Cell Signaling in Development and Disease",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 506",
-                  "title": "Selected Topics in Integrative Biology",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 507",
-                  "title": "Ethics of Biotechnology",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 508",
-                  "title": "Selected Topics in Cell Biology",
-                  "units": 3
-                },
-                {
-                  "code": "APSC 400",
-                  "title": "Technology, Engineering & Management (TEAM) 1",
-                  "units": 7
-                },
-                {
-                  "code": "BCHM 315",
-                  "title": "Proteins and Enzymes",
-                  "units": 3
-                },
-                {
-                  "code": "BCHM 316",
-                  "title": "Metabolism",
-                  "units": 3
-                },
-                {
-                  "code": "BCHM 370",
-                  "title": "Genetics and Genomics",
-                  "units": 3
-                },
-                {
-                  "code": "BCHM 410",
-                  "title": "Protein Structure and Function",
-                  "units": 3
-                },
-                {
-                  "code": "BCHM 411",
-                  "title": "Advanced Molecular Biology",
-                  "units": 3
-                },
-                {
-                  "code": "BCHM 432",
-                  "title": "The Molecular Basis of Cellular Function",
-                  "units": 3
-                },
-                {
-                  "code": "CHEE 229",
-                  "title": "Cell Based Engineering Principles 1",
-                  "units": 4
-                },
-                {
-                  "code": "CHEE 342",
-                  "title": "Environmental Biotechnology 1",
-                  "units": 3.5
-                },
-                {
-                  "code": "CHEE 380",
-                  "title": "Biochemical Engineering 1",
-                  "units": 3.5
-                },
-                {
-                  "code": "CHEE 400",
-                  "title": "Technology, Engineering & Management (TEAM) 1",
-                  "units": 7
-                },
-                {
-                  "code": "CHEE 440",
-                  "title": "Pharmaceutical Technology 1",
-                  "units": 3.5
-                },
-                {
-                  "code": "CHEE 484",
-                  "title": "Bioremediation 1",
-                  "units": 3.5
-                },
-                {
-                  "code": "DDHT 459",
-                  "title": "Principles of Drug Discovery",
-                  "units": 3
-                },
-                {
-                  "code": "DDHT 460",
-                  "title": "Principles of Drug Development",
-                  "units": 3
-                },
-                {
-                  "code": "MICR 221",
-                  "title": "Fundamental Microbiology",
-                  "units": 3
-                },
-                {
-                  "code": "MICR 270",
-                  "title": "Infection, Immunity and Inflammation",
-                  "units": 3
-                },
-                {
-                  "code": "MICR 271",
-                  "title": "Introduction to Microbiology",
-                  "units": 3
-                },
-                {
-                  "code": "MICR 320",
-                  "title": "Microbes in Health and Disease",
-                  "units": 3
-                },
-                {
-                  "code": "MICR 360",
-                  "title": "Immunology",
-                  "units": 3
-                },
-                {
-                  "code": "MICR 386",
-                  "title": "Fundamentals of Immunology in Health and Disease",
-                  "units": 3
-                },
-                {
-                  "code": "MICR 451",
-                  "title": "Viral Pathogenesis",
-                  "units": 3
-                },
-                {
-                  "code": "MICR 461",
-                  "title": "Advanced Immunology",
-                  "units": 3
-                },
-                {
-                  "code": "PHAR 370",
-                  "title": "Fundamentals of Pharmacology and Therapeutics",
-                  "units": 3
-                },
-                {
-                  "code": "PHAR 416",
-                  "title": "Xenobiotic Disposition and Toxicity",
-                  "units": 3
-                },
-                {
-                  "code": "PHAR 450",
-                  "title": "Principles of General Pharmacology II",
-                  "units": 3
-                },
-                {
-                  "code": "PHAR 480",
-                  "title": "Drug Discovery and Development",
-                  "units": 3
-                }
-              ]
-            }
-          ],
-          "sectionunits": 15,
           "completedunits": 0
         }
       }
@@ -3929,353 +3938,363 @@
             {
               "id": "E",
               "title": "Complete 30.00 units from the following thesis and non-thesis options:",
-              "courses": []
+              "courses": [],
+              "plan": {
+                "i. Environmental Biology Research Thesis Option:": {
+                  "title": "i. Environmental Biology Research Thesis Option:",
+                  "electives": 0,
+                  "planunits": 0,
+                  "units": 30,
+                  "subsections": [
+                    {
+                      "id": "a",
+                      "title": "Complete 12.00 units from the following:",
+                      "courses": [
+                        {
+                          "code": "BIOL 537",
+                          "title": "Research in Biology",
+                          "units": 12
+                        },
+                        {
+                          "code": "ENSC 502",
+                          "title": "Research Project Sustainability",
+                          "units": 12
+                        }
+                      ]
+                    },
+                    {
+                      "id": "b",
+                      "title": "Complete 6.00 units from the following:",
+                      "courses": [
+                        {
+                          "code": "APSC 400",
+                          "title": "Technology, Engineering & Management (TEAM) 1",
+                          "units": 7
+                        },
+                        {
+                          "code": "CHEE 400",
+                          "title": "Technology, Engineering & Management (TEAM) 1",
+                          "units": 7
+                        },
+                        {
+                          "code": "CHEM at the 200-level and above",
+                          "title": "CHEM at the 200-level and above",
+                          "units": null
+                        },
+                        {
+                          "code": "ENSC 301",
+                          "title": "Environmental Assessment",
+                          "units": 3
+                        },
+                        {
+                          "code": "ENSC 307",
+                          "title": "Marine Environmental Issues",
+                          "units": 3
+                        },
+                        {
+                          "code": "ENSC 320",
+                          "title": "Wildlife Issues in a Changing World",
+                          "units": 3
+                        },
+                        {
+                          "code": "ENSC 425",
+                          "title": "Ecotoxicology",
+                          "units": 3
+                        },
+                        {
+                          "code": "EPID 301",
+                          "title": "Principles of Epidemiology",
+                          "units": 3
+                        },
+                        {
+                          "code": "GEOL 337",
+                          "title": "Paleontology",
+                          "units": 3
+                        },
+                        {
+                          "code": "GEOL 466",
+                          "title": "Isotopes and the Environment",
+                          "units": 3
+                        },
+                        {
+                          "code": "GPHY 304",
+                          "title": "Northern and Arctic Environments",
+                          "units": 3
+                        },
+                        {
+                          "code": "GPHY 310",
+                          "title": "Landscape Ecology",
+                          "units": 3
+                        },
+                        {
+                          "code": "GPHY 314",
+                          "title": "Climate Change",
+                          "units": 3
+                        },
+                        {
+                          "code": "GPHY 318",
+                          "title": "Advanced Biogeography",
+                          "units": 3
+                        },
+                        {
+                          "code": "PHIL 301",
+                          "title": "Bioethics",
+                          "units": 3
+                        },
+                        {
+                          "code": "PSYC 236",
+                          "title": "Introduction to Clinical Psychology",
+                          "units": 3
+                        },
+                        {
+                          "code": "PSYC 271",
+                          "title": "Brain and Behaviour I",
+                          "units": 3
+                        },
+                        {
+                          "code": "PSYC 370",
+                          "title": "Brain and Behaviour II",
+                          "units": 3
+                        },
+                        {
+                          "code": "PSYC 470",
+                          "title": "Advanced Topics in Behavioural Neuroscience",
+                          "units": 3
+                        },
+                        {
+                          "code": "STAT 353",
+                          "title": "Probability II",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 335",
+                          "title": "Limnology and Aquatic Ecology",
+                          "units": 3
+                        },
+                        {
+                          "code": "ENSC 201",
+                          "title": "Environmental Toxicology and Chemical Risks",
+                          "units": 3
+                        },
+                        {
+                          "code": "ENSC 407",
+                          "title": "Global Water Resources: Challenges and Opportunities",
+                          "units": 3
+                        },
+                        {
+                          "code": "ENSC 408",
+                          "title": "Wildfire Science and Management",
+                          "units": 3
+                        },
+                        {
+                          "code": "ENSC 480",
+                          "title": "Special Topics in Environmental Science",
+                          "units": 3
+                        },
+                        {
+                          "code": "GEOL 106",
+                          "title": "Environmental Geology and Natural Hazards",
+                          "units": 3
+                        },
+                        {
+                          "code": "GEOL 107",
+                          "title": "History of Life",
+                          "units": 3
+                        },
+                        {
+                          "code": "GEOL 200",
+                          "title": "Oceanography",
+                          "units": 3
+                        },
+                        {
+                          "code": "GPHY 207",
+                          "title": "Principles of Biogeography",
+                          "units": 3
+                        },
+                        {
+                          "code": "GPHY 209",
+                          "title": "Weather and Climate",
+                          "units": 3
+                        },
+                        {
+                          "code": "GPHY 312",
+                          "title": "Watershed Hydrology",
+                          "units": 3
+                        },
+                        {
+                          "code": "GPHY 317",
+                          "title": "Soil, Environment, and Society",
+                          "units": 3
+                        },
+                        {
+                          "code": "GPHY 319",
+                          "title": "Contemporary Energy Resources",
+                          "units": 3
+                        }
+                      ],
+                      "requirement": [
+                        "BIOL at the 300-level or above"
+                      ]
+                    },
+                    {
+                      "id": "c",
+                      "title": "Complete 12.00 units from the following:",
+                      "courses": [],
+                      "requirement": [
+                        "BIOL at the 300-level or above"
+                      ]
+                    }
+                  ],
+                  "sectionunits": 30,
+                  "completedunits": 0
+                },
+                "ii. Environmental Biology Non-thesis Option:": {
+                  "title": "ii. Environmental Biology Non-thesis Option:",
+                  "electives": 0,
+                  "planunits": 0,
+                  "units": 30,
+                  "subsections": [
+                    {
+                      "id": "a",
+                      "title": "Complete 6.00 units from the following:",
+                      "courses": [
+                        {
+                          "code": "ENSC 430",
+                          "title": "Honours Projects in Environmental Sustainability",
+                          "units": 6
+                        },
+                        {
+                          "code": "ENSC 501",
+                          "title": "Independent Environmental Study",
+                          "units": 6
+                        }
+                      ]
+                    },
+                    {
+                      "id": "b",
+                      "title": "Complete 12.00 units from the following:",
+                      "courses": [
+                        {
+                          "code": "BIOL 335",
+                          "title": "Limnology and Aquatic Ecology",
+                          "units": 3
+                        },
+                        {
+                          "code": "ENSC 201",
+                          "title": "Environmental Toxicology and Chemical Risks",
+                          "units": 3
+                        },
+                        {
+                          "code": "ENSC 301",
+                          "title": "Environmental Assessment",
+                          "units": 3
+                        },
+                        {
+                          "code": "ENSC 307",
+                          "title": "Marine Environmental Issues",
+                          "units": 3
+                        },
+                        {
+                          "code": "ENSC 320",
+                          "title": "Wildlife Issues in a Changing World",
+                          "units": 3
+                        },
+                        {
+                          "code": "ENSC 407",
+                          "title": "Global Water Resources: Challenges and Opportunities",
+                          "units": 3
+                        },
+                        {
+                          "code": "ENSC 408",
+                          "title": "Wildfire Science and Management",
+                          "units": 3
+                        },
+                        {
+                          "code": "ENSC 425",
+                          "title": "Ecotoxicology",
+                          "units": 3
+                        },
+                        {
+                          "code": "ENSC 480",
+                          "title": "Special Topics in Environmental Science",
+                          "units": 3
+                        },
+                        {
+                          "code": "GEOL 106",
+                          "title": "Environmental Geology and Natural Hazards",
+                          "units": 3
+                        },
+                        {
+                          "code": "GEOL 107",
+                          "title": "History of Life",
+                          "units": 3
+                        },
+                        {
+                          "code": "GEOL 200",
+                          "title": "Oceanography",
+                          "units": 3
+                        },
+                        {
+                          "code": "GPHY 207",
+                          "title": "Principles of Biogeography",
+                          "units": 3
+                        },
+                        {
+                          "code": "GPHY 209",
+                          "title": "Weather and Climate",
+                          "units": 3
+                        },
+                        {
+                          "code": "GPHY 304",
+                          "title": "Northern and Arctic Environments",
+                          "units": 3
+                        },
+                        {
+                          "code": "GPHY 312",
+                          "title": "Watershed Hydrology",
+                          "units": 3
+                        },
+                        {
+                          "code": "GPHY 314",
+                          "title": "Climate Change",
+                          "units": 3
+                        },
+                        {
+                          "code": "GPHY 317",
+                          "title": "Soil, Environment, and Society",
+                          "units": 3
+                        },
+                        {
+                          "code": "GPHY 318",
+                          "title": "Advanced Biogeography",
+                          "units": 3
+                        },
+                        {
+                          "code": "GPHY 319",
+                          "title": "Contemporary Energy Resources",
+                          "units": 3
+                        }
+                      ],
+                      "requirement": [
+                        "BIOL at the 300-level or above"
+                      ]
+                    },
+                    {
+                      "id": "c",
+                      "title": "Complete 12.00 units from the following:",
+                      "courses": [],
+                      "requirement": [
+                        "BIOL at the 300-level or above"
+                      ]
+                    }
+                  ],
+                  "sectionunits": 30,
+                  "completedunits": 0
+                }
+              }
             }
           ],
           "sectionunits": 42,
-          "completedunits": 0
-        },
-        "i. Environmental Biology Research Thesis Option:": {
-          "subsections": [
-            {
-              "id": "a",
-              "title": "Complete 12.00 units from the following:",
-              "courses": [
-                {
-                  "code": "BIOL 537",
-                  "title": "Research in Biology",
-                  "units": 12
-                },
-                {
-                  "code": "ENSC 502",
-                  "title": "Research Project Sustainability",
-                  "units": 12
-                }
-              ]
-            },
-            {
-              "id": "b",
-              "title": "Complete 6.00 units from the following:",
-              "courses": [
-                {
-                  "code": "APSC 400",
-                  "title": "Technology, Engineering & Management (TEAM) 1",
-                  "units": 7
-                },
-                {
-                  "code": "CHEE 400",
-                  "title": "Technology, Engineering & Management (TEAM) 1",
-                  "units": 7
-                },
-                {
-                  "code": "CHEM at the 200-level and above",
-                  "title": "CHEM at the 200-level and above",
-                  "units": null
-                },
-                {
-                  "code": "ENSC 301",
-                  "title": "Environmental Assessment",
-                  "units": 3
-                },
-                {
-                  "code": "ENSC 307",
-                  "title": "Marine Environmental Issues",
-                  "units": 3
-                },
-                {
-                  "code": "ENSC 320",
-                  "title": "Wildlife Issues in a Changing World",
-                  "units": 3
-                },
-                {
-                  "code": "ENSC 425",
-                  "title": "Ecotoxicology",
-                  "units": 3
-                },
-                {
-                  "code": "EPID 301",
-                  "title": "Principles of Epidemiology",
-                  "units": 3
-                },
-                {
-                  "code": "GEOL 337",
-                  "title": "Paleontology",
-                  "units": 3
-                },
-                {
-                  "code": "GEOL 466",
-                  "title": "Isotopes and the Environment",
-                  "units": 3
-                },
-                {
-                  "code": "GPHY 304",
-                  "title": "Northern and Arctic Environments",
-                  "units": 3
-                },
-                {
-                  "code": "GPHY 310",
-                  "title": "Landscape Ecology",
-                  "units": 3
-                },
-                {
-                  "code": "GPHY 314",
-                  "title": "Climate Change",
-                  "units": 3
-                },
-                {
-                  "code": "GPHY 318",
-                  "title": "Advanced Biogeography",
-                  "units": 3
-                },
-                {
-                  "code": "PHIL 301",
-                  "title": "Bioethics",
-                  "units": 3
-                },
-                {
-                  "code": "PSYC 236",
-                  "title": "Introduction to Clinical Psychology",
-                  "units": 3
-                },
-                {
-                  "code": "PSYC 271",
-                  "title": "Brain and Behaviour I",
-                  "units": 3
-                },
-                {
-                  "code": "PSYC 370",
-                  "title": "Brain and Behaviour II",
-                  "units": 3
-                },
-                {
-                  "code": "PSYC 470",
-                  "title": "Advanced Topics in Behavioural Neuroscience",
-                  "units": 3
-                },
-                {
-                  "code": "STAT 353",
-                  "title": "Probability II",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 335",
-                  "title": "Limnology and Aquatic Ecology",
-                  "units": 3
-                },
-                {
-                  "code": "ENSC 201",
-                  "title": "Environmental Toxicology and Chemical Risks",
-                  "units": 3
-                },
-                {
-                  "code": "ENSC 407",
-                  "title": "Global Water Resources: Challenges and Opportunities",
-                  "units": 3
-                },
-                {
-                  "code": "ENSC 408",
-                  "title": "Wildfire Science and Management",
-                  "units": 3
-                },
-                {
-                  "code": "ENSC 480",
-                  "title": "Special Topics in Environmental Science",
-                  "units": 3
-                },
-                {
-                  "code": "GEOL 106",
-                  "title": "Environmental Geology and Natural Hazards",
-                  "units": 3
-                },
-                {
-                  "code": "GEOL 107",
-                  "title": "History of Life",
-                  "units": 3
-                },
-                {
-                  "code": "GEOL 200",
-                  "title": "Oceanography",
-                  "units": 3
-                },
-                {
-                  "code": "GPHY 207",
-                  "title": "Principles of Biogeography",
-                  "units": 3
-                },
-                {
-                  "code": "GPHY 209",
-                  "title": "Weather and Climate",
-                  "units": 3
-                },
-                {
-                  "code": "GPHY 312",
-                  "title": "Watershed Hydrology",
-                  "units": 3
-                },
-                {
-                  "code": "GPHY 317",
-                  "title": "Soil, Environment, and Society",
-                  "units": 3
-                },
-                {
-                  "code": "GPHY 319",
-                  "title": "Contemporary Energy Resources",
-                  "units": 3
-                }
-              ],
-              "requirement": [
-                "BIOL at the 300-level or above"
-              ]
-            },
-            {
-              "id": "c",
-              "title": "Complete 12.00 units from the following:",
-              "courses": [],
-              "requirement": [
-                "BIOL at the 300-level or above"
-              ]
-            }
-          ],
-          "sectionunits": 30,
-          "completedunits": 0
-        },
-        "ii. Environmental Biology Non-thesis Option:": {
-          "subsections": [
-            {
-              "id": "a",
-              "title": "Complete 6.00 units from the following:",
-              "courses": [
-                {
-                  "code": "ENSC 430",
-                  "title": "Honours Projects in Environmental Sustainability",
-                  "units": 6
-                },
-                {
-                  "code": "ENSC 501",
-                  "title": "Independent Environmental Study",
-                  "units": 6
-                }
-              ]
-            },
-            {
-              "id": "b",
-              "title": "Complete 12.00 units from the following:",
-              "courses": [
-                {
-                  "code": "BIOL 335",
-                  "title": "Limnology and Aquatic Ecology",
-                  "units": 3
-                },
-                {
-                  "code": "ENSC 201",
-                  "title": "Environmental Toxicology and Chemical Risks",
-                  "units": 3
-                },
-                {
-                  "code": "ENSC 301",
-                  "title": "Environmental Assessment",
-                  "units": 3
-                },
-                {
-                  "code": "ENSC 307",
-                  "title": "Marine Environmental Issues",
-                  "units": 3
-                },
-                {
-                  "code": "ENSC 320",
-                  "title": "Wildlife Issues in a Changing World",
-                  "units": 3
-                },
-                {
-                  "code": "ENSC 407",
-                  "title": "Global Water Resources: Challenges and Opportunities",
-                  "units": 3
-                },
-                {
-                  "code": "ENSC 408",
-                  "title": "Wildfire Science and Management",
-                  "units": 3
-                },
-                {
-                  "code": "ENSC 425",
-                  "title": "Ecotoxicology",
-                  "units": 3
-                },
-                {
-                  "code": "ENSC 480",
-                  "title": "Special Topics in Environmental Science",
-                  "units": 3
-                },
-                {
-                  "code": "GEOL 106",
-                  "title": "Environmental Geology and Natural Hazards",
-                  "units": 3
-                },
-                {
-                  "code": "GEOL 107",
-                  "title": "History of Life",
-                  "units": 3
-                },
-                {
-                  "code": "GEOL 200",
-                  "title": "Oceanography",
-                  "units": 3
-                },
-                {
-                  "code": "GPHY 207",
-                  "title": "Principles of Biogeography",
-                  "units": 3
-                },
-                {
-                  "code": "GPHY 209",
-                  "title": "Weather and Climate",
-                  "units": 3
-                },
-                {
-                  "code": "GPHY 304",
-                  "title": "Northern and Arctic Environments",
-                  "units": 3
-                },
-                {
-                  "code": "GPHY 312",
-                  "title": "Watershed Hydrology",
-                  "units": 3
-                },
-                {
-                  "code": "GPHY 314",
-                  "title": "Climate Change",
-                  "units": 3
-                },
-                {
-                  "code": "GPHY 317",
-                  "title": "Soil, Environment, and Society",
-                  "units": 3
-                },
-                {
-                  "code": "GPHY 318",
-                  "title": "Advanced Biogeography",
-                  "units": 3
-                },
-                {
-                  "code": "GPHY 319",
-                  "title": "Contemporary Energy Resources",
-                  "units": 3
-                }
-              ],
-              "requirement": [
-                "BIOL at the 300-level or above"
-              ]
-            },
-            {
-              "id": "c",
-              "title": "Complete 12.00 units from the following:",
-              "courses": [],
-              "requirement": [
-                "BIOL at the 300-level or above"
-              ]
-            }
-          ],
-          "sectionunits": 30,
           "completedunits": 0
         }
       }
@@ -33296,50 +33315,83 @@
             {
               "id": "D",
               "title": "Complete one of the following options: (6.00 units)",
-              "courses": []
-            },
-            {
-              "id": "i",
-              "title": "Complete the following:",
-              "courses": [
-                {
-                  "code": "BIOL 300",
-                  "title": "Ecology",
-                  "units": 3
+              "courses": [],
+              "plan": {
+                "i": {
+                  "title": "i",
+                  "electives": 0,
+                  "planunits": 0,
+                  "completedunits": 0,
+                  "units": 6,
+                  "subsections": [
+                    {
+                      "id": "A",
+                      "title": "Complete the following:",
+                      "courses": [
+                        {
+                          "code": "BIOL 300",
+                          "title": "Ecology",
+                          "units": 3
+                        }
+                      ],
+                      "requirement": [
+                        "3.00 units from BIOL 334, BIOL 339, BIOL 341"
+                      ]
+                    }
+                  ]
                 },
-                {
-                  "code": "BIOL 300",
-                  "title": "Ecology",
-                  "units": 3
+                "ii": {
+                  "title": "ii",
+                  "electives": 0,
+                  "planunits": 0,
+                  "completedunits": 0,
+                  "units": 6,
+                  "subsections": [
+                    {
+                      "id": "A",
+                      "title": "Complete the following:",
+                      "courses": [
+                        {
+                          "code": "BIOL 300",
+                          "title": "Ecology",
+                          "units": 3
+                        },
+                        {
+                          "code": "BIOL 330",
+                          "title": "Cell Biology",
+                          "units": 3
+                        }
+                      ]
+                    }
+                  ]
                 },
-                {
-                  "code": "BIOL 330",
-                  "title": "Cell Biology",
-                  "units": 3
-                },
-                {
-                  "code": "BIOL 330",
-                  "title": "Cell Biology",
-                  "units": 3
+                "iii": {
+                  "title": "iii",
+                  "electives": 0,
+                  "planunits": 0,
+                  "completedunits": 0,
+                  "units": 6,
+                  "subsections": [
+                    {
+                      "id": "A",
+                      "title": "Complete the following:",
+                      "courses": [
+                        {
+                          "code": "BIOL 330",
+                          "title": "Cell Biology",
+                          "units": 3
+                        }
+                      ],
+                      "requirement": [
+                        "3.00 units from BIOL 334, BIOL 339, BIOL 341"
+                      ]
+                    }
+                  ]
                 }
-              ],
-              "requirement": [
-                "3.00 units from BIOL 334, BIOL 339, BIOL 341",
-                "3.00 units from BIOL 334, BIOL 339, BIOL 341"
-              ]
+              }
             }
           ],
-          "sectionunits": 39,
-          "completedunits": 0
-        },
-        "ii. Complete the following:": {
-          "subsections": [],
-          "sectionunits": 0,
-          "completedunits": 0
-        },
-        "iii. Complete the following:": {
-          "subsections": [],
-          "sectionunits": 0,
+          "sectionunits": 27,
           "completedunits": 0
         },
         "2. Option": {
@@ -58572,8 +58624,14 @@
           "completedunits": 0
         },
         "4. Additional Requirements": {
-          "subsections": [],
-          "sectionunits": 0,
+          "subsections": [
+            {
+              "id": "A",
+              "title": "Minimum of an additional 12.00 units in the physical and natural sciences or mathematics, from ASC_Science.",
+              "courses": []
+            }
+          ],
+          "sectionunits": 12,
           "completedunits": 0
         }
       }
