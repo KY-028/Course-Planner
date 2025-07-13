@@ -1,10 +1,128 @@
 import { useState, useEffect, useRef, useContext } from 'react';
+import emailjs from '@emailjs/browser'
+// Error Modal Component
 import { AuthContext } from '../context/authContext';
 import { FaCheck, FaTimes } from 'react-icons/fa';
 import axios from 'axios';
 import { validateUrl, clearPlanReq, establishPlansFilling, getPlanPrefix, recomputePlanAssignments } from '/src/components/courseFunctions';
 import planResultsData from '../assets/coursePlanResults.json';
 import PlanDetailsDisplay from '/src/components/planDetailsDisplay.jsx';
+import LoadingModal from '/src/components/loadingModal.jsx';
+
+
+function ErrorModal({ isOpen, onClose, term }) {
+    const [email, setEmail] = useState('');
+    const [errorTypes, setErrorTypes] = useState([]);
+    const [description, setDescription] = useState('');
+
+    const errorTypeOptions = [
+        'Error when loading',
+        'Error in plan display (details pop up)',
+        'Error after pasting plan',
+        'Error after selecting plan',
+        'Other',
+    ];
+
+    const handleErrorTypeChange = (errorType) => {
+        setErrorTypes(prev => {
+            if (prev.includes(errorType)) {
+                return prev.filter(type => type !== errorType);
+            } else {
+                return [...prev, errorType];
+            }
+        });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const formData = {
+            term: term,
+            email: email,
+            error_type: errorTypes.join(', '),
+            description: description
+        };
+        emailjs.send('service_cfmmnlp', 'template_9nmrebs', formData, '2qeaMXLo7xFUpCTe0')
+            .then(
+                (result) => {
+                    alert("We've received your error report!");
+                },
+                (error) => {
+                    alert(`There was an error: ${error.text}`);
+                },
+            );
+        setEmail('');
+        setErrorTypes([]);
+        setDescription('');
+        onClose();
+    };
+
+    if (!isOpen) return null;
+
+    return (
+        <div className="fixed inset-0 bg-gray-600 bg-opacity-75 flex items-center justify-center p-4" style={{ zIndex: 10000000 }}>
+            <div className="bg-white rounded-lg shadow-xl p-6 w-full max-w-md">
+                <div className="flex justify-between items-center mb-4">
+                    <h2 className="text-xl font-bold">Report an Error</h2>
+                    <button onClick={onClose} className="text-gray-500 hover:text-gray-800">&#x2715;</button>
+                </div>
+                <form onSubmit={handleSubmit}>
+                    <div className="mb-4">
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Your Email:</label>
+                        <input
+                            type="email"
+                            placeholder="Email address"
+                            className="w-full p-2 border border-gray-300 rounded"
+                            value={email}
+                            onChange={e => setEmail(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div className="mb-4">
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Error Type(s):</label>
+                        <div className="space-y-2">
+                            {errorTypeOptions.map((option) => (
+                                <label key={option} className="flex items-center">
+                                    <input
+                                        type="checkbox"
+                                        className="mr-2"
+                                        checked={errorTypes.includes(option)}
+                                        onChange={() => handleErrorTypeChange(option)}
+                                    />
+                                    <span className="text-sm">{option}</span>
+                                </label>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="mb-4">
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Description:</label>
+                        <textarea
+                            className="w-full p-2 border border-gray-300 rounded h-20 resize-none"
+                            placeholder="Please provide details about the error..."
+                            value={description}
+                            onChange={e => setDescription(e.target.value)}
+                        />
+                    </div>
+                    <div className="flex justify-end gap-2">
+                        <button
+                            type="button"
+                            onClick={onClose}
+                            className="px-4 py-2 text-gray-600 border border-gray-300 rounded hover:bg-gray-50"
+                        >
+                            Cancel
+                        </button>
+                        <button
+                            type="submit"
+                            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                            disabled={errorTypes.length === 0 || !email}
+                        >
+                            Submit Report
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    );
+}
 
 const PLAN_OPTIONS = [
     { label: 'Double Major', value: 1, fields: ['Major 1 [Search or Paste Academic Calendar Link]', 'Major 2 [Search or Paste Academic Calendar Link]'] },
@@ -18,6 +136,8 @@ const PLAN_OPTIONS = [
 ];
 
 export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
+    // Error modal state
+    const [errorModalOpen, setErrorModalOpen] = useState(false);
     const apiUrl = import.meta.env.VITE_API_URL;
     // Select Degree Plan Combination (number)
     const [selectedPlanCombo, setSelectedPlanCombo] = useState(PLAN_OPTIONS[0].value);
@@ -73,11 +193,10 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
                 return;
             }
 
-            const response = await axios.get(`${apiUrl}/backend/users/plans/${userId}`);
+            const response = await axios.get(`${apiUrl}/backend/userPlans/${userId}`);
             const data = response.data;
             setSelectedPlanCombo(data.selectedPlanCombo || PLAN_OPTIONS[0].value);
             setFields(data.fields || Array(PLAN_OPTIONS[0].fields.length).fill(''));
-            // TBD: Fetch responses or load from loaded json
             // Build responses array by matching each field's link in planResultsData
             setResponses(
                 (data.fields || Array(PLAN_OPTIONS[0].fields.length).fill('')).map((field, idx) => {
@@ -107,7 +226,24 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
             setCoursesTaken(data.coursesTaken || Array(60).fill(null));
         } catch (error) {
             console.error("Error loading user data:", error);
-            alert("An error occurred while loading your data:", error.message);
+
+            // Extract the actual error message from the response
+            let errorMessage = "An error occurred while loading your data";
+
+            if (error.response) {
+                // The request was made and the server responded with a status code
+                // that falls out of the range of 2xx
+                const responseData = error.response.data;
+                errorMessage = responseData.message || responseData.error || errorMessage;
+            } else if (error.request) {
+                // The request was made but no response was received
+                errorMessage = "No response received from server";
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                errorMessage = error.message || errorMessage;
+            }
+
+            alert("Error: " + errorMessage);
         } finally {
             setIsLoading(false);
         }
@@ -149,6 +285,50 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
             }
         }
     }, [coursesTaken, responses]);
+
+    const handleSavePlans = async () => {
+        if (!currentUser) {
+            alert("You are not logged in. Please log in to save your plans.");
+            return;
+        }
+        try {
+            setIsLoading(true);
+            const userId = currentUser.id;
+            const dataToSave = {
+                userId,
+                selectedPlanCombo,
+                fields,
+                responses,
+                plansFilling,
+                selectedSubPlans,
+                sectionNames,
+                customAssignments,
+                coursesTaken
+            };
+            await axios.post(`${apiUrl}/backend/userPlans/savePlans`, dataToSave);
+            alert("Your plans have been saved successfully!");
+        } catch (error) {
+            // Extract the actual error message from the response
+            let errorMessage = "An error occurred while loading your data";
+
+            if (error.response) {
+                // The request was made and the server responded with a status code
+                // that falls out of the range of 2xx
+                const responseData = error.response.data;
+                errorMessage = responseData.message || responseData.error || errorMessage;
+            } else if (error.request) {
+                // The request was made but no response was received
+                errorMessage = "No response received from server";
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                errorMessage = error.message || errorMessage;
+            }
+
+            alert("Error: " + errorMessage);
+        } finally {
+            setIsLoading(false);
+        }
+    }
 
     // When plan combination drop down is changed
     const handlePlanChange = (e) => {
@@ -570,6 +750,25 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
 
     return (
         <div className='flex flex-col p-3 border rounded-lg md-custom:mr-0 mr-8'>
+            {isLoading && <LoadingModal />}
+            <div>
+                {/* Save / Report Error section */}
+                <div className="flex justify-between mb-4">
+                    <button
+                        className="bg-green-500 hover:bg-green-600 text-white font-semibold py-1 px-4 rounded transition-colors"
+                        onClick={handleSavePlans}
+                        disabled={isLoading}
+                    >
+                        Save
+                    </button>
+                    <button
+                        className="bg-red-500 hover:bg-red-600 text-white font-semibold py-1 px-4 rounded transition-colors"
+                        onClick={() => setErrorModalOpen(true)}
+                    >
+                        Report Error/Bug
+                    </button>
+                </div>
+            </div>
             <div className='text-xl font-bold mb-2 lg:mt-0 mt-2'>Select Plan</div>
             <div className='flex items-center mb-4'>
                 <label className='mr-3 font-medium'>Type:</label>
@@ -778,6 +977,9 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
                     </div>
                 </div>
             )}
+
+            {/* Error Modal */}
+            <ErrorModal isOpen={errorModalOpen} onClose={() => setErrorModalOpen(false)} term={""} />
         </div>
     );
 }
