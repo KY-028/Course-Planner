@@ -35,13 +35,11 @@ function ErrorModal({ isOpen, onClose, term }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const formData = {
-            term: term,
-            email: email,
+        const message = JSON.stringify({
             error_type: errorTypes.join(', '),
-            description: description
-        };
-        emailjs.send('service_cfmmnlp', 'template_9nmrebs', formData, '2qeaMXLo7xFUpCTe0')
+            description
+        });
+        emailjs.send('service_cfmmnlp', 'template_fmvts7a', { email, message }, '2qeaMXLo7xFUpCTe0')
             .then(
                 (result) => {
                     alert("We've received your error report!");
@@ -174,6 +172,8 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
     const { currentUser } = useContext(AuthContext);
     const [isLoading, setIsLoading] = useState(true);
 
+    const [oldCoursesTaken, setOldCoursesTaken] = useState(coursesTaken);
+
     // Load user's existing information from database
     useEffect(() => {
         if (!currentUser) {
@@ -197,6 +197,7 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
             const data = response.data;
             setSelectedPlanCombo(data.selectedPlanCombo || PLAN_OPTIONS[0].value);
             setFields(data.fields || Array(PLAN_OPTIONS[0].fields.length).fill(''));
+            setLocked(data.fields.map(field => field && field.trim() !== '' ? true : false));
             // Build responses array by matching each field's link in planResultsData
             setResponses(
                 (data.fields || Array(PLAN_OPTIONS[0].fields.length).fill('')).map((field, idx) => {
@@ -224,6 +225,7 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
             setSectionNames(data.sectionNames || Array(PLAN_OPTIONS[0].fields.length).fill([]));
             setCustomAssignments(data.customAssignments || []);
             setCoursesTaken(data.coursesTaken || Array(60).fill(null));
+            setOldCoursesTaken(data.coursesTaken || Array(60).fill(null));
         } catch (error) {
             console.error("Error loading user data:", error);
 
@@ -295,36 +297,21 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
             setIsLoading(true);
             const userId = currentUser.id;
             const dataToSave = {
-                userId,
+                user: userId,
                 selectedPlanCombo,
-                fields,
-                responses,
                 plansFilling,
                 selectedSubPlans,
                 sectionNames,
                 customAssignments,
-                coursesTaken
+                coursesTaken,
+                fields
             };
-            await axios.post(`${apiUrl}/backend/userPlans/savePlans`, dataToSave);
+            await axios.post(`${apiUrl}/backend/userPlans/savePlan`, dataToSave);
             alert("Your plans have been saved successfully!");
+            setOldCoursesTaken(coursesTaken); // Update old courses taken to current state
         } catch (error) {
-            // Extract the actual error message from the response
-            let errorMessage = "An error occurred while loading your data";
-
-            if (error.response) {
-                // The request was made and the server responded with a status code
-                // that falls out of the range of 2xx
-                const responseData = error.response.data;
-                errorMessage = responseData.message || responseData.error || errorMessage;
-            } else if (error.request) {
-                // The request was made but no response was received
-                errorMessage = "No response received from server";
-            } else {
-                // Something happened in setting up the request that triggered an Error
-                errorMessage = error.message || errorMessage;
-            }
-
-            alert("Error: " + errorMessage);
+            console.error("Error saving plans:", error);
+            alert("There was an error saving your plans. Please try again later.");
         } finally {
             setIsLoading(false);
         }
@@ -691,12 +678,14 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
                 required += sectionProgress.required;
             }
         }
-        // Add electives section
-        const planPrefix = getPlanPrefix(idx, responses[idx], selectedPlanCombo);
-        const otherUnitsCompleted = coursesTaken
-            .filter(course => course && (!course.planreq || !course.planreq.includes(planPrefix)))
-            .reduce((sum, course) => sum + (parseFloat(course.units) || 0), 0);
-        completed += otherUnitsCompleted;
+        // Add electives section (if it's not a minor)
+        if (!PLAN_OPTIONS[selectedPlanCombo - 1].fields[idx].includes('Minor')) {
+            const planPrefix = getPlanPrefix(idx, responses[idx], selectedPlanCombo);
+            const otherUnitsCompleted = coursesTaken
+                .filter(course => course && (!course.planreq || !course.planreq.includes(planPrefix)))
+                .reduce((sum, course) => sum + (parseFloat(course.units) || 0), 0);
+            completed += otherUnitsCompleted;
+        }
         // Use the plan's total required units as the required value
         required = responses[idx]?.units || required;
         return { completed, required };

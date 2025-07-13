@@ -34,6 +34,7 @@ function WelcomeModal({ isOpen, onClose }) {
                             <li>Fill in your courses in the grid</li>
                             <li>Select a sub-plan (if applicable) by clicking on "Details"</li>
                             <li>Re-assign a course to fill different or multiple requirements inside of "Details"</li>
+                            <li>Make sure to hit "save" before you close the browser/switch tabs!</li>
                         </ol>
                     </div>
                     <div className="text-sm">
