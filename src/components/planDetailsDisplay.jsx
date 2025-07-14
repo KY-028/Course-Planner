@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { FaTimes } from 'react-icons/fa';
-import { getPlanPrefix, processSection, clearPlanReq } from './courseFunctions';
+import { getPlanPrefix, establishPlansFilling, processSection, clearPlanReq } from './courseFunctions';
 import CompleteIcon from '/complete.svg';
 
 // Component to display plan details in a formatted way
@@ -51,8 +51,15 @@ export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames,
                                 }
                             });
                             if (value) {
-                                processSection(`${planPrefix}${key}${subsection.id}-${value}`, subsection.plan[value], newPlansFilling);
+                                if (subsection.plan[value].subsections) {
+                                    console.log("Processing plan subsection directly");
+                                    processSection(`${planPrefix}${key}${subsection.id}-${value}`, subsection.plan[value], newPlansFilling);
+                                } else {
+                                    console.log("The plan is more nested");
+                                    establishPlansFilling(subsection.plan[value], `${planPrefix}${key}${subsection.id}-${value}-`, newPlansFilling);
+                                }
                                 processSection(`${planPrefix}${key}`, planData[key], newPlansFilling);
+                                console.log("Updated plansFilling for:", `${planPrefix}${key}${subsection.id}-${value}`);
                                 delete newPlansFilling[`${planPrefix}${key}${subsection.id}`]
                             } else {
                                 processSection(`${planPrefix}${key}`, planData[key], newPlansFilling);
@@ -96,8 +103,15 @@ export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames,
     const courseFitsRequirement = (course, requirementId) => {
         // Check if the course is already assigned to this requirement
         let requirement = requirementId.split("-");
-        let id = requirement[1].charAt(requirement[1].length - 1);
-        let subsection = requirement[1].slice(0, -1);
+        let id = '';
+        let subsection = '';
+        if (requirement[1].endsWith('Sub')) {
+            id = requirement[2].charAt(requirement[2].length - 1);
+            subsection = (requirement[1] + '-' + requirement[2]).slice(0, -1);
+        } else {
+            id = requirement[1].charAt(requirement[1].length - 1);
+            subsection = requirement[1].slice(0, -1);
+        }
         if (requirement[1] && id) {
             // Go through each key in planData and see if subsection is part of it
             for (const key in planData) {
@@ -107,6 +121,26 @@ export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames,
                             // Check if the course code is in the subsection's courses
                             if (item.courses && item.courses.some(c => c.code === course.code)) {
                                 return true;
+                            }
+                            // If the subsection has a plan, check if the course fits any of its requirements
+                            if (item.plan) {
+                                const planInfo = item.plan[selectedSubPlans[planIndex]];
+                                // Now check for the ID inside the plan
+                                let planId = requirementId.charAt(requirementId.length - 1);
+                                // If subsection is directly present
+                                if (planInfo && planInfo.subsections) {
+                                    // Now iterate through this plan's subsections to locate this ID
+                                    for (const sub of planInfo.subsections) {
+                                        if (sub.id && sub.id === planId) {
+                                            // Check if the course code is in the subsection's courses
+                                            if (sub.courses && sub.courses.some(c => c.code === course.code)) {
+                                                return true;
+                                            }
+                                        }
+                                    }
+                                } else { // when the plan is more nested
+                                    // To be complete
+                                }
                             }
                         }
                     }
@@ -193,8 +227,10 @@ export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames,
         .map(([key, value]) => {
             // Format the title more nicely
             let title = key.replace(planPrefix, '');
-            // Add spaces before capital letters
-            title = title.replace(/([A-Z])/g, ' $1').trim();
+            // Add a space before the last character
+            if (title.length > 1) {
+                title = title.slice(0, -1) + ' ' + title.slice(-1);
+            }
             // Capitalize first letter
             title = title.charAt(0).toUpperCase() + title.slice(1);
 
@@ -242,6 +278,22 @@ export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames,
                     ))}
                 </div>
             );
+        } else {
+            return (
+                <div key={sectionId} className={`${indentClass} space-y-2`}>
+                    <div className="font-semibold text-gray-800">
+                        {sectionKey}
+                    </div>
+                    {Object.entries(sectionData).map(([key, value]) => (
+                        typeof value === 'object' && value !== null ? (
+                            <div key={`${sectionId}-${key}`}>
+                                {renderSection(sectionKey + "-" + key, value, sectionLevel + 1, currentPath)}
+                            </div>
+                        ) : null
+                    ))}
+                </div>
+            );
+
         }
 
         return null;
@@ -472,7 +524,7 @@ function PlanSubsection({
             if (alreadyCustom && planreqArr.length === 1 && planreqArr.includes(`Unassigned/Electives`)) {
                 // Remove from customAssignments
                 return prev.filter(entry => entry.index !== idx);
-            } else if (planreqArr.length !== 0) {
+            } else if (planreqArr.length !== 0 && !planreqArr.includes(`Unassigned/Electives`)) {
                 // Some other requirement is present, update it
                 return prev.map(entry => {
                     if (entry.index === idx) {
