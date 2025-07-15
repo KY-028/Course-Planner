@@ -17,7 +17,8 @@ function ErrorModal({ isOpen, onClose, term }) {
 
     const errorTypeOptions = [
         'Error when loading',
-        'Error in plan display (details pop up)',
+        'Incorrect plan display (details pop up)',
+        'Plan requirements do not match Academic Calendar',
         'Error after pasting plan',
         'Error after selecting plan',
         'Other',
@@ -199,6 +200,7 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
             setFields(data.fields || Array(PLAN_OPTIONS[0].fields.length).fill(''));
             setLocked(data.fields.map(field => field && field.trim() !== '' ? true : false));
             // Build responses array by matching each field's link in planResultsData
+            const customFields = [];
             setResponses(
                 (data.fields || Array(PLAN_OPTIONS[0].fields.length).fill('')).map((field, idx) => {
                     if (!field || !field.trim()) return null;
@@ -217,9 +219,34 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
                     // Search for matching plan in planResultsData
                     const plans = planResultsData[planType] || [];
                     const match = plans.find(planObj => planObj.link === field.trim());
-                    return match ? match.result : null;
+                    if (match) {
+                        return match.result;
+                    } else {
+                        customFields.push(idx);
+                        return null;
+                    }
                 })
             );
+            for (const idx of customFields) {
+                try {
+                    const fieldValue = data.fields[idx].trim();
+                    const response = await axios.get(`${apiUrl}/backend/coursePlan?url=${encodeURIComponent(fieldValue)}`);
+                    setResponses(prev => {
+                        // Only update if the field hasn't been cleared/unlocked
+                        if (fields[idx] === fieldValue) {
+                            const newResponses = [...prev];
+                            newResponses[idx] = response.data;
+                            return newResponses;
+                        }
+                        return prev;
+                    });
+                } catch (error) {
+                    const newErrors = [...errors];
+                    newErrors[idx] = error.response || "An error occurred while fetching the plan";
+                    setErrors(newErrors);
+                }
+            }
+
             setPlansFilling(data.plansFilling || {});
             setSelectedSubPlans(data.selectedSubPlans || Array(PLAN_OPTIONS[0].fields.length).fill(null));
             setSectionNames(data.sectionNames || Array(PLAN_OPTIONS[0].fields.length).fill([]));
@@ -568,7 +595,7 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
             updateSectionNames(newResponses, newLocked);
         } catch (error) {
             const newErrors = [...errors];
-            newErrors[idx] = error.response?.data?.message || "An error occurred while fetching the plan";
+            newErrors[idx] = error.response || "An error occurred while fetching the plan";
             setErrors(newErrors);
         }
     };
@@ -598,12 +625,6 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
             if (planData && newLocked[i]) {
                 const planPrefix = getPlanPrefix(i, planData, selectedPlanCombo);
                 Object.assign(mergedPlansFilling, establishPlansFilling(planData, planPrefix));
-                // Add electives for this plan
-                // mergedPlansFilling[`${planPrefix}Electives`] = {
-                //     unitsRequired: planData.electives || 0,
-                //     unitsCompleted: 0,
-                //     courses: []
-                // };
             }
         });
         mergedPlansFilling["Unassigned/Electives"] = {
@@ -831,7 +852,7 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
                         )}
                         {responses[idx] && (
                             <>
-                                <div className='mt-2 p-3 bg-gray-100 rounded-lg flex flex-row items-center gap-6'>
+                                <div className='mt-2 p-3 pr-1 bg-gray-100 rounded-lg flex flex-row items-center gap-3'>
                                     {/* Left: Circular Progress for the plan */}
                                     <div className='flex items-center justify-center'>
                                         {(() => {
@@ -877,11 +898,17 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
                                                                         return (
                                                                             <>
                                                                                 <span className='font-semibold'>
-                                                                                    Electives/Other Plans
+                                                                                    Other
                                                                                 </span>
                                                                                 <span className='text-gray-700'>
                                                                                     {otherUnitsCompleted} Units
                                                                                 </span>
+                                                                                <div className="relative group">
+                                                                                    <img src="/info.svg" alt="info" className="w-4 h-4 text-gray-400 cursor-help" />
+                                                                                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10">
+                                                                                        Electives and Units Assigned to Other Plans
+                                                                                    </div>
+                                                                                </div>
                                                                             </>
                                                                         );
                                                                     })()
@@ -950,6 +977,7 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
                                         selectedSubPlans={selectedSubPlans}
                                         setSelectedSubPlans={setSelectedSubPlans}
                                         setCustomAssignments={setCustomAssignments}
+                                        link={fields[planIndex] || ""}
                                     />
                                 );
                             })()}

@@ -14902,7 +14902,7 @@
                 "FILM at the 300-level or above",
                 "MAPP at the 300-level or above"
               ],
-              "subtitle": "FILM_Centric_Options at the 300-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "C",
@@ -15030,7 +15030,7 @@
                 "FILM at the 100-level or above",
                 "MAPP at the 200-level or above"
               ],
-              "subtitle": "FILM_Centric_Options at the 200-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             }
           ],
           "sectionunits": 30,
@@ -16243,7 +16243,7 @@
                 "PHYS at the 200-level or above",
                 "STAT at the 200-level or above"
               ],
-              "subtitle": "GPHY_Tech/Methods at the 200-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             }
           ],
           "sectionunits": 27,
@@ -17083,7 +17083,7 @@
                   "units": 3
                 }
               ],
-              "subtitle": "HLTH_Specialization_Options at the 400-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "C",
@@ -17370,7 +17370,7 @@
                   "units": 3
                 }
               ],
-              "subtitle": "HLTH_Specialization_Options at the 300-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "D",
@@ -17657,7 +17657,7 @@
                   "units": 3
                 }
               ],
-              "subtitle": "HLTH_Specialization_Options at the 200-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "E",
@@ -17944,7 +17944,7 @@
                   "units": 3
                 }
               ],
-              "subtitle": "HLTH_Specialization_Options at any level"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             }
           ],
           "sectionunits": 24,
@@ -18372,7 +18372,7 @@
                   "units": null
                 }
               ],
-              "subtitle": "ASC_Science_Excluding_KNPE_HLTH at the 300-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "E",
@@ -18564,7 +18564,7 @@
                   "units": null
                 }
               ],
-              "subtitle": "ASC_Science_Excluding_KNPE_HLTH at the 200-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "F",
@@ -19313,7 +19313,7 @@
                             "units": null
                           }
                         ],
-                        "subtitle": "LISC_List_C at the 300-level or above"
+                        "subtitle": "There may be at #00 level restrictions, check the academic calendar"
                       },
                       {
                         "id": "c",
@@ -19540,7 +19540,7 @@
                             "units": null
                           }
                         ],
-                        "subtitle": "LISC_List_C at the 200-level or above"
+                        "subtitle": "There may be at #00 level restrictions, check the academic calendar"
                       }
                     ]
                   }
@@ -19858,7 +19858,7 @@
                             "units": 12
                           }
                         ],
-                        "subtitle": "LISC_Labs_E at the 400-level or above"
+                        "subtitle": "There may be at #00 level restrictions, check the academic calendar"
                       },
                       {
                         "id": "b",
@@ -20374,7 +20374,7 @@
                             "units": 3
                           }
                         ],
-                        "subtitle": "LISC_List_F at the 400-level"
+                        "subtitle": "There may be at #00 level restrictions, check the academic calendar"
                       },
                       {
                         "id": "c",
@@ -21108,7 +21108,7 @@
                             "units": 3
                           }
                         ],
-                        "subtitle": "LISC_List_K at the 200-level or above"
+                        "subtitle": "There may be at #00 level restrictions, check the academic calendar"
                       }
                     ]
                   }
@@ -21334,7 +21334,7 @@
                             "units": 3
                           }
                         ],
-                        "subtitle": "LISC_List_L at the 400-level"
+                        "subtitle": "There may be at #00 level restrictions, check the academic calendar"
                       },
                       {
                         "id": "c",
@@ -23097,7 +23097,7 @@
               "requirement": [
                 "SOCY at the 400-level or above"
               ],
-              "subtitle": "SOCY_Options at the 400-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "B",
@@ -23162,7 +23162,7 @@
               "requirement": [
                 "SOCY at the 300-level or above"
               ],
-              "subtitle": "SOCY_Options at the 300-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "C",
@@ -23227,7 +23227,7 @@
               "requirement": [
                 "SOCY at the 200-level or above"
               ],
-              "subtitle": "SOCY_Options at the 200-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             }
           ],
           "sectionunits": 36,
@@ -24247,7 +24247,7 @@
                           "units": 3
                         }
                       ],
-                      "subtitle": "COGS_Psychology at the 300-level or above"
+                      "subtitle": "There may be at #00 level restrictions, check the academic calendar"
                     }
                   ]
                 }
@@ -24773,7 +24773,7 @@
               "requirement": [
                 "CISC at the 400-level"
               ],
-              "subtitle": "CISC_Subs at the 400-level"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "F",
@@ -24823,7 +24823,7 @@
               "requirement": [
                 "CISC at the 200-level or above"
               ],
-              "subtitle": "CISC_Subs at the 200-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             }
           ],
           "sectionunits": 45,
@@ -25960,7 +25960,7 @@
                         "CISC at the 300-level or above",
                         "SOFT at the 300-level or above"
                       ],
-                      "subtitle": "CISC_Subs at the 300-level or above"
+                      "subtitle": "There may be at #00 level restrictions, check the academic calendar"
                     },
                     {
                       "id": "d",
@@ -26011,7 +26011,7 @@
                         "CISC at the 200-level or above",
                         "SOFT at the 200-level or above"
                       ],
-                      "subtitle": "CISC_Subs at the 200-level or above"
+                      "subtitle": "There may be at #00 level restrictions, check the academic calendar"
                     }
                   ]
                 },
@@ -26885,7 +26885,7 @@
                   "units": 3.5
                 }
               ],
-              "subtitle": "SOFT_Design at the 400-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "C",
@@ -29496,7 +29496,7 @@
                           "units": 3
                         }
                       ],
-                      "subtitle": "COGS_Psychology at the 300-level or above"
+                      "subtitle": "There may be at #00 level restrictions, check the academic calendar"
                     }
                   ]
                 }
@@ -30038,7 +30038,7 @@
               "requirement": [
                 "CISC at the 400-level"
               ],
-              "subtitle": "CISC_Subs at the 400-level"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "G",
@@ -30093,7 +30093,7 @@
               "requirement": [
                 "CISC at the 200-level or above"
               ],
-              "subtitle": "CISC_Subs at the 200-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             }
           ],
           "sectionunits": 45,
@@ -31268,7 +31268,7 @@
                         "CISC at the 300-level or above",
                         "SOFT at the 300-level or above"
                       ],
-                      "subtitle": "CISC_Subs at the 300-level or above"
+                      "subtitle": "There may be at #00 level restrictions, check the academic calendar"
                     },
                     {
                       "id": "d",
@@ -31324,7 +31324,7 @@
                         "CISC at the 200-level or above",
                         "SOFT at the 200-level or above"
                       ],
-                      "subtitle": "CISC_Subs at the 200-level or above"
+                      "subtitle": "There may be at #00 level restrictions, check the academic calendar"
                     }
                   ]
                 },
@@ -32240,7 +32240,7 @@
                   "units": 3
                 }
               ],
-              "subtitle": "SOFT_Design at the 400-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "C",
@@ -38570,7 +38570,7 @@
                 "FILM at the 300-level or above",
                 "MAPP at the 300-level or above"
               ],
-              "subtitle": "FILM_Centric_Options at the 300-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar."
             },
             {
               "id": "C",
@@ -38698,7 +38698,7 @@
                 "FILM at the 100-level or above",
                 "MAPP at the 200-level or above"
               ],
-              "subtitle": "FILM_Centric_Options at the 200-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             }
           ],
           "sectionunits": 21,
@@ -39556,7 +39556,7 @@
                   "units": 6
                 }
               ],
-              "subtitle": "GPHY_Physical at the 200-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "B",
@@ -39869,7 +39869,7 @@
                   "units": 3
                 }
               ],
-              "subtitle": "GPHY_Human at the 200-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "B",
@@ -40036,7 +40036,7 @@
                   "units": 3
                 }
               ],
-              "subtitle": "GPHY_Tech/Methods at the 300-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "C",
@@ -40404,7 +40404,7 @@
                   "units": null
                 }
               ],
-              "subtitle": "ASC_Science_Excluding_GPHY at the 200-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             }
           ],
           "sectionunits": 24,
@@ -41426,7 +41426,7 @@
                   "units": 3
                 }
               ],
-              "subtitle": "HLTH_Major_Options at the 300-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "B",
@@ -41688,7 +41688,7 @@
                   "units": 3
                 }
               ],
-              "subtitle": "HLTH_Major_Options at the 200-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "C",
@@ -41950,7 +41950,7 @@
                   "units": 3
                 }
               ],
-              "subtitle": "HLTH_Major_Options at any level"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             }
           ],
           "sectionunits": 18,
@@ -42385,7 +42385,7 @@
               "requirement": [
                 "INDG at the 300-level or above"
               ],
-              "subtitle": "INDG_Options at the 300-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "B",
@@ -42655,7 +42655,7 @@
               "requirement": [
                 "INDG at the 200-level or above"
               ],
-              "subtitle": "INDG_Options at the 100-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             }
           ],
           "sectionunits": 21,
@@ -42807,7 +42807,7 @@
                   "units": null
                 }
               ],
-              "subtitle": "c. Complete 12.00 units from LLCU_Languages at the 100-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             }
           ],
           "sectionunits": 24,
@@ -44417,7 +44417,7 @@
                   "units": null
                 }
               ],
-              "subtitle": "LISC_List_A at the 400-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "B",
@@ -44729,7 +44729,7 @@
                   "units": null
                 }
               ],
-              "subtitle": "LISC_List_A at the 300-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "C",
@@ -45041,7 +45041,7 @@
                   "units": null
                 }
               ],
-              "subtitle": "LISC_List_A at the 200-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendarabove"
             },
             {
               "id": "D",
@@ -46941,7 +46941,7 @@
               "requirement": [
                 "SOCY at the 400-level or above"
               ],
-              "subtitle": "SOCY_Options at the 400-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "B",
@@ -47006,7 +47006,7 @@
               "requirement": [
                 "SOCY at the 300-level or above"
               ],
-              "subtitle": "SOCY_Options at the 300-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "C",
@@ -47071,7 +47071,7 @@
               "requirement": [
                 "SOCY at the 200-level or above"
               ],
-              "subtitle": "SOCY_Options at the 200-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             }
           ],
           "sectionunits": 30,
@@ -47403,7 +47403,7 @@
                         "CISC at the 300-level or above",
                         "SOFT at the 300-level or above"
                       ],
-                      "subtitle": "CISC_Subs at the 300-level or above"
+                      "subtitle": "There may be at #00 level restrictions, check the academic calendar"
                     },
                     {
                       "id": "d",
@@ -47454,7 +47454,7 @@
                         "CISC at the 200-level or above",
                         "SOFT at the 200-level or above"
                       ],
-                      "subtitle": "CISC_Subs at the 200-level or above"
+                      "subtitle": "There may be at #00 level restrictions, check the academic calendar"
                     }
                   ]
                 },
@@ -48383,7 +48383,7 @@
                         "CISC at the 300-level or above",
                         "SOFT at the 300-level or above"
                       ],
-                      "subtitle": "CISC_Subs at the 300-level or above"
+                      "subtitle": "There may be at #00 level restrictions, check the academic calendar"
                     },
                     {
                       "id": "d",
@@ -48434,7 +48434,7 @@
                         "CISC at the 200-level or above",
                         "SOFT at the 200-level or above"
                       ],
-                      "subtitle": "CISC_Subs at the 200-level or above"
+                      "subtitle": "There may be at #00 level restrictions, check the academic calendar"
                     }
                   ]
                 },
@@ -52836,7 +52836,7 @@
                   "units": 3
                 }
               ],
-              "subtitle": "GPHY_Tech/Methods at the 300-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             }
           ],
           "sectionunits": 9,
@@ -53626,7 +53626,7 @@
                   "units": 3
                 }
               ],
-              "subtitle": "HLTH_Gen/Min_Options at the 300-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "B",
@@ -53828,7 +53828,7 @@
                   "units": 3
                 }
               ],
-              "subtitle": "HLTH_Gen/Min_Options at the 200-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             }
           ],
           "sectionunits": 12,
@@ -54146,7 +54146,7 @@
               "requirement": [
                 "INDG at the 200-level or above"
               ],
-              "subtitle": "INDG_Options at the 200-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "B",
@@ -55104,7 +55104,7 @@
                   "units": null
                 }
               ],
-              "subtitle": "b.15.00 units from LANG_Languages at the 100-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             }
           ],
           "sectionunits": 24,
@@ -55409,7 +55409,7 @@
                   "units": 3
                 }
               ],
-              "subtitle": "LISC_List_B at the 300-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             }
           ],
           "sectionunits": 3,
@@ -55840,7 +55840,7 @@
               "requirement": [
                 "SOCY at the 200-level or above"
               ],
-              "subtitle": "SOCY_Options at the 200-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             }
           ],
           "sectionunits": 18,
@@ -55960,7 +55960,7 @@
                 "COCA at the 300-level or above",
                 "COGS at the 300-level or above"
               ],
-              "subtitle": "CISC_Subs at the 300-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "B",
@@ -56017,7 +56017,7 @@
                 "COCA at the 200-level or above",
                 "COGS at the 200-level or above"
               ],
-              "subtitle": "CISC_Subs at the 200-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             }
           ],
           "sectionunits": 9,
@@ -56147,7 +56147,7 @@
                 "COCA at the 300-level or above",
                 "COGS at the 300-level or above"
               ],
-              "subtitle": "CISC_Subs at the 300-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "B",
@@ -56199,7 +56199,7 @@
                 "COCA at the 200-level or above",
                 "COGS at the 200-level or above"
               ],
-              "subtitle": "CISC_Subs at the 200-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             }
           ],
           "sectionunits": 12,
@@ -56924,7 +56924,7 @@
                 "COCA at the 300-level or above",
                 "COGS at the 300-level or above"
               ],
-              "subtitle": "CISC_Subs at the 300-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "B",
@@ -56981,7 +56981,7 @@
                 "COCA at the 200-level or above",
                 "COGS at the 200-level or above"
               ],
-              "subtitle": "CISC_Subs at the 200-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             }
           ],
           "sectionunits": 12,
@@ -57128,7 +57128,7 @@
                 "COCA at the 300-level or above",
                 "COGS at the 300-level or above"
               ],
-              "subtitle": "CISC_Subs at the 300-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "B",
@@ -57180,7 +57180,7 @@
                 "COCA at the 200-level or above",
                 "COGS at the 200-level or above"
               ],
-              "subtitle": "CISC_Subs at the 200-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             }
           ],
           "sectionunits": 12,
@@ -63117,7 +63117,7 @@
                   "units": 6
                 }
               ],
-              "subtitle": "GPHY_Physical at the 200-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "B",
@@ -63279,7 +63279,7 @@
                   "units": 3
                 }
               ],
-              "subtitle": "GPHY_Human at the 200-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "C",
@@ -63565,7 +63565,7 @@
                   "units": 3
                 }
               ],
-              "subtitle": "GPHY_Tech/Methods at the 300-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "B",
@@ -63727,7 +63727,7 @@
                   "units": 3
                 }
               ],
-              "subtitle": "GPHY_Human at the 200-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             }
           ],
           "sectionunits": 15,
@@ -64856,7 +64856,7 @@
               "requirement": [
                 "DEVS at the 200-level or above"
               ],
-              "subtitle": "DEVS_Eligible at the 200-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             }
           ],
           "sectionunits": 15,
@@ -65125,7 +65125,7 @@
                   "units": 3
                 }
               ],
-              "subtitle": "JWST_Options at the 200-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "B",
@@ -65578,7 +65578,7 @@
                   "units": 3
                 }
               ],
-              "subtitle": "HLTH_Gen/Min_Options at the 300-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "B",
@@ -65780,7 +65780,7 @@
                   "units": 3
                 }
               ],
-              "subtitle": "HLTH_Gen/Min_Options at the 200-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             }
           ],
           "sectionunits": 18,
@@ -66318,7 +66318,7 @@
               "requirement": [
                 "INDG at the 200-level or above"
               ],
-              "subtitle": "INDG_Options at the 200-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "B",
@@ -67288,7 +67288,7 @@
                   "units": null
                 }
               ],
-              "subtitle": "LANG_Languages at the 300-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "B",
@@ -67390,7 +67390,7 @@
                   "units": null
                 }
               ],
-              "subtitle": "LANG_Languages at the 200-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "C",
@@ -68008,7 +68008,7 @@
                   "units": 3
                 }
               ],
-              "subtitle": "LISC_List_B at the 300-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "B",
@@ -68165,7 +68165,7 @@
                   "units": 3
                 }
               ],
-              "subtitle": "LISC_List_B at the 200-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             }
           ],
           "sectionunits": 15,
@@ -69101,7 +69101,7 @@
               "requirement": [
                 "SOCY at the 200-level or above"
               ],
-              "subtitle": "SOCY_Options at the 200-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             }
           ],
           "sectionunits": 24,
@@ -69232,7 +69232,7 @@
                 "COCA at the 300-level or above",
                 "COGS at the 300-level or above"
               ],
-              "subtitle": "CISC_Subs at the 300-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "B",
@@ -69284,7 +69284,7 @@
                 "COCA at the 200-level or above",
                 "COGS at the 200-level or above"
               ],
-              "subtitle": "CISC_Subs at the 200-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             }
           ],
           "sectionunits": 12,
@@ -69459,7 +69459,7 @@
                 "COCA at the 300-level or above",
                 "COGS at the 300-level or above"
               ],
-              "subtitle": "CISC_Subs at the 300-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "B",
@@ -69516,7 +69516,7 @@
                 "COCA at the 200-level or above",
                 "COGS at the 200-level or above"
               ],
-              "subtitle": "CISC_Subs at the 200-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             }
           ],
           "sectionunits": 9,
@@ -70202,7 +70202,7 @@
                 "COCA at the 300-level or above",
                 "COGS at the 300-level or above"
               ],
-              "subtitle": "CISC_Subs at the 300-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "B",
@@ -70254,7 +70254,7 @@
                 "COCA at the 200-level or above",
                 "COGS at the 200-level or above"
               ],
-              "subtitle": "CISC_Subs at the 200-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             }
           ],
           "sectionunits": 12,
@@ -70451,7 +70451,7 @@
                 "COCA at the 300-level or above",
                 "COGS at the 300-level or above"
               ],
-              "subtitle": "CISC_Subs at the 300-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             },
             {
               "id": "B",
@@ -70508,7 +70508,7 @@
                 "COCA at the 200-level or above",
                 "COGS at the 200-level or above"
               ],
-              "subtitle": "CISC_Subs at the 200-level or above"
+              "subtitle": "There may be at #00 level restrictions, check the academic calendar"
             }
           ],
           "sectionunits": 12,

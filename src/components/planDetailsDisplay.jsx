@@ -4,7 +4,7 @@ import { getPlanPrefix, establishPlansFilling, processSection, clearPlanReq } fr
 import CompleteIcon from '/complete.svg';
 
 // Component to display plan details in a formatted way
-export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames, plansFilling, coursesTaken, planIndex, setCoursesTaken, setPlansFilling, selectedPlanCombo, selectedSubPlans, setSelectedSubPlans, setCustomAssignments }) {
+export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames, plansFilling, coursesTaken, planIndex, setCoursesTaken, setPlansFilling, selectedPlanCombo, selectedSubPlans, setSelectedSubPlans, setCustomAssignments, link }) {
     // Track selected option for subplans
     const [showElectiveAssignment, setShowElectiveAssignment] = useState(null);
     const [assignmentPosition, setAssignmentPosition] = useState({ x: 0, y: 0 });
@@ -316,6 +316,7 @@ export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames,
                 handleOptionChange={handleOptionChange}
                 renderSection={renderSection}
                 setCustomAssignments={setCustomAssignments}
+                link={link}
             />
         );
     };
@@ -463,7 +464,8 @@ function PlanSubsection({
     selectedSubPlans,
     handleOptionChange,
     renderSection,
-    setCustomAssignments
+    setCustomAssignments,
+    link
 }) {
     const currentPath = parentPath ? `${parentPath}-${subsection.id}` : subsection.id;
     const hasCourses = subsection.courses && subsection.courses.length > 0;
@@ -595,7 +597,22 @@ function PlanSubsection({
                     {/* Render subtitle if exists */}
                     {subsection.subtitle && (
                         <div className="text-sm text-gray-500">
-                            {subsection.subtitle}
+                            {subsection.subtitle.includes("academic calendar") ? (
+                                <>
+                                    {subsection.subtitle.split("academic calendar")[0]}
+                                    <a
+                                        href={link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="underline text-blue-600 hover:text-blue-800"
+                                    >
+                                        academic calendar
+                                    </a>
+                                    {subsection.subtitle.split("academic calendar")[1]}
+                                </>
+                            ) : (
+                                subsection.subtitle
+                            )}
                         </div>
                     )}
 
