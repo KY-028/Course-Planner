@@ -328,7 +328,8 @@ export function fillPlanReq(newCourse, coursesTaken, plans, plansFilling, select
                     for (const planName of selectedSubPlans) {
                         if (subsection.plan[planName]) {
                             // Check if course fulfills ANY requirements in this plan
-                            if (subsection.plan[planName].subsection) {
+                            console.log("Checking subsection plan:", subsection.plan[planName]);
+                            if (subsection.plan[planName].subsections) {
                                 console.log(subsection.plan[planName].subsections);
                                 for (const plansubsection of subsection.plan[planName].subsections) {
                                     const planReqId = `${planPrefix}${sectionKey}${subsection.id}-${planName}${plansubsection.id}`
