@@ -59,7 +59,6 @@ export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames,
                                     establishPlansFilling(subsection.plan[value], `${planPrefix}${key}${subsection.id}-${value}-`, newPlansFilling);
                                 }
                                 processSection(`${planPrefix}${key}`, planData[key], newPlansFilling);
-                                console.log("Updated plansFilling for:", `${planPrefix}${key}${subsection.id}-${value}`);
                                 delete newPlansFilling[`${planPrefix}${key}${subsection.id}`]
                             } else {
                                 processSection(`${planPrefix}${key}`, planData[key], newPlansFilling);
@@ -112,7 +111,7 @@ export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames,
             id = requirement[1].charAt(requirement[1].length - 1);
             subsection = requirement[1].slice(0, -1);
         }
-        if (requirement[1] && id) {
+        if (subsection && id) {
             // Go through each key in planData and see if subsection is part of it
             for (const key in planData) {
                 if (planData[key].subsections && key.includes(subsection)) {
@@ -138,8 +137,26 @@ export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames,
                                             }
                                         }
                                     }
-                                } else { // when the plan is more nested
-                                    // To be complete
+                                } else if (planInfo) { // when the plan is more nested
+                                    // First find which section it is in
+                                    let subPlanSection = requirement[requirement.length - 1];
+                                    // If subPlanSection doesn't start with a number, adjust it
+                                    if (isNaN(parseInt(subPlanSection[0], 10))) {
+                                        subPlanSection = requirementId.slice(requirementId.length - 2);
+                                    }
+                                    subPlanSection = subPlanSection.slice(0, -1); // Remove the last character (the ID)
+                                    if (
+                                        planInfo[subPlanSection] &&
+                                        planInfo[subPlanSection]["subsections"] &&
+                                        Array.isArray(planInfo[subPlanSection]["subsections"])
+                                    ) {
+                                        // Iterate through each item in planInfo[subPlanSection]
+                                        for (const item of planInfo[subPlanSection]["subsections"]) {
+                                            if (item.id === planId && item.courses && item.courses.some(c => c.code === course.code)) {
+                                                return true;
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -507,6 +524,7 @@ function PlanSubsection({
         // Find the course in coursesTaken and update its planreq
         const idx = coursesTaken.findIndex(c => c && c.code === courseCode && (!c.isExcess));
         if (idx === -1) return;
+        console.log(coursesTaken[idx].planreq)
 
         // Remove this requirementId from planreq, add 'Electives' if not present
         let planreqArr = coursesTaken[idx].planreq ? coursesTaken[idx].planreq.split(',').map(s => s.trim()) : [];
