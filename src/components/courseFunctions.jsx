@@ -706,6 +706,13 @@ export function recomputePlanAssignments(coursesTaken, plans, selectedPlanCombo,
     let updatedCoursesTaken = coursesTaken.map(course => course ? { ...course, planreq: null } : null);
     // 3. First assign all custom assigned courses (e.g., from customAssignments)
     if (customAssignments && Array.isArray(customAssignments)) {
+        // First remove all courses who are no longer in coursesTaken
+        customAssignments = customAssignments.filter(customCourse => {
+            if (!customCourse || typeof customCourse.index !== "number" || !customCourse.course) return false;
+            const courseCode = customCourse.course.code;
+            // Check if the course is still in updatedCoursesTaken
+            return updatedCoursesTaken.some(c => c && c.code === courseCode);
+        });
         for (const customCourse of customAssignments) {
             if (!customCourse || typeof customCourse.index !== "number" || !customCourse.course) continue;
             const { code, planreq, units } = customCourse.course;
@@ -727,9 +734,8 @@ export function recomputePlanAssignments(coursesTaken, plans, selectedPlanCombo,
                                 idx === customCourse.index ? { ...c, planreq: null } : c
                             )
                         );
-                        setCustomAssignments(prev =>
-                            prev.filter((_, idx) => idx !== customCourse.index)
-                        );
+                        // Remove the invalid custom assignment from the local array
+                        customAssignments = customAssignments.filter((_, idx) => idx !== customCourse.index);
                     } else {
                         // Only add if not already present
                         if (!plansFilling[requirementId].courses.includes(code)) {
@@ -740,6 +746,8 @@ export function recomputePlanAssignments(coursesTaken, plans, selectedPlanCombo,
                 }
             }
         }
+        // Update the customAssignments state to reflect the current assignments
+        setCustomAssignments(customAssignments);
     }
 
     // 3. Assign all courses (including combinations)

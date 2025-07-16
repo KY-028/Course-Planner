@@ -282,12 +282,13 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
     // Monitor coursesTaken changes and automatically assign courses to requirements
     useEffect(() => {
         if (coursesTaken && responses.length > 0) {
+            const coursesTakenCodes = new Set(coursesTaken.filter(c => c != null).map(c => c.code));
             // Filter out null responses to get valid plans
             const validPlans = responses.filter(response => response !== null);
             if (validPlans.length > 0) {
+                // Only update state if changed
                 const result = recomputePlanAssignments(coursesTaken, validPlans, selectedPlanCombo, customAssignments, setCustomAssignments, plansFilling, selectedSubPlans, setCoursesTaken);
                 // Remove courses from plansFilling that are not in coursesTaken
-                const coursesTakenCodes = new Set(coursesTaken.filter(c => c != null).map(c => c.code));
                 const cleanedPlansFilling = {};
                 Object.entries(result.plansFilling).forEach(([key, value]) => {
                     cleanedPlansFilling[key] = {
@@ -297,11 +298,6 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
                 });
                 result.plansFilling = cleanedPlansFilling;
 
-                // Remove customAssignments that are not in coursesTaken
-                setCustomAssignments(prevAssignments => {
-                    return prevAssignments.filter(course => !coursesTakenCodes.has(course.code));
-                });
-                // Only update state if changed
                 const hasCoursesChanged = JSON.stringify(result.coursesTaken) !== JSON.stringify(coursesTaken);
                 const hasPlansChanged = JSON.stringify(result.plansFilling) !== JSON.stringify(plansFilling);
 
@@ -314,6 +310,10 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
             }
         }
     }, [coursesTaken, responses]);
+
+    useEffect(() => {
+        console.log("Custom Assignments Updated:", customAssignments);
+    }, [customAssignments]);
 
     const handleSavePlans = async () => {
         if (!currentUser) {
