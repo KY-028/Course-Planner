@@ -287,7 +287,7 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
             const validPlans = responses.filter(response => response !== null);
             if (validPlans.length > 0) {
                 // Only update state if changed
-                const result = recomputePlanAssignments(coursesTaken, validPlans, selectedPlanCombo, customAssignments, setCustomAssignments, plansFilling, selectedSubPlans, setCoursesTaken);
+                const result = recomputePlanAssignments(coursesTaken, responses, selectedPlanCombo, customAssignments, setCustomAssignments, plansFilling, selectedSubPlans, setCoursesTaken);
                 // Remove courses from plansFilling that are not in coursesTaken
                 const cleanedPlansFilling = {};
                 Object.entries(result.plansFilling).forEach(([key, value]) => {
@@ -311,9 +311,7 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
         }
     }, [coursesTaken, responses]);
 
-    useEffect(() => {
-        console.log("Custom Assignments Updated:", customAssignments);
-    }, [customAssignments]);
+
 
     const handleSavePlans = async () => {
         if (!currentUser) {
