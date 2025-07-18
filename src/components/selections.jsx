@@ -27,7 +27,7 @@ function ErrorModal({ isOpen, onClose, term }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
+
         // Create form data for emailjs
         const formData = {
             term: term,
@@ -36,7 +36,7 @@ function ErrorModal({ isOpen, onClose, term }) {
             error_type: errorTypes.join(', '),
             additional_info: additionalInfo
         };
-        
+
         // Send email using emailjs
         emailjs.send('service_cfmmnlp', 'template_9nmrebs', formData, '2qeaMXLo7xFUpCTe0')
             .then(
@@ -47,7 +47,7 @@ function ErrorModal({ isOpen, onClose, term }) {
                     alert(`There was an error: ${error.text}`);
                 },
             )
-        
+
         // Reset form and close modal
         setCourseCode('');
         setSectionNumber('');
@@ -65,7 +65,7 @@ function ErrorModal({ isOpen, onClose, term }) {
                     <h2 className="text-xl font-bold">Report an Error</h2>
                     <button onClick={onClose} className="text-gray-500 hover:text-gray-800">&#x2715;</button>
                 </div>
-                
+
                 <form onSubmit={handleSubmit}>
                     <div className="grid grid-cols-2 gap-2 mb-4">
                         <div>
@@ -94,7 +94,7 @@ function ErrorModal({ isOpen, onClose, term }) {
                             <label className="text-sm text-gray-500">Section number</label>
                         </div>
                     </div>
-                    
+
                     <div className="mb-4">
                         <label className="block text-sm font-medium text-gray-700 mb-2">Error Type(s):</label>
                         <div className="space-y-2">
@@ -111,7 +111,7 @@ function ErrorModal({ isOpen, onClose, term }) {
                             ))}
                         </div>
                     </div>
-                    
+
                     <div className="mb-4">
                         <label className="block text-sm font-medium text-gray-700 mb-2">Additional Information:</label>
                         <textarea
@@ -121,7 +121,7 @@ function ErrorModal({ isOpen, onClose, term }) {
                             onChange={(e) => setAdditionalInfo(e.target.value)}
                         />
                     </div>
-                    
+
                     <div className="flex justify-end gap-2">
                         <button
                             type="button"
@@ -299,7 +299,7 @@ function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChan
                         term: term,
                         course_id: id
                     }
-    
+
                     UpdateManager.addUpdate({
                         endpoint: `${apiUrl}/backend/customCourses/delete`,
                         data: data
@@ -429,14 +429,14 @@ function Selection({ isLoading, onUpdate, courseData, changeCourseData, courses,
             {!isToggled && <>
                 <div className='w-full h-full flex items-center justify-between'>
                     <Toggle message="Entry Mode" isToggled={isToggled} toggleSwitch={toggleSwitch} />
-                    <button 
-                        onClick={openErrorModal} 
+                    <button
+                        onClick={openErrorModal}
                         className="text-blue-600 hover:text-blue-800 text-sm font-medium underline"
                     >
                         Spotted a mistake in course information?
                     </button>
                 </div>
-                <CourseGrid courseData={courseData} courses={courses} setCourses={setCourses} setChangeCounter={setChangeCounter} changeCourseData={changeCourseData} term={term} original={original} setInputValue={setInputValue}/>
+                <CourseGrid courseData={courseData} courses={courses} setCourses={setCourses} setChangeCounter={setChangeCounter} changeCourseData={changeCourseData} term={term} original={original} setInputValue={setInputValue} />
                 {conflicts.length > 0 && (
                     <div className="mt-1 p-2 mx-1 bg-red-100 border border-red-400 text-red-700">
                         <p>The following Courses have Conflicts:</p>

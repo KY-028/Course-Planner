@@ -1,14 +1,11 @@
-import { useState, useEffect, useRef, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser'
 // Error Modal Component
-import { AuthContext } from '../context/authContext';
 import { FaCheck, FaTimes } from 'react-icons/fa';
 import axios from 'axios';
 import { validateUrl, clearPlanReq, establishPlansFilling, getPlanPrefix, recomputePlanAssignments } from '/src/components/courseFunctions';
 import planResultsData from '../assets/coursePlanResults.json';
 import PlanDetailsDisplay from '/src/components/planDetailsDisplay.jsx';
-import LoadingModal from '/src/components/loadingModal.jsx';
-
 
 function ErrorModal({ isOpen, onClose, term }) {
     const [email, setEmail] = useState('');
@@ -134,149 +131,31 @@ const PLAN_OPTIONS = [
     { label: 'Major Only (Old Plan)', value: 8, fields: ['Major [Search or Paste Academic Calendar Link]'] },
 ];
 
-export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
+export default function SelectPlan(
+    { coursesTaken, setCoursesTaken,
+        selectedPlanCombo, setSelectedPlanCombo,
+        fields, setFields,
+        locked, setLocked,
+        responses, setResponses,
+        errors, setErrors,
+        plansFilling, setPlansFilling,
+        selectedSubPlans, setSelectedSubPlans,
+        sectionNames, setSectionNames,
+        customAssignments, setCustomAssignments,
+        handleSavePlans, isLoading
+    }) {
     // Error modal state
     const [errorModalOpen, setErrorModalOpen] = useState(false);
     const apiUrl = import.meta.env.VITE_API_URL;
-    // Select Degree Plan Combination (number)
-    const [selectedPlanCombo, setSelectedPlanCombo] = useState(PLAN_OPTIONS[0].value);
-    // Search or Paste Academic Calendar Link Text Field (list of strings)
-    const [fields, setFields] = useState(Array(PLAN_OPTIONS[0].fields.length).fill(''));
-    // Locked Text Field (list of booleans)
-    const [locked, setLocked] = useState(Array(PLAN_OPTIONS[0].fields.length).fill(false));
-    // Response from API (list of objects)
-    const [responses, setResponses] = useState(Array(PLAN_OPTIONS[0].fields.length).fill(null));
-    // Error Message
-    const [errors, setErrors] = useState(Array(PLAN_OPTIONS[0].fields.length).fill(null));
     // Details Modal Open
     const [detailsModalOpen, setDetailsModalOpen] = useState(false);
     // Selected Plan Data (For Details Modal)
     const [selectedPlanData, setSelectedPlanData] = useState(null);
-
     // For plan search dropdown
     const [searchResults, setSearchResults] = useState(Array(PLAN_OPTIONS[0].fields.length).fill([]));
     const [showDropdown, setShowDropdown] = useState(Array(PLAN_OPTIONS[0].fields.length).fill(false));
 
-    // Track plan requirements and their completion status
-    const [plansFilling, setPlansFilling] = useState({});
 
-    // Track selected sub-plans for each plan
-    const [selectedSubPlans, setSelectedSubPlans] = useState(Array(PLAN_OPTIONS[0].fields.length).fill(null));
-
-    // Track section names for each plan
-    const [sectionNames, setSectionNames] = useState(Array(PLAN_OPTIONS[0].fields.length).fill([]));
-
-    // Track custom course assignments array of course objects
-    const [customAssignments, setCustomAssignments] = useState([]);
-
-    // When lauched, load data
-    const { currentUser } = useContext(AuthContext);
-    const [isLoading, setIsLoading] = useState(true);
-
-    const [oldCoursesTaken, setOldCoursesTaken] = useState(coursesTaken);
-
-    // Load user's existing information from database
-    useEffect(() => {
-        if (!currentUser) {
-            alert("You are not logged in. The save button will not work.");
-            setIsLoading(false);
-            return;
-        }
-        setIsLoading(true);
-        loadUserData();
-    }, []);
-
-    const loadUserData = async () => {
-        try {
-            const userId = currentUser ? currentUser.id : null;
-            if (!userId) {
-                console.log("User has not logged in");
-                return;
-            }
-
-            const response = await axios.get(`${apiUrl}/backend/userPlans/${userId}`);
-            const data = response.data;
-            setSelectedPlanCombo(data.selectedPlanCombo || PLAN_OPTIONS[0].value);
-            setFields(data.fields || Array(PLAN_OPTIONS[0].fields.length).fill(''));
-            setLocked(data.fields.map(field => field && field.trim() !== '' ? true : false));
-            // Build responses array by matching each field's link in planResultsData
-            const customFields = [];
-            setResponses(
-                (data.fields || Array(PLAN_OPTIONS[0].fields.length).fill('')).map((field, idx) => {
-                    if (!field || !field.trim()) return null;
-                    // Determine plan type for this field
-                    const planType = (() => {
-                        const plan = PLAN_OPTIONS.find(opt => opt.value === (data.selectedPlanCombo || PLAN_OPTIONS[0].value));
-                        if (!plan) return 'Major';
-                        const fieldStr = plan.fields[idx] || '';
-                        if (fieldStr.toLowerCase().includes('specialization')) return 'Specialization';
-                        if (fieldStr.toLowerCase().includes('minor')) return 'Minor';
-                        if (fieldStr.toLowerCase().includes('joint')) return 'Joint Major';
-                        if (fieldStr.toLowerCase().includes('major')) return 'Major';
-                        if (fieldStr.toLowerCase().includes('general')) return 'General';
-                        return 'Major';
-                    })();
-                    // Search for matching plan in planResultsData
-                    const plans = planResultsData[planType] || [];
-                    const match = plans.find(planObj => planObj.link === field.trim());
-                    if (match) {
-                        return match.result;
-                    } else {
-                        customFields.push(idx);
-                        return null;
-                    }
-                })
-            );
-            for (const idx of customFields) {
-                try {
-                    const fieldValue = data.fields[idx].trim();
-                    const response = await axios.get(`${apiUrl}/backend/coursePlan?url=${encodeURIComponent(fieldValue)}`);
-                    setResponses(prev => {
-                        // Only update if the field hasn't been cleared/unlocked
-                        if (fields[idx] === fieldValue) {
-                            const newResponses = [...prev];
-                            newResponses[idx] = response.data;
-                            return newResponses;
-                        }
-                        return prev;
-                    });
-                } catch (error) {
-                    const newErrors = [...errors];
-                    newErrors[idx] = error.response || "An error occurred while fetching the plan";
-                    setErrors(newErrors);
-                }
-            }
-
-            setPlansFilling(data.plansFilling || {});
-            setSelectedSubPlans(data.selectedSubPlans || Array(PLAN_OPTIONS[0].fields.length).fill(null));
-            setSectionNames(data.sectionNames || Array(PLAN_OPTIONS[0].fields.length).fill([]));
-            setCustomAssignments(data.customAssignments || []);
-            setCoursesTaken(data.coursesTaken || Array(60).fill(null));
-            setOldCoursesTaken(data.coursesTaken || Array(60).fill(null));
-        } catch (error) {
-            console.error("Error loading user data:", error);
-
-            // Extract the actual error message from the response
-            let errorMessage = "An error occurred while loading your data";
-
-            if (error.response) {
-                // The request was made and the server responded with a status code
-                // that falls out of the range of 2xx
-                const responseData = error.response.data;
-                errorMessage = responseData.message || responseData.error || errorMessage;
-            } else if (error.request) {
-                // The request was made but no response was received
-                errorMessage = "No response received from server";
-            } else {
-                // Something happened in setting up the request that triggered an Error
-                errorMessage = error.message || errorMessage;
-            }
-
-            alert("Error: " + errorMessage);
-        } finally {
-            setIsLoading(false);
-        }
-    }
 
 
     // Monitor coursesTaken changes and automatically assign courses to requirements
@@ -311,36 +190,6 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
         }
     }, [coursesTaken, responses]);
 
-
-
-    const handleSavePlans = async () => {
-        if (!currentUser) {
-            alert("You are not logged in. Please log in to save your plans.");
-            return;
-        }
-        try {
-            setIsLoading(true);
-            const userId = currentUser.id;
-            const dataToSave = {
-                user: userId,
-                selectedPlanCombo,
-                plansFilling,
-                selectedSubPlans,
-                sectionNames,
-                customAssignments,
-                coursesTaken,
-                fields
-            };
-            await axios.post(`${apiUrl}/backend/userPlans/savePlan`, dataToSave);
-            alert("Your plans have been saved successfully!");
-            setOldCoursesTaken(coursesTaken); // Update old courses taken to current state
-        } catch (error) {
-            console.error("Error saving plans:", error);
-            alert("There was an error saving your plans. Please try again later.");
-        } finally {
-            setIsLoading(false);
-        }
-    }
 
     // When plan combination drop down is changed
     const handlePlanChange = (e) => {
@@ -710,34 +559,6 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
         return { completed, required };
     }
 
-    // When a plan or sub-plan is selected/unlocked/changed, reconstruct plansFilling to only include the relevant requirements
-    function reconstructPlansFilling() {
-        let merged = {};
-        responses.forEach((planData, i) => {
-            if (planData) {
-                const planPrefix = getPlanPrefix(i, planData, selectedPlanCombo);
-                // If a sub-plan is selected, only include that sub-plan's requirements for the sub-plan section
-                if (selectedSubPlans[i]) {
-
-                } else {
-                    // No sub-plan selected: only include core and the top-level sub-plan section (not its nested sub-plans)
-                    Object.entries(planData).forEach(([sectionKey, sectionData]) => {
-                        if (sectionKey.toLowerCase().includes('core') || sectionKey.toLowerCase().includes('sub-plans')) {
-                            // For sub-plans, only include the section, not its nested plans
-                            if (sectionKey.toLowerCase().includes('sub-plans')) {
-                                const shallowSection = { ...sectionData, subsections: [] };
-                                Object.assign(merged, establishPlansFilling({ [sectionKey]: shallowSection }, planPrefix));
-                            } else {
-                                Object.assign(merged, establishPlansFilling({ [sectionKey]: sectionData }, planPrefix));
-                            }
-                        }
-                    });
-                }
-            }
-        });
-        setPlansFilling(merged);
-    }
-
     // Helper: Update sectionNames for all plans
     function updateSectionNames(responsesArr, lockedArr) {
         const newSectionNames = [];
@@ -758,13 +579,12 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
 
     return (
         <div className='flex flex-col p-3 border rounded-lg md-custom:mr-0 mr-8'>
-            {isLoading && <LoadingModal />}
             <div>
                 {/* Save / Report Error section */}
-                <div className="flex justify-between mb-4">
+                <div className="flex justify-between mb-4 xl:text-base md-custom:text-sm sm:text-base text-sm">
                     <button
                         className="bg-green-500 hover:bg-green-600 text-white font-semibold py-1 px-4 rounded transition-colors"
-                        onClick={handleSavePlans}
+                        onClick={() => handleSavePlans(false)}
                         disabled={isLoading}
                     >
                         Save
@@ -777,11 +597,11 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
                     </button>
                 </div>
             </div>
-            <div className='text-xl font-bold mb-2 lg:mt-0 mt-2'>Select Plan</div>
-            <div className='flex items-center mb-4'>
+            <div className='lg:text-xl text-lg font-bold mb-2 lg:mt-0 mt-2'>Select Plan</div>
+            <div className='flex items-center mb-4 lg:text-base text-sm'>
                 <label className='mr-3 font-medium'>Type:</label>
                 <select
-                    className='border rounded px-3 py-1 text-base w-full'
+                    className='border rounded px-3 py-1 w-full lg:text-base text-sm'
                     value={selectedPlanCombo}
                     onChange={handlePlanChange}
                 >
@@ -796,7 +616,7 @@ export default function SelectPlan({ coursesTaken, setCoursesTaken }) {
                         <div className='flex w-full relative'>
                             <input
                                 type='text'
-                                className={`border rounded px-3 py-1 text-base flex-1 transition-all duration-150 mr-2 ${locked[idx] ? 'bg-gray-200 text-gray-500 cursor-not-allowed' : ''}`}
+                                className={`border rounded px-3 py-1 lg:text-base text-sm flex-1 transition-all duration-150 mr-2 ${locked[idx] ? 'bg-gray-200 text-gray-500 cursor-not-allowed' : ''}`}
                                 placeholder={placeholder}
                                 value={fields[idx]}
                                 onChange={e => handleFieldChange(idx, e.target.value)}
