@@ -71,7 +71,7 @@ export default function Nav({ activeTab }) {
                     ) : (
                         <span>Username: Not logged in!</span>
                     )}
-                    <div>2024-2025</div>
+                    <div>2025-2026</div>
                 </div>
             </div>
 

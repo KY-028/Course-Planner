@@ -27,21 +27,21 @@ function WelcomeModal({ isOpen, onClose }) {
 
                 <div className="space-y-4 text-gray-700">
                     <p className="text-md">
-                        This feature is designed to helps you visualize how much of your plan requirements you have completed.
+                        This feature is designed to help Faculty of Arts & Science students visualize how much of your plan requirements you have completed.
                     </p>
 
                     <div className="bg-blue-50 border-l-4 border-blue-400 p-4 text-sm">
                         <h3 className="font-semibold text-blue-800 mb-2">Getting Started:</h3>
                         <ol className="list-decimal list-inside space-y-2 text-blue-700">
-                            <li>Search for your plan OR paste academic calendar link (Instruction below)</li>
+                            <li>Search for your plan (OR paste academic calendar link, see Instructions below)</li>
                             <li>Fill in your courses in the grid</li>
                             <li>Select a sub-plan (if applicable) by clicking on "Details"</li>
                             <li>Re-assign a course to fill different or multiple requirements inside of "Details"</li>
-                            <li>Make sure to hit "save" before you close the browser/switch tabs!</li>
+                            <li>Your progress should be auto-saved but if you are paranoid like me, hit save!</li>
                         </ol>
                     </div>
                     <div className="text-sm">
-                        <h3 className="font-semibold mb-2">Guide: Searching your plan in Academic Calendar:</h3>
+                        <h3 className="font-semibold mb-2">Instructions: Searching your plan in Academic Calendar:</h3>
                         <ol className="list-decimal list-inside space-y-2">
                             <li>Visit the <a href="https://www.queensu.ca/academic-calendar" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">Queen's Academic Calendar</a>
                                 &nbsp;OR the <a href="https://www.queensu.ca/academic-calendar/archive/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">Archived Calendars</a>&nbsp;for upper years.</li>
@@ -53,8 +53,8 @@ function WelcomeModal({ isOpen, onClose }) {
                     <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 text-sm">
                         <h3 className="font-semibold text-yellow-800 mb-2">Important Disclaimer:</h3>
                         <p className="text-yellow-700">
-                            We do NOT guarantee the accuracy of this tool. The assignments are only made for
-                            exact course code matches. This tool is meant to be a helpful guide, but always consult with your academic advisor
+                            We do NOT guarantee the accuracy of this tool. The assignments are made only if a
+                            course code exactly matches. Always consult with your academic advisor and the official academic calendar
                             for official degree requirements and planning.
                         </p>
                     </div>

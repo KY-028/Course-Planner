@@ -610,7 +610,7 @@ function PlanSubsection({
                 {/* Requirement title and content */}
                 <div className="flex-1">
                     <span className="font-medium text-gray-700">
-                        {subsection.title}
+                        {subsection.id}. {subsection.title}
                     </span>
                     {/* Render subtitle if exists */}
                     {subsection.subtitle && (
