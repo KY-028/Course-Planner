@@ -256,8 +256,10 @@ export default function Planner() {
 
             // Extract the actual error message from the response
             let errorMessage = "An error occurred while loading your data";
-
-            if (error.response) {
+            if (error.response && error.response.status === 404) {
+                errorMessage = "Welcome! You have not yet saved any plans! ";
+                setIsDataLoaded(true); // Only set true after initializing defaults
+            } else if (error.response) {
                 // The request was made and the server responded with a status code
                 // that falls out of the range of 2xx
                 const responseData = error.response.data;
