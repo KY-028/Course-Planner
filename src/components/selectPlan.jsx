@@ -40,7 +40,7 @@ function ErrorModal({ isOpen, onClose, term }) {
         emailjs.send('service_cfmmnlp', 'template_fmvts7a', { email, message }, '2qeaMXLo7xFUpCTe0')
             .then(
                 (result) => {
-                    alert("We've received your error report!");
+                    alert("We've received your error report! However, due to the complexity, we do not guarantee if your error will be fixed. We will send you an update via email regarding the outcome.");
                 },
                 (error) => {
                     alert(`There was an error: ${error.text}`);

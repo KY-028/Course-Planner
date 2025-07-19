@@ -657,6 +657,10 @@ function PlanSubsection({
                                                 </div>
                                             ))}
                                         </div>
+                                    ) : course.code === course.title ? (
+                                        <div className={`${coursesTaken.some(c => c && c.code === course.code) ? 'line-through' : ''}`}>
+                                            {course.code}
+                                        </div>
                                     ) : (
                                         <div className={`${coursesTaken.some(c => c && c.code === course.code) ? 'line-through' : ''}`}>
                                             {course.code} - {course.title}

@@ -37,16 +37,7 @@ function WelcomeModal({ isOpen, onClose }) {
                             <li>Fill in your courses in the grid</li>
                             <li>Select a sub-plan (if applicable) by clicking on "Details"</li>
                             <li>Re-assign a course to fill different or multiple requirements inside of "Details"</li>
-                            <li>Your progress should be auto-saved but if you are paranoid like me, hit save!</li>
-                        </ol>
-                    </div>
-                    <div className="text-sm">
-                        <h3 className="font-semibold mb-2">Instructions: Searching your plan in Academic Calendar:</h3>
-                        <ol className="list-decimal list-inside space-y-2">
-                            <li>Visit the <a href="https://www.queensu.ca/academic-calendar" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">Queen's Academic Calendar</a>
-                                &nbsp;OR the <a href="https://www.queensu.ca/academic-calendar/archive/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">Archived Calendars</a>&nbsp;for upper years.</li>
-                            <li>Find your faculty and click on "Departments/Schools and Degree Plans"</li>
-                            <li>Find your plan (Specialization, Major, Minor, etc.) and paste the URL in the text field.</li>
+                            <li>Your progress should be auto-saved but if you want to be safe, hit save!</li>
                         </ol>
                     </div>
 
@@ -57,6 +48,16 @@ function WelcomeModal({ isOpen, onClose }) {
                             course code exactly matches. Always consult with your academic advisor and the official academic calendar
                             for official degree requirements and planning.
                         </p>
+                    </div>
+
+                    <div className="text-sm">
+                        <h3 className="font-semibold mb-2">Instructions: Searching your plan in Academic Calendar:</h3>
+                        <ol className="list-decimal list-inside space-y-2">
+                            <li>Visit the <a href="https://www.queensu.ca/academic-calendar" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">Queen's Academic Calendar</a>
+                                &nbsp;OR the <a href="https://www.queensu.ca/academic-calendar/archive/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">Archived Calendars</a>&nbsp;for upper years.</li>
+                            <li>Find your faculty and click on "Departments/Schools and Degree Plans"</li>
+                            <li>Find your plan (Specialization, Major, Minor, etc.) and paste the URL in the text field.</li>
+                        </ol>
                     </div>
 
                     {/* <p className="text-sm text-gray-600">
