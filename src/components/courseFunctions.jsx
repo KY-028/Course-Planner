@@ -86,7 +86,8 @@ export function getPlanPrefix(planIndex, plan, selectedPlanCombo) {
 export function calculateSectionUnits(section) {
     if (!section) return 0;
     // Check if title contains a float number (e.g., "Complete 6.00 units from the following:")
-    const floatMatch = section.title && section.title.match(/(\d+\.\d+)\s*units?/i);
+    // Match the first number (integer or float) in the title, regardless of the word "units"
+    const floatMatch = section.title && section.title.match(/(\d+(\.\d+)?)/);
     if (floatMatch) {
         return parseFloat(floatMatch[1]);
     }
