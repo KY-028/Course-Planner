@@ -186,7 +186,7 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
                                 <input
                                     type="number"
                                     min={1}
-                                    max={20}
+                                    max={120}
                                     id="section"
                                     placeholder="Section Number"
                                     className="mt-4 p-2 w-full border-gray-400 border rounded"
