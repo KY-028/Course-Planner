@@ -307,12 +307,44 @@ export default function SelectPlan(
         newResponses.forEach((planData, i) => {
             if (planData && newLocked[i]) {
                 const planPrefix = getPlanPrefix(i, planData, selectedPlanCombo);
-                Object.assign(mergedPlansFilling, establishPlansFilling(planData, planPrefix));
-                // mergedPlansFilling[`${planPrefix}Electives`] = {
-                //     unitsRequired: planData.electives || 0,
-                //     unitsCompleted: 0,
-                //     courses: []
-                // };
+                // Check if a sub-plan is selected for this plan
+                const subPlanName = selectedSubPlans[i];
+                let hasSubPlan = false;
+
+                // Find the section with a subplan
+                Object.keys(planData).forEach(key => {
+                    if (planData[key].subsections) {
+                        planData[key].subsections.forEach(subsection => {
+                            if (subsection.plan) {
+                                hasSubPlan = true;
+                                // Remove old requirements for this section
+                                Object.keys(mergedPlansFilling).forEach(k => {
+                                    if (k.startsWith(`${planPrefix}${key}`)) {
+                                        delete mergedPlansFilling[k];
+                                    }
+                                });
+                                if (subPlanName && subsection.plan[subPlanName]) {
+                                    // Add requirements for the selected sub-plan
+                                    if (subsection.plan[subPlanName].subsections) {
+                                        processSection(`${planPrefix}${key}${subsection.id}-${subPlanName}`, subsection.plan[subPlanName], mergedPlansFilling);
+                                    } else {
+                                        establishPlansFilling(subsection.plan[subPlanName], `${planPrefix}${key}${subsection.id}-${subPlanName}-`, mergedPlansFilling);
+                                    }
+                                    processSection(`${planPrefix}${key}`, planData[key], mergedPlansFilling);
+                                    delete mergedPlansFilling[`${planPrefix}${key}${subsection.id}`];
+                                } else {
+                                    // No sub-plan selected, just process the main section
+                                    processSection(`${planPrefix}${key}`, planData[key], mergedPlansFilling);
+                                }
+                            }
+                        });
+                    }
+                });
+
+                // If no sub-plan logic was triggered, just process the plan as usual
+                if (!hasSubPlan) {
+                    Object.assign(mergedPlansFilling, establishPlansFilling(planData, planPrefix));
+                }
             }
         });
         mergedPlansFilling["Unassigned/Electives"] = {
@@ -412,12 +444,44 @@ export default function SelectPlan(
             newResponses.forEach((planData, i) => {
                 if (planData && newLocked[i]) {
                     const planPrefix = getPlanPrefix(i, planData, selectedPlanCombo);
-                    Object.assign(mergedPlansFilling, establishPlansFilling(planData, planPrefix));
-                    mergedPlansFilling[`${planPrefix}Electives`] = {
-                        unitsRequired: planData.electives || 0,
-                        unitsCompleted: 0,
-                        courses: []
-                    };
+                    // Check if a sub-plan is selected for this plan
+                    const subPlanName = selectedSubPlans[i];
+                    let hasSubPlan = false;
+
+                    // Find the section with a subplan
+                    Object.keys(planData).forEach(key => {
+                        if (planData[key].subsections) {
+                            planData[key].subsections.forEach(subsection => {
+                                if (subsection.plan) {
+                                    hasSubPlan = true;
+                                    // Remove old requirements for this section
+                                    Object.keys(mergedPlansFilling).forEach(k => {
+                                        if (k.startsWith(`${planPrefix}${key}`)) {
+                                            delete mergedPlansFilling[k];
+                                        }
+                                    });
+                                    if (subPlanName && subsection.plan[subPlanName]) {
+                                        // Add requirements for the selected sub-plan
+                                        if (subsection.plan[subPlanName].subsections) {
+                                            processSection(`${planPrefix}${key}${subsection.id}-${subPlanName}`, subsection.plan[subPlanName], mergedPlansFilling);
+                                        } else {
+                                            establishPlansFilling(subsection.plan[subPlanName], `${planPrefix}${key}${subsection.id}-${subPlanName}-`, mergedPlansFilling);
+                                        }
+                                        processSection(`${planPrefix}${key}`, planData[key], mergedPlansFilling);
+                                        delete mergedPlansFilling[`${planPrefix}${key}${subsection.id}`];
+                                    } else {
+                                        // No sub-plan selected, just process the main section
+                                        processSection(`${planPrefix}${key}`, planData[key], mergedPlansFilling);
+                                    }
+                                }
+                            });
+                        }
+                    });
+
+                    // If no sub-plan logic was triggered, just process the plan as usual
+                    if (!hasSubPlan) {
+                        Object.assign(mergedPlansFilling, establishPlansFilling(planData, planPrefix));
+                    }
                 }
             });
             mergedPlansFilling["Unassigned/Electives"] = {
@@ -456,6 +520,18 @@ export default function SelectPlan(
         newFields[idx] = '';
         newResponses[idx] = null;
         newErrors[idx] = null;
+
+        // Clean up custom assignments so that the courses are not assigned to this plan's requirements
+        const planPrefix = getPlanPrefix(idx, responses[idx], selectedPlanCombo);
+        const filteredCustomAssignments = customAssignments.filter(ca => {
+            if (!ca || !ca.course || !ca.course.planreq) return true;
+            // Keep assignments that don't reference this plan's requirements
+            return !ca.course.planreq.split(',').some(req =>
+                req.trim().startsWith(planPrefix)
+            );
+        });
+        setCustomAssignments(filteredCustomAssignments);
+
         setLocked(newLocked);
         setFields(newFields);
         setResponses(newResponses);
@@ -471,7 +547,44 @@ export default function SelectPlan(
         newResponses.forEach((planData, i) => {
             if (planData && newLocked[i]) {
                 const planPrefix = getPlanPrefix(i, planData, selectedPlanCombo);
-                Object.assign(mergedPlansFilling, establishPlansFilling(planData, planPrefix));
+                // Check if a sub-plan is selected for this plan
+                const subPlanName = selectedSubPlans[i];
+                let hasSubPlan = false;
+
+                // Find the section with a subplan
+                Object.keys(planData).forEach(key => {
+                    if (planData[key].subsections) {
+                        planData[key].subsections.forEach(subsection => {
+                            if (subsection.plan) {
+                                hasSubPlan = true;
+                                // Remove old requirements for this section
+                                Object.keys(mergedPlansFilling).forEach(k => {
+                                    if (k.startsWith(`${planPrefix}${key}`)) {
+                                        delete mergedPlansFilling[k];
+                                    }
+                                });
+                                if (subPlanName && subsection.plan[subPlanName]) {
+                                    // Add requirements for the selected sub-plan
+                                    if (subsection.plan[subPlanName].subsections) {
+                                        processSection(`${planPrefix}${key}${subsection.id}-${subPlanName}`, subsection.plan[subPlanName], mergedPlansFilling);
+                                    } else {
+                                        establishPlansFilling(subsection.plan[subPlanName], `${planPrefix}${key}${subsection.id}-${subPlanName}-`, mergedPlansFilling);
+                                    }
+                                    processSection(`${planPrefix}${key}`, planData[key], mergedPlansFilling);
+                                    delete mergedPlansFilling[`${planPrefix}${key}${subsection.id}`];
+                                } else {
+                                    // No sub-plan selected, just process the main section
+                                    processSection(`${planPrefix}${key}`, planData[key], mergedPlansFilling);
+                                }
+                            }
+                        });
+                    }
+                });
+
+                // If no sub-plan logic was triggered, just process the plan as usual
+                if (!hasSubPlan) {
+                    Object.assign(mergedPlansFilling, establishPlansFilling(planData, planPrefix));
+                }
             }
         });
         mergedPlansFilling["Unassigned/Electives"] = {
@@ -479,6 +592,7 @@ export default function SelectPlan(
             unitsCompleted: 0,
             courses: []
         }
+
         setPlansFilling(mergedPlansFilling);
         setCoursesTaken(clearPlanReq(coursesTaken)); // Clear courses taken plan requirement assignments
         updateSectionNames(newResponses, newLocked);
@@ -548,11 +662,13 @@ export default function SelectPlan(
         }
         // Add electives section (if it's not a minor)
         if (!PLAN_OPTIONS[selectedPlanCombo - 1].fields[idx].includes('Minor')) {
+            const allowedElectives = responses[idx]?.electives || 0;
+
             const planPrefix = getPlanPrefix(idx, responses[idx], selectedPlanCombo);
             const otherUnitsCompleted = coursesTaken
                 .filter(course => course && (!course.planreq || !course.planreq.includes(planPrefix)))
                 .reduce((sum, course) => sum + (parseFloat(course.units) || 0), 0);
-            completed += otherUnitsCompleted;
+            completed += Math.min(otherUnitsCompleted, allowedElectives);
         }
         // Use the plan's total required units as the required value
         required = responses[idx]?.units || required;

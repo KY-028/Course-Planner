@@ -11,8 +11,6 @@ export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames,
 
     const handleOptionChange = (planIndex, value) => {
 
-        const prevSubPlan = selectedSubPlans[planIndex];
-
         // Update selected sub-plans state (as an array)
         setSelectedSubPlans(prev => {
             const arr = [...prev];
@@ -199,7 +197,17 @@ export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames,
                 // If course already exists in custom assignments,
                 // First check if this course is supposed to be a requirement for that section
                 if (courseFitsRequirement(updatedCourse, requirementId)) {
-                    // If it fits, remove this course from custom assignments
+                    // If it fits, check if this satisfies any other requirementId
+                    if (
+                        Object.entries(plansFilling).some(([otherReqId, reqData]) =>
+                            otherReqId !== requirementId &&
+                            courseFitsRequirement(updatedCourse, otherReqId) &&
+                            reqData.unitsCompleted >= reqData.unitsRequired
+                        )
+                    ) {
+                        // If the course fits another requirement that is already satisfied, add as custom assignment
+                        return [...prev, { index: courseIndex, course: updatedCourse }];
+                    }
                     return prev.filter(entry => entry.index !== courseIndex);
                 } else {
                     return [...prev, { index: courseIndex, course: updatedCourse }]
@@ -349,7 +357,9 @@ export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames,
                         Unassigned/Electives
                     </div>
                     {(() => {
-                        const electiveCourses = coursesTaken.filter(course => course !== null && (!course.planreq || course.planreq.includes('Electives') || course.planreq === null));
+                        const electiveCourses = coursesTaken
+                            .filter(course => course !== null && (!course.planreq || course.planreq.includes('Electives') || course.planreq === null))
+                            .sort((a, b) => (a.code || '').localeCompare(b.code || ''));
 
                         if (electiveCourses.length === 0) {
                             return (
@@ -378,7 +388,8 @@ export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames,
                 {(() => {
                     const otherCourses = coursesTaken.filter(course => course !== null
                         && course.planreq !== 'Unassigned/Electives'
-                        && course.planreq && !course.planreq.includes(planPrefix));
+                        && course.planreq && !course.planreq.includes(planPrefix))
+                        .sort((a, b) => (a.code || '').localeCompare(b.code || ''));
 
                     if (otherCourses.length === 0) {
                         return (
