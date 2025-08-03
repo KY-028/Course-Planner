@@ -9,6 +9,7 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
     const [staffName, setStaffName] = useState('Staff');
     const [times, setTimes] = useState([{ day: 'Monday', time: '' }]);
     const [showCustomForm, setShowCustomForm] = useState(false);
+    const [isOnlineCourse, setIsOnlineCourse] = useState(false);
 
     const searchInputRef = useRef(null);
     const courseNameInputRef = useRef(null);
@@ -22,6 +23,14 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
             }
         }
     }, [isOpen, showCustomForm]);
+
+    useEffect(() => {
+        if (isOnlineCourse) {
+            setTimes([]);
+        } else {
+            setTimes([{ day: 'Monday', time: '' }]);  // Reset times when switching back to regular course
+        }
+    }, [isOnlineCourse]);
 
     const handleSearchChange = (e) => {
         setSearchTerm(e.target.value);
@@ -54,6 +63,9 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
         const daysOrder = ["M", "T", "W", "Th", "F"];
         const daysSet = new Set();
 
+        if (times.length === 0) {
+            return "Online";
+        }
         times.forEach(({ day }) => { // Access the 'day' property of each time object
             daysSet.add(day.startsWith('Th') ? 'Th' : day.charAt(0));
         });
@@ -112,6 +124,7 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
             selectedOption: `Section ${sectionNumber}: ${formattedDays}`,
             correctformat: formattedArray,
         };
+        console.log("Adding custom course:", courseDetails);
 
         onAddCustomCourse(courseDetails);
         onClose();
@@ -123,6 +136,7 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
         setStaffName('Staff');
         setTimes([{ day: 'Monday', time: '' }]);
         setShowCustomForm(false);
+        setIsOnlineCourse(false);
     };
 
     const searchResults = Object.keys(courseData)
@@ -225,45 +239,57 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
                             onChange={e => setStaffName(e.target.value)}
                             required
                         />
-                        {times.map((time, index) => (
-                            <div key={index} className="flex flex-row mt-3">
-                                <select
-                                    className="p-2 w-fit border-gray-400 border rounded"
-                                    value={time.day || 'Monday'} // Default to Monday if day isn't selected
-                                    onChange={e => handleTimeChange(index, { ...time, day: e.target.value })}
-                                    required
-                                >
-                                    <option value="Monday">Monday</option>
-                                    <option value="Tuesday">Tuesday</option>
-                                    <option value="Wednesday">Wednesday</option>
-                                    <option value="Thursday">Thursday</option>
-                                    <option value="Friday">Friday</option>
-                                </select>
-                                <input
-                                    type="text"
-                                    placeholder={`Time ${index + 1} (e.g., 15:30-16:30)`}
-                                    className="ml-1 p-2 w-full border-gray-400 border rounded"
-                                    value={time.time || ''}
-                                    pattern="\b([01]?[0-9]|2[0-3]):[0-5][0-9]-([01]?[0-9]|2[0-3]):[0-5][0-9]\b"
-                                    onChange={e => handleTimeChange(index, { ...time, time: e.target.value })}
-                                    required
-                                />
-                                {/* Add one more input for time must be in the format of 8:30-9:30*/}
-                                {times.length > 1 && (
-                                    <button
-                                        onClick={() => removeTime(index)}
-                                        className="ml-2 bg-red-500 text-white p-2 rounded"
+                        <div className="mt-2 flex items-center">
+                            <input
+                                type="checkbox"
+                                id="online-course"
+                                checked={isOnlineCourse}
+                                onChange={e => setIsOnlineCourse(e.target.checked)}
+                                className="mr-2"
+                            />
+                            <label htmlFor="online-course" className="text-sm text-gray-700">This is an online course</label>
+                        </div>
+                        {!isOnlineCourse && (<>
+                            {times.map((time, index) => (
+                                <div key={index} className="flex flex-row mt-3">
+                                    <select
+                                        className="p-2 w-fit border-gray-400 border rounded"
+                                        value={time.day || 'Monday'} // Default to Monday if day isn't selected
+                                        onChange={e => handleTimeChange(index, { ...time, day: e.target.value })}
+                                        required
                                     >
-                                        Remove
-                                    </button>
-                                )}
-                            </div>
-                        ))}
-                        {times.length < 5 && (
-                            <button type="button" onClick={addTime} className="mt-4 p-2 w-full bg-blue-500 text-white rounded">
-                                Add Time
-                            </button>
-                        )}
+                                        <option value="Monday">Monday</option>
+                                        <option value="Tuesday">Tuesday</option>
+                                        <option value="Wednesday">Wednesday</option>
+                                        <option value="Thursday">Thursday</option>
+                                        <option value="Friday">Friday</option>
+                                    </select>
+                                    <input
+                                        type="text"
+                                        placeholder={`Time ${index + 1} (e.g., 15:30-16:30)`}
+                                        className="ml-1 p-2 w-full border-gray-400 border rounded"
+                                        value={time.time || ''}
+                                        pattern="\b([01]?[0-9]|2[0-3]):[0-5][0-9]-([01]?[0-9]|2[0-3]):[0-5][0-9]\b"
+                                        onChange={e => handleTimeChange(index, { ...time, time: e.target.value })}
+                                        required
+                                    />
+                                    {/* Add one more input for time must be in the format of 8:30-9:30*/}
+                                    {times.length > 1 && (
+                                        <button
+                                            onClick={() => removeTime(index)}
+                                            className="ml-2 bg-red-500 text-white p-2 rounded"
+                                        >
+                                            Remove
+                                        </button>
+                                    )}
+                                </div>
+                            ))}
+                            {times.length < 5 && (
+                                <button type="button" onClick={addTime} className="mt-4 p-2 w-full bg-blue-500 text-white rounded">
+                                    Add Time
+                                </button>
+                            )}
+                        </>)}
                         <button type="submit" className="mt-4 p-2 w-full bg-green-500 text-white rounded">
                             Submit
                         </button>

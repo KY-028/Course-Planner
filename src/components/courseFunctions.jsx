@@ -9,6 +9,8 @@ export function generateOptions(courseBaseId, coursemaster) {
 };
 
 export function formatDays(sessions) {
+    if (!sessions || sessions.length === 0) return 'Online';
+
     const daysOrder = ["M", "T", "W", "Th", "F"];
     const daysSet = new Set();
 
