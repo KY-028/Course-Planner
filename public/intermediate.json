@@ -1,0 +1,107 @@
+{
+    "major-1. CoreA": {
+        "courses": [],
+        "unitsRequired": 6,
+        "unitsCompleted": 6
+    },
+    "major-1. CoreB": {
+        "courses": [],
+        "unitsRequired": 3,
+        "unitsCompleted": 3
+    },
+    "major-1. CoreC": {
+        "courses": [],
+        "unitsRequired": 15,
+        "unitsCompleted": 15
+    },
+    "major-1. CoreD": {
+        "courses": [],
+        "unitsRequired": 3,
+        "unitsCompleted": 3
+    },
+    "major-1. CoreE": {
+        "courses": [],
+        "unitsRequired": 9,
+        "unitsCompleted": 9
+    },
+    "major-1. CoreF": {
+        "courses": [],
+        "unitsRequired": 3,
+        "unitsCompleted": 3
+    },
+    "major-1. CoreG": {
+        "courses": [],
+        "unitsRequired": 3,
+        "unitsCompleted": 3
+    },
+    "minor-1. CoreA": {
+        "courses": [],
+        "unitsRequired": 6,
+        "unitsCompleted": 6
+    },
+    "minor-1. CoreB": {
+        "courses": [],
+        "unitsRequired": 6,
+        "unitsCompleted": 6
+    },
+    "minor-1. CoreC": {
+        "courses": [],
+        "unitsRequired": 3,
+        "unitsCompleted": 3
+    },
+    "minor-1. CoreD": {
+        "courses": [],
+        "unitsRequired": 3,
+        "unitsCompleted": 3
+    },
+    "minor-1. CoreE": {
+        "courses": [],
+        "unitsRequired": 3,
+        "unitsCompleted": 3
+    },
+    "major-2. OptionB": {
+        "courses": [],
+        "unitsRequired": 3,
+        "unitsCompleted": 3
+    },
+    "minor-2. OptionA": {
+        "courses": [],
+        "unitsRequired": 6,
+        "unitsCompleted": 6
+    },
+    "minor-2. OptionB": {
+        "courses": [],
+        "unitsRequired": 3,
+        "unitsCompleted": 3
+    },
+    "Unassigned/Electives": {
+        "courses": [],
+        "unitsRequired": 0,
+        "unitsCompleted": 33
+    },
+    "major-3. SupportingA": {
+        "courses": [],
+        "unitsRequired": 6,
+        "unitsCompleted": 6
+    },
+    "major-3. SupportingB": {
+        "courses": [],
+        "unitsRequired": 6,
+        "unitsCompleted": 6
+    },
+    "minor-3. Additional RequirementsA": {
+        "courses": [],
+        "unitsRequired": 18,
+        "unitsCompleted": 18
+    },
+    "major-2. OptionA-iv. Artificial Intelligencea": {
+        "courses": [],
+        "unitsRequired": 9,
+        "unitsCompleted": 9
+    },
+    "major-2. OptionA-iv. Artificial Intelligenceb": {
+        "courses": [],
+        "unitsRequired": 6,
+        "unitsCompleted": 6
+    }
+}

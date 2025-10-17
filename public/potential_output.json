@@ -1,0 +1,174 @@
+{
+    "major-1. CoreA": {
+        "courses": [
+            "CISC 121",
+            "CISC 124"
+        ],
+        "unitsRequired": 6,
+        "unitsCompleted": 6
+    },
+    "major-1. CoreB": {
+        "courses": [
+            "STAT 263"
+        ],
+        "unitsRequired": 3,
+        "unitsCompleted": 3
+    },
+    "major-1. CoreC": {
+        "courses": [
+            "CISC 203",
+            "CISC 204",
+            "CISC 221",
+            "CISC 223",
+            "CISC 235"
+        ],
+        "unitsRequired": 15,
+        "unitsCompleted": 15
+    },
+    "major-1. CoreD": {
+        "courses": [
+            "CISC 322"
+        ],
+        "unitsRequired": 3,
+        "unitsCompleted": 3
+    },
+    "major-1. CoreE": {
+        "courses": [
+            "CISC 324",
+            "CISC 360",
+            "CISC 365"
+        ],
+        "unitsRequired": 9,
+        "unitsCompleted": 9
+    },
+    "major-1. CoreF": {
+        "courses": [
+            "CISC 497"
+        ],
+        "unitsRequired": 3,
+        "unitsCompleted": 3
+    },
+    "major-1. CoreG": {
+        "courses": [
+            "CISC 499"
+        ],
+        "unitsRequired": 3,
+        "unitsCompleted": 3
+    },
+    "minor-1. CoreA": {
+        "courses": [
+            "MATH 110"
+        ],
+        "unitsRequired": 6,
+        "unitsCompleted": 6
+    },
+    "minor-1. CoreB": {
+        "courses": [
+            "MATH 121"
+        ],
+        "unitsRequired": 6,
+        "unitsCompleted": 6
+    },
+    "minor-1. CoreC": {
+        "courses": [
+            "MATH 280"
+        ],
+        "unitsRequired": 3,
+        "unitsCompleted": 3
+    },
+    "minor-1. CoreD": {
+        "courses": [
+            "STAT 268"
+        ],
+        "unitsRequired": 3,
+        "unitsCompleted": 3
+    },
+    "minor-1. CoreE": {
+        "courses": [
+            "STAT 269"
+        ],
+        "unitsRequired": 3,
+        "unitsCompleted": 3
+    },
+    "major-2. OptionB": {
+        "courses": [
+            "CISC 220"
+        ],
+        "unitsRequired": 3,
+        "unitsCompleted": 3
+    },
+    "minor-2. OptionA": {
+        "courses": [
+            "STAT 362",
+            "STAT 457"
+        ],
+        "unitsRequired": 6,
+        "unitsCompleted": 6
+    },
+    "minor-2. OptionB": {
+        "courses": [
+            "MATH 225"
+        ],
+        "unitsRequired": 3,
+        "unitsCompleted": 3
+    },
+    "Unassigned/Electives": {
+        "courses": [
+            "STAT 268",
+            "LAW 201",
+            "COMM 221",
+            "FREN 150",
+            "FREN 219",
+            "MUSC 156",
+            "CISC 474",
+            "CISC 332",
+            "CISC 335",
+            "CISC 271"
+        ],
+        "unitsRequired": 0,
+        "unitsCompleted": 33
+    },
+    "major-3. SupportingA": {
+        "courses": [
+            "MATH 110"
+        ],
+        "unitsRequired": 6,
+        "unitsCompleted": 6
+    },
+    "major-3. SupportingB": {
+        "courses": [
+            "MATH 121"
+        ],
+        "unitsRequired": 6,
+        "unitsCompleted": 6
+    },
+    "minor-3. Additional RequirementsA": {
+        "courses": [
+            "CISC 121",
+            "CISC 124",
+            "CISC 203",
+            "CISC 204",
+            "CISC 220",
+            "CISC 221"
+        ],
+        "unitsRequired": 18,
+        "unitsCompleted": 18
+    },
+    "major-2. OptionA-iv. Artificial Intelligencea": {
+        "courses": [
+            "COGS 100",
+            "COGS 201",
+            "CISC 352"
+        ],
+        "unitsRequired": 9,
+        "unitsCompleted": 9
+    },
+    "major-2. OptionA-iv. Artificial Intelligenceb": {
+        "courses": [
+            "CISC 473",
+            "CISC 371"
+        ],
+        "unitsRequired": 6,
+        "unitsCompleted": 6
+    }
+}

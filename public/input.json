@@ -1,0 +1,781 @@
+{
+    "title": "Computing – Major (Computing) – Bachelor of Computing (Honours)",
+    "year": "2023-2024",
+    "link": "https://www.queensu.ca/academic-calendar/archive/2023-2024/arts-science/schools-departments-programs/computing/computing-major-computing-bc-honours/#",
+    "result": {
+        "title": "Computing – Major (Computing) – Bachelor of Computing (Honours)",
+        "electives": 48,
+        "units": 120,
+        "1. Core": {
+            "subsections": [
+                {
+                    "id": "A",
+                    "title": "Complete the following:",
+                    "courses": [
+                        {
+                            "code": "CISC 121",
+                            "title": "Introduction to Computing Science I",
+                            "units": 3
+                        },
+                        {
+                            "code": "CISC 124",
+                            "title": "Introduction to Computing Science II",
+                            "units": 3
+                        }
+                    ]
+                },
+                {
+                    "id": "B",
+                    "title": "Complete 3.00 units from the following:",
+                    "courses": [
+                        {
+                            "code": "STAT 263",
+                            "title": "Introduction to Statistics",
+                            "units": 3
+                        },
+                        {
+                            "code": "STAT 268",
+                            "title": "Statistics and Probability I",
+                            "units": 3
+                        },
+                        {
+                            "code": "STAT 351",
+                            "title": "Probability I",
+                            "units": null
+                        },
+                        {
+                            "code": "BIOL 243",
+                            "title": "Introduction to Statistics",
+                            "units": 3
+                        },
+                        {
+                            "code": "CHEE 209",
+                            "title": "Analysis Of Process Data",
+                            "units": 3
+                        },
+                        {
+                            "code": "COMM 162",
+                            "title": "Managerial Statistics",
+                            "units": 3
+                        },
+                        {
+                            "code": "ECON 250",
+                            "title": "Introduction to Statistics",
+                            "units": 3
+                        },
+                        {
+                            "code": "GPHY 247",
+                            "title": "Introduction to Statistics",
+                            "units": 3
+                        },
+                        {
+                            "code": "KNPE 251",
+                            "title": "Introduction to Statistics",
+                            "units": 3
+                        },
+                        {
+                            "code": "NURS 323",
+                            "title": "Introduction to Statistics",
+                            "units": 3
+                        },
+                        {
+                            "code": "POLS 285",
+                            "title": "Introduction to Statistics",
+                            "units": 3
+                        },
+                        {
+                            "code": "PSYC 202",
+                            "title": "Statistics in Psychology",
+                            "units": 3
+                        },
+                        {
+                            "code": "SOCY 211",
+                            "title": "Introduction to Statistics",
+                            "units": 3
+                        },
+                        {
+                            "code": "STAM 200",
+                            "title": "Introduction to Statistics",
+                            "units": 3
+                        }
+                    ]
+                },
+                {
+                    "id": "C",
+                    "title": "Complete the following:",
+                    "courses": [
+                        {
+                            "code": "CISC 203",
+                            "title": "Discrete Mathematics for Computing II",
+                            "units": 3
+                        },
+                        {
+                            "code": "CISC 204",
+                            "title": "Logic for Computing Science",
+                            "units": 3
+                        },
+                        {
+                            "code": "CISC 221",
+                            "title": "Computer Architecture",
+                            "units": 3
+                        },
+                        {
+                            "code": "CISC 223",
+                            "title": "Software Specifications",
+                            "units": 3
+                        },
+                        {
+                            "code": "CISC 235",
+                            "title": "Data Structures",
+                            "units": 3
+                        }
+                    ]
+                },
+                {
+                    "id": "D",
+                    "title": "Complete 3.00 units from the following:",
+                    "courses": [
+                        {
+                            "code": "CISC 322",
+                            "title": "Software Architecture",
+                            "units": 3
+                        },
+                        {
+                            "code": "CISC 326",
+                            "title": "Game Architecture",
+                            "units": 3
+                        }
+                    ]
+                },
+                {
+                    "id": "E",
+                    "title": "Complete the following:",
+                    "courses": [
+                        {
+                            "code": "CISC 324",
+                            "title": "Operating Systems",
+                            "units": 3
+                        },
+                        {
+                            "code": "CISC 360",
+                            "title": "Programming Paradigms",
+                            "units": 3
+                        },
+                        {
+                            "code": "CISC 365",
+                            "title": "Algorithms I",
+                            "units": 3
+                        }
+                    ]
+                },
+                {
+                    "id": "F",
+                    "title": "Complete the following:",
+                    "courses": [
+                        {
+                            "code": "CISC 497",
+                            "title": "Social, Ethical and Legal Issues in Computing",
+                            "units": 3
+                        }
+                    ]
+                },
+                {
+                    "id": "G",
+                    "title": "Complete 3.00 units from the following:",
+                    "courses": [
+                        {
+                            "code": "CISC 495",
+                            "title": "Software Evolution",
+                            "units": 3
+                        },
+                        {
+                            "code": "CISC 496",
+                            "title": "Game Development Project",
+                            "units": 3
+                        },
+                        {
+                            "code": "CISC 499",
+                            "title": "Advanced Undergraduate Project",
+                            "units": 3
+                        },
+                        {
+                            "code": "CISC 500",
+                            "title": "Undergraduate Thesis",
+                            "units": 6
+                        }
+                    ]
+                }
+            ],
+            "sectionunits": 42,
+            "completedunits": 0
+        },
+        "2. Option": {
+            "subsections": [
+                {
+                    "id": "A",
+                    "title": "Complete 15.00 units from one of the following options:",
+                    "courses": [],
+                    "plan": {
+                        "i. Fundamental Computation": {
+                            "title": "i. Fundamental Computation",
+                            "electives": 0,
+                            "planunits": 0,
+                            "completedunits": 0,
+                            "units": 15,
+                            "subsections": [
+                                {
+                                    "id": "a",
+                                    "title": "Complete 3.00 units from the following:",
+                                    "courses": [
+                                        {
+                                            "code": "CISC 422",
+                                            "title": "Formal Methods in Software Engineering",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "CISC 455",
+                                            "title": "Evolutionary Optimization and Learning",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "CISC 462",
+                                            "title": "Computability and Complexity",
+                                            "units": null
+                                        },
+                                        {
+                                            "code": "CISC 465",
+                                            "title": "Semantics of Programming Languages",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "CISC 467",
+                                            "title": "Fuzzy Logic",
+                                            "units": null
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "b",
+                                    "title": "Complete 3.00 units from the following:",
+                                    "courses": [
+                                        {
+                                            "code": "COMM 365",
+                                            "title": "Advanced Business Decision Modeling",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "ELEC 470",
+                                            "title": "Computer System Architecture",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "MATH 272",
+                                            "title": "Applications of Numerical Methods",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "MATH 337",
+                                            "title": "Stochastic Models in Operations Research",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "MATH 401",
+                                            "title": "Graph Theory",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "MATH 402",
+                                            "title": "Enumerative Combinatorics",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "MATH 434",
+                                            "title": "Optimization Theory with Applications to Machine Learning",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "MATH 474",
+                                            "title": "Information Theory",
+                                            "units": 3
+                                        }
+                                    ],
+                                    "requirement": [
+                                        "CISC",
+                                        "SOFT at the 400-level or above"
+                                    ]
+                                },
+                                {
+                                    "id": "c",
+                                    "title": "Complete 6.00 units from the following:",
+                                    "courses": [
+                                        {
+                                            "code": "COMM 365",
+                                            "title": "Advanced Business Decision Modeling",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "ELEC 470",
+                                            "title": "Computer System Architecture",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "MATH 272",
+                                            "title": "Applications of Numerical Methods",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "MATH 337",
+                                            "title": "Stochastic Models in Operations Research",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "MATH 401",
+                                            "title": "Graph Theory",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "MATH 402",
+                                            "title": "Enumerative Combinatorics",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "MATH 434",
+                                            "title": "Optimization Theory with Applications to Machine Learning",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "MATH 474",
+                                            "title": "Information Theory",
+                                            "units": 3
+                                        }
+                                    ],
+                                    "requirement": [
+                                        "CISC at the 300-level or above",
+                                        "SOFT at the 300-level or above"
+                                    ],
+                                    "subtitle": "There may be at #00 level restrictions, check the academic calendar"
+                                },
+                                {
+                                    "id": "d",
+                                    "title": "Complete 3.00 units from the following:",
+                                    "courses": [
+                                        {
+                                            "code": "COMM 365",
+                                            "title": "Advanced Business Decision Modeling",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "ELEC 470",
+                                            "title": "Computer System Architecture",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "MATH 272",
+                                            "title": "Applications of Numerical Methods",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "MATH 337",
+                                            "title": "Stochastic Models in Operations Research",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "MATH 401",
+                                            "title": "Graph Theory",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "MATH 402",
+                                            "title": "Enumerative Combinatorics",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "MATH 434",
+                                            "title": "Optimization Theory with Applications to Machine Learning",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "MATH 474",
+                                            "title": "Information Theory",
+                                            "units": 3
+                                        }
+                                    ],
+                                    "requirement": [
+                                        "CISC at the 200-level or above",
+                                        "SOFT at the 200-level or above"
+                                    ],
+                                    "subtitle": "There may be at #00 level restrictions, check the academic calendar"
+                                }
+                            ]
+                        },
+                        "ii. Biomedical Computation": {
+                            "title": "ii. Biomedical Computation",
+                            "electives": 0,
+                            "planunits": 0,
+                            "completedunits": 0,
+                            "units": 15,
+                            "subsections": [
+                                {
+                                    "id": "a",
+                                    "title": "Complete the following:",
+                                    "courses": [
+                                        {
+                                            "code": "CISC 271",
+                                            "title": "Linear Data Analysis",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "CISC 330",
+                                            "title": "Computer-Integrated Surgery",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "CISC 352",
+                                            "title": "Artificial Intelligence",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "CISC 472",
+                                            "title": "Medical Informatics",
+                                            "units": 3
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "b",
+                                    "title": "Complete 3.00 units from the following:",
+                                    "courses": [
+                                        {
+                                            "code": "CISC 320",
+                                            "title": "Fundamentals of Software Development",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "CISC 471",
+                                            "title": "Computational Biology",
+                                            "units": 3
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "iii. Data Analytics": {
+                            "title": "iii. Data Analytics",
+                            "electives": 0,
+                            "planunits": 0,
+                            "completedunits": 0,
+                            "units": 15,
+                            "subsections": [
+                                {
+                                    "id": "a",
+                                    "title": "Complete the following:",
+                                    "courses": [
+                                        {
+                                            "code": "CISC 271",
+                                            "title": "Linear Data Analysis",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "CISC 371",
+                                            "title": "Nonlinear Data Analysis",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "CISC 372",
+                                            "title": "Advanced Data Analytics",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "CISC 451",
+                                            "title": "Topics in Data Analytics",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "CISC 452",
+                                            "title": "Neural and Genetic Computing",
+                                            "units": 3
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "iv. Artificial Intelligence": {
+                            "title": "iv. Artificial Intelligence",
+                            "electives": 0,
+                            "planunits": 0,
+                            "completedunits": 0,
+                            "units": 15,
+                            "subsections": [
+                                {
+                                    "id": "a",
+                                    "title": "Complete the following:",
+                                    "courses": [
+                                        {
+                                            "code": "COGS 100",
+                                            "title": "Introduction to Cognitive Science",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "COGS 201",
+                                            "title": "Cognition and Computation",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "CISC 352",
+                                            "title": "Artificial Intelligence",
+                                            "units": 3
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "b",
+                                    "title": "Complete 6.00 units from the following course list:",
+                                    "courses": [
+                                        {
+                                            "code": "CISC 351",
+                                            "title": "Advanced Data Analytics",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "CISC 371",
+                                            "title": "Nonlinear Data Analysis",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "CISC 372",
+                                            "title": "Advanced Data Analytics",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "CISC 451",
+                                            "title": "Topics in Data Analytics",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "CISC 452",
+                                            "title": "Neural and Genetic Computing",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "CISC 453",
+                                            "title": "Topics in Artificial Intelligence",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "CISC 455",
+                                            "title": "Evolutionary Optimization and Learning",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "CISC 467",
+                                            "title": "Fuzzy Logic",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "CISC 473",
+                                            "title": "Deep Learning",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "CISC 474",
+                                            "title": "Reinforcement Learning",
+                                            "units": 3
+                                        }
+                                    ],
+                                    "subtitle": "CISC_Artificial_Intelligence"
+                                }
+                            ]
+                        },
+                        "v. Game Development": {
+                            "title": "v. Game Development",
+                            "electives": 0,
+                            "planunits": 0,
+                            "completedunits": 0,
+                            "units": 15,
+                            "subsections": [
+                                {
+                                    "id": "a",
+                                    "title": "Complete the following:",
+                                    "courses": [
+                                        {
+                                            "code": "CISC 226",
+                                            "title": "Game Design",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "CISC 320",
+                                            "title": "Fundamentals of Software Development",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "CISC 352",
+                                            "title": "Artificial Intelligence",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "CISC 454",
+                                            "title": "Graphics (A)",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "CISC 486",
+                                            "title": "Game Development",
+                                            "units": 3
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "vi. Security": {
+                            "title": "vi. Security",
+                            "electives": 0,
+                            "planunits": 0,
+                            "completedunits": 0,
+                            "units": 15,
+                            "subsections": [
+                                {
+                                    "id": "a",
+                                    "title": "Complete the following:",
+                                    "courses": [
+                                        {
+                                            "code": "CISC 220",
+                                            "title": "System Level Programming",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "CISC 327",
+                                            "title": "Software Quality Assurance",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "CISC 335",
+                                            "title": "Computer Networks",
+                                            "units": 3
+                                        },
+                                        {
+                                            "code": "CISC 447",
+                                            "title": "Introduction to Cybersecurity",
+                                            "units": 3
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "b",
+                                    "title": "Complete 3.00 units from the following:",
+                                    "courses": [
+                                        {
+                                            "code": "CISC 434",
+                                            "title": "Distributed Systems",
+                                            "units": null
+                                        },
+                                        {
+                                            "code": "CISC 448",
+                                            "title": "Software Reliability and Security",
+                                            "units": null
+                                        },
+                                        {
+                                            "code": "CISC 468",
+                                            "title": "Cryptography",
+                                            "units": 3
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "id": "B",
+                    "title": "Complete 3.00 units from the following:",
+                    "courses": [],
+                    "requirement": [
+                        "CISC, COCA, COGS, or SOFT at the 200-level or above"
+                    ]
+                }
+            ],
+            "sectionunits": 18,
+            "completedunits": 0
+        },
+        "3. Supporting": {
+            "subsections": [
+                {
+                    "id": "A",
+                    "title": "Complete 6.00 units from the following:",
+                    "courses": [
+                        {
+                            "code": "Combination",
+                            "courses": [
+                                {
+                                    "code": "CISC 102",
+                                    "title": "Discrete Mathematics for Computing l",
+                                    "units": 3
+                                },
+                                {
+                                    "code": "MATH 111",
+                                    "title": "Linear Algebra",
+                                    "units": 6
+                                }
+                            ],
+                            "units": 9
+                        },
+                        {
+                            "code": "Combination",
+                            "courses": [
+                                {
+                                    "code": "CISC 102",
+                                    "title": "Discrete Mathematics for Computing l",
+                                    "units": 3
+                                },
+                                {
+                                    "code": "MATH 112",
+                                    "title": "Introduction to Linear Algebra",
+                                    "units": 3
+                                }
+                            ],
+                            "units": 6
+                        },
+                        {
+                            "code": "MATH 110",
+                            "title": "Linear Algebra",
+                            "units": 6
+                        }
+                    ]
+                },
+                {
+                    "id": "B",
+                    "title": "Complete 6.00 units from the following:",
+                    "courses": [
+                        {
+                            "code": "MATH 120",
+                            "title": "Differential and Integral Calculus",
+                            "units": 6
+                        },
+                        {
+                            "code": "MATH 121",
+                            "title": "Differential and Integral Calculus",
+                            "units": 6
+                        },
+                        {
+                            "code": "Combination",
+                            "courses": [
+                                {
+                                    "code": "MATH 123",
+                                    "title": "Differential and Integral Calculus I",
+                                    "units": 3
+                                },
+                                {
+                                    "code": "MATH 124",
+                                    "title": "Differential and Integral Calculus II",
+                                    "units": 3
+                                }
+                            ],
+                            "units": 6
+                        }
+                    ]
+                }
+            ],
+            "sectionunits": 12,
+            "completedunits": 0
+        }
+    }
+}
