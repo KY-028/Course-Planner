@@ -3,7 +3,7 @@ import emailjs from '@emailjs/browser'
 // Error Modal Component
 import { FaCheck, FaTimes } from 'react-icons/fa';
 import axios from 'axios';
-import { validateUrl, clearPlanReq, establishPlansFilling, getPlanPrefix, recomputePlanAssignments } from '/src/components/courseFunctions';
+import { validateUrl, clearPlanReq, establishPlansFilling, getPlanPrefix, recomputePlanAssignments, processSection } from '/src/components/courseFunctions';
 import planResultsData from '../assets/coursePlanResults.json';
 import PlanDetailsDisplay from '/src/components/planDetailsDisplay.jsx';
 
@@ -172,7 +172,7 @@ export default function SelectPlan(
                 Object.entries(result.plansFilling).forEach(([key, value]) => {
                     cleanedPlansFilling[key] = {
                         ...value,
-                        courses: value.courses.filter(course => !coursesTakenCodes.has(course.code))
+                        courses: value.courses.filter(course => !coursesTakenCodes.has(course.code)) || []
                     };
                 });
                 result.plansFilling = cleanedPlansFilling;
@@ -310,8 +310,11 @@ export default function SelectPlan(
                 // Check if a sub-plan is selected for this plan
                 const subPlanName = selectedSubPlans[i];
                 let hasSubPlan = false;
-
-                // Find the section with a subplan
+        
+                // First, process all sections normally
+                Object.assign(mergedPlansFilling, establishPlansFilling(planData, planPrefix));
+        
+                // Then, handle sub-plan sections specially
                 Object.keys(planData).forEach(key => {
                     if (planData[key].subsections) {
                         planData[key].subsections.forEach(subsection => {
@@ -340,13 +343,9 @@ export default function SelectPlan(
                         });
                     }
                 });
-
-                // If no sub-plan logic was triggered, just process the plan as usual
-                if (!hasSubPlan) {
-                    Object.assign(mergedPlansFilling, establishPlansFilling(planData, planPrefix));
-                }
             }
         });
+
         mergedPlansFilling["Unassigned/Electives"] = {
             unitsRequired: 0,
             unitsCompleted: 0,
@@ -364,7 +363,7 @@ export default function SelectPlan(
         if (required === totalUnits - (newResponses[idx]?.electives || 0)) {
             setPlansFilling(mergedPlansFilling);
         } else {
-            console.error("Plan requirements do not match total units due to unexpected calendar formatting. Required:", required, "Total Units:", totalUnits);
+            console.error("Plan requirements do not match total units due to unexpected calendar formatting. Required:", required, "Total Units:", totalUnits, "Plan:", mergedPlansFilling);
             alert("Your plan was not parsed successfully. Please contact the developer.");
         }
         updateSectionNames(newResponses, newLocked);

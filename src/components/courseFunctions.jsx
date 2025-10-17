@@ -97,11 +97,11 @@ export function calculateSectionUnits(section) {
     // Special case: If title is "Complete one of the following Sub-Plans:"
     if (section.title && section.title.toLowerCase().includes('complete one of the following sub-plans')) {
         if (section.plan) {
-            // Find the minimum planunits from all plan options
+            // Find the minimum plan units from all plan options
             let minUnits = Infinity;
             for (const planObj of Object.values(section.plan)) {
-                if (planObj && typeof planObj.planunits === 'number') {
-                    minUnits = Math.min(minUnits, planObj.planunits);
+                if (planObj && typeof planObj.units === 'number') {
+                    minUnits = Math.min(minUnits, planObj.units);
                 }
             }
             return minUnits === Infinity ? 0 : minUnits;
@@ -555,42 +555,42 @@ export function fillPlanReq(newCourse, coursesTaken, plans, plansFilling, select
                                                         for (const subCourse of course.courses) {
                                                             if (subCourse.code !== courseCode) continue;
                                                             // Check if the other options already assigned to this requirementId
-                                                            if (updatedPlansFilling[requirementId] && updatedPlansFilling[requirementId].courses.includes(subCourse.code)) continue;
+                                                            if (updatedPlansFilling[planReqId] && updatedPlansFilling[planReqId].courses.includes(subCourse.code)) continue;
                                                             const courseUnits = parseFloat(course.units) || 0;
-                                                            const unitsRequired = updatedPlansFilling[requirementId]?.unitsRequired || courseUnits;
-                                                            let excessUnits = updatedPlansFilling[requirementId]?.unitsCompleted + courseUnits - unitsRequired || 0;
+                                                            const unitsRequired = updatedPlansFilling[planReqId]?.unitsRequired || courseUnits;
+                                                            let excessUnits = updatedPlansFilling[planReqId]?.unitsCompleted + courseUnits - unitsRequired || 0;
                                                             // Assign to requirement
-                                                            if (!updatedPlansFilling[requirementId]) {
-                                                                updatedPlansFilling[requirementId] = {
+                                                            if (!updatedPlansFilling[planReqId]) {
+                                                                updatedPlansFilling[planReqId] = {
                                                                     unitsRequired: unitsRequired,
                                                                     unitsCompleted: 0,
                                                                     courses: []
                                                                 };
                                                             }
-                                                            if (!updatedPlansFilling[requirementId].courses.includes(courseCode)) {
-                                                                updatedPlansFilling[requirementId].courses.push(courseCode);
+                                                            if (!updatedPlansFilling[planReqId].courses.includes(courseCode)) {
+                                                                updatedPlansFilling[planReqId].courses.push(courseCode);
                                                             }
-                                                            updatedPlansFilling[requirementId].unitsCompleted += courseUnits;
+                                                            updatedPlansFilling[planReqId].unitsCompleted += courseUnits;
                                                             // Only assign if not already assigned
-                                                            const idx = updatedCoursesTaken.findIndex(c => c && c.code === courseCode && (!c.planreq || !c.planreq.split(',').includes(requirementId)));
+                                                            const idx = updatedCoursesTaken.findIndex(c => c && c.code === courseCode && (!c.planreq || !c.planreq.split(',').includes(planReqId)));
                                                             if (idx !== -1) {
                                                                 updatedCoursesTaken[idx] = {
                                                                     ...updatedCoursesTaken[idx],
                                                                     planreq: updatedCoursesTaken[idx].planreq
-                                                                        ? [...new Set([...updatedCoursesTaken[idx].planreq.split(',').map(s => s.trim()), requirementId])].join(', ')
-                                                                        : requirementId
+                                                                        ? [...new Set([...updatedCoursesTaken[idx].planreq.split(',').map(s => s.trim()), planReqId])].join(', ')
+                                                                        : planReqId
                                                                 };
                                                             }
                                                             // Handle excess units: add a new excess course object
                                                             if (excessUnits > 0) {
                                                                 // updatedPlansFilling[`${planPrefix}Electives`].unitsRequired -= excessUnits;
-                                                                // updatedPlansFilling[`${requirementLabel}`].unitsRequired += excessUnits;
+                                                                // updatedPlansFilling[`${planReqId}`].unitsRequired += excessUnits;
                                                             }
-                                                            assignedRequirements.push(requirementId);
+                                                            assignedRequirements.push(planReqId);
                                                             if (!firstAssignmentType) {
                                                                 firstAssignmentType = isSupportingSection ? 'supporting' : 'non-supporting';
                                                                 firstAssignmentPlanPrefix = planPrefix;
-                                                                firstAssignmentRequirementId = requirementId;
+                                                                firstAssignmentRequirementId = planReqId;
                                                             }
                                                             return true;
                                                         }
@@ -662,12 +662,19 @@ export function fillPlanReq(newCourse, coursesTaken, plans, plansFilling, select
     // If no assignment found in any plan, assign as "Electives"
     if (assignedRequirements.length === 0) {
         assignedRequirements.push("Unassigned/Electives");
+        // Ensure "Unassigned/Electives" entry exists before accessing it
+        if (!updatedPlansFilling["Unassigned/Electives"]) {
+            updatedPlansFilling["Unassigned/Electives"] = {
+                unitsRequired: 0,
+                unitsCompleted: 0,
+                courses: []
+            };
+        }
         // Add course to electives if not already present
         if (!updatedPlansFilling["Unassigned/Electives"].courses.includes(courseCode)) {
             updatedPlansFilling["Unassigned/Electives"].courses.push(courseCode);
             updatedPlansFilling["Unassigned/Electives"].unitsCompleted += parseFloat(newCourse.units) || 0;
         }
-
     }
 
     // Update the course with the assigned requirement(s)
