@@ -1,11 +1,36 @@
-import { useState, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser'
 // Error Modal Component
 import { FaCheck, FaTimes } from 'react-icons/fa';
 import axios from 'axios';
-import { validateUrl, clearPlanReq, establishPlansFilling, getPlanPrefix, recomputePlanAssignments, processSection } from '/src/components/courseFunctions';
+import { validateUrl, clearPlanReq, establishPlansFilling, getPlanPrefix, processSection } from '/src/components/courseFunctions';
+import { buildAssignPayload, callAssignApi, deriveCoursesTakenFromPlansFilling } from '/src/assignApi';
 import planResultsData from '../assets/coursePlanResults.json';
 import PlanDetailsDisplay from '/src/components/planDetailsDisplay.jsx';
+import AssignmentBreakdownModal from '/src/components/assignmentBreakdownModal.jsx';
+
+function isLikelyNetworkError(error) {
+    if (!error) return false;
+    if (error.code === 'ERR_NETWORK' || error.code === 'ECONNABORTED') return true;
+    const msg = String(error.message || '').toLowerCase();
+    return msg.includes('network error') || msg.includes('failed to fetch') || msg.includes('network request failed');
+}
+
+function formatCoursePlanFetchError(error) {
+    if (isLikelyNetworkError(error)) {
+        return 'Connection issue (often after idle)—check your network, refresh the page, then try again.';
+    }
+    if (error.response?.data?.message) return String(error.response.data.message);
+    if (typeof error.response === 'string') return error.response;
+    return error.message || 'Could not load this plan.';
+}
+
+function formatAssignApiError(error) {
+    if (isLikelyNetworkError(error)) {
+        return 'Could not reach the assignment service (connection issue). Refresh or try Check fulfillment again in a moment.';
+    }
+    return error?.message || 'Check fulfillment failed';
+}
 
 function ErrorModal({ isOpen, onClose, term }) {
     const [email, setEmail] = useState('');
@@ -139,10 +164,13 @@ export default function SelectPlan(
         responses, setResponses,
         errors, setErrors,
         plansFilling, setPlansFilling,
+        baselinePlansFilling, setBaselinePlansFilling,
         selectedSubPlans, setSelectedSubPlans,
         sectionNames, setSectionNames,
         customAssignments, setCustomAssignments,
-        handleSavePlans, isLoading
+        handleSavePlans, isLoading,
+        plannerConnectionNotice,
+        onDismissPlannerConnectionNotice
     }) {
     // Error modal state
     const [errorModalOpen, setErrorModalOpen] = useState(false);
@@ -154,41 +182,99 @@ export default function SelectPlan(
     // For plan search dropdown
     const [searchResults, setSearchResults] = useState(Array(PLAN_OPTIONS[0].fields.length).fill([]));
     const [showDropdown, setShowDropdown] = useState(Array(PLAN_OPTIONS[0].fields.length).fill(false));
+    const [assignLoading, setAssignLoading] = useState(false);
+    const [assignError, setAssignError] = useState(null);
+    const [showAssignmentModal, setShowAssignmentModal] = useState(false);
+    const coursesTakenRef = useRef(coursesTaken);
+    coursesTakenRef.current = coursesTaken;
 
+    /** Schedule solver after local plan structure updates (state from setState may not be committed yet). */
+    const scheduleAssignAfterPlanChange = (overrides = {}) => {
+        window.setTimeout(() => {
+            void runAssignAndApply(coursesTakenRef.current, overrides);
+        }, 0);
+    };
 
+    // Run assign API and apply result to plansFilling and coursesTaken
+    const runAssignAndApply = async (
+        currentCoursesTaken = coursesTakenRef.current,
+        overrides = {}
+    ) => {
+        const orderedPlans =
+            overrides.orderedPlans ??
+            (responses || []).map((p) => p ?? null);
+        const subPlansForPayload =
+            overrides.selectedSubPlans ?? selectedSubPlans;
+        const customForPayload =
+            overrides.customAssignments ?? customAssignments;
 
+        const hasAnyPlan = orderedPlans.some(Boolean);
+        if (!hasAnyPlan) return;
+        setAssignError(null);
+        setAssignLoading(true);
+        try {
+            // 1) Get pure solver baseline (no customAssignments)
+            const baselinePayload = buildAssignPayload({
+                planJSONs: orderedPlans,
+                coursesTaken: currentCoursesTaken,
+                selectedSubplan: subPlansForPayload,
+                selectedPlanCombo,
+            });
+            const baselineResult = await callAssignApi(apiUrl, baselinePayload);
+            const baseline = baselineResult.plansFilling || {};
+            setBaselinePlansFilling(baseline);
 
-    // Monitor coursesTaken changes and automatically assign courses to requirements
-    useEffect(() => {
-        if (coursesTaken && responses.length > 0) {
-            const coursesTakenCodes = new Set(coursesTaken.filter(c => c != null).map(c => c.code));
-            // Filter out null responses to get valid plans
-            const validPlans = responses.filter(response => response !== null);
-            if (validPlans.length > 0) {
-                // Only update state if changed
-                const result = recomputePlanAssignments(coursesTaken, responses, selectedPlanCombo, customAssignments, setCustomAssignments, plansFilling, selectedSubPlans, setCoursesTaken);
-                // Remove courses from plansFilling that are not in coursesTaken
-                const cleanedPlansFilling = {};
-                Object.entries(result.plansFilling).forEach(([key, value]) => {
-                    cleanedPlansFilling[key] = {
-                        ...value,
-                        courses: value.courses.filter(course => !coursesTakenCodes.has(course.code)) || []
-                    };
+            // 2) If there are customAssignments, get current state including them; otherwise use baseline
+            let effectivePlansFilling = baseline;
+            if (customForPayload && Array.isArray(customForPayload) && customForPayload.length > 0) {
+                const customPayload = buildAssignPayload({
+                    planJSONs: orderedPlans,
+                    coursesTaken: currentCoursesTaken,
+                    selectedSubplan: subPlansForPayload,
+                    selectedPlanCombo,
+                    customCourses: customForPayload,
                 });
-                result.plansFilling = cleanedPlansFilling;
-
-                const hasCoursesChanged = JSON.stringify(result.coursesTaken) !== JSON.stringify(coursesTaken);
-                const hasPlansChanged = JSON.stringify(result.plansFilling) !== JSON.stringify(plansFilling);
-
-                if (hasCoursesChanged) {
-                    setCoursesTaken(result.coursesTaken);
-                }
-                if (hasPlansChanged) {
-                    setPlansFilling(result.plansFilling);
+                const customResult = await callAssignApi(apiUrl, customPayload);
+                if (customResult.plansFilling) {
+                    effectivePlansFilling = customResult.plansFilling;
                 }
             }
+
+            if (effectivePlansFilling) {
+                setPlansFilling(effectivePlansFilling);
+            }
+
+            // API does not return coursesTaken; always derive from *current* plansFilling so each course's planreq stays in sync
+            const nextCoursesTaken = deriveCoursesTakenFromPlansFilling(currentCoursesTaken, effectivePlansFilling);
+            if (nextCoursesTaken) {
+                setCoursesTaken(nextCoursesTaken);
+                // Keep custom assignments in sync with current course state (indices and planreq)
+                setCustomAssignments(prev => {
+                    const map = new Map();
+                    prev.forEach(entry => {
+                        if (!entry || typeof entry.index !== 'number') return;
+                        const idx = entry.index;
+                        if (nextCoursesTaken[idx] == null) return;
+                        map.set(idx, { ...entry, course: nextCoursesTaken[idx] });
+                    });
+                    return Array.from(map.values());
+                });
+            }
+
+            // Open assignment breakdown modal after each successful solver run
+            setShowAssignmentModal(true);
+        } catch (err) {
+            setAssignError(formatAssignApiError(err));
+        } finally {
+            setAssignLoading(false);
         }
-    }, [coursesTaken, responses]);
+    };
+
+    // Intentionally NO useEffect auto-call to /api/assign: only explicit user actions (Check fulfillment,
+    // lock/unlock/plan change, sub-plan change) call runAssignAndApply—avoids spurious calls after refresh/hydration.
+
+
+
 
 
     // When plan combination drop down is changed
@@ -362,11 +448,15 @@ export default function SelectPlan(
         });
         if (required === totalUnits - (newResponses[idx]?.electives || 0)) {
             setPlansFilling(mergedPlansFilling);
+            updateSectionNames(newResponses, newLocked);
+            scheduleAssignAfterPlanChange({
+                orderedPlans: newResponses.map((p) => p ?? null),
+            });
         } else {
             console.error("Plan requirements do not match total units due to unexpected calendar formatting. Required:", required, "Total Units:", totalUnits, "Plan:", mergedPlansFilling);
             alert("Your plan was not parsed successfully. Please contact the developer.");
+            updateSectionNames(newResponses, newLocked);
         }
-        updateSectionNames(newResponses, newLocked);
     };
 
     const handleFieldChange = (idx, value) => {
@@ -498,14 +588,18 @@ export default function SelectPlan(
             });
             if (required === totalUnits) {
                 setPlansFilling(mergedPlansFilling);
+                updateSectionNames(newResponses, newLocked);
+                scheduleAssignAfterPlanChange({
+                    orderedPlans: newResponses.map((p) => p ?? null),
+                });
             } else {
                 console.error("Plan requirements do not match total units. Required:", required, "Total Units:", totalUnits);
                 alert("Your plan was not parsed successfully. Please contact the developer.");
+                updateSectionNames(newResponses, newLocked);
             }
-            updateSectionNames(newResponses, newLocked);
         } catch (error) {
             const newErrors = [...errors];
-            newErrors[idx] = error.response || "An error occurred while fetching the plan";
+            newErrors[idx] = formatCoursePlanFetchError(error);
             setErrors(newErrors);
         }
     };
@@ -595,6 +689,10 @@ export default function SelectPlan(
         setPlansFilling(mergedPlansFilling);
         setCoursesTaken(clearPlanReq(coursesTaken)); // Clear courses taken plan requirement assignments
         updateSectionNames(newResponses, newLocked);
+        scheduleAssignAfterPlanChange({
+            orderedPlans: newResponses.map((p) => p ?? null),
+            customAssignments: filteredCustomAssignments,
+        });
     };
 
     const handleKeyDown = (e, idx) => {
@@ -694,9 +792,23 @@ export default function SelectPlan(
 
     return (
         <div className='flex flex-col p-3 border rounded-lg md-custom:mr-0 mr-8'>
+            {plannerConnectionNotice && (
+                <div className="mb-3 flex items-start justify-between gap-2 rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-900">
+                    <span>{plannerConnectionNotice}</span>
+                    {onDismissPlannerConnectionNotice && (
+                        <button
+                            type="button"
+                            onClick={onDismissPlannerConnectionNotice}
+                            className="shrink-0 text-amber-800 underline hover:text-amber-950"
+                        >
+                            Dismiss
+                        </button>
+                    )}
+                </div>
+            )}
             <div>
-                {/* Save / Report Error section */}
-                <div className="flex justify-between mb-4 xl:text-base md-custom:text-sm sm:text-base text-sm">
+                {/* Save / Check fulfillment / Report Error section */}
+                <div className="flex flex-wrap gap-2 mb-4 xl:text-base md-custom:text-sm sm:text-base text-sm">
                     <button
                         className="bg-green-500 hover:bg-green-600 text-white font-semibold py-1 px-4 rounded transition-colors"
                         onClick={() => handleSavePlans(false)}
@@ -711,8 +823,24 @@ export default function SelectPlan(
                         Report Error/Bug
                     </button>
                 </div>
+                {assignError && (
+                    <div className="mb-4 text-red-600 text-sm">
+                        {assignError}
+                    </div>
+                )}
             </div>
-            <div className='lg:text-xl text-lg font-bold mb-2 lg:mt-0 mt-2'>Select Plan</div>
+            <div className='flex flex-row gap-2 items-center lg:mt-0 mt-2 mb-2'>
+                <div className='lg:text-xl text-lg font-bold'>Select Plan</div>
+                <div>
+                    <button
+                        className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-1 px-4 rounded transition-colors disabled:opacity-50"
+                        onClick={() => runAssignAndApply()}
+                        disabled={assignLoading || isLoading || responses.filter(Boolean).length === 0}
+                    >
+                        {assignLoading ? 'Checking…' : 'Check fulfillment'}
+                    </button>
+                </div>
+            </div>
             <div className='flex items-center mb-4 lg:text-base text-sm'>
                 <label className='mr-3 font-medium'>Type:</label>
                 <select
@@ -877,6 +1005,24 @@ export default function SelectPlan(
                 ))}
             </div>
 
+            {/* Assignment Breakdown Modal */}
+            <AssignmentBreakdownModal
+                isOpen={showAssignmentModal && Object.keys(plansFilling || {}).length > 0}
+                onClose={() => setShowAssignmentModal(false)}
+                baselinePlansFilling={baselinePlansFilling}
+                plansFilling={plansFilling}
+                coursesTaken={coursesTaken}
+                setPlansFilling={setPlansFilling}
+                setCoursesTaken={setCoursesTaken}
+                customAssignments={customAssignments}
+                setCustomAssignments={setCustomAssignments}
+                plans={responses}
+                planLinks={fields}
+                selectedPlanCombo={selectedPlanCombo}
+                selectedSubPlans={selectedSubPlans}
+                planResultsData={planResultsData}
+            />
+
             {/* Details Modal */}
             {detailsModalOpen && selectedPlanData && (
                 <div className="fixed inset-0 bg-gray-600 bg-opacity-75 flex items-center justify-center p-4" style={{ zIndex: 1000000 }}>
@@ -911,6 +1057,11 @@ export default function SelectPlan(
                                         setSelectedSubPlans={setSelectedSubPlans}
                                         setCustomAssignments={setCustomAssignments}
                                         link={fields[planIndex] || ""}
+                                        onAfterSubPlanChange={({ selectedSubPlans: nextSub }) => {
+                                            scheduleAssignAfterPlanChange({
+                                                selectedSubPlans: nextSub,
+                                            });
+                                        }}
                                     />
                                 );
                             })()}

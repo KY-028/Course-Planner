@@ -80,6 +80,13 @@ function WelcomeModal({ isOpen, onClose }) {
     );
 }
 
+function isLikelyNetworkLoadError(error) {
+    if (!error) return false;
+    if (error.code === 'ERR_NETWORK' || error.code === 'ECONNABORTED') return true;
+    const msg = String(error.message || '').toLowerCase();
+    return msg.includes('network error') || msg.includes('failed to fetch') || msg.includes('network request failed');
+}
+
 const PLAN_OPTIONS = [
     { label: 'Double Major', value: 1, fields: ['Major 1 [Search or Paste Academic Calendar Link]', 'Major 2 [Search or Paste Academic Calendar Link]'] },
     { label: 'Major + Minor', value: 2, fields: ['Major [Search or Paste Academic Calendar Link]', 'Minor [Search or Paste Academic Calendar Link]'] },
@@ -113,8 +120,10 @@ export default function Planner() {
     const [responses, setResponses] = useState(Array(PLAN_OPTIONS[0].fields.length).fill(null));
     // Error Message
     const [errors, setErrors] = useState(Array(PLAN_OPTIONS[0].fields.length).fill(null));
-    // Track plan requirements and their completion status
+    // Track plan requirements and their completion status (current state shown in UI)
     const [plansFilling, setPlansFilling] = useState({});
+    // Track baseline solver assignment for the latest /api/assign run (without customAssignments)
+    const [baselinePlansFilling, setBaselinePlansFilling] = useState({});
     // Track selected sub-plans for each plan
     const [selectedSubPlans, setSelectedSubPlans] = useState(Array(PLAN_OPTIONS[0].fields.length).fill(null));
     // Track section names for each plan
@@ -126,6 +135,7 @@ export default function Planner() {
     const [isLoading, setIsLoading] = useState(true);
 
     const [isDataLoaded, setIsDataLoaded] = useState(false);
+    const [plannerConnectionNotice, setPlannerConnectionNotice] = useState(null);
 
     const latestDataRef = useRef();
     const isDataLoadedRef = useRef(false);
@@ -137,6 +147,7 @@ export default function Planner() {
             user: currentUser?.id,
             selectedPlanCombo,
             plansFilling,
+            baselinePlansFilling,
             selectedSubPlans,
             sectionNames,
             customAssignments,
@@ -187,6 +198,7 @@ export default function Planner() {
 
     const loadUserData = async () => {
         try {
+            setPlannerConnectionNotice(null);
             const userId = currentUser ? currentUser.id : null;
             if (!userId) {
                 console.log("User has not logged in");
@@ -198,58 +210,67 @@ export default function Planner() {
             setSelectedPlanCombo(data.selectedPlanCombo || PLAN_OPTIONS[0].value);
             setFields(data.fields || Array(PLAN_OPTIONS[0].fields.length).fill(''));
             setLocked(data.fields.map(field => field && field.trim() !== '' ? true : false));
-            // Build responses array by matching each field's link in planResultsData
+            // Build responses array by matching each field's link in planResultsData.
+            // Await all /backend/coursePlan fetches BEFORE setIsDataLoaded(true) so SelectPlan's
+            // hydration skip isn't invalidated by a late setResponses (which would trigger /api/assign).
+            const fieldsArr = data.fields || Array(PLAN_OPTIONS[0].fields.length).fill('');
             const customFields = [];
-            setResponses(
-                (data.fields || Array(PLAN_OPTIONS[0].fields.length).fill('')).map((field, idx) => {
-                    if (!field || !field.trim()) return null;
-                    // Determine plan type for this field
-                    const planType = (() => {
-                        const plan = PLAN_OPTIONS.find(opt => opt.value === (data.selectedPlanCombo || PLAN_OPTIONS[0].value));
-                        if (!plan) return 'Major';
-                        const fieldStr = plan.fields[idx] || '';
-                        if (fieldStr.toLowerCase().includes('specialization')) return 'Specialization';
-                        if (fieldStr.toLowerCase().includes('minor')) return 'Minor';
-                        if (fieldStr.toLowerCase().includes('joint')) return 'Joint Major';
-                        if (fieldStr.toLowerCase().includes('major')) return 'Major';
-                        if (fieldStr.toLowerCase().includes('general')) return 'General';
-                        return 'Major';
-                    })();
-                    // Search for matching plan in planResultsData
-                    const plans = planResultsData[planType] || [];
-                    const match = plans.find(planObj => planObj.link === field.trim());
-                    if (match) {
-                        return match.result;
-                    } else {
-                        customFields.push(idx);
-                        return null;
+            const loadedResponses = fieldsArr.map((field, idx) => {
+                if (!field || !field.trim()) return null;
+                const planType = (() => {
+                    const plan = PLAN_OPTIONS.find(opt => opt.value === (data.selectedPlanCombo || PLAN_OPTIONS[0].value));
+                    if (!plan) return 'Major';
+                    const fieldStr = plan.fields[idx] || '';
+                    if (fieldStr.toLowerCase().includes('specialization')) return 'Specialization';
+                    if (fieldStr.toLowerCase().includes('minor')) return 'Minor';
+                    if (fieldStr.toLowerCase().includes('joint')) return 'Joint Major';
+                    if (fieldStr.toLowerCase().includes('major')) return 'Major';
+                    if (fieldStr.toLowerCase().includes('general')) return 'General';
+                    return 'Major';
+                })();
+                const plans = planResultsData[planType] || [];
+                const match = plans.find(planObj => planObj.link === field.trim());
+                if (match) {
+                    return match.result;
+                }
+                customFields.push(idx);
+                return null;
+            });
+
+            await Promise.all(
+                customFields.map(async (idx) => {
+                    try {
+                        const fieldValue = fieldsArr[idx].trim();
+                        const planResponse = await axios.get(
+                            `${apiUrl}/backend/coursePlan?url=${encodeURIComponent(fieldValue)}`
+                        );
+                        loadedResponses[idx] = planResponse.data;
+                    } catch (error) {
+                        setErrors((prev) => {
+                            const next = [...prev];
+                            next[idx] = isLikelyNetworkLoadError(error)
+                                ? 'Connection issue—refresh the page, then try loading this plan URL again.'
+                                : (error.response || 'An error occurred while fetching the plan');
+                            return next;
+                        });
                     }
                 })
             );
-            for (const idx of customFields) {
-                try {
-                    const fieldValue = data.fields[idx].trim();
-                    const response = await axios.get(`${apiUrl}/backend/coursePlan?url=${encodeURIComponent(fieldValue)}`);
-                    setResponses(prev => {
-                        // Only update if the field hasn't been cleared/unlocked
-                        if (fields[idx] === fieldValue) {
-                            const newResponses = [...prev];
-                            newResponses[idx] = response.data;
-                            return newResponses;
-                        }
-                        return prev;
-                    });
-                } catch (error) {
-                    const newErrors = [...errors];
-                    newErrors[idx] = error.response || "An error occurred while fetching the plan";
-                    setErrors(newErrors);
-                }
-            }
+
+            setResponses(loadedResponses);
 
             setPlansFilling(data.plansFilling || {});
+            setBaselinePlansFilling({});
             setSelectedSubPlans(data.selectedSubPlans || Array(PLAN_OPTIONS[0].fields.length).fill(null));
             setSectionNames(data.sectionNames || Array(PLAN_OPTIONS[0].fields.length).fill([]));
-            setCustomAssignments(data.customAssignments || []);
+            // Dedupe customAssignments by index on load (latest entry wins)
+            const rawCustom = data.customAssignments || [];
+            const idxMap = new Map();
+            rawCustom.forEach(entry => {
+                if (!entry || typeof entry.index !== 'number') return;
+                idxMap.set(entry.index, entry);
+            });
+            setCustomAssignments(Array.from(idxMap.values()));
             setCoursesTaken(data.coursesTaken || Array(60).fill(null));
             setIsDataLoaded(true);
         } catch (error) {
@@ -260,20 +281,27 @@ export default function Planner() {
             if (error.response && error.response.status === 404) {
                 errorMessage = "Welcome! You have not yet saved any plans! ";
                 setIsDataLoaded(true); // Only set true after initializing defaults
+                alert("Error: " + errorMessage);
+            } else if (isLikelyNetworkLoadError(error)) {
+                setPlannerConnectionNotice(
+                    "Could not load your saved plans (connection issue—common after long idle). Refresh the page or try again shortly. You can still use the planner; click Check fulfillment when you are back online."
+                );
+                setIsDataLoaded(true);
             } else if (error.response) {
                 // The request was made and the server responded with a status code
                 // that falls out of the range of 2xx
                 const responseData = error.response.data;
                 errorMessage = responseData.message || responseData.error || errorMessage;
+                alert("Error: " + errorMessage);
             } else if (error.request) {
                 // The request was made but no response was received
                 errorMessage = "No response received from server";
+                alert("Error: " + errorMessage);
             } else {
                 // Something happened in setting up the request that triggered an Error
                 errorMessage = error.message || errorMessage;
+                alert("Error: " + errorMessage);
             }
-
-            alert("Error: " + errorMessage);
         } finally {
             setIsLoading(false);
         }
@@ -339,10 +367,13 @@ export default function Planner() {
                             responses={responses} setResponses={setResponses}
                             errors={errors} setErrors={setErrors}
                             plansFilling={plansFilling} setPlansFilling={setPlansFilling}
+                            baselinePlansFilling={baselinePlansFilling} setBaselinePlansFilling={setBaselinePlansFilling}
                             selectedSubPlans={selectedSubPlans} setSelectedSubPlans={setSelectedSubPlans}
                             sectionNames={sectionNames} setSectionNames={setSectionNames}
                             customAssignments={customAssignments} setCustomAssignments={setCustomAssignments}
                             handleSavePlans={handleSavePlans} isLoading={isLoading}
+                            plannerConnectionNotice={plannerConnectionNotice}
+                            onDismissPlannerConnectionNotice={() => setPlannerConnectionNotice(null)}
                         />
                     </div>
                 </div>
