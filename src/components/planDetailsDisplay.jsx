@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { FaTimes } from 'react-icons/fa';
-import { getPlanPrefix, establishPlansFilling, processSection, clearPlanReq } from './courseFunctions';
+import { getPlanPrefix, establishPlansFilling, processSection, clearPlanReq } from '/src/functions/courseFunctions';
 import CompleteIcon from '/complete.svg';
 
 // Component to display plan details in a formatted way

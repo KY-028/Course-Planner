@@ -3,8 +3,8 @@ import emailjs from '@emailjs/browser'
 // Error Modal Component
 import { FaCheck, FaTimes } from 'react-icons/fa';
 import axios from 'axios';
-import { validateUrl, clearPlanReq, establishPlansFilling, getPlanPrefix, processSection } from '/src/components/courseFunctions';
-import { buildAssignPayload, callAssignApi, deriveCoursesTakenFromPlansFilling } from '/src/assignApi';
+import { validateUrl, clearPlanReq, establishPlansFilling, getPlanPrefix, processSection, attachYearFromPlanCatalog, mergePlanResultWithCatalogYear } from '/src/functions/courseFunctions';
+import { buildAssignPayload, callAssignApi, deriveCoursesTakenFromPlansFilling } from '/src/functions/assignApi';
 import planResultsData from '../assets/coursePlanResults.json';
 import PlanDetailsDisplay from '/src/components/planDetailsDisplay.jsx';
 import AssignmentBreakdownModal from '/src/components/assignmentBreakdownModal.jsx';
@@ -348,12 +348,13 @@ export default function SelectPlan(
 
     // When user selects a plan from dropdown
     const handlePlanSelect = (idx, planObj) => {
+        const mergedResult = mergePlanResultWithCatalogYear(planObj.result, planObj);
         // Prevent duplicate plan selection
         const isDuplicate = responses.some((resp, i) =>
             i !== idx &&
             resp &&
-            resp.title === planObj.result.title &&
-            resp.year === planObj.result.year
+            resp.title === mergedResult.title &&
+            (resp.year ?? undefined) === (mergedResult.year ?? undefined)
         );
         if (isDuplicate) {
             alert("You have already selected this plan for another slot. Please choose a different plan.");
@@ -376,7 +377,7 @@ export default function SelectPlan(
         });
         // Inline the locking logic
         const newResponses = [...responses];
-        newResponses[idx] = planObj.result;
+        newResponses[idx] = mergedResult;
         setResponses(newResponses);
         const newLocked = [...locked];
         newLocked[idx] = true;
@@ -494,12 +495,13 @@ export default function SelectPlan(
         }
         try {
             const response = await axios.get(`${apiUrl}/backend/coursePlan?url=${encodeURIComponent(url)}`);
+            const planData = attachYearFromPlanCatalog(response.data, url, planResultsData);
             // Prevent duplicate plan selection
             const isDuplicate = responses.some((resp, i) =>
                 i !== idx &&
                 resp &&
-                resp.title === response.data.title &&
-                resp.year === response.data.year
+                resp.title === planData.title &&
+                (resp.year ?? undefined) === (planData.year ?? undefined)
             );
             if (isDuplicate) {
                 const newErrors = [...errors];
@@ -508,7 +510,7 @@ export default function SelectPlan(
                 return;
             }
             const fieldType = PLAN_OPTIONS.find(opt => opt.value === selectedPlanCombo).fields[idx];
-            if (!validateResponse(response.data, fieldType)) {
+            if (!validateResponse(planData, fieldType)) {
                 const newErrors = [...errors];
                 newErrors[idx] = `Invalid plan type. Expected ${fieldType.split(' ')[0].trim()}`;
                 setErrors(newErrors);
@@ -516,7 +518,7 @@ export default function SelectPlan(
             }
             // Inline the locking logic
             const newResponses = [...responses];
-            newResponses[idx] = response.data;
+            newResponses[idx] = planData;
             setResponses(newResponses);
             const newLocked = [...locked];
             newLocked[idx] = true;
@@ -777,7 +779,7 @@ export default function SelectPlan(
         const newSectionNames = [];
         responsesArr.forEach((planData, i) => {
             if (planData && lockedArr[i]) {
-                let sectionKeys = Object.keys(planData).filter(k => k !== 'title' && k !== 'electives' && k !== 'units');
+                let sectionKeys = Object.keys(planData).filter(k => k !== 'title' && k !== 'year' && k !== 'electives' && k !== 'units');
                 // Ensure 'Unassigned/Electives' is always present and last
                 sectionKeys.push('Unassigned/Electives');
                 newSectionNames[i] = sectionKeys;
@@ -931,8 +933,16 @@ export default function SelectPlan(
                                             );
                                         })()}
                                     </div>
-                                    {/* Right: Section List */}
-                                    <div className='flex flex-col gap-1'>
+                                    {/* Right: plan title + section list */}
+                                    <div className='flex flex-col gap-1 min-w-0 flex-1'>
+                                        {(responses[idx]?.title) && (
+                                            <div className='text-sm font-semibold text-gray-900 leading-snug mb-0.5'>
+                                                {responses[idx].title}
+                                                {responses[idx].year != null && (
+                                                    <span className='text-gray-600 font-normal'> [{responses[idx].year}]</span>
+                                                )}
+                                            </div>
+                                        )}
                                         {(() => {
                                             return (
                                                 <>

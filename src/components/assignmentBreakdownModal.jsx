@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { DndContext, DragOverlay, useDraggable, useDroppable, pointerWithin } from '@dnd-kit/core';
-import { getPlanPrefix } from '/src/components/courseFunctions';
+import { getPlanPrefix } from '/src/functions/courseFunctions';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 function DraggableCourseChip({ code, units, fromReqId }) {
     const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
@@ -9,11 +10,9 @@ function DraggableCourseChip({ code, units, fromReqId }) {
     });
 
     const style = {
-        // Keep the original chip fixed in layout; movement is handled by DragOverlay only
         transform: undefined,
         opacity: isDragging ? 0.8 : 1,
         zIndex: 'auto',
-        // Hide the original chip while dragging so we only see the overlay copy and avoid double-render + stretching
         visibility: isDragging ? 'hidden' : 'visible',
     };
 
@@ -143,6 +142,7 @@ function AssignmentBreakdownModalInner({
     planResultsData,
 }) {
     const [activeId, setActiveId] = useState(null);
+    const [mobileElectivesOpen, setMobileElectivesOpen] = useState(true);
 
     // Map requirement -> ordered list of course codes
     const requirementOrder = useMemo(
@@ -375,9 +375,9 @@ function AssignmentBreakdownModalInner({
                     onDragEnd={handleDragEnd}
                     onDragCancel={() => setActiveId(null)}
                 >
-                    <div className="flex gap-4 relative">
-                        {/* Left: requirements */}
-                        <div className="flex-1 min-w-0 overflow-y-auto overflow-x-hidden pr-2">
+                    <div className="relative md:flex md:gap-4">
+                        {/* Requirements list — full width on mobile */}
+                        <div className="flex-1 min-w-0 overflow-x-hidden md:pr-2 md:overflow-y-auto">
                             {requirementOrder
                                 .filter(id => id !== 'Unassigned/Electives')
                                 .map(reqId => {
@@ -385,7 +385,6 @@ function AssignmentBreakdownModalInner({
                                     const courses = data.courses || [];
                                     const unitsRequired = data.unitsRequired || 0;
                                     const unitsCompleted = data.unitsCompleted || 0;
-                                    const title = reqId;
 
                                     return (
                                         <div
@@ -394,10 +393,10 @@ function AssignmentBreakdownModalInner({
                                         >
                                             <div className="flex justify-between items-center mb-2">
                                                 <div className="font-semibold text-gray-800 text-sm break-all">
-                                                    {title}
+                                                    {reqId}
                                                 </div>
                                                 {unitsRequired > 0 && (
-                                                    <div className="text-xs text-gray-600">
+                                                    <div className="text-xs text-gray-600 whitespace-nowrap ml-2">
                                                         {unitsCompleted}/{unitsRequired} units
                                                     </div>
                                                 )}
@@ -409,50 +408,12 @@ function AssignmentBreakdownModalInner({
                                             )}
 
                                             <DroppableRequirement id={reqId}>
-                                                    {courses.length === 0 && (
-                                                        <div className="text-xs text-gray-400">
-                                                            Drop courses here
-                                                        </div>
-                                                    )}
-                                                    {courses.map(code => {
-                                                        const info = codeToCourse.get(code);
-                                                        const units =
-                                                            info?.course?.units != null
-                                                                ? info.course.units
-                                                                : null;
-                                                        return (
-                                                            <DraggableCourseChip
-                                                                key={`${reqId}::${code}`}
-                                                                code={code}
-                                                                units={units}
-                                                                fromReqId={reqId}
-                                                            />
-                                                        );
-                                                    })}
-                                            </DroppableRequirement>
-                                        </div>
-                                    );
-                                })}
-                        </div>
-
-                        {/* Right: Unassigned/Electives library */}
-                        <div className="w-[320px] flex-shrink-0">
-                            <div className="sticky top-0 right-0">
-                                <div className="mb-2 font-semibold text-gray-800">
-                                    Unassigned Electives
-                                </div>
-                                {(() => {
-                                    const unassignedId = 'Unassigned/Electives';
-                                    const unassignedCourses = plansFilling['Unassigned/Electives']?.courses || [];
-                                    return (
-                                        <DroppableRequirement id={unassignedId}>
-                                            <div className="max-h-[60vh] overflow-y-auto">
-                                                {unassignedCourses.length === 0 && (
+                                                {courses.length === 0 && (
                                                     <div className="text-xs text-gray-400">
-                                                        Courses the solver could not assign will appear here.
+                                                        Drop courses here
                                                     </div>
                                                 )}
-                                                {unassignedCourses.map(code => {
+                                                {courses.map(code => {
                                                     const info = codeToCourse.get(code);
                                                     const units =
                                                         info?.course?.units != null
@@ -460,41 +421,137 @@ function AssignmentBreakdownModalInner({
                                                             : null;
                                                     return (
                                                         <DraggableCourseChip
-                                                            key={`${unassignedId}::${code}`}
+                                                            key={`${reqId}::${code}`}
                                                             code={code}
                                                             units={units}
-                                                            fromReqId={unassignedId}
+                                                            fromReqId={reqId}
                                                         />
                                                     );
                                                 })}
-                                            </div>
-                                        </DroppableRequirement>
+                                            </DroppableRequirement>
+                                        </div>
                                     );
-                                })()}
-                            </div>
+                                })}
                         </div>
 
-                        {/* Drag overlay so the chip stays fully visible while dragging */}
+                        {/* Unassigned/Electives — collapsible floating panel on mobile, sidebar on md+ */}
+                        {(() => {
+                            const unassignedId = 'Unassigned/Electives';
+                            const unassignedCourses = plansFilling['Unassigned/Electives']?.courses || [];
+                            const count = unassignedCourses.length;
+                            return (
+                                <>
+                                    {/* Desktop sidebar */}
+                                    <div className="hidden md:block w-[320px] flex-shrink-0">
+                                        <div className="sticky top-0">
+                                            <div className="mb-2 font-semibold text-gray-800 text-sm">
+                                                Unassigned Electives
+                                            </div>
+                                            <DroppableRequirement id={unassignedId}>
+                                                <div className="max-h-[60vh] overflow-y-auto">
+                                                    {count === 0 && (
+                                                        <div className="text-xs text-gray-400">
+                                                            Courses the solver could not assign will appear here.
+                                                        </div>
+                                                    )}
+                                                    {unassignedCourses.map(code => {
+                                                        const info = codeToCourse.get(code);
+                                                        const units = info?.course?.units != null ? info.course.units : null;
+                                                        return (
+                                                            <DraggableCourseChip
+                                                                key={`${unassignedId}::${code}`}
+                                                                code={code}
+                                                                units={units}
+                                                                fromReqId={unassignedId}
+                                                            />
+                                                        );
+                                                    })}
+                                                </div>
+                                            </DroppableRequirement>
+                                        </div>
+                                    </div>
+
+                                    {/* Mobile floating panel */}
+                                    <div
+                                        className="md:hidden fixed right-0 top-1/2 -translate-y-1/2 z-[1000001] flex items-start"
+                                        style={{ pointerEvents: 'none' }}
+                                    >
+                                        {/* Toggle chevron */}
+                                        <button
+                                            onClick={() => setMobileElectivesOpen(prev => !prev)}
+                                            className="flex items-center justify-center w-6 h-14 rounded-l-lg bg-gray-700 text-white shadow-lg"
+                                            style={{ pointerEvents: 'auto' }}
+                                        >
+                                            {mobileElectivesOpen
+                                                ? <FaChevronRight size={10} />
+                                                : <FaChevronLeft size={10} />}
+                                            {!mobileElectivesOpen && count > 0 && (
+                                                <span className="absolute -top-1.5 -left-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[9px] font-bold text-white">
+                                                    {count}
+                                                </span>
+                                            )}
+                                        </button>
+                                        {/* Panel body */}
+                                        <div
+                                            className={`transition-all duration-200 ease-in-out overflow-hidden bg-white border border-gray-300 shadow-xl rounded-l-lg ${
+                                                mobileElectivesOpen ? 'w-36 opacity-100' : 'w-0 opacity-0 border-0'
+                                            }`}
+                                            style={{ pointerEvents: mobileElectivesOpen ? 'auto' : 'none' }}
+                                        >
+                                            <div className="p-2">
+                                                <div className="text-[10px] font-semibold text-gray-700 mb-1.5 text-center">
+                                                    Unassigned ({count})
+                                                </div>
+                                                <DroppableRequirement id={unassignedId}>
+                                                    <div className="flex flex-col gap-1 max-h-[50vh] overflow-y-auto">
+                                                        {count === 0 && (
+                                                            <div className="text-[10px] text-gray-400 text-center">
+                                                                Drop here
+                                                            </div>
+                                                        )}
+                                                        {unassignedCourses.map(code => {
+                                                            const info = codeToCourse.get(code);
+                                                            const units = info?.course?.units != null ? info.course.units : null;
+                                                            return (
+                                                                <div
+                                                                    key={`${unassignedId}::${code}::mobile`}
+                                                                    className="flex w-full"
+                                                                >
+                                                                    <DraggableCourseChip
+                                                                        code={code}
+                                                                        units={units}
+                                                                        fromReqId={unassignedId}
+                                                                    />
+                                                                </div>
+                                                            );
+                                                        })}
+                                                    </div>
+                                                </DroppableRequirement>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </>
+                            );
+                        })()}
+
+                        {/* Drag overlay */}
                         <DragOverlay>
-                    {activeId && (() => {
-                        // Use the currently dragged course from activeId
-                        const [, code] = String(activeId).split('::');
-                        if (!code) return null;
-                        const info = codeToCourse.get(code);
-                        const units = info?.course?.units != null ? info.course.units : null;
-                        return (
-                            <div className="z-50 inline-flex">
-                                <div className="inline-flex items-center gap-1 px-2 py-1 mr-1 mb-1 rounded-full bg-blue-50 border border-blue-200 text-xs text-blue-800 whitespace-nowrap">
-                                    <span className="font-semibold">{code}</span>
-                                    {units != null && (
-                                        <span className="text-[11px] text-blue-700">
-                                            {units}
-                                        </span>
-                                    )}
-                                </div>
-                            </div>
-                        );
-                    })()}
+                            {activeId && (() => {
+                                const [, code] = String(activeId).split('::');
+                                if (!code) return null;
+                                const info = codeToCourse.get(code);
+                                const units = info?.course?.units != null ? info.course.units : null;
+                                return (
+                                    <div className="z-[1000002] inline-flex">
+                                        <div className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-blue-50 border border-blue-200 text-xs text-blue-800 whitespace-nowrap shadow-lg">
+                                            <span className="font-semibold">{code}</span>
+                                            {units != null && (
+                                                <span className="text-[11px] text-blue-700">{units}</span>
+                                            )}
+                                        </div>
+                                    </div>
+                                );
+                            })()}
                         </DragOverlay>
                     </div>
                 </DndContext>

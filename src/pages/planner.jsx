@@ -8,6 +8,7 @@ import TakenGrid from '/src/components/takenGrid';
 import SelectPlan from '/src/components/selectPlan';
 import LoadingModal from '/src/components/loadingModal.jsx';
 import planResultsData from '../assets/coursePlanResults.json';
+import { attachYearFromPlanCatalog, mergePlanResultWithCatalogYear } from '../functions/courseFunctions';
 
 function WelcomeModal({ isOpen, onClose }) {
     if (!isOpen) return null;
@@ -231,7 +232,7 @@ export default function Planner() {
                 const plans = planResultsData[planType] || [];
                 const match = plans.find(planObj => planObj.link === field.trim());
                 if (match) {
-                    return match.result;
+                    return mergePlanResultWithCatalogYear(match.result, match);
                 }
                 customFields.push(idx);
                 return null;
@@ -244,7 +245,11 @@ export default function Planner() {
                         const planResponse = await axios.get(
                             `${apiUrl}/backend/coursePlan?url=${encodeURIComponent(fieldValue)}`
                         );
-                        loadedResponses[idx] = planResponse.data;
+                        loadedResponses[idx] = attachYearFromPlanCatalog(
+                            planResponse.data,
+                            fieldValue,
+                            planResultsData
+                        );
                     } catch (error) {
                         setErrors((prev) => {
                             const next = [...prev];

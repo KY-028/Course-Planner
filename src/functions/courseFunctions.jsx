@@ -47,6 +47,33 @@ export const validateUrl = (url) => {
     }
 };
 
+const PLAN_METADATA_KEYS = ['title', 'year', 'electives', 'units'];
+
+/**
+ * Merge calendar year from coursePlanResults.json when the plan payload omits it (common for embedded `result` objects).
+ * Link must match a catalog entry's `link` exactly (same as hydration / search).
+ */
+export function attachYearFromPlanCatalog(planData, link, planResultsData) {
+    if (!planData || typeof planData !== 'object') return planData;
+    const existing = planData.year;
+    if (existing != null && existing !== '') return planData;
+    if (!link || !planResultsData) return planData;
+    const trimmed = String(link).trim();
+    for (const arr of Object.values(planResultsData)) {
+        if (!Array.isArray(arr)) continue;
+        const hit = arr.find((p) => p && p.link === trimmed && p.year != null && p.year !== '');
+        if (hit) return { ...planData, year: hit.year };
+    }
+    return planData;
+}
+
+export function mergePlanResultWithCatalogYear(result, catalogEntry) {
+    if (!result || typeof result !== 'object') return result;
+    const y = catalogEntry?.year ?? result.year;
+    if (y == null || y === '') return { ...result };
+    return { ...result, year: y };
+}
+
 // Helper function to get plan prefix (e.g., "major1-", "minor-")
 export function getPlanPrefix(planIndex, plan, selectedPlanCombo) {
 
@@ -135,7 +162,7 @@ export function establishPlansFilling(planData, planPrefix = '', plansFillingMap
 
     // Process all sections (sectionKey = name, sectionData = object)
     Object.entries(planData).forEach(([sectionKey, sectionData]) => {
-        if (!['title', 'electives', 'units'].includes(sectionKey)) {
+        if (!PLAN_METADATA_KEYS.includes(sectionKey)) {
             processSection(sectionKey, sectionData, plansFillingMap, planPrefix);
         }
     });

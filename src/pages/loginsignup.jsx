@@ -1,5 +1,5 @@
 import React from "react";
-import * as Components from "/src/components/logincomponents";
+import * as Components from "/src/functions/logincomponents";
 import { useContext, useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from "../context/authContext";

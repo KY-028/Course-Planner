@@ -3,7 +3,7 @@
  * Assignment is now done via POST /api/assign (see assignApi.js and SelectPlan).
  * Kept for reference only; this file is not imported anywhere.
  */
-import { getPlanPrefix } from '/src/components/courseFunctions';
+import { getPlanPrefix } from '/src/functions/courseFunctions';
 
 // coursesTaken is an array of courses
 // plans is an array of plans (objects)
@@ -23,7 +23,7 @@ export function fillPlanReq(newCourse, coursesTaken, plans, plansFilling, select
 
     // Helper to assign course to a requirement in a plan
     function assignInPlan(plan, planPrefix, selectedSubPlans, restrictToSupporting = null) {
-        const sectionOrder = Object.keys(plan).filter(key => !['title', 'electives', 'units'].includes(key)).sort();
+        const sectionOrder = Object.keys(plan).filter(key => !['title', 'year', 'electives', 'units'].includes(key)).sort();
         for (const sectionKey of sectionOrder) {
             const sectionData = plan[sectionKey];
             const isSupportingSection = sectionKey.toLowerCase().includes('supporting');
@@ -582,7 +582,7 @@ function crossReferenceSupportingSections(coursesTaken, plans, plansFilling, sel
 
             const supportingSections = Object.keys(plan).filter(key =>
                 key.toLowerCase().includes('supporting') &&
-                !['title', 'electives', 'units'].includes(key)
+                !['title', 'year', 'electives', 'units'].includes(key)
             );
 
             for (const supportingSection of supportingSections) {

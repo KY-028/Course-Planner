@@ -9,7 +9,7 @@ import winterJSON from '/src/assets/winter_2026_0625.json';
 import axios from 'axios'
 import { useContext } from 'react';
 import { AuthContext } from '../context/authContext';
-import { generateNewCourse, generateOptions } from '../components/courseFunctions';
+import { generateNewCourse, generateOptions } from '/src/functions/courseFunctions';
 import UpdateManager from '../components/updatemanager';
 import LoadingModal from '../components/loadingModal';
 

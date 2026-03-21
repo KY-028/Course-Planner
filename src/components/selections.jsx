@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../context/authContext';
-import { generateNewCourse, generateOptions } from './courseFunctions';
+import { generateNewCourse, generateOptions } from '/src/functions/courseFunctions';
 import Modal from './modal';
 import UpdateManager from './updatemanager'
 import emailjs from '@emailjs/browser'
