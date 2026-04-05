@@ -185,6 +185,7 @@ export default function SelectPlan(
     const [assignLoading, setAssignLoading] = useState(false);
     const [assignError, setAssignError] = useState(null);
     const [showAssignmentModal, setShowAssignmentModal] = useState(false);
+    const [assignModelMetadata, setAssignModelMetadata] = useState(null);
     const coursesTakenRef = useRef(coursesTaken);
     coursesTakenRef.current = coursesTaken;
 
@@ -223,6 +224,7 @@ export default function SelectPlan(
             const baselineResult = await callAssignApi(apiUrl, baselinePayload);
             const baseline = baselineResult.plansFilling || {};
             setBaselinePlansFilling(baseline);
+            if (baselineResult.model_metadata) setAssignModelMetadata(baselineResult.model_metadata);
 
             // 2) If there are customAssignments, get current state including them; otherwise use baseline
             let effectivePlansFilling = baseline;
@@ -1031,6 +1033,7 @@ export default function SelectPlan(
                 selectedPlanCombo={selectedPlanCombo}
                 selectedSubPlans={selectedSubPlans}
                 planResultsData={planResultsData}
+                modelMetadata={assignModelMetadata}
             />
 
             {/* Details Modal */}

@@ -9,6 +9,7 @@ import About from './pages/about';
 import LoginSignup from "./pages/loginsignup";
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import Privacy from './pages/privacy';
+import ScheduleResults from './pages/schedule-results';
 
 import {
   createBrowserRouter,
@@ -74,6 +75,10 @@ const router = createBrowserRouter([
   {
     path: "/privacy",
     element: <Privacy />,
+  },
+  {
+    path: "/schedule-results",
+    element: <ScheduleResults />,
   },
 ]);
 

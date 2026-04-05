@@ -333,7 +333,7 @@ export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames,
                         Unassigned/Electives
                         <div className="relative group">
                             <img src="/info.svg" alt="info" className="w-4 h-4 text-gray-400 cursor-help" />
-                            <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-4 py-2 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-normal min-w-[280px] w-[90vw] max-w-[440px] z-10">
+                            <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-4 py-2 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-normal min-w-[280px] w-[90vw] max-w-[440px] z-10 pointer-events-none">
                                 This also includes excess units when a course has more units than a requirement needs (e.g. a 6-unit course filling a 3-unit requirement).
                             </div>
                         </div>

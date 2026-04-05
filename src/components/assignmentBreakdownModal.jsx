@@ -2,10 +2,11 @@ import { useMemo, useState } from 'react';
 import { DndContext, DragOverlay, useDraggable, useDroppable, pointerWithin } from '@dnd-kit/core';
 import { getPlanPrefix } from '/src/functions/courseFunctions';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import ModelMetadataPanel from '/src/components/modelMetadataPanel';
 
-function DraggableCourseChip({ code, units, fromReqId }) {
+function DraggableCourseChip({ code, units, fromReqId, dragId }) {
     const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
-        id: `${fromReqId}::${code}`,
+        id: dragId || `${fromReqId}::${code}`,
         data: { code, fromReqId },
     });
 
@@ -140,9 +141,12 @@ function AssignmentBreakdownModalInner({
     selectedPlanCombo,
     selectedSubPlans,
     planResultsData,
+    modelMetadata,
 }) {
     const [activeId, setActiveId] = useState(null);
+    const [activeCode, setActiveCode] = useState(null);
     const [mobileElectivesOpen, setMobileElectivesOpen] = useState(true);
+    const [showMetadata, setShowMetadata] = useState(false);
 
     // Map requirement -> ordered list of course codes
     const requirementOrder = useMemo(
@@ -339,6 +343,7 @@ function AssignmentBreakdownModalInner({
         const { active, over } = event;
         if (!active || !over) return;
         setActiveId(null);
+        setActiveCode(null);
         const fromReqId = active.data?.current?.fromReqId;
         const code = active.data?.current?.code;
         const toReqId = over.id;
@@ -361,19 +366,42 @@ function AssignmentBreakdownModalInner({
                             Drag courses between requirements or into Unassigned/Electives to customize.
                         </p>
                     </div>
-                    <button
-                        onClick={onClose}
-                        className="text-gray-500 hover:text-gray-700 text-2xl font-bold"
-                    >
-                        ×
-                    </button>
+                    <div className="flex items-center gap-2">
+                        {modelMetadata && (
+                            <button
+                                onClick={() => setShowMetadata(prev => !prev)}
+                                className={`text-lg ${showMetadata ? 'opacity-100' : 'opacity-50 hover:opacity-80'}`}
+                                title="Model metadata"
+                            >
+                                🔧
+                            </button>
+                        )}
+                        <button
+                            onClick={onClose}
+                            className="text-gray-500 hover:text-gray-700 text-2xl font-bold"
+                        >
+                            ×
+                        </button>
+                    </div>
                 </div>
+
+                {showMetadata && modelMetadata && (
+                    <div className="mb-4">
+                        <ModelMetadataPanel metadata={modelMetadata} />
+                    </div>
+                )}
 
                 <DndContext
                     collisionDetection={pointerWithin}
-                    onDragStart={(event) => setActiveId(event.active?.id ?? null)}
+                    onDragStart={(event) => {
+                        setActiveId(event.active?.id ?? null);
+                        setActiveCode(event.active?.data?.current?.code ?? null);
+                    }}
                     onDragEnd={handleDragEnd}
-                    onDragCancel={() => setActiveId(null)}
+                    onDragCancel={() => {
+                        setActiveId(null);
+                        setActiveCode(null);
+                    }}
                 >
                     <div className="relative md:flex md:gap-4">
                         {/* Requirements list — full width on mobile */}
@@ -463,6 +491,7 @@ function AssignmentBreakdownModalInner({
                                                                 code={code}
                                                                 units={units}
                                                                 fromReqId={unassignedId}
+                                                                dragId={`desktop::${unassignedId}::${code}`}
                                                             />
                                                         );
                                                     })}
@@ -521,6 +550,7 @@ function AssignmentBreakdownModalInner({
                                                                         code={code}
                                                                         units={units}
                                                                         fromReqId={unassignedId}
+                                                                        dragId={`mobile::${unassignedId}::${code}`}
                                                                     />
                                                                 </div>
                                                             );
@@ -537,7 +567,7 @@ function AssignmentBreakdownModalInner({
                         {/* Drag overlay */}
                         <DragOverlay>
                             {activeId && (() => {
-                                const [, code] = String(activeId).split('::');
+                                const code = activeCode;
                                 if (!code) return null;
                                 const info = codeToCourse.get(code);
                                 const units = info?.course?.units != null ? info.course.units : null;

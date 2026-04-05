@@ -7,7 +7,10 @@ import DonateBanner from '/src/components/donatebanner';
 import TakenGrid from '/src/components/takenGrid';
 import SelectPlan from '/src/components/selectPlan';
 import LoadingModal from '/src/components/loadingModal.jsx';
+import ScheduleGeneratorModal from '/src/components/scheduleGeneratorModal.jsx';
 import planResultsData from '../assets/coursePlanResults.json';
+import fallJSON from '/src/assets/fall_2025_0624.json';
+import winterJSON from '/src/assets/winter_2026_0625.json';
 import { attachYearFromPlanCatalog, mergePlanResultWithCatalogYear } from '../functions/courseFunctions';
 
 function WelcomeModal({ isOpen, onClose }) {
@@ -103,6 +106,7 @@ export default function Planner() {
     const apiUrl = import.meta.env.VITE_API_URL;
 
     const [isWelcomeModalOpen, setIsWelcomeModalOpen] = useState(true);
+    const [isScheduleGenOpen, setIsScheduleGenOpen] = useState(false);
 
     useEffect(() => {
         // Show welcome modal on first visit
@@ -348,9 +352,21 @@ export default function Planner() {
 
             <WelcomeModal isOpen={isWelcomeModalOpen} onClose={() => setIsWelcomeModalOpen(false)} />
 
+            <ScheduleGeneratorModal
+                isOpen={isScheduleGenOpen}
+                onClose={() => setIsScheduleGenOpen(false)}
+                coursesTaken={coursesTaken}
+                plansFilling={plansFilling}
+                responses={responses}
+                selectedSubPlans={selectedSubPlans}
+                selectedPlanCombo={selectedPlanCombo}
+                fallJSON={fallJSON}
+                winterJSON={winterJSON}
+            />
+
             <div className='relative lg:block hidden '>
                 <div className='absolute top-0 left-0'>
-                    <LeftMenu activeTab="planner" />
+                    <LeftMenu activeTab="planner" onScheduleGenerator={() => setIsScheduleGenOpen(true)} />
                 </div>
             </div>
 
