@@ -2,7 +2,7 @@ import axios from 'axios';
 
 /**
  * Build request body for POST /api/assign.
- * Backend expects: planJSONs, coursesTaken, selectedSubplan, selectedPlanCombo, optional customCourses.
+ * Backend expects: planJSONs, coursesTaken, selectedSubplan, selectedPlanCombo, allowOverlap, optional customCourses.
  */
 export function buildAssignPayload({
   planJSONs,
@@ -10,6 +10,7 @@ export function buildAssignPayload({
   selectedSubplan,
   selectedPlanCombo,
   customCourses = null,
+  allowOverlap = false,
 }) {
   const body = {
     planJSONs: planJSONs || [],
@@ -21,6 +22,8 @@ export function buildAssignPayload({
     })),
     selectedSubplan: selectedSubplan ?? [],
     selectedPlanCombo: selectedPlanCombo ?? 1,
+    // Cross-plan overlap is disabled by default; pass allowOverlap: true to toggle on.
+    allowOverlap: allowOverlap === true,
   };
   if (customCourses != null && Array.isArray(customCourses) && customCourses.length > 0) {
     body.customCourses = customCourses.map((entry) =>

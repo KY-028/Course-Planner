@@ -837,7 +837,7 @@ export default function SelectPlan(
                 <div className='lg:text-xl text-lg font-bold'>Select Plan</div>
                 <div>
                     <button
-                        className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-1 px-4 rounded transition-colors disabled:opacity-50"
+                        className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-1 px-2 rounded transition-colors disabled:opacity-50"
                         onClick={() => runAssignAndApply()}
                         disabled={assignLoading || isLoading || responses.filter(Boolean).length === 0}
                     >

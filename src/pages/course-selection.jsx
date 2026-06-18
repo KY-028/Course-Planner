@@ -47,6 +47,39 @@ export default function Courses() {
     const [fallConflicts, setFallConflicts] = useState([]);
     const [winterConflicts, setWinterConflicts] = useState([]);
 
+    // Guard overlay redirecting users to QFlow. Shown by default.
+    const [showOverlay, setShowOverlay] = useState(true);
+    const [qflowLoading, setQflowLoading] = useState(false);
+
+    // Trigger the secure backend transfer: the backend calls QFlow with the
+    // bypass key and returns the redirect URL we then navigate to.
+    const handleQflowTransfer = async () => {
+        if (qflowLoading) return;
+        if (!currentUser?.email) {
+            alert("Please log in first so we can transfer your account to QFlow.");
+            return;
+        }
+        try {
+            setQflowLoading(true);
+            const res = await axios.post(`${apiUrl}/backend/qflow/transfer`, {
+                email: currentUser.email,
+            });
+            const redirectUrl = res.data?.redirectUrl;
+            if (!redirectUrl) {
+                alert("Could not start the QFlow transfer. Please try again later.");
+                return;
+            }
+            window.location.href = redirectUrl;
+        } catch (error) {
+            const message =
+                error.response?.data?.message ||
+                "Could not connect to QFlow right now. Please try again in a moment.";
+            alert(message);
+        } finally {
+            setQflowLoading(false);
+        }
+    };
+
     /**
     * Upon arriving on /course-selection
     * - Check if user is logged in
@@ -87,44 +120,30 @@ export default function Courses() {
             const response = await axios.get(`${apiUrl}/backend/users/courses/${userId}`);
             const { fallCourses, winterCourses } = response.data;
 
-            let errorCourses = { fall: [], winter: [] };
+            // Courses are now stored as object snapshots ({ id, info }), so we
+            // display them directly without resolving IDs against the bundled
+            // JSON or round-tripping to the backend per custom course. We merge
+            // each snapshot's info into the in-memory course map so the rest of
+            // the pipeline (section options, calendar) keeps working.
+            const toSnapshots = (arr) =>
+                (Array.isArray(arr) ? arr : []).filter(
+                    (c) => c && typeof c.id === 'string' && Array.isArray(c.info)
+                );
 
-            const fetchAndMergeCustomCourse = async (courseId, term) => {
-                try {
-                    const termData = term === 'fall' ? fallData : winterData;
-                    if (!(courseId in termData)) {
-                        const url = `${apiUrl}/backend/customCourses/${courseId}?userId=${userId}&term=${term}`;
-                        const res = await axios.get(url);
-                        termData[courseId] = res.data.courseInfo[courseId];
-                        console.log(`Course ${courseId} fetched and merged for ${term}:`, termData[courseId]);
-                    }
-                } catch (error) {
-                    console.error(`Failed to fetch course ${courseId} for term ${term}:`, error);
-                    errorCourses[term].push(courseId);
-                    return null;
-                }
-            };
+            const fallSnaps = toSnapshots(fallCourses);
+            const winterSnaps = toSnapshots(winterCourses);
 
-            const processCourses = async (courseArray, term) => {
-                const results = await Promise.allSettled(courseArray.map(id => fetchAndMergeCustomCourse(id, term)));
-                const successfulCourses = results
-                    .map((result, index) => result.status === 'fulfilled' ? courseArray[index] : null)
-                    .filter(id => id !== null && !errorCourses[term].includes(id));
-                const processedData = successfulCourses.map(id => (term === 'fall' ? fallData : winterData)[id].slice(4));
-                return { full: successfulCourses, sliced: processedData.flat() };
-            };
+            const fallMap = { ...fallData, ...Object.fromEntries(fallSnaps.map((s) => [s.id, s.info])) };
+            const winterMap = { ...winterData, ...Object.fromEntries(winterSnaps.map((s) => [s.id, s.info])) };
 
-            const fallResults = await processCourses(fallCourses, 'fall');
-            const winterResults = await processCourses(winterCourses, 'winter');
+            setFallData(fallMap);
+            setWinterData(winterMap);
 
-            setFallCourses(fallResults.sliced);
-            setWinterCourses(winterResults.sliced);
+            setFallCourses(fallSnaps.flatMap((s) => s.info.slice(4)));
+            setWinterCourses(winterSnaps.flatMap((s) => s.info.slice(4)));
 
-            const processedFallCourses = fallResults.full.map(courseId => generateNewCourse(courseId, fallData));
-            setFc(processedFallCourses);
-
-            const processedWinterCourses = winterResults.full.map(courseId => generateNewCourse(courseId, winterData));
-            setWc(processedWinterCourses);
+            setFc(fallSnaps.map((s) => generateNewCourse(s.id, fallMap)));
+            setWc(winterSnaps.map((s) => generateNewCourse(s.id, winterMap)));
 
         } catch (err) {
             const errorMessage = err.response?.data?.message || "An unexpected error occurred while fetching user courses";
@@ -135,9 +154,11 @@ export default function Courses() {
     };
 
     const updateFallCourses = async (courses_ids) => {
+        // Only keep ids we actually have info for, then snapshot them.
+        const ids = courses_ids.filter((id) => Array.isArray(fallData[id]));
+
         // Prepare for Calendar Rendering
-        const courses = courses_ids.flatMap(course => fallData[course].slice(4));
-        setFallCourses(courses);
+        setFallCourses(ids.flatMap((id) => fallData[id].slice(4)));
 
         if (!currentUser) {
             return;  // Early return if no user is logged in
@@ -145,7 +166,7 @@ export default function Courses() {
 
         const data = {
             userId: currentUser.id,
-            courses_ids: courses_ids,
+            courses: ids.map((id) => ({ id, info: fallData[id] })),
             term: "fall",
         };
 
@@ -156,9 +177,11 @@ export default function Courses() {
     };
 
     const updateWinterCourses = async (courses_ids) => {
+        // Only keep ids we actually have info for, then snapshot them.
+        const ids = courses_ids.filter((id) => Array.isArray(winterData[id]));
+
         // Prepare for Calendar Rendering
-        const courses = courses_ids.flatMap(course => winterData[course].slice(4));
-        setWinterCourses(courses);
+        setWinterCourses(ids.flatMap((id) => winterData[id].slice(4)));
 
         if (!currentUser) {
             return;  // Early return if no user is logged in
@@ -166,7 +189,7 @@ export default function Courses() {
 
         const data = {
             userId: currentUser.id,
-            courses_ids,
+            courses: ids.map((id) => ({ id, info: winterData[id] })),
             term: "winter",
         };
 
@@ -199,6 +222,48 @@ export default function Courses() {
     return (
 
         <div className='grid xl:grid-cols-sidebar-lg lg:grid-cols-sidebar min-h-screen overflow-y-auto'>
+            {showOverlay && (
+                <div className='fixed top-0 bottom-0 right-0 left-0 lg:left-[20%] xl:left-64 z-[9999] flex items-center justify-center overflow-y-auto bg-white px-5 py-10 sm:px-8'>
+                    <div className='mx-auto flex w-full max-w-2xl flex-col items-center text-center'>
+                        <h1 className='text-xl font-bold leading-snug text-gray-900 sm:text-2xl md:text-3xl'>
+                            Course Planner will not be offering timetable information this year.
+                        </h1>
+                        <p className='mt-5 text-sm leading-relaxed text-gray-700 sm:text-base md:text-lg'>
+                            Due to the strenuous effort in extracting timetable data from SOLUS, Course Planner has
+                            made the decision to partner with QFlow, which offers a more robust schedule visualization and generation tool! <br />
+                            The developer of QFlow has successfully discovered an efficient way to extract the data for
+                            ALL courses in SOLUS! <br /> You should check QFlow out at the following URL:
+                        </p>
+                        <button
+                            type='button'
+                            onClick={handleQflowTransfer}
+                            disabled={qflowLoading}
+                            className='mt-6 disabled:opacity-60'
+                        >
+                            <img
+                                src='/qflow.png'
+                                alt='QFlow'
+                                className='mx-auto h-16 w-auto sm:h-20 md:h-24'
+                            />
+                        </button>
+                        <button
+                            type='button'
+                            onClick={handleQflowTransfer}
+                            disabled={qflowLoading}
+                            className='mt-3 inline-block break-all text-base font-semibold text-teal underline hover:opacity-80 disabled:opacity-60 sm:text-lg md:text-xl'
+                        >
+                            {qflowLoading ? 'Connecting to QFlow…' : 'https://qflow.pooria.dev/'}
+                        </button>
+                        <button
+                            type='button'
+                            onClick={() => setShowOverlay(false)}
+                            className='mt-8 rounded-lg bg-teal px-6 py-3 text-sm font-semibold leading-relaxed text-white transition hover:opacity-90 sm:text-base md:text-lg'
+                        >
+                            If you still prefer to use our calendar tool with the old UI via filling in Custom Courses, it is available here.
+                        </button>
+                    </div>
+                </div>
+            )}
             {isLoading && <LoadingModal />}
             <div className='relative lg:block hidden '>
                 <div className='absolute top-0 left-0'>

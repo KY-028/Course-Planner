@@ -35,6 +35,21 @@ function DraggableCourseChip({ code, units, fromReqId, dragId }) {
     );
 }
 
+// Logical id used in plansFilling for unassigned/elective courses.
+const UNASSIGNED_ID = 'Unassigned/Electives';
+// Distinct droppable ids so the desktop and mobile electives panels don't collide
+// in dnd-kit's droppable registry (which is keyed by id).
+const UNASSIGNED_DROP_DESKTOP = `${UNASSIGNED_ID}::desktop`;
+const UNASSIGNED_DROP_MOBILE = `${UNASSIGNED_ID}::mobile`;
+
+// Map any electives droppable id back to the single logical requirement id.
+function normalizeDropId(id) {
+    if (id === UNASSIGNED_DROP_DESKTOP || id === UNASSIGNED_DROP_MOBILE) {
+        return UNASSIGNED_ID;
+    }
+    return id;
+}
+
 function DroppableRequirement({ id, children }) {
     const { setNodeRef, isOver } = useDroppable({ id });
     return (
@@ -346,7 +361,9 @@ function AssignmentBreakdownModalInner({
         setActiveCode(null);
         const fromReqId = active.data?.current?.fromReqId;
         const code = active.data?.current?.code;
-        const toReqId = over.id;
+        // Multiple droppables (e.g. the desktop and mobile electives panels) map to
+        // the same logical requirement; normalize back to it before moving.
+        const toReqId = normalizeDropId(over.id);
         // Require valid ids and an actual change of container
         if (!code || !fromReqId || !toReqId || fromReqId === toReqId) {
             return;
@@ -470,12 +487,12 @@ function AssignmentBreakdownModalInner({
                             return (
                                 <>
                                     {/* Desktop sidebar */}
-                                    <div className="hidden md:block w-[320px] flex-shrink-0">
+                                    <div className="hidden md:block w-[26%] min-w-[150px] max-w-[320px] flex-shrink-0">
                                         <div className="sticky top-0">
                                             <div className="mb-2 font-semibold text-gray-800 text-sm">
                                                 Unassigned Electives
                                             </div>
-                                            <DroppableRequirement id={unassignedId}>
+                                            <DroppableRequirement id={UNASSIGNED_DROP_DESKTOP}>
                                                 <div className="max-h-[60vh] overflow-y-auto">
                                                     {count === 0 && (
                                                         <div className="text-xs text-gray-400">
@@ -531,7 +548,7 @@ function AssignmentBreakdownModalInner({
                                                 <div className="text-[10px] font-semibold text-gray-700 mb-1.5 text-center">
                                                     Unassigned ({count})
                                                 </div>
-                                                <DroppableRequirement id={unassignedId}>
+                                                <DroppableRequirement id={UNASSIGNED_DROP_MOBILE}>
                                                     <div className="flex flex-col gap-1 max-h-[50vh] overflow-y-auto">
                                                         {count === 0 && (
                                                             <div className="text-[10px] text-gray-400 text-center">

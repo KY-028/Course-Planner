@@ -37,6 +37,7 @@ const LeftMenu = ({ activeTab, onScheduleGenerator }) => {
             <Link to="/about" className={`w-fit ub my-1.5 mx-4 text-xl ${activeTab === 'about' ? 'text-teal ' : ''}`}>About</Link>
             <Link to="/support" className={`w-fit ub my-1.5 mx-4 text-xl ${activeTab === 'support' ? 'text-teal' : ''}`}>Support</Link>
 
+            {/* Schedule Generator button hidden for now.
             {activeTab === 'planner' && onScheduleGenerator && (
                 <button
                     onClick={onScheduleGenerator}
@@ -45,6 +46,7 @@ const LeftMenu = ({ activeTab, onScheduleGenerator }) => {
                     Schedule Generator
                 </button>
             )}
+            */}
 
             <div className='w-fit my-1.5 mx-4 text-gray-300 absolute bottom-8 text-small text-start tracking-tight leading-tight'>Database last updated: 0624CISCMATHSTAT, 0625BIOLCHEMPHYS</div>
 

@@ -17,8 +17,7 @@ export default function About() {
                         />
                     </div>
                     <h2 className="md:text-3xl text-xl font-semibold md:py-6 py-3">Kevin Yao</h2>
-                    <p className="md:text-xl text-lg text-gray-800 md:mb-2">3rd Year Computing Student</p>
-                    <p className="md:text-xl text-gray-800 mb-5">Fullstack Developer</p>
+                    <p className="md:text-xl text-lg text-gray-800 mb-5">Artificial Intelligence,<br/> Bachelor of Computing (Honours)</p>
                     <div>
                         <a href="https://github.com/KY-028/" className="bg-blue-600 px-3 mx-2 py-2 rounded-lg text-white">GitHub</a>
                         <a href="https://www.linkedin.com/in/ky028/" className="bg-blue-600 px-3 mx-2 py-2 rounded-lg text-white">LinkedIn</a>
@@ -34,8 +33,7 @@ export default function About() {
                         />
                     </div>
                     <h2 className="md:text-3xl text-xl font-semibold md:py-6 py-3">Bill Wei</h2>
-                    <p className="md:text-xl text-lg text-gray-800 mb-2">3rd Year Computing Student</p>
-                    <p className="md:text-xl text-lg text-gray-800 mb-5">Front End Developer</p>
+                    <p className="md:text-xl text-lg text-gray-800 mb-5">Software Design,<br/>  Bachelor of Computing (Honours)</p>
                     <div>
                         <a href="https://github.com/icsbillwei" className="bg-blue-600 px-3 mx-2 py-2 rounded-lg text-white">GitHub</a>
                         <a href="https://www.linkedin.com/in/bill-wei1/" className="bg-blue-600 px-3 mx-2 py-2 rounded-lg text-white">LinkedIn</a>
@@ -51,8 +49,7 @@ export default function About() {
                         />
                     </div>
                     <h2 className="md:text-3xl text-xl font-semibold md:py-6 py-3">Karry Huang</h2>
-                    <p className="md:text-xl text-lg text-gray-800 mb-2">3rd Year Computing Student</p>
-                    <p className="md:text-xl text-lg text-gray-800 mb-5">Back End Developer</p>
+                    <p className="md:text-xl text-lg text-gray-800 mb-5">Artificial Intelligence,<br/>  Bachelor of Computing (Honours)</p>
                     <div>
                         <a className="bg-blue-600 px-3 mx-2 py-2 rounded-lg text-white">GitHub</a>
                         <a href="https://www.linkedin.com/in/linhao-huang/" className="bg-blue-600 px-3 mx-2 py-2 rounded-lg text-white">LinkedIn</a>
