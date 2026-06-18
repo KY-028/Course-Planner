@@ -1,26 +1,23 @@
 import { useState, useEffect, useRef } from 'react';
 import { FaTimes } from 'react-icons/fa';
-import { getPlanPrefix, establishPlansFilling, processSection, clearPlanReq } from './courseFunctions';
+import { getPlanPrefix, establishPlansFilling, processSection, clearPlanReq } from '/src/functions/courseFunctions';
 import CompleteIcon from '/complete.svg';
 
 // Component to display plan details in a formatted way
-export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames, plansFilling, coursesTaken, planIndex, setCoursesTaken, setPlansFilling, selectedPlanCombo, selectedSubPlans, setSelectedSubPlans, setCustomAssignments, link }) {
+export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames, plansFilling, coursesTaken, planIndex, setCoursesTaken, setPlansFilling, selectedPlanCombo, selectedSubPlans, setSelectedSubPlans, setCustomAssignments, link, onAfterSubPlanChange }) {
     // Track selected option for subplans
     const [showElectiveAssignment, setShowElectiveAssignment] = useState(null);
     const [assignmentPosition, setAssignmentPosition] = useState({ x: 0, y: 0 });
 
     const handleOptionChange = (planIndex, value) => {
+        const nextSelectedSubPlans = [...selectedSubPlans];
+        if (value === '') {
+            nextSelectedSubPlans[planIndex] = null;
+        } else {
+            nextSelectedSubPlans[planIndex] = value || null;
+        }
 
-        // Update selected sub-plans state (as an array)
-        setSelectedSubPlans(prev => {
-            const arr = [...prev];
-            if (value === "") {
-                arr[planIndex] = null;
-            } else {
-                arr[planIndex] = value || null;
-            }
-            return arr;
-        });
+        setSelectedSubPlans(nextSelectedSubPlans);
 
         // TODO: Add logic to update plansFilling, etc.
         setPlansFilling(prev => {
@@ -70,6 +67,8 @@ export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames,
 
         // This should retrigger plan assignments
         setCoursesTaken(clearPlanReq(coursesTaken));
+
+        onAfterSubPlanChange?.({ selectedSubPlans: nextSelectedSubPlans });
     };
 
     // Handle elective course click to show assignment options
@@ -185,34 +184,10 @@ export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames,
             planreq: existingAssignment ? existingAssignment.join(', ') : requirementId
         };
 
-        // Add this course to the custom assignments
+        // Add or update this course in the custom assignments (one entry per index)
         setCustomAssignments(prev => {
-            const alreadyExists = prev.some(
-                entry => entry.index === courseIndex
-            );
-            if (!alreadyExists || existingAssignment.length >= 2) {
-                // If course doesn't exist in custom assignments or multiple requirements involved, add it
-                return [...prev, { index: courseIndex, course: updatedCourse }];
-            } else {
-                // If course already exists in custom assignments,
-                // First check if this course is supposed to be a requirement for that section
-                if (courseFitsRequirement(updatedCourse, requirementId)) {
-                    // If it fits, check if this satisfies any other requirementId
-                    if (
-                        Object.entries(plansFilling).some(([otherReqId, reqData]) =>
-                            otherReqId !== requirementId &&
-                            courseFitsRequirement(updatedCourse, otherReqId) &&
-                            reqData.unitsCompleted >= reqData.unitsRequired
-                        )
-                    ) {
-                        // If the course fits another requirement that is already satisfied, add as custom assignment
-                        return [...prev, { index: courseIndex, course: updatedCourse }];
-                    }
-                    return prev.filter(entry => entry.index !== courseIndex);
-                } else {
-                    return [...prev, { index: courseIndex, course: updatedCourse }]
-                }
-            }
+            const filtered = prev.filter(entry => entry.index !== courseIndex);
+            return [...filtered, { index: courseIndex, course: updatedCourse }];
         });
 
         // Update plansFilling - add the course to the requirement
@@ -337,6 +312,7 @@ export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames,
                 plansFilling={plansFilling}
                 coursesTaken={coursesTaken}
                 setCoursesTaken={setCoursesTaken}
+                setPlansFilling={setPlansFilling}
                 selectedSubPlans={selectedSubPlans}
                 handleOptionChange={handleOptionChange}
                 renderSection={renderSection}
@@ -353,8 +329,14 @@ export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames,
             })}
             {plansFilling["Unassigned/Electives"] && (
                 <div className={`space-y-2 mt-4`}>
-                    <div className="font-semibold text-gray-800">
+                    <div className="font-semibold text-gray-800 flex items-center gap-1">
                         Unassigned/Electives
+                        <div className="relative group">
+                            <img src="/info.svg" alt="info" className="w-4 h-4 text-gray-400 cursor-help" />
+                            <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-4 py-2 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-normal min-w-[280px] w-[90vw] max-w-[440px] z-10 pointer-events-none">
+                                This also includes excess units when a course has more units than a requirement needs (e.g. a 6-unit course filling a 3-unit requirement).
+                            </div>
+                        </div>
                     </div>
                     {(() => {
                         const electiveCourses = coursesTaken
@@ -446,24 +428,30 @@ export default function PlanDetailsDisplay({ planData, planPrefix, sectionNames,
                             planRequirements.map((requirement) => {
                                 const isComplete = requirement.unitsCompleted >= requirement.unitsRequired;
                                 const isNearlyComplete = requirement.unitsCompleted >= requirement.unitsRequired * 0.8;
+                                const alreadyHasCourse = (requirement.courses || []).includes(showElectiveAssignment.code);
 
                                 return (
                                     <button
                                         key={requirement.id}
-                                        onClick={() => handleAssignCourseToRequirement(showElectiveAssignment.code, requirement.id)}
-                                        className={`w-full text-left p-2 rounded border transition-colors ${isComplete
-                                            ? 'bg-green-50 border-green-300 hover:bg-green-100'
-                                            : isNearlyComplete
-                                                ? 'bg-yellow-50 border-yellow-300 hover:bg-yellow-100'
-                                                : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50'
+                                        type="button"
+                                        disabled={alreadyHasCourse}
+                                        onClick={() => !alreadyHasCourse && handleAssignCourseToRequirement(showElectiveAssignment.code, requirement.id)}
+                                        className={`w-full text-left p-2 rounded border transition-colors ${alreadyHasCourse
+                                            ? 'bg-gray-100 border-gray-200 text-gray-500 cursor-not-allowed'
+                                            : isComplete
+                                                ? 'bg-green-50 border-green-300 hover:bg-green-100'
+                                                : isNearlyComplete
+                                                    ? 'bg-yellow-50 border-yellow-300 hover:bg-yellow-100'
+                                                    : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50'
                                             }`}
                                     >
-                                        <div className={`font-medium ${isComplete ? 'text-green-800' : 'text-gray-800'
+                                        <div className={`font-medium ${alreadyHasCourse ? 'text-gray-500' : isComplete ? 'text-green-800' : 'text-gray-800'
                                             }`}>
                                             {requirement.title}
-                                            {isComplete && <span className="ml-2 text-green-600">✓ Complete</span>}
+                                            {alreadyHasCourse && <span className="ml-2 text-gray-500 text-xs">(already assigned)</span>}
+                                            {!alreadyHasCourse && isComplete && <span className="ml-2 text-green-600">✓ Complete</span>}
                                         </div>
-                                        <div className={`text-sm ${isComplete ? 'text-green-600' : 'text-gray-600'
+                                        <div className={`text-sm ${alreadyHasCourse ? 'text-gray-500' : isComplete ? 'text-green-600' : 'text-gray-600'
                                             }`}>
                                             {requirement.unitsCompleted}/{requirement.unitsRequired} units
                                         </div>
@@ -489,6 +477,7 @@ function PlanSubsection({
     plansFilling,
     coursesTaken,
     setCoursesTaken,
+    setPlansFilling,
     selectedSubPlans,
     handleOptionChange,
     renderSection,
@@ -529,49 +518,54 @@ function PlanSubsection({
     const handleMouseLeave = () => {
         hoverTimeout.current = setTimeout(() => setShowHover(false), 150);
     };
-    // Remove course from requirement handler
+    // Remove course from requirement handler (custom or solver assignment). Always allow removal to Unassigned/Electives.
     const handleRemoveCourse = (courseCode) => {
-        // Remove this course from this requirement, and move to Electives
-        // Find the course in coursesTaken and update its planreq
         const idx = coursesTaken.findIndex(c => c && c.code === courseCode && (!c.isExcess));
         if (idx === -1) return;
-        console.log(coursesTaken[idx].planreq)
 
-        // Remove this requirementId from planreq, add 'Electives' if not present
         let planreqArr = coursesTaken[idx].planreq ? coursesTaken[idx].planreq.split(',').map(s => s.trim()) : [];
         planreqArr = planreqArr.filter(req => req !== requirementId);
-        if (!planreqArr.includes(`Unassigned/Electives`) && planreqArr.length === 0) planreqArr.push(`Unassigned/Electives`);
+        // Always include Unassigned/Electives after a remove so the course shows in the elective list (e.g. excess units can be re-assigned)
+        if (!planreqArr.includes(`Unassigned/Electives`)) planreqArr.push(`Unassigned/Electives`);
         const updatedCourse = { ...coursesTaken[idx], planreq: planreqArr.join(', ') };
 
-        // Update coursesTaken
         const newCourses = [...coursesTaken];
         newCourses[idx] = updatedCourse;
         setCoursesTaken(newCourses);
 
-        // Update customAssignments
+        const courseUnits = parseFloat(coursesTaken[idx].units) || 3;
+        setPlansFilling(prev => {
+            const next = { ...prev };
+            if (next[requirementId]) {
+                const req = next[requirementId];
+                const newCoursesList = (req.courses || []).filter(c => c !== courseCode);
+                next[requirementId] = {
+                    ...req,
+                    courses: newCoursesList,
+                    unitsCompleted: Math.max(0, (req.unitsCompleted || 0) - courseUnits),
+                };
+            }
+            // Add course back to Unassigned/Electives so it shows in the elective list; only add units if not already listed (avoids double-counting excess)
+            if (!next["Unassigned/Electives"]) next["Unassigned/Electives"] = { unitsRequired: 0, unitsCompleted: 0, courses: [] };
+            const unass = next["Unassigned/Electives"];
+            if (!(unass.courses || []).includes(courseCode)) {
+                next["Unassigned/Electives"] = {
+                    ...unass,
+                    courses: [...(unass.courses || []), courseCode],
+                    unitsCompleted: (unass.unitsCompleted || 0) + courseUnits,
+                };
+            }
+            return next;
+        });
+
         setCustomAssignments(prev => {
             const alreadyCustom = prev.some(entry => entry.index === idx);
-            // If already custom, and planreqArr includes `Unassigned/Electives`, remove it
             if (alreadyCustom && planreqArr.length === 1 && planreqArr.includes(`Unassigned/Electives`)) {
-                // Remove from customAssignments
                 return prev.filter(entry => entry.index !== idx);
-            } else if (planreqArr.length !== 0 && !planreqArr.includes(`Unassigned/Electives`)) {
-                // Some other requirement is present, update it
-                return prev.map(entry => {
-                    if (entry.index === idx) {
-                        return { ...entry, course: updatedCourse };
-                    }
-                    return entry;
-                });
+            } else if (alreadyCustom) {
+                return prev.map(entry => entry.index === idx ? { ...entry, course: updatedCourse } : entry);
             } else {
-                // Not custom yet, and only an elective, add it
-                return [
-                    ...prev,
-                    {
-                        index: idx,
-                        course: { ...updatedCourse, planreq: `Unassigned/Electives` }
-                    }
-                ];
+                return [...prev, { index: idx, course: updatedCourse }];
             }
         });
     };

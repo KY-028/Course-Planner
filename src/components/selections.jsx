@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../context/authContext';
-import { generateNewCourse, generateOptions } from './courseFunctions';
+import { generateNewCourse, generateOptions } from '/src/functions/courseFunctions';
 import Modal from './modal';
 import UpdateManager from './updatemanager'
 import emailjs from '@emailjs/browser'
@@ -205,6 +205,24 @@ function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChan
         setIsModalOpen(false);
     };
 
+    // Add a course discovered through the shared backend search. Its info isn't
+    // in the local map yet, so merge it in first, then build the display course
+    // from the merged data (state updates are async, so we can't rely on
+    // courseData being updated within this call).
+    const addRemoteCourse = (id, info) => {
+        const isAlreadyAdded = courses.some(course => course.id === id);
+        if (isAlreadyAdded) {
+            alert("This course is already in the list!");
+            return;
+        }
+        const newData = { ...courseData, [id]: info };
+        changeCourseData(newData);
+        const newCourse = generateNewCourse(id, newData);
+        setCourses([...courses, newCourse]);
+        setInputValue(prev => (prev + "\n" + id).trim());
+        setIsModalOpen(false);
+    };
+
     const addCustomCourse = async (newCourse) => {
         const newData = { ...courseData, [newCourse.id]: newCourse.correctformat };
         changeCourseData(newData);
@@ -282,33 +300,18 @@ function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChan
         const newCourseData = { ...courseData };
         if (!(id in original)) {
             // Prompt the user to confirm the removal of a custom course
-            const confirmRemoval = confirm("Removing a custom course will require you to reenter it. Do you want to proceed?");
+            const confirmRemoval = confirm("Removing this course will take it off your schedule. Do you want to proceed?");
 
             if (!confirmRemoval) {
                 // If the user cancels, do not proceed with removal
                 return;
-
-            } else {
-                // Because it's a custom course it must be removed from the library
-                delete newCourseData[id];
-                changeCourseData(newCourseData);
-
-                if (currentUser) {
-                    const data = {
-                        user_id: currentUser.id,
-                        term: term,
-                        course_id: id
-                    }
-
-                    UpdateManager.addUpdate({
-                        endpoint: `${apiUrl}/backend/customCourses/delete`,
-                        data: data
-                    });
-                } else {
-                    console.warn("Cannot remove custom course: User not logged in.");
-                }
-
             }
+
+            // Remove it from this user's local map only. The shared catalog
+            // entry is intentionally left intact so other users keep it, and
+            // the user's own snapshot is dropped by the onUpdate save below.
+            delete newCourseData[id];
+            changeCourseData(newCourseData);
         }
 
         // Remove options from related courses
@@ -348,7 +351,7 @@ function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChan
                     <span className="text-xl">+</span>
                 </button>
             }
-            <Modal isOpen={isModalOpen} onClose={closeModal} courseData={courseData} onAddCourse={addCourse} onAddCustomCourse={addCustomCourse} />
+            <Modal isOpen={isModalOpen} onClose={closeModal} courseData={courseData} onAddCourse={addCourse} onAddCustomCourse={addCustomCourse} onAddRemoteCourse={addRemoteCourse} term={term} />
         </div>
     );
 }

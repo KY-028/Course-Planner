@@ -1,5 +1,5 @@
 import React from "react";
-import * as Components from "/src/components/logincomponents";
+import * as Components from "/src/functions/logincomponents";
 import { useContext, useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from "../context/authContext";
@@ -30,7 +30,6 @@ export default function LoginSignup({ signinintent }) {
         username: "",
         email: "",
         password: "",
-        grade: "",
     })
 
     const [err, setError] = useState(null);
@@ -106,7 +105,6 @@ export default function LoginSignup({ signinintent }) {
                             <input required onChange={handleSignupChange} value={signupInputs.email} name="email" type="email" placeholder="Email" />
                             <input required onChange={handleSignupChange} value={signupInputs.username} name="username" type="text" placeholder="Username" />
                             <input required onChange={handleSignupChange} value={signupInputs.password} name="password" type="password" placeholder="Password" />
-                            <input required onChange={handleSignupChange} value={signupInputs.grade} name="grade" type="number" min={1} placeholder="Year of Study" />
                             <p className="error">{err ? err : ''}</p>
                             <button type="submit" className="w-[200px] h-10 bg-[#65A8F6] text-white rounded-full font-bold text-base flex items-center justify-center">Sign Up</button>
                             <div className="mt-1">
@@ -212,7 +210,6 @@ export default function LoginSignup({ signinintent }) {
                             <input className="bg-transparent border-b border-gray-300 text-white p-[5px_2px] m-[8px_10px] w-3/5 focus:border-b-white focus:outline-none md:text-base md:w-3/4" required onChange={handleSignupChange} value={signupInputs.email} name="email" type="email" placeholder="Email" />
                             <input className="bg-transparent border-b border-gray-300 text-white p-[5px_2px] m-[8px_10px] w-3/5 focus:border-b-white focus:outline-none md:text-base md:w-3/4" required onChange={handleSignupChange} value={signupInputs.username} name="username" type="text" placeholder="Username" />
                             <input className="bg-transparent border-b border-gray-300 text-white p-[5px_2px] m-[8px_10px] w-3/5 focus:border-b-white focus:outline-none md:text-base md:w-3/4" required onChange={handleSignupChange} value={signupInputs.password} name="password" type="password" placeholder="Password" />
-                            <input className="bg-transparent border-b border-gray-300 text-white p-[5px_2px] m-[8px_10px] w-3/5 focus:border-b-white focus:outline-none md:text-base md:w-3/4" required onChange={handleSignupChange} value={signupInputs.grade} name="grade" type="number" min={1} placeholder="Year of Study" />
                             <button className="border border-[#79b7ff] text-white text-lg font-bold p-1.5 w-3/5 tracking-wide my-3.5 transition-transform duration-75 ease-in focus:outline-none active:scale-95 sm:text-sm sm:p-1 sm:w-3/4">Sign Up</button>
                             <button
                                 type="button"

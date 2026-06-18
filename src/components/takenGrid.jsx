@@ -219,26 +219,29 @@ export default function TakenGrid({ coursesTaken, setCoursesTaken }) {
                                 )}
                                 {coursesTaken[index]?.planreq && (
                                     <div className="lg:text-xs sm:text-xxs text-xxxs text-blue-600 truncate">
-                                        {/* Shorten planreq display: e.g., major-1. CoreA => major-1A */}
-                                        {coursesTaken[index].planreq.split(',').map((req, i) => {
-                                            // Match pattern like 'major-3. SupportingA' or 'major-1. CoreB'
-                                            const match = req.trim().match(/^(.*?-)([0-9]+)\.\s*[A-Za-z\-]+([A-Z])([\-\.].*)?/);
-
-                                            if (match) {
-                                                // e.g., major-3. SupportingA => major-3A
+                                        {/* Shorten planreq display; keep Unassigned/Electives last */}
+                                        {(() => {
+                                            const reqs = coursesTaken[index].planreq.split(',').map(s => s.trim());
+                                            const sorted = [...reqs].sort((a, b) => {
+                                                if (a === 'Unassigned/Electives') return 1;
+                                                if (b === 'Unassigned/Electives') return -1;
+                                                return a.localeCompare(b);
+                                            });
+                                            return sorted.map((req, i) => {
+                                                const match = req.match(/^(.*?-)([0-9]+)\.\s*[A-Za-z\-]+([A-Z])([\-\.].*)?/);
+                                                if (match) {
+                                                    return (
+                                                        <span key={i}>
+                                                            {match[1]}{match[2]}{match[3]}{match[4] || ''}
+                                                            {i < sorted.length - 1 ? ', ' : ''}
+                                                        </span>
+                                                    );
+                                                }
                                                 return (
-                                                    <span key={i}>
-                                                        {match[1]}{match[2]}{match[3]}{match[4] || ''}
-                                                        {i < coursesTaken[index].planreq.split(',').length - 1 ? ', ' : ''}
-                                                    </span>
+                                                    <span key={i}>{req}{i < sorted.length - 1 ? ', ' : ''}</span>
                                                 );
-                                            } else {
-                                                // fallback: just show the trimmed req
-                                                return (
-                                                    <span key={i}>{req.trim()}{i < coursesTaken[index].planreq.split(',').length - 1 ? ', ' : ''}</span>
-                                                );
-                                            }
-                                        })}
+                                            });
+                                        })()}
                                     </div>
                                 )}
                             </div>

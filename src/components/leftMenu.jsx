@@ -4,7 +4,7 @@ import mainIcon from '/src/assets/icon1.png';
 import { AuthContext } from "../context/authContext";
 import UpdateManager from "./updatemanager"
 
-const LeftMenu = ({ activeTab }) => {
+const LeftMenu = ({ activeTab, onScheduleGenerator }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const nav = useNavigate();
 
@@ -36,6 +36,17 @@ const LeftMenu = ({ activeTab }) => {
             <Link to="/planner" className={`w-fit ub my-1.5 mx-4 text-xl ${activeTab === 'planner' ? 'text-teal' : ''}`}>Planner</Link>
             <Link to="/about" className={`w-fit ub my-1.5 mx-4 text-xl ${activeTab === 'about' ? 'text-teal ' : ''}`}>About</Link>
             <Link to="/support" className={`w-fit ub my-1.5 mx-4 text-xl ${activeTab === 'support' ? 'text-teal' : ''}`}>Support</Link>
+
+            {/* Schedule Generator button hidden for now.
+            {activeTab === 'planner' && onScheduleGenerator && (
+                <button
+                    onClick={onScheduleGenerator}
+                    className="w-fit my-3 mx-4 text-lg bg-teal hover:bg-teal-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors"
+                >
+                    Schedule Generator
+                </button>
+            )}
+            */}
 
             <div className='w-fit my-1.5 mx-4 text-gray-300 absolute bottom-8 text-small text-start tracking-tight leading-tight'>Database last updated: 0624CISCMATHSTAT, 0625BIOLCHEMPHYS</div>
 

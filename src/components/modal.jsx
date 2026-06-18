@@ -1,7 +1,10 @@
 import { useState, useRef, useEffect } from "react";
+import axios from "axios";
 
-export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddCustomCourse }) {
+export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddCustomCourse, onAddRemoteCourse, term }) {
+    const apiUrl = import.meta.env.VITE_API_URL;
     const [searchTerm, setSearchTerm] = useState('');
+    const [remoteResults, setRemoteResults] = useState([]);
     const [courseName, setCourseName] = useState('');
     const [courseTitle, setCourseTitle] = useState('Custom Course Title');
     const [isCourseTitleFocused, setIsCourseTitleFocused] = useState(false);
@@ -32,8 +35,46 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
         }
     }, [isOnlineCourse]);
 
+    // Debounced typeahead against the shared custom-course catalog so courses
+    // created by any user show up as you type, without loading them all locally.
+    useEffect(() => {
+        const q = searchTerm.trim();
+        if (!apiUrl || !term || q.length < 2 || showCustomForm) {
+            setRemoteResults([]);
+            return;
+        }
+
+        let cancelled = false;
+        const timer = setTimeout(async () => {
+            try {
+                const res = await axios.get(`${apiUrl}/backend/customCourses/search`, {
+                    params: { term, q, limit: 20 },
+                });
+                if (!cancelled) {
+                    setRemoteResults(Array.isArray(res.data) ? res.data : []);
+                }
+            } catch (error) {
+                if (!cancelled) {
+                    setRemoteResults([]);
+                }
+                console.error("Custom course search failed:", error);
+            }
+        }, 250);
+
+        return () => {
+            cancelled = true;
+            clearTimeout(timer);
+        };
+    }, [searchTerm, term, apiUrl, showCustomForm]);
+
     const handleSearchChange = (e) => {
         setSearchTerm(e.target.value);
+    };
+
+    const handleRemoteSelect = (id, info) => {
+        onAddRemoteCourse?.(id, info);
+        setSearchTerm('');
+        setRemoteResults([]);
     };
 
     const handleCourseSelect = (id) => {
@@ -139,29 +180,44 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
         setIsOnlineCourse(false);
     };
 
-    const searchResults = Object.keys(courseData)
-        .filter(id => {
-            const normalizedSearchTerm = searchTerm.split(" ").join("").toLowerCase();
-            const normalizedId = id.toLowerCase();
-            const normalizedDescription = courseData[id][1].split(" ").join("").toLowerCase();
-            return normalizedId.includes(normalizedSearchTerm) || normalizedDescription.includes(normalizedSearchTerm);
-        })
-        .map(id => (
-            <div key={id} onClick={() => handleCourseSelect(id)} className="p-1.5 hover:bg-gray-200 cursor-pointer overflow-hidden">
-                {`${courseData[id][0]} ${courseData[id][2].split(",").reverse().join(" ")} `}
-                <div className="text-gray-700 text-sm -mt-1 overflow-hidden">
-                    {courseData[id][1]}
-                </div>
-                <div className="ml-6 text-gray-600 text-sm">
-                    {courseData[id].slice(4,).map((desc, i) => (
-                        <div key={i}>
-                            {`${desc.split(" ")[2].slice(0, 3).toUpperCase()} ${desc.split(" ")[3]}`}
-                        </div>
-                    ))
-                    }
-                </div>
+    const renderCourseRow = (id, info, onSelect) => (
+        <div key={id} onClick={onSelect} className="p-1.5 hover:bg-gray-200 cursor-pointer overflow-hidden">
+            {`${info[0]} ${(info[2] || "").split(",").reverse().join(" ")} `}
+            <div className="text-gray-700 text-sm -mt-1 overflow-hidden">
+                {info[1]}
             </div>
-        ));
+            <div className="ml-6 text-gray-600 text-sm">
+                {info.slice(4,).map((desc, i) => (
+                    <div key={i}>
+                        {`${desc.split(" ")[2].slice(0, 3).toUpperCase()} ${desc.split(" ")[3]}`}
+                    </div>
+                ))
+                }
+            </div>
+        </div>
+    );
+
+    const normalizedSearchTerm = searchTerm.split(" ").join("").toLowerCase();
+
+    const localIds = Object.keys(courseData).filter(id => {
+        const normalizedId = id.toLowerCase();
+        const normalizedDescription = (courseData[id][1] || "").split(" ").join("").toLowerCase();
+        return normalizedId.includes(normalizedSearchTerm) || normalizedDescription.includes(normalizedSearchTerm);
+    });
+    const localIdSet = new Set(localIds);
+
+    // Local (bundled JSON + already-selected) matches first, then shared catalog
+    // hits from the backend, deduped by id (local wins).
+    const searchResults = [
+        ...localIds.map(id => renderCourseRow(id, courseData[id], () => handleCourseSelect(id))),
+        ...remoteResults
+            .filter(doc => doc && doc.courseId && doc.courseInfo && Array.isArray(doc.courseInfo[doc.courseId]) && !localIdSet.has(doc.courseId))
+            .map(doc => {
+                const id = doc.courseId;
+                const info = doc.courseInfo[id];
+                return renderCourseRow(id, info, () => handleRemoteSelect(id, info));
+            }),
+    ];
 
     if (!isOpen) {
         return null;
