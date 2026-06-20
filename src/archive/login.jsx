@@ -22,7 +22,7 @@ const Login = () => {
         e.preventDefault();
         try {
             await login(inputs);
-            navigate("/course-selection", { replace: true });
+            navigate("/planner", { replace: true });
         } catch (err) {
             const errorMessage = err.response?.data?.message || "An unexpected error occurred";
             setError(errorMessage);

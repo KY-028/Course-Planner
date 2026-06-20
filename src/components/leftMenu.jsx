@@ -32,8 +32,8 @@ const LeftMenu = ({ activeTab, onScheduleGenerator }) => {
                     <h1 className="text-xl font-bold ml-1.5">Course Planner</h1>
                 </div>
             </Link>
-            <Link to="/course-selection" className={`w-fit my-1.5 mx-4 text-xl ${activeTab === 'courses' ? 'text-teal' : ''}`}>Courses</Link>
             <Link to="/planner" className={`w-fit ub my-1.5 mx-4 text-xl ${activeTab === 'planner' ? 'text-teal' : ''}`}>Planner</Link>
+            <Link to="/course-selection" className={`w-fit my-1.5 mx-4 text-xl ${activeTab === 'courses' ? 'text-teal' : ''}`}>Courses</Link>
             <Link to="/about" className={`w-fit ub my-1.5 mx-4 text-xl ${activeTab === 'about' ? 'text-teal ' : ''}`}>About</Link>
             <Link to="/support" className={`w-fit ub my-1.5 mx-4 text-xl ${activeTab === 'support' ? 'text-teal' : ''}`}>Support</Link>
 

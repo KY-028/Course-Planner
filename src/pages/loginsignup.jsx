@@ -15,7 +15,7 @@ export default function LoginSignup({ signinintent }) {
 
     useEffect(() => {
         if (currentUser) {
-            navigate("/course-selection");
+            navigate("/planner");
         }
     }, [currentUser, navigate]);
 
@@ -47,7 +47,7 @@ export default function LoginSignup({ signinintent }) {
         e.preventDefault();
         const result = await login(logininputs);
         if (result.success) {
-            navigate("/course-selection");
+            navigate("/planner");
         } else {
             setError(result.error);
         }
@@ -73,7 +73,7 @@ export default function LoginSignup({ signinintent }) {
     const handleGoogleSuccess = async (credentialResponse) => {
         const result = await loginWithGoogle(credentialResponse.access_token);
         if (result.success) {
-            navigate("/course-selection");
+            navigate("/planner");
         } else {
             setError(result.error);
         }

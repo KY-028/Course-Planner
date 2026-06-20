@@ -4,6 +4,7 @@ import {
     processCsvToCoursesTaken,
     csvHasCourseColumn,
 } from '../functions/transcriptProcessing';
+import { enrichCoursesTakenWithDetails } from '../functions/courseDetailsApi';
 
 const FILE_INPUT_ACCEPT = '.pdf,.csv,application/pdf,text/csv';
 const QFLOW_API_URL = import.meta.env.VITE_QFLOW_API_URL || 'https://qflow-api.pooria.dev';
@@ -50,7 +51,7 @@ async function scrapeTranscriptPdf(file) {
     return response.json();
 }
 
-export default function TranscriptUploadModal({ isOpen, onClose, setCoursesTaken }) {
+export default function TranscriptUploadModal({ isOpen, onClose, setCoursesTaken, setIsLoading, apiUrl }) {
     const [isDragging, setIsDragging] = useState(false);
     const [isProcessing, setIsProcessing] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
@@ -63,6 +64,7 @@ export default function TranscriptUploadModal({ isOpen, onClose, setCoursesTaken
 
         setErrorMessage('');
         setIsProcessing(true);
+        let importStarted = false;
 
         try {
             const fileKind = getFileKind(file);
@@ -71,31 +73,43 @@ export default function TranscriptUploadModal({ isOpen, onClose, setCoursesTaken
                 return;
             }
 
+            let coursesTaken;
+
             if (fileKind === 'csv') {
                 const text = await file.text();
                 if (!csvHasCourseColumn(text)) {
                     setErrorMessage('CSV must include a column header named "Course".');
                     return;
                 }
-
-                const coursesTaken = processCsvToCoursesTaken(text);
-                setCoursesTaken(coursesTaken);
-                console.log('CSV courses imported:', coursesTaken.filter(Boolean));
+                coursesTaken = processCsvToCoursesTaken(text);
+            } else {
+                setIsLoading(true);
                 onClose();
-                return;
+                importStarted = true;
+
+                const result = await scrapeTranscriptPdf(file);
+                coursesTaken = processTranscriptToCoursesTaken(result);
             }
 
-            const result = await scrapeTranscriptPdf(file);
-            const coursesTaken = processTranscriptToCoursesTaken(result);
-            setCoursesTaken(coursesTaken);
-            console.log('Transcript scrape result:', result);
-            console.log('Courses imported:', coursesTaken.filter(Boolean));
-            onClose();
+            if (!importStarted) {
+                setIsLoading(true);
+                onClose();
+                importStarted = true;
+            }
+
+            const enriched = await enrichCoursesTakenWithDetails(coursesTaken, apiUrl);
+            setCoursesTaken(enriched);
         } catch (error) {
             console.error('Transcript upload failed:', error);
-            setErrorMessage(error.message || 'Upload failed. Please try again.');
+            const message = error.message || 'Upload failed. Please try again.';
+            if (importStarted) {
+                alert(message);
+            } else {
+                setErrorMessage(message);
+            }
         } finally {
             setIsProcessing(false);
+            setIsLoading(false);
         }
     };
 

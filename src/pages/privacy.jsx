@@ -53,7 +53,7 @@ export default function Privacy() {
                                 Back to Home
                             </button>
                         </Link>
-                        <Link to="/course-selection">
+                        <Link to="/planner">
                             <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
                                 Go to Dashboard
                             </button>

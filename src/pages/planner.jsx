@@ -370,6 +370,8 @@ export default function Planner() {
                 isOpen={isTranscriptUploadOpen}
                 onClose={() => setIsTranscriptUploadOpen(false)}
                 setCoursesTaken={setCoursesTaken}
+                setIsLoading={setIsLoading}
+                apiUrl={apiUrl}
             />
 
             <div className='relative lg:block hidden '>
