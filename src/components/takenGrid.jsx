@@ -3,7 +3,7 @@ import plusIcon from '/plus_icon.svg';
 import penIcon from '/pen.svg';
 import axios from 'axios';
 
-export default function TakenGrid({ coursesTaken, setCoursesTaken }) {
+export default function TakenGrid({ coursesTaken, setCoursesTaken, onUploadTranscript }) {
     const headers = ["1st Year", "2nd Year", "3rd Year", "4th+ Year", "Transfer Credits"];
     const [editingIndex, setEditingIndex] = useState(null);
     const [inputValue, setInputValue] = useState('');
@@ -107,33 +107,52 @@ export default function TakenGrid({ coursesTaken, setCoursesTaken }) {
         }
     };
 
-    const handleSubmit = async (index) => {
-        if (inputValue.trim()) {
+    const getNextIndex = (index) => {
+        const col = index % 5;
+        const row = Math.floor(index / 5);
+        if (row < 11) {
+            return index + 5;
+        }
+        if (col < 4) {
+            return col + 1;
+        }
+        return null;
+    };
+
+    const handleSubmit = (index, { moveToNext = false } = {}) => {
+        const hasInput = Boolean(inputValue.trim());
+
+        if (hasInput) {
             const formattedCode = formatCourseCode(inputValue);
             // Update the coursesTaken with the code immediately, details will be fetched
             setCoursesTaken(prevCourses => {
                 const newCourses = [...prevCourses];
-                newCourses[index] = { code: formattedCode, title: null, units: null, planreq: null }; // Initialize with null details
+                newCourses[index] = { code: formattedCode, title: null, units: null, planreq: null };
                 return newCourses;
             });
-
-            // Fetch course details after setting the basic course info
-            await fetchCourseDetails(formattedCode, index);
+            fetchCourseDetails(formattedCode, index);
         } else {
-            // If input is empty, clear the course by setting it to null
             setCoursesTaken(prevCourses => {
                 const newCourses = [...prevCourses];
                 newCourses[index] = null;
                 return newCourses;
             });
         }
-        setEditingIndex(null);
-        setInputValue('');
+
+        const nextIndex = moveToNext && hasInput ? getNextIndex(index) : null;
+        if (nextIndex !== null) {
+            setEditingIndex(nextIndex);
+            setInputValue(coursesTaken[nextIndex]?.code || '');
+        } else {
+            setEditingIndex(null);
+            setInputValue('');
+        }
     };
 
     const handleKeyDown = (e, index) => {
         if (e.key === 'Enter') {
-            handleSubmit(index);
+            e.preventDefault();
+            handleSubmit(index, { moveToNext: true });
         } else if (e.key === 'Escape') {
             setEditingIndex(null);
             setInputValue('');
@@ -151,7 +170,18 @@ export default function TakenGrid({ coursesTaken, setCoursesTaken }) {
     return (
         <div className="w-full max-w-4xl mx-auto">
             <div className="text-center sm:text-sm text-xxs text-gray-600 mb-1">Only include courses that you earned credit for, no duplicates, no exclusions, etc.</div>
-            <div className="text-center sm:text-sm text-xxs text-gray-600 mb-4">For year courses, do not enter A or B, simply enter the course code.</div>
+            <div className="text-center sm:text-sm text-xxs text-gray-600 mb-3">For year courses, do not enter A or B, simply enter the course code.</div>
+            {onUploadTranscript && (
+                <div className="text-center mb-4">
+                    <button
+                        type="button"
+                        onClick={onUploadTranscript}
+                        className="text-sm text-blue-600 hover:text-blue-800 border border-blue-200 hover:border-blue-300 bg-white hover:bg-blue-50 font-medium py-1.5 px-4 rounded-lg transition-colors"
+                    >
+                        Upload Transcript
+                    </button>
+                </div>
+            )}
             {/* Headers */}
             <div className="grid grid-cols-5 rounded-t-lg overflow-hidden border border-gray-200">
                 {headers.map((header, index) => (

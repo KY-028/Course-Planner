@@ -8,6 +8,7 @@ import TakenGrid from '/src/components/takenGrid';
 import SelectPlan from '/src/components/selectPlan';
 import LoadingModal from '/src/components/loadingModal.jsx';
 import ScheduleGeneratorModal from '/src/components/scheduleGeneratorModal.jsx';
+import TranscriptUploadModal from '/src/components/transcriptUploadModal.jsx';
 import planResultsData from '../assets/coursePlanResults.json';
 import fallJSON from '/src/assets/fall_2025_0624.json';
 import winterJSON from '/src/assets/winter_2026_0625.json';
@@ -107,6 +108,7 @@ export default function Planner() {
 
     const [isWelcomeModalOpen, setIsWelcomeModalOpen] = useState(true);
     const [isScheduleGenOpen, setIsScheduleGenOpen] = useState(false);
+    const [isTranscriptUploadOpen, setIsTranscriptUploadOpen] = useState(false);
 
     useEffect(() => {
         // Show welcome modal on first visit
@@ -364,6 +366,12 @@ export default function Planner() {
                 winterJSON={winterJSON}
             />
 
+            <TranscriptUploadModal
+                isOpen={isTranscriptUploadOpen}
+                onClose={() => setIsTranscriptUploadOpen(false)}
+                setCoursesTaken={setCoursesTaken}
+            />
+
             <div className='relative lg:block hidden '>
                 <div className='absolute top-0 left-0'>
                     <LeftMenu activeTab="planner" onScheduleGenerator={() => setIsScheduleGenOpen(true)} />
@@ -377,7 +385,11 @@ export default function Planner() {
                 <div className='w-full flex md-custom:flex-row flex-col-reverse gap-3'>
                     <div className='m-4 p-0 md-custom:w-[70%] w-full'>
                         <div className='text-center text-2xl font-bold mb-2 lg:mt-0 mt-2'>Courses Taken</div>
-                        <TakenGrid coursesTaken={coursesTaken} setCoursesTaken={setCoursesTaken} />
+                        <TakenGrid
+                            coursesTaken={coursesTaken}
+                            setCoursesTaken={setCoursesTaken}
+                            onUploadTranscript={() => setIsTranscriptUploadOpen(true)}
+                        />
                     </div>
                     <div className='m-4 md-custom:ml-0 p-0 md-custom:w-[30%] w-full flex flex-col'>
                         <SelectPlan
