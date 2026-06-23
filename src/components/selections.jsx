@@ -194,7 +194,7 @@ function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChan
         // Check if the course with the given id is already in the courses list
         const isAlreadyAdded = courses.some(course => course.id === id);
         if (isAlreadyAdded) {
-            alert("This course is already in the list!");
+            alert("You already have this course in your list.");
             setIsModalOpen(true);
             return;
         }
@@ -212,7 +212,7 @@ function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChan
     const addRemoteCourse = (id, info) => {
         const isAlreadyAdded = courses.some(course => course.id === id);
         if (isAlreadyAdded) {
-            alert("This course is already in the list!");
+            alert("You already have this course in your list.");
             return;
         }
         const newData = { ...courseData, [id]: info };

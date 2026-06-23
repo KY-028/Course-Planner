@@ -266,7 +266,7 @@ export default function Modal({ isOpen, onClose, courseData, courses = [], onAdd
                                     ref={courseNameInputRef}
                                     required
                                 />
-                                <label htmlFor="course" className="lg:ml-2 ml-1 text-sm text-gray-500">e.g. MATH110 (6+ chars, no space)</label>
+                                <label htmlFor="course" className="lg:ml-2 ml-1 text-sm text-gray-500">e.g. MATH110 (no spaces)</label>
                             </div>
                             <div>
                                 <input
