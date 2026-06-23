@@ -8,3 +8,4 @@ To start the development server: enter `npm run dev`
 
 The first time you execute your file, please make sure to start with `npm install` to download any packages used.
 
+Please note, you will not have full functionality of the app since most operations require proper JWT token generation and backend endpoint access
