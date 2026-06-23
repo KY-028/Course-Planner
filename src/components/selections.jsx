@@ -194,7 +194,7 @@ function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChan
         // Check if the course with the given id is already in the courses list
         const isAlreadyAdded = courses.some(course => course.id === id);
         if (isAlreadyAdded) {
-            alert("This course is already in the list!");
+            alert("You already have this course in your list.");
             setIsModalOpen(true);
             return;
         }
@@ -212,7 +212,7 @@ function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChan
     const addRemoteCourse = (id, info) => {
         const isAlreadyAdded = courses.some(course => course.id === id);
         if (isAlreadyAdded) {
-            alert("This course is already in the list!");
+            alert("You already have this course in your list.");
             return;
         }
         const newData = { ...courseData, [id]: info };
@@ -225,9 +225,13 @@ function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChan
 
     const addCustomCourse = async (newCourse) => {
         const isAlreadyAdded = courses.some((course) => course.id === newCourse.id);
-        if (isAlreadyAdded) {
-            alert("This course is already in the list!");
-            return;
+        if (
+            isAlreadyAdded &&
+            !window.confirm(
+                "This course is already in the list! Confirm if you intend to update the course information for the existing section."
+            )
+        ) {
+            return false;
         }
 
         let mergedInfo = newCourse.correctformat;
@@ -256,21 +260,29 @@ function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChan
         changeCourseData(newData);
 
         const baseCourseName = newCourse.id.split('_')[0];
-        const updatedCourses = [
-            ...courses.map((course) => {
+        const updatedCourses = courses
+            .map((course) => {
+                if (course.id === newCourse.id) {
+                    return generateNewCourse(newCourse.id, newData);
+                }
                 if (course.id.startsWith(baseCourseName)) {
                     const updatedOptions = generateOptions(baseCourseName, newData);
                     return { ...course, options: updatedOptions };
                 }
                 return course;
-            }),
-            generateNewCourse(newCourse.id, newData),
-        ];
+            });
+
+        if (!isAlreadyAdded) {
+            updatedCourses.push(generateNewCourse(newCourse.id, newData));
+        }
 
         setCourses(updatedCourses);
-        setInputValue((prev) => (prev + "\n" + newCourse.id).trim());
+        if (!isAlreadyAdded) {
+            setInputValue((prev) => (prev + "\n" + newCourse.id).trim());
+        }
         setIsModalOpen(false);
         onUpdate?.(updatedCourses.map((course) => course.id), newData);
+        return true;
     }
 
     const handleSelectChange = (courseId, newSelection) => {
@@ -346,7 +358,7 @@ function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChan
                     <span className="text-xl">+</span>
                 </button>
             }
-            <Modal isOpen={isModalOpen} onClose={closeModal} courseData={courseData} onAddCourse={addCourse} onAddCustomCourse={addCustomCourse} onAddRemoteCourse={addRemoteCourse} term={term} />
+            <Modal isOpen={isModalOpen} onClose={closeModal} courseData={courseData} courses={courses} onAddCourse={addCourse} onAddCustomCourse={addCustomCourse} onAddRemoteCourse={addRemoteCourse} term={term} />
         </div>
     );
 }
