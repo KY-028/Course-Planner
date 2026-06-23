@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { searchCustomCourses } from "../functions/customCoursesApi";
 
-export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddCustomCourse, onAddRemoteCourse, term }) {
+export default function Modal({ isOpen, onClose, courseData, courses = [], onAddCourse, onAddCustomCourse, onAddRemoteCourse, term }) {
     const apiUrl = import.meta.env.VITE_API_URL;
     const [searchTerm, setSearchTerm] = useState('');
     const [remoteResults, setRemoteResults] = useState([]);
@@ -138,14 +138,21 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
         return `${starthour}:${bmin}-${endhour}:${emin}`;
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
-        const id = `${courseName}_${sectionNumber}`;
+        if (courseName.length < 6) {
+            alert("Course code must be at least 6 characters long.");
+            courseNameInputRef.current?.focus();
+            return;
+        }
 
-        // Check if the course ID is already in courseData
-        if (id in courseData) {
-            alert("This class was found in our system!");
+        const id = `${courseName}_${sectionNumber}`;
+        const isAlreadySelected = courses.some((course) => course.id === id);
+
+        // Existing catalog courses should be added normally unless the user is
+        // intentionally updating a section they already selected.
+        if (id in courseData && !isAlreadySelected) {
             onAddCourse(id);
             return;
         }
@@ -172,7 +179,11 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
         };
         console.log("Adding custom course:", courseDetails);
 
-        onAddCustomCourse(courseDetails);
+        const didAddCourse = await onAddCustomCourse(courseDetails);
+        if (!didAddCourse) {
+            return;
+        }
+
         onClose();
 
         // Reset all form fields and close custom form
@@ -246,6 +257,7 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
                                 <input
                                     type="text"
                                     id="course"
+                                    minLength={6}
                                     maxLength={8}
                                     placeholder="Course Code"
                                     className="mt-4 p-2 w-full border-gray-400 border rounded"
@@ -254,7 +266,7 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
                                     ref={courseNameInputRef}
                                     required
                                 />
-                                <label htmlFor="course" className="lg:ml-2 ml-1 text-sm text-gray-500">e.g. MATH110 (no space)</label>
+                                <label htmlFor="course" className="lg:ml-2 ml-1 text-sm text-gray-500">e.g. MATH110 (6+ chars, no space)</label>
                             </div>
                             <div>
                                 <input
