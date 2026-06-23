@@ -13,6 +13,31 @@ export function getAccessToken() {
   return localStorage.getItem(TOKEN_KEY);
 }
 
+export function getAccessTokenPayload() {
+  const token = getAccessToken();
+  if (!token) return null;
+
+  try {
+    const [, payload] = token.split(".");
+    if (!payload) return null;
+    const normalized = payload.replace(/-/g, "+").replace(/_/g, "/");
+    const padded = normalized.padEnd(Math.ceil(normalized.length / 4) * 4, "=");
+    return JSON.parse(atob(padded));
+  } catch {
+    return null;
+  }
+}
+
+export function getAccessTokenExpiryMs() {
+  const payload = getAccessTokenPayload();
+  return typeof payload?.exp === "number" ? payload.exp * 1000 : null;
+}
+
+export function isAccessTokenExpired(skewMs = 30000) {
+  const expiry = getAccessTokenExpiryMs();
+  return !expiry || Date.now() >= expiry - skewMs;
+}
+
 export function clearAccessToken() {
   localStorage.removeItem(TOKEN_KEY);
 }

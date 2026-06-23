@@ -3,7 +3,9 @@ import { createContext, useEffect, useState } from "react";
 import {
   clearSession,
   getAccessToken,
+  getAccessTokenExpiryMs,
   getSessionUser,
+  isAccessTokenExpired,
   setAccessToken,
   setSessionUser,
 } from "../functions/authToken";
@@ -15,7 +17,7 @@ export const AuthContextProvider = ({ children }) => {
 
   const [currentUser, setCurrentUser] = useState(() => {
     const user = getSessionUser();
-    if (user && getAccessToken()) return user;
+    if (user && getAccessToken() && !isAccessTokenExpired()) return user;
     clearSession();
     return null;
   });
@@ -64,6 +66,40 @@ export const AuthContextProvider = ({ children }) => {
   useEffect(() => {
     setSessionUser(currentUser);
   }, [currentUser]);
+
+  useEffect(() => {
+    if (!currentUser) return undefined;
+
+    const expiry = getAccessTokenExpiryMs();
+    if (!expiry) {
+      clearSession();
+      setCurrentUser(null);
+      return undefined;
+    }
+
+    const delay = Math.max(expiry - Date.now(), 0);
+    const timer = window.setTimeout(() => {
+      clearSession();
+      setCurrentUser(null);
+    }, delay);
+
+    return () => window.clearTimeout(timer);
+  }, [currentUser]);
+
+  useEffect(() => {
+    const interceptor = axios.interceptors.response.use(
+      (response) => response,
+      (error) => {
+        if (error.response?.status === 401) {
+          clearSession();
+          setCurrentUser(null);
+        }
+        return Promise.reject(error);
+      }
+    );
+
+    return () => axios.interceptors.response.eject(interceptor);
+  }, []);
 
   return (
     <AuthContext.Provider value={{ currentUser, login, loginWithGoogle, logout }}>

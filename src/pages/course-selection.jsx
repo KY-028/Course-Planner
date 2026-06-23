@@ -13,6 +13,7 @@ import LoadingModal from '../components/loadingModal';
 import { fetchCustomCourseMismatches } from '../functions/customCoursesApi';
 import CustomCourseMismatchModal from '../components/customCourseMismatchModal';
 import { useSingleTabWarning } from '../functions/useSingleTabWarning';
+import { authRequestConfig } from '../functions/authToken';
 
 // legacy: loading pre-scraped data
 // import fallJSON from '/src/assets/fall_2025_0624.json';
@@ -55,8 +56,8 @@ export default function Courses() {
     const [customCourseMismatches, setCustomCourseMismatches] = useState(null);
     const [isUpdatingMismatches, setIsUpdatingMismatches] = useState(false);
 
-    // Guard overlay redirecting users to QFlow. Shown by default.
-    const [showOverlay, setShowOverlay] = useState(true);
+    // Guard overlay redirecting users to QFlow. Loaded from the user's saved preference.
+    const [showOverlay, setShowOverlay] = useState(false);
     const [qflowLoading, setQflowLoading] = useState(false);
 
     // Trigger the secure backend transfer: the backend calls QFlow with the
@@ -88,6 +89,26 @@ export default function Courses() {
         }
     };
 
+    const handleDismissOverlay = () => {
+        setShowOverlay(false);
+    };
+
+    const handleDoNotRemindAgain = async () => {
+        setShowOverlay(false);
+        if (!currentUser?.id) return;
+
+        try {
+            await axios.post(
+                `${apiUrl}/backend/users/qflow-overlay/${currentUser.id}`,
+                { dismissed: true },
+                authRequestConfig()
+            );
+        } catch (error) {
+            console.error("Failed to save QFlow overlay preference:", error);
+            setError("Could not save your reminder preference. Please try again later.");
+        }
+    };
+
     /**
     * Upon arriving on /course-selection
     * - Check if user is logged in
@@ -97,6 +118,7 @@ export default function Courses() {
     useEffect(() => {
         if (!currentUser) {
             alert("You are not logged in. All data entered will not be remembered.");
+            setShowOverlay(true);
             setIsLoading(false);  // Immediately allow interaction if not logged in
             return;
         }
@@ -125,8 +147,9 @@ export default function Courses() {
                 return;
             }
 
-            const response = await axios.get(`${apiUrl}/backend/users/courses/${userId}`);
-            const { fallCourses, winterCourses } = response.data;
+            const response = await axios.get(`${apiUrl}/backend/users/courses/${userId}`, authRequestConfig());
+            const { fallCourses, winterCourses, qflowOverlayDismissed } = response.data;
+            setShowOverlay(!qflowOverlayDismissed);
 
             // Courses are now stored as object snapshots ({ id, info }), so we
             // display them directly without resolving IDs against the bundled
@@ -331,21 +354,30 @@ export default function Courses() {
                         </button>
                         <button
                             type='button'
-                            onClick={() => setShowOverlay(false)}
+                            onClick={handleDismissOverlay}
                             className='mt-8 rounded-lg bg-teal px-6 py-3 text-sm font-semibold leading-relaxed text-white transition hover:opacity-90 sm:text-base md:text-lg'
                         >
                             If you still prefer to use our calendar tool with the old UI via filling in Custom Courses, it is available here.
+                        </button>
+                        <button
+                            type='button'
+                            onClick={handleDoNotRemindAgain}
+                            className='mt-3 text-sm font-semibold text-gray-600 underline transition hover:text-gray-900 sm:text-base'
+                        >
+                            Do Not Remind Again
                         </button>
                     </div>
                 </div>
             )}
             {isLoading && <LoadingModal />}
-            <CustomCourseMismatchModal
-                mismatches={customCourseMismatches}
-                onUpdate={handleUpdateMismatches}
-                onDisregard={() => setCustomCourseMismatches(null)}
-                isUpdating={isUpdatingMismatches}
-            />
+            {!showOverlay && (
+                <CustomCourseMismatchModal
+                    mismatches={customCourseMismatches}
+                    onUpdate={handleUpdateMismatches}
+                    onDisregard={() => setCustomCourseMismatches(null)}
+                    isUpdating={isUpdatingMismatches}
+                />
+            )}
             <div className='relative lg:block hidden '>
                 <div className='absolute top-0 left-0'>
                     <LeftMenu activeTab="courses" />
