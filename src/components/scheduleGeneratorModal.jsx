@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useMemo, useContext } from 'react';
 import { AuthContext } from '../context/authContext';
-import UpdateManager from './updatemanager';
+import { addCustomCourse as saveCustomCourseToCatalog } from '../functions/customCoursesApi';
 import axios from 'axios';
 
 const PLAN_METADATA_KEYS = ['title', 'year', 'electives', 'units'];
@@ -144,8 +144,6 @@ export default function ScheduleGeneratorModal({
     const [showCustomForm, setShowCustomForm] = useState(false);
     const [customTerm, setCustomTerm] = useState('fall');
     const [courseName, setCourseName] = useState('');
-    const [courseTitle, setCourseTitle] = useState('Custom Course Title');
-    const [isCourseTitleFocused, setIsCourseTitleFocused] = useState(false);
     const [sectionNumber, setSectionNumber] = useState('');
     const [staffName, setStaffName] = useState('Staff');
     const [times, setTimes] = useState([{ day: 'Monday', time: '' }]);
@@ -346,35 +344,39 @@ export default function ScheduleGeneratorModal({
         return Array.from(daysSet).sort((a, b) => daysOrder.indexOf(a) - daysOrder.indexOf(b)).join('');
     };
 
-    const handleCustomSubmit = (e) => {
+    const handleCustomSubmit = async (e) => {
         e.preventDefault();
         const id = `${courseName}_${sectionNumber}`;
         const locations = [];
-        const formattedArray = [courseName, courseTitle, staffName, locations];
+        const placeholderTitle = "Custom Course";
+        const formattedArray = [courseName, placeholderTitle, staffName, locations];
         times.forEach(time => {
             const time_str = convertTo24Hour(time.time);
             formattedArray.push(`${courseName} U ${time.day} ${time_str} ${staffName}`);
             locations.push('');
         });
 
-        setCustomCourses(prev => ({ ...prev, [id]: formattedArray }));
+        let mergedInfo = formattedArray;
+
+        if (currentUser) {
+            try {
+                const result = await saveCustomCourseToCatalog(apiUrl, {
+                    userId: currentUser.id,
+                    term: customTerm === 'fall' ? 'Fall' : 'Winter',
+                    courseId: id,
+                    courseInfo: { [id]: formattedArray },
+                });
+                mergedInfo = result.courseInfo?.[id] ?? mergedInfo;
+            } catch (error) {
+                console.error('Failed to save custom course:', error);
+            }
+        }
+
+        setCustomCourses(prev => ({ ...prev, [id]: mergedInfo }));
         setCustomCourseTerms(prev => ({ ...prev, [courseName]: customTerm }));
         toggleCourse(courseName);
 
-        if (currentUser) {
-            UpdateManager.addUpdate({
-                endpoint: `${apiUrl}/backend/customCourses/`,
-                data: {
-                    user_id: currentUser.id,
-                    term: customTerm === 'fall' ? 'Fall' : 'Winter',
-                    course_id: id,
-                    course_info: { [id]: formattedArray },
-                },
-            });
-        }
-
         setCourseName('');
-        setCourseTitle('Custom Course Title');
         setSectionNumber('');
         setStaffName('Staff');
         setTimes([{ day: 'Monday', time: '' }]);
@@ -618,23 +620,20 @@ export default function ScheduleGeneratorModal({
                                     <label className="ml-1 text-xs text-gray-500">(order on SOLUS)</label>
                                 </div>
                             </div>
-                            <input
-                                type="text"
-                                className="mt-2 p-2 w-full border-gray-400 border rounded"
-                                value={courseTitle}
-                                onFocus={() => { if (!isCourseTitleFocused) { setCourseTitle(''); setIsCourseTitleFocused(true); } }}
-                                onBlur={() => { if (courseTitle === '') { setCourseTitle('Custom Course'); setIsCourseTitleFocused(false); } }}
-                                onChange={e => setCourseTitle(e.target.value)}
-                                required
-                            />
-                            <input
-                                type="text"
-                                className="mt-2 p-2 w-full border-gray-400 border rounded"
-                                placeholder="Professor"
-                                value={staffName}
-                                onChange={e => setStaffName(e.target.value)}
-                                required
-                            />
+                            <div>
+                                <input
+                                    type="text"
+                                    id="sched-professor"
+                                    className="mt-2 p-2 w-full border-gray-400 border rounded"
+                                    placeholder="Professor"
+                                    value={staffName}
+                                    onChange={e => setStaffName(e.target.value)}
+                                    required
+                                />
+                                <label htmlFor="sched-professor" className="ml-1 text-xs text-gray-500">
+                                    Leave as Staff if unknown; a real name won&apos;t be overwritten
+                                </label>
+                            </div>
                             <div className="mt-2 flex items-center">
                                 <input
                                     type="checkbox"

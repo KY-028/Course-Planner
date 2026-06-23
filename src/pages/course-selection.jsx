@@ -4,26 +4,33 @@ import Calendar from '/src/components/calendar';
 import Nav from '/src/components/nav';
 import DonateBanner from '/src/components/donatebanner'
 import Selection from '/src/components/selections';
-import fallJSON from '/src/assets/fall_2025_0624.json';
-import winterJSON from '/src/assets/winter_2026_0625.json';
 import axios from 'axios'
 import { useContext } from 'react';
 import { AuthContext } from '../context/authContext';
 import { generateNewCourse, generateOptions } from '/src/functions/courseFunctions';
 import UpdateManager from '../components/updatemanager';
 import LoadingModal from '../components/loadingModal';
+import { fetchCustomCourseMismatches } from '../functions/customCoursesApi';
+import CustomCourseMismatchModal from '../components/customCourseMismatchModal';
+import { useSingleTabWarning } from '../functions/useSingleTabWarning';
+import { authRequestConfig } from '../functions/authToken';
+
+// legacy: loading pre-scraped data
+// import fallJSON from '/src/assets/fall_2025_0624.json';
+// import winterJSON from '/src/assets/winter_2026_0625.json';
+const fallJSON = {};
+const winterJSON = {};
 
 // Loading Modal Component
 export default function Courses() {
     const { currentUser } = useContext(AuthContext);
 
     const apiUrl = import.meta.env.VITE_API_URL;
+    useSingleTabWarning();
 
-    // Imported JSON
+    // legacy: loading pre-scraped data (fall_2025 / winter_2026 JSON)
     const [fallData, setFallData] = useState(fallJSON);
     const [winterData, setWinterData] = useState(winterJSON);
-    const [fallOriginal] = useState(JSON.parse(JSON.stringify(fallJSON)));
-    const [winterOriginal] = useState(JSON.parse(JSON.stringify(winterJSON)));
 
     /**
      * Courses to be displayed in <Calendar />
@@ -46,9 +53,11 @@ export default function Courses() {
 
     const [fallConflicts, setFallConflicts] = useState([]);
     const [winterConflicts, setWinterConflicts] = useState([]);
+    const [customCourseMismatches, setCustomCourseMismatches] = useState(null);
+    const [isUpdatingMismatches, setIsUpdatingMismatches] = useState(false);
 
-    // Guard overlay redirecting users to QFlow. Shown by default.
-    const [showOverlay, setShowOverlay] = useState(true);
+    // Guard overlay redirecting users to QFlow. Loaded from the user's saved preference.
+    const [showOverlay, setShowOverlay] = useState(false);
     const [qflowLoading, setQflowLoading] = useState(false);
 
     // Trigger the secure backend transfer: the backend calls QFlow with the
@@ -80,6 +89,26 @@ export default function Courses() {
         }
     };
 
+    const handleDismissOverlay = () => {
+        setShowOverlay(false);
+    };
+
+    const handleDoNotRemindAgain = async () => {
+        setShowOverlay(false);
+        if (!currentUser?.id) return;
+
+        try {
+            await axios.post(
+                `${apiUrl}/backend/users/qflow-overlay/${currentUser.id}`,
+                { dismissed: true },
+                authRequestConfig()
+            );
+        } catch (error) {
+            console.error("Failed to save QFlow overlay preference:", error);
+            setError("Could not save your reminder preference. Please try again later.");
+        }
+    };
+
     /**
     * Upon arriving on /course-selection
     * - Check if user is logged in
@@ -89,6 +118,7 @@ export default function Courses() {
     useEffect(() => {
         if (!currentUser) {
             alert("You are not logged in. All data entered will not be remembered.");
+            setShowOverlay(true);
             setIsLoading(false);  // Immediately allow interaction if not logged in
             return;
         }
@@ -117,8 +147,9 @@ export default function Courses() {
                 return;
             }
 
-            const response = await axios.get(`${apiUrl}/backend/users/courses/${userId}`);
-            const { fallCourses, winterCourses } = response.data;
+            const response = await axios.get(`${apiUrl}/backend/users/courses/${userId}`, authRequestConfig());
+            const { fallCourses, winterCourses, qflowOverlayDismissed } = response.data;
+            setShowOverlay(!qflowOverlayDismissed);
 
             // Courses are now stored as object snapshots ({ id, info }), so we
             // display them directly without resolving IDs against the bundled
@@ -145,6 +176,8 @@ export default function Courses() {
             setFc(fallSnaps.map((s) => generateNewCourse(s.id, fallMap)));
             setWc(winterSnaps.map((s) => generateNewCourse(s.id, winterMap)));
 
+            await runCustomCourseMismatchCheck(userId);
+
         } catch (err) {
             const errorMessage = err.response?.data?.message || "An unexpected error occurred while fetching user courses";
             setError(errorMessage);
@@ -153,49 +186,114 @@ export default function Courses() {
         }
     };
 
-    const updateFallCourses = async (courses_ids) => {
-        // Only keep ids we actually have info for, then snapshot them.
-        const ids = courses_ids.filter((id) => Array.isArray(fallData[id]));
+    const runCustomCourseMismatchCheck = async (userId) => {
+        try {
+            const mismatches = await fetchCustomCourseMismatches(apiUrl, userId);
+            setCustomCourseMismatches(mismatches.length > 0 ? mismatches : null);
+        } catch (error) {
+            console.error("Custom course mismatch check failed:", error);
+            const status = error.response?.status;
+            if (status === 401 || status === 403) {
+                setError("Could not check for custom course updates. Try logging out and back in.");
+            }
+        }
+    };
 
-        // Prepare for Calendar Rendering
-        setFallCourses(ids.flatMap((id) => fallData[id].slice(4)));
+    const handleUpdateMismatches = async () => {
+        if (!customCourseMismatches?.length || !currentUser) return;
+
+        setIsUpdatingMismatches(true);
+        try {
+            const newFallData = { ...fallData };
+            const newWinterData = { ...winterData };
+
+            for (const item of customCourseMismatches) {
+                if (item.term === "Fall") {
+                    newFallData[item.courseId] = item.catalog;
+                } else {
+                    newWinterData[item.courseId] = item.catalog;
+                }
+            }
+
+            const fallIds = fc.map((course) => course.id);
+            const winterIds = wc.map((course) => course.id);
+
+            setFallData(newFallData);
+            setWinterData(newWinterData);
+            setFc(fallIds.map((id) => generateNewCourse(id, newFallData)));
+            setWc(winterIds.map((id) => generateNewCourse(id, newWinterData)));
+            setFallCourses(fallIds.flatMap((id) => newFallData[id]?.slice(4) || []));
+            setWinterCourses(winterIds.flatMap((id) => newWinterData[id]?.slice(4) || []));
+
+            await Promise.all([
+                UpdateManager.addUpdate({
+                    endpoint: `${apiUrl}/backend/courseChange/`,
+                    data: {
+                        userId: currentUser.id,
+                        courses: fallIds.map((id) => ({ id, info: newFallData[id] })),
+                        term: "fall",
+                    },
+                    withCredentials: true,
+                }),
+                UpdateManager.addUpdate({
+                    endpoint: `${apiUrl}/backend/courseChange/`,
+                    data: {
+                        userId: currentUser.id,
+                        courses: winterIds.map((id) => ({ id, info: newWinterData[id] })),
+                        term: "winter",
+                    },
+                    withCredentials: true,
+                }),
+            ]);
+
+            setCustomCourseMismatches(null);
+        } catch (error) {
+            console.error("Failed to update custom course snapshots:", error);
+            alert("Could not update your saved courses. Please try again.");
+        } finally {
+            setIsUpdatingMismatches(false);
+        }
+    };
+
+    const updateFallCourses = async (courses_ids, dataOverride) => {
+        const dataMap = dataOverride ?? fallData;
+        const ids = courses_ids.filter((id) => Array.isArray(dataMap[id]));
+
+        setFallCourses(ids.flatMap((id) => dataMap[id].slice(4)));
 
         if (!currentUser) {
-            return;  // Early return if no user is logged in
+            return;
         }
-
-        const data = {
-            userId: currentUser.id,
-            courses: ids.map((id) => ({ id, info: fallData[id] })),
-            term: "fall",
-        };
 
         UpdateManager.addUpdate({
             endpoint: `${apiUrl}/backend/courseChange/`,
-            data: data
+            data: {
+                userId: currentUser.id,
+                courses: ids.map((id) => ({ id, info: dataMap[id] })),
+                term: "fall",
+            },
+            withCredentials: true,
         });
     };
 
-    const updateWinterCourses = async (courses_ids) => {
-        // Only keep ids we actually have info for, then snapshot them.
-        const ids = courses_ids.filter((id) => Array.isArray(winterData[id]));
+    const updateWinterCourses = async (courses_ids, dataOverride) => {
+        const dataMap = dataOverride ?? winterData;
+        const ids = courses_ids.filter((id) => Array.isArray(dataMap[id]));
 
-        // Prepare for Calendar Rendering
-        setWinterCourses(ids.flatMap((id) => winterData[id].slice(4)));
+        setWinterCourses(ids.flatMap((id) => dataMap[id].slice(4)));
 
         if (!currentUser) {
-            return;  // Early return if no user is logged in
+            return;
         }
-
-        const data = {
-            userId: currentUser.id,
-            courses: ids.map((id) => ({ id, info: winterData[id] })),
-            term: "winter",
-        };
 
         UpdateManager.addUpdate({
             endpoint: `${apiUrl}/backend/courseChange/`,
-            data: data
+            data: {
+                userId: currentUser.id,
+                courses: ids.map((id) => ({ id, info: dataMap[id] })),
+                term: "winter",
+            },
+            withCredentials: true,
         });
     };
 
@@ -256,15 +354,30 @@ export default function Courses() {
                         </button>
                         <button
                             type='button'
-                            onClick={() => setShowOverlay(false)}
+                            onClick={handleDismissOverlay}
                             className='mt-8 rounded-lg bg-teal px-6 py-3 text-sm font-semibold leading-relaxed text-white transition hover:opacity-90 sm:text-base md:text-lg'
                         >
                             If you still prefer to use our calendar tool with the old UI via filling in Custom Courses, it is available here.
+                        </button>
+                        <button
+                            type='button'
+                            onClick={handleDoNotRemindAgain}
+                            className='mt-3 text-sm font-semibold text-gray-600 underline transition hover:text-gray-900 sm:text-base'
+                        >
+                            Do Not Remind Again
                         </button>
                     </div>
                 </div>
             )}
             {isLoading && <LoadingModal />}
+            {!showOverlay && (
+                <CustomCourseMismatchModal
+                    mismatches={customCourseMismatches}
+                    onUpdate={handleUpdateMismatches}
+                    onDisregard={() => setCustomCourseMismatches(null)}
+                    isUpdating={isUpdatingMismatches}
+                />
+            )}
             <div className='relative lg:block hidden '>
                 <div className='absolute top-0 left-0'>
                     <LeftMenu activeTab="courses" />
@@ -276,12 +389,12 @@ export default function Courses() {
                 <DonateBanner />
                 <div className='w-full grid md-custom:grid-cols-2 grid-cols md-custom:mx-0 m-0 p-0 gap-3' >
                     <div className='sm:m-0 m-1.5 p-0'>
-                        <Selection isLoading={isLoading} onUpdate={updateFallCourses} courseData={fallData} changeCourseData={setFallData} courses={fc} setCourses={setFc} term={"Fall"} conflicts={fallConflicts} original={fallOriginal} />
+                        <Selection isLoading={isLoading} onUpdate={updateFallCourses} courseData={fallData} changeCourseData={setFallData} courses={fc} setCourses={setFc} term={"Fall"} conflicts={fallConflicts} />
                         <Calendar term="Fall" times={fallCourses} setConflicts={setFallConflicts} />
 
                     </div>
                     <div className='sm:m-0 m-1.5 p-0'>
-                        <Selection isLoading={isLoading} onUpdate={updateWinterCourses} courseData={winterData} changeCourseData={setWinterData} courses={wc} setCourses={setWc} term={"Winter"} conflicts={winterConflicts} original={winterOriginal} />
+                        <Selection isLoading={isLoading} onUpdate={updateWinterCourses} courseData={winterData} changeCourseData={setWinterData} courses={wc} setCourses={setWc} term={"Winter"} conflicts={winterConflicts} />
                         <Calendar term="Winter" times={winterCourses} setConflicts={setWinterConflicts} />
                     </div>
 

@@ -3,9 +3,13 @@ import { Link } from 'react-router-dom';
 import Calendar from '/src/components/calendar';
 import Selection from '/src/components/selections';
 import ModelMetadataPanel from '/src/components/modelMetadataPanel';
-import fallJSON from '/src/assets/fall_2025_0624.json';
-import winterJSON from '/src/assets/winter_2026_0625.json';
 import { generateNewCourse } from '/src/functions/courseFunctions';
+
+// legacy: loading pre-scraped data
+// import fallJSON from '/src/assets/fall_2025_0624.json';
+// import winterJSON from '/src/assets/winter_2026_0625.json';
+const fallJSON = {};
+const winterJSON = {};
 
 function parseTermPreferenceKey(key) {
     const match = key.match(/^prefer_(.+)_(fall|winter)$/);

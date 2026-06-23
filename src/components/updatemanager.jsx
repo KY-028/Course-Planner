@@ -1,5 +1,6 @@
 // src/UpdateManager.js
 import axios from 'axios';
+import { authRequestConfig } from '../functions/authToken';
 
 class UpdateManager {
     constructor() {
@@ -21,7 +22,8 @@ class UpdateManager {
 
     async processUpdate(update, resolve, reject) {
         try {
-            const response = await axios.post(update.endpoint, update.data);
+            const authConfig = update.withCredentials ? authRequestConfig() : {};
+            const response = await axios.post(update.endpoint, update.data, authConfig);
             resolve(response);
         } catch (error) {
             console.error('Update failed', error);

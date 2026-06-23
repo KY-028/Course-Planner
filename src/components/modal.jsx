@@ -1,13 +1,11 @@
 import { useState, useRef, useEffect } from "react";
-import axios from "axios";
+import { searchCustomCourses } from "../functions/customCoursesApi";
 
 export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddCustomCourse, onAddRemoteCourse, term }) {
     const apiUrl = import.meta.env.VITE_API_URL;
     const [searchTerm, setSearchTerm] = useState('');
     const [remoteResults, setRemoteResults] = useState([]);
     const [courseName, setCourseName] = useState('');
-    const [courseTitle, setCourseTitle] = useState('Custom Course Title');
-    const [isCourseTitleFocused, setIsCourseTitleFocused] = useState(false);
     const [sectionNumber, setSectionNumber] = useState('');
     const [staffName, setStaffName] = useState('Staff');
     const [times, setTimes] = useState([{ day: 'Monday', time: '' }]);
@@ -35,23 +33,29 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
         }
     }, [isOnlineCourse]);
 
-    // Debounced typeahead against the shared custom-course catalog so courses
-    // created by any user show up as you type, without loading them all locally.
+    // Debounced typeahead against the shared custom-course catalog. With an empty
+    // search, loads the first few catalog entries for the term.
     useEffect(() => {
-        const q = searchTerm.trim();
-        if (!apiUrl || !term || q.length < 2 || showCustomForm) {
-            setRemoteResults([]);
+        if (!apiUrl || !term || showCustomForm || !isOpen) {
+            if (!isOpen) {
+                setRemoteResults([]);
+            }
             return;
         }
+
+        const q = searchTerm.trim();
+        const isFilteredSearch = q.length >= 2;
 
         let cancelled = false;
         const timer = setTimeout(async () => {
             try {
-                const res = await axios.get(`${apiUrl}/backend/customCourses/search`, {
-                    params: { term, q, limit: 20 },
+                const results = await searchCustomCourses(apiUrl, {
+                    term,
+                    q: isFilteredSearch ? q : undefined,
+                    limit: isFilteredSearch ? 20 : 10,
                 });
                 if (!cancelled) {
-                    setRemoteResults(Array.isArray(res.data) ? res.data : []);
+                    setRemoteResults(results);
                 }
             } catch (error) {
                 if (!cancelled) {
@@ -59,13 +63,13 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
                 }
                 console.error("Custom course search failed:", error);
             }
-        }, 250);
+        }, isFilteredSearch ? 250 : 0);
 
         return () => {
             cancelled = true;
             clearTimeout(timer);
         };
-    }, [searchTerm, term, apiUrl, showCustomForm]);
+    }, [searchTerm, term, apiUrl, showCustomForm, isOpen]);
 
     const handleSearchChange = (e) => {
         setSearchTerm(e.target.value);
@@ -149,8 +153,9 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
         const formattedDays = formatDays(times);
 
         const locations = [];
+        const placeholderTitle = "Custom Course";
 
-        const formattedArray = [courseName, courseTitle, staffName, locations];
+        const formattedArray = [courseName, placeholderTitle, staffName, locations];
         times.forEach(time => {
             const time_str = convertTo24Hour(time.time);
             formattedArray.push(`${courseName} U ${time.day} ${time_str} ${staffName}`);
@@ -160,7 +165,7 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
         const courseDetails = {
             id: id,
             name: courseName,
-            title: courseTitle,
+            title: placeholderTitle,
             options: [`Section ${sectionNumber}: ${formattedDays}`],
             selectedOption: `Section ${sectionNumber}: ${formattedDays}`,
             correctformat: formattedArray,
@@ -172,7 +177,6 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
 
         // Reset all form fields and close custom form
         setCourseName('');
-        setCourseTitle('Custom Course Name');
         setSectionNumber('');
         setStaffName('Staff');
         setTimes([{ day: 'Monday', time: '' }]);
@@ -268,33 +272,20 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
                             </div>
 
                         </div>
-                        <input
-                            type="text"
-                            className="mt-2 p-2 w-full border-gray-400 border rounded"
-                            value={courseTitle}
-                            onFocus={() => {
-                                if (!isCourseTitleFocused) {
-                                    setCourseTitle('');
-                                    setIsCourseTitleFocused(true);
-                                }
-                            }}
-                            onBlur={() => {
-                                if (courseTitle === '') {
-                                    setCourseTitle('Custom Course');
-                                    setIsCourseTitleFocused(false);
-                                }
-                            }}
-                            onChange={e => setCourseTitle(e.target.value)}
-                            required
-                        />
-                        <input
-                            type="text"
-                            className="mt-2 p-2 w-full border-gray-400 border rounded"
-                            placeholder="Professor"
-                            value={staffName}
-                            onChange={e => setStaffName(e.target.value)}
-                            required
-                        />
+                        <div>
+                            <input
+                                type="text"
+                                id="professor"
+                                className="mt-2 p-2 w-full border-gray-400 border rounded"
+                                placeholder="Professor"
+                                value={staffName}
+                                onChange={e => setStaffName(e.target.value)}
+                                required
+                            />
+                            <label htmlFor="professor" className="ml-1 text-sm text-gray-500">
+                                Instructor Name (leave as Staff if unknown)
+                            </label>
+                        </div>
                         <div className="mt-2 flex items-center">
                             <input
                                 type="checkbox"
@@ -360,6 +351,9 @@ export default function Modal({ isOpen, onClose, courseData, onAddCourse, onAddC
                             onChange={handleSearchChange}
                             ref={searchInputRef}
                         />
+                        <p className="mt-2 text-xs text-gray-600 leading-relaxed">
+                            If you noticed a discrepancy, enter a new custom course and it will update this course data in the database.
+                        </p>
                         <div className="mt-4 max-h-60 overflow-y-auto">
                             {searchResults}
                         </div>
