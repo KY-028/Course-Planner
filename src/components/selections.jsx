@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 import { AuthContext } from '../context/authContext';
 import { generateNewCourse, generateOptions } from '/src/functions/courseFunctions';
 import Modal from './modal';
-import UpdateManager from './updatemanager'
 import emailjs from '@emailjs/browser'
+import { addCustomCourse as saveCustomCourseToCatalog } from '../functions/customCoursesApi';
 
 
 // Error Modal Component
@@ -182,7 +182,7 @@ function Course({ id, name, title, options, selectedOption, onSelectChange, onRe
     );
 }
 
-function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChangeCounter, term, original, setInputValue }) {
+function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChangeCounter, term, setInputValue, onUpdate }) {
 
     const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -224,42 +224,53 @@ function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChan
     };
 
     const addCustomCourse = async (newCourse) => {
-        const newData = { ...courseData, [newCourse.id]: newCourse.correctformat };
-        changeCourseData(newData);
-        setCourses([...courses, newCourse]);
-        setInputValue(prev => (prev + "\n" + newCourse.id).trim());
-
-        // Update the options for all related courses
-        const baseCourseName = newCourse.id.split('_')[0];
-        setCourses(prevCourses => prevCourses.map(course => {
-            if (course.id.startsWith(baseCourseName)) {
-                const updatedOptions = generateOptions(baseCourseName, newData);
-                return { ...course, options: updatedOptions };
-            }
-            return course;
-        }));
-
-        setIsModalOpen(false);
-
-        // Send a POST request to add a custom course into the database
-
-        if (currentUser) {
-            const data = {
-                "user_id": currentUser.id,
-                "term": term,
-                "course_id": newCourse.id,
-                "course_info": { [newCourse.id]: newCourse.correctformat }
-            }
-
-            UpdateManager.addUpdate({
-                endpoint: `${apiUrl}/backend/customCourses/`,
-                data: data
-            });
-        } else {
-            console.warn("Cannot add custom course: User not logged in.");
+        const isAlreadyAdded = courses.some((course) => course.id === newCourse.id);
+        if (isAlreadyAdded) {
+            alert("This course is already in the list!");
+            return;
         }
 
+        let mergedInfo = newCourse.correctformat;
 
+        if (currentUser) {
+            try {
+                const result = await saveCustomCourseToCatalog(apiUrl, {
+                    userId: currentUser.id,
+                    term,
+                    courseId: newCourse.id,
+                    courseInfo: { [newCourse.id]: newCourse.correctformat },
+                });
+                mergedInfo = result.courseInfo?.[newCourse.id] ?? mergedInfo;
+            } catch (error) {
+                console.error("Failed to save custom course:", error);
+                const status = error.response?.status;
+                if (status === 401 || status === 403) {
+                    alert("Your session expired or is invalid. Please log out and log in again, then retry.");
+                } else {
+                    alert("Could not save custom course to the shared catalog. Your course was added locally only.");
+                }
+            }
+        }
+
+        const newData = { ...courseData, [newCourse.id]: mergedInfo };
+        changeCourseData(newData);
+
+        const baseCourseName = newCourse.id.split('_')[0];
+        const updatedCourses = [
+            ...courses.map((course) => {
+                if (course.id.startsWith(baseCourseName)) {
+                    const updatedOptions = generateOptions(baseCourseName, newData);
+                    return { ...course, options: updatedOptions };
+                }
+                return course;
+            }),
+            generateNewCourse(newCourse.id, newData),
+        ];
+
+        setCourses(updatedCourses);
+        setInputValue((prev) => (prev + "\n" + newCourse.id).trim());
+        setIsModalOpen(false);
+        onUpdate?.(updatedCourses.map((course) => course.id), newData);
     }
 
     const handleSelectChange = (courseId, newSelection) => {
@@ -295,30 +306,15 @@ function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChan
         setIsModalOpen(false);
     }
 
-    const removeCourse = async id => {
-
+    const removeCourse = async (id) => {
         const newCourseData = { ...courseData };
-        if (!(id in original)) {
-            // Prompt the user to confirm the removal of a custom course
-            const confirmRemoval = confirm("Removing this course will take it off your schedule. Do you want to proceed?");
+        delete newCourseData[id];
+        changeCourseData(newCourseData);
 
-            if (!confirmRemoval) {
-                // If the user cancels, do not proceed with removal
-                return;
-            }
-
-            // Remove it from this user's local map only. The shared catalog
-            // entry is intentionally left intact so other users keep it, and
-            // the user's own snapshot is dropped by the onUpdate save below.
-            delete newCourseData[id];
-            changeCourseData(newCourseData);
-        }
-
-        // Remove options from related courses
-        const filteredCourses = courses.filter(course => course.id !== id);
+        const filteredCourses = courses.filter((course) => course.id !== id);
 
         setCourses(
-            filteredCourses.map(course => {
+            filteredCourses.map((course) => {
                 if (course.id.startsWith(id.split("_")[0])) {
                     const updatedOptions = generateOptions(id.split("_")[0], newCourseData);
                     return { ...course, options: updatedOptions };
@@ -326,7 +322,6 @@ function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChan
                 return course;
             })
         );
-
     };
 
 
@@ -357,33 +352,26 @@ function CourseGrid({ courseData, changeCourseData, courses, setCourses, setChan
 }
 
 
-function Selection({ isLoading, onUpdate, courseData, changeCourseData, courses, setCourses, term, conflicts, original }) {
+function Selection({ isLoading, onUpdate, courseData, changeCourseData, courses, setCourses, term, conflicts }) {
     const [inputValue, setInputValue] = useState('');
     const [notFound, setNotFound] = useState([]);  // State to track IDs not found
     const [isToggled, setIsToggled] = useState(false); // Manage toggle state here
     const [changeCounter, setChangeCounter] = useState(0);
-    const [courseCount, setCourseCount] = useState(courses.length);
     const [isErrorModalOpen, setIsErrorModalOpen] = useState(false);
+    const skipSaveRef = useRef(true);
 
-    // Update course count whenever courses change
+    // After fetch completes, skip the first auto-save so we never write [] over DB data.
     useEffect(() => {
-        setCourseCount(courses.length);
-    }, [courses.length]);
-
-    useEffect(() => {
-        if (!isLoading) {
-            const course_ids = courses.flatMap(course => course.id);
-            onUpdate(course_ids);
+        if (isLoading) {
+            skipSaveRef.current = true;
+            return;
         }
-    }, [changeCounter, isLoading]);  // Depend directly on changeCounter
-
-    // Effect to run onUpdate when courseCount changes
-    useEffect(() => {
-        if (!isLoading) {
-            const course_ids = courses.flatMap(course => course.id);
-            onUpdate(course_ids);
+        if (skipSaveRef.current) {
+            skipSaveRef.current = false;
+            return;
         }
-    }, [courseCount, isLoading]);  // Dependency on courseCount only
+        onUpdate(courses.flatMap((course) => course.id));
+    }, [changeCounter, courses.length, isLoading]);
 
     const toggleSwitch = () => {
         setIsToggled(!isToggled);
@@ -439,7 +427,7 @@ function Selection({ isLoading, onUpdate, courseData, changeCourseData, courses,
                         Spotted a mistake in course information?
                     </button>
                 </div>
-                <CourseGrid courseData={courseData} courses={courses} setCourses={setCourses} setChangeCounter={setChangeCounter} changeCourseData={changeCourseData} term={term} original={original} setInputValue={setInputValue} />
+                <CourseGrid courseData={courseData} courses={courses} setCourses={setCourses} setChangeCounter={setChangeCounter} changeCourseData={changeCourseData} term={term} setInputValue={setInputValue} onUpdate={onUpdate} />
                 {conflicts.length > 0 && (
                     <div className="mt-1 p-2 mx-1 bg-red-100 border border-red-400 text-red-700">
                         <p>The following Courses have Conflicts:</p>

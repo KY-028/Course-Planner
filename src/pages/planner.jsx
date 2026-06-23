@@ -10,9 +10,13 @@ import LoadingModal from '/src/components/loadingModal.jsx';
 import ScheduleGeneratorModal from '/src/components/scheduleGeneratorModal.jsx';
 import TranscriptUploadModal from '/src/components/transcriptUploadModal.jsx';
 import planResultsData from '../assets/coursePlanResults.json';
-import fallJSON from '/src/assets/fall_2025_0624.json';
-import winterJSON from '/src/assets/winter_2026_0625.json';
 import { attachYearFromPlanCatalog, mergePlanResultWithCatalogYear } from '../functions/courseFunctions';
+
+// legacy: loading pre-scraped data
+// import fallJSON from '/src/assets/fall_2025_0624.json';
+// import winterJSON from '/src/assets/winter_2026_0625.json';
+const fallJSON = {};
+const winterJSON = {};
 
 function WelcomeModal({ isOpen, onClose }) {
     if (!isOpen) return null;
