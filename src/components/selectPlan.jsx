@@ -32,6 +32,13 @@ function formatAssignApiError(error) {
     return error?.message || 'Check fulfillment failed';
 }
 
+function comparePlansForSearch(a, b) {
+    const yearCompare = String(b?.year || '').localeCompare(String(a?.year || ''), undefined, { numeric: true });
+    if (yearCompare !== 0) return yearCompare;
+
+    return String(a?.title || '').localeCompare(String(b?.title || ''), undefined, { sensitivity: 'base' });
+}
+
 function ErrorModal({ isOpen, onClose, term }) {
     const [email, setEmail] = useState('');
     const [errorTypes, setErrorTypes] = useState([]);
@@ -335,7 +342,11 @@ export default function SelectPlan(
         const key = getFieldType(idx);
         const plans = planResultsData[key] || [];
         const search = value.trim().toLowerCase();
-        const results = search.length === 0 ? [] : plans.filter(plan => plan.title.toLowerCase().includes(search));
+        const results = search.length === 0
+            ? []
+            : plans
+                .filter(plan => plan.title.toLowerCase().includes(search))
+                .sort(comparePlansForSearch);
         setSearchResults(prev => {
             const arr = [...prev];
             arr[idx] = results;
