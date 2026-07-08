@@ -26,7 +26,7 @@ const DonateBanner = () => {
         &times;
       </button>
       <p className="sm:block hidden text-center text-blue-800"> Liking Course Planner?</p>
-      <p className="sm:hidden block text-center text-blue-800"> Liking Course Planner?</p>
+      <p className="sm:hidden block text-center text-blue-800"> 2026-2027 Plans are now available for planning! Liking Course Planner?</p>
       <button
         className="ml-2 text-blue-800 hover:text-blue-600"
         onMouseOver={() => document.getElementById('info-tooltip').style.visibility = 'visible'}

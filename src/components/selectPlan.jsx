@@ -5,7 +5,6 @@ import { FaCheck, FaTimes } from 'react-icons/fa';
 import axios from 'axios';
 import { validateUrl, clearPlanReq, establishPlansFilling, getPlanPrefix, processSection, attachYearFromPlanCatalog, mergePlanResultWithCatalogYear } from '/src/functions/courseFunctions';
 import { buildAssignPayload, callAssignApi, deriveCoursesTakenFromPlansFilling } from '/src/functions/assignApi';
-import planResultsData from '../assets/coursePlanResults.json';
 import PlanDetailsDisplay from '/src/components/planDetailsDisplay.jsx';
 import AssignmentBreakdownModal from '/src/components/assignmentBreakdownModal.jsx';
 
@@ -177,7 +176,8 @@ export default function SelectPlan(
         customAssignments, setCustomAssignments,
         handleSavePlans, isLoading,
         plannerConnectionNotice,
-        onDismissPlannerConnectionNotice
+        onDismissPlannerConnectionNotice,
+        planResultsData = {}
     }) {
     // Error modal state
     const [errorModalOpen, setErrorModalOpen] = useState(false);

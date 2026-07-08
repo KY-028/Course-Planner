@@ -48,7 +48,7 @@ const LeftMenu = ({ activeTab, onScheduleGenerator }) => {
             )}
             */}
 
-            <div className='w-fit my-1.5 mx-4 text-gray-300 absolute bottom-8 text-small text-start tracking-tight leading-tight'>Database last updated: 0624CISCMATHSTAT, 0625BIOLCHEMPHYS</div>
+            <div className='w-fit my-1.5 mx-4 text-gray-300 absolute bottom-8 text-small text-start tracking-tight leading-tight'>Database last updated: 0624CISCMATHSTAT</div>
 
             {currentUser ?
                 <button onClick={openModal} className={`w-fit ub my-1.5 mx-4 absolute xl:bottom-24 bottom-28 text-xl text-start`}>

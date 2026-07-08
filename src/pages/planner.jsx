@@ -9,7 +9,6 @@ import SelectPlan from '/src/components/selectPlan';
 import LoadingModal from '/src/components/loadingModal.jsx';
 import ScheduleGeneratorModal from '/src/components/scheduleGeneratorModal.jsx';
 import TranscriptUploadModal from '/src/components/transcriptUploadModal.jsx';
-import planResultsData from '../assets/coursePlanResults.json';
 import { attachYearFromPlanCatalog, mergePlanResultWithCatalogYear } from '../functions/courseFunctions';
 
 // legacy: loading pre-scraped data
@@ -147,6 +146,7 @@ export default function Planner() {
 
     const [isDataLoaded, setIsDataLoaded] = useState(false);
     const [plannerConnectionNotice, setPlannerConnectionNotice] = useState(null);
+    const [planResultsData, setPlanResultsData] = useState(null);
 
     const latestDataRef = useRef();
     const isDataLoadedRef = useRef(false);
@@ -196,18 +196,46 @@ export default function Planner() {
         };
     }, [isDataLoaded]);
 
-    // Load user's existing information from database on mount
+    // Load plan catalog and user's existing information from database on mount
     useEffect(() => {
-        if (!currentUser) {
-            alert("You are not logged in. The save button will not work.");
-            setIsLoading(false);
-            return;
-        }
-        setIsLoading(true);
-        loadUserData();
+        let cancelled = false;
+
+        const initializePlanner = async () => {
+            setIsLoading(true);
+            try {
+                const catalogResponse = await fetch('/coursePlanResults.json');
+                if (!catalogResponse.ok) {
+                    throw new Error(`Failed to load plan catalog (${catalogResponse.status})`);
+                }
+
+                const catalogData = await catalogResponse.json();
+                if (cancelled) return;
+
+                setPlanResultsData(catalogData);
+
+                if (!currentUser) {
+                    alert("You are not logged in. The save button will not work.");
+                    setIsLoading(false);
+                    return;
+                }
+
+                await loadUserData(catalogData);
+            } catch (error) {
+                if (cancelled) return;
+                console.error("Error loading plan catalog:", error);
+                setPlannerConnectionNotice("Could not load the plan catalog. Refresh the page and try again.");
+                setIsLoading(false);
+            }
+        };
+
+        initializePlanner();
+
+        return () => {
+            cancelled = true;
+        };
     }, []);
 
-    const loadUserData = async () => {
+    const loadUserData = async (catalogData = planResultsData) => {
         try {
             setPlannerConnectionNotice(null);
             const userId = currentUser ? currentUser.id : null;
@@ -215,6 +243,7 @@ export default function Planner() {
                 console.log("User has not logged in");
                 return;
             }
+            const planCatalog = catalogData || {};
 
             const response = await axios.get(`${apiUrl}/backend/userPlans/${userId}`);
             const data = response.data;
@@ -239,7 +268,7 @@ export default function Planner() {
                     if (fieldStr.toLowerCase().includes('general')) return 'General';
                     return 'Major';
                 })();
-                const plans = planResultsData[planType] || [];
+                const plans = planCatalog[planType] || [];
                 const match = plans.find(planObj => planObj.link === field.trim());
                 if (match) {
                     return mergePlanResultWithCatalogYear(match.result, match);
@@ -258,7 +287,7 @@ export default function Planner() {
                         loadedResponses[idx] = attachYearFromPlanCatalog(
                             planResponse.data,
                             fieldValue,
-                            planResultsData
+                            planCatalog
                         );
                     } catch (error) {
                         setErrors((prev) => {
@@ -413,6 +442,7 @@ export default function Planner() {
                             handleSavePlans={handleSavePlans} isLoading={isLoading}
                             plannerConnectionNotice={plannerConnectionNotice}
                             onDismissPlannerConnectionNotice={() => setPlannerConnectionNotice(null)}
+                            planResultsData={planResultsData || {}}
                         />
                     </div>
                 </div>
